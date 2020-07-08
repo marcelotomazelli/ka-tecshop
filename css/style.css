@@ -3,6 +3,7 @@ body, html {
 	margin: 0;
 	background: #F5F5F5;
 	font-family: "Sen", sans-serif;
+	overflow-x: hidden;
 }
 
 * {
@@ -20,6 +21,19 @@ a {
 a:link, a:active, a:visited {
 	color: #B20D0D;
 }
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/*                     /      \                     */
+/*--------------------| HEADER |--------------------*/
+/*                     \      /                     */
+
 
 header {
 	margin-bottom: 10px;
@@ -184,21 +198,7 @@ header {
 	cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*  ------|>   MENU DE NAVEGAÇÃO PRINCIPAL   <|------  */
 
 #main-main ul, #main-main ul * {
 	/*border: 1px solid red;*/
@@ -243,8 +243,79 @@ header {
 	margin-right: 10px;
 }
 
+/*  ------|>   CAROUSEL   <|------  */
 
+#section-introduction, #section-introduction * {
+	/*border: 1px solid;*/
+}
 
+.carousel {
+	width: 100%;
+	position: relative;
+}
+
+#carousel-introduction {
+	margin: 0 auto;
+	max-width: 720px;
+}
+
+.carousel-images {
+	/*height: 100%;*/
+	display: flex;
+	overflow-x: scroll;
+	z-index: 0;
+}
+
+.carousel-images::-webkit-scrollbar {
+	display: none;
+}
+
+.carousel-item {
+	height: 100%;
+	transition: 0.8s;
+}
+
+.carousel-image {
+	display: block;
+	/*height: 100%;*/
+}
+
+.buttons-carousel {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	z-index: 1;
+}
+
+.buttons-carousel:hover button {
+	opacity: 1;
+	transition: 0.5s;
+}
+
+.buttons-carousel button {
+	height: 100%;
+	background: none;
+	border: none;
+	color: #fff;
+	opacity: 0;
+	display: block;
+	transition: 0.5s;
+}
+
+.buttons-carousel button:hover i {
+	background: #000000ea;
+}
+
+.buttons-carousel button i {
+	background: #000000aa;
+	border-radius: 40px;
+}
+
+button::selection {
+	border: none;
+}
 
 
 
@@ -281,7 +352,6 @@ header {
  
 #section-introduction {
 	background: #E92A2A;
-	height: 500px;
 }
 
 #section-trending {
