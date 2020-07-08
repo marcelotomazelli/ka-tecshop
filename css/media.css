@@ -1,7 +1,49 @@
 /*@media (max-width: 575.98px) {}*/
 /*@media (min-width: 576px) and (max-width: 767.98px) {}*/
 
+@media (max-width: 575.98px) {
+	.buttons-carousel:hover button {
+		width: 60px;
+	}
+
+	.buttons-carousel button {
+		width: 35px;
+	}
+
+	.buttons-carousel button:hover {
+		cursor: pointer;
+	}
+
+	.buttons-carousel button i {
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+	}
+}
+
+@media (min-width: 576px) {
+	.buttons-carousel:hover button {
+		width: 100px;
+	}
+
+	.buttons-carousel button {
+		width: 50px;
+	}
+
+	.buttons-carousel button:hover {
+		cursor: pointer;
+	}
+
+	.buttons-carousel button i {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+	}
+}
+
 @media (max-width: 767.98px) {
+	/*  ------|>   HEADER   <|------  */
+
 	#h-brand img {
 		height: 60px;
 	}
@@ -12,7 +54,7 @@
 		width: 55px;
 	}
 
-	/* Botao para abrir o menu responsivo */
+	/* -- BATÃO DO MENU RESPONSIVO -- */
 	#panel-optionsmenu {
 		display: flex;
 		align-items: center;
@@ -36,6 +78,8 @@
 }
 
 @media (min-width: 768px) {
+	/*  ------|>   HEADER   <|------  */
+
 	#panel-optionsmenu > div:first-child {
 		display: none;
 	}

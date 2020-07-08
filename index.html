@@ -13,7 +13,7 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
-<body>
+<body onresize="resizingWindow()" onload="onloadBody()">
 
 	<header>
 		<div id="header-banner">
@@ -77,7 +77,40 @@
 	</header>
 
 	<section id="section-introduction">
-		<div class="content"></div>
+		<div class="content">
+			<div>
+				<div id="carousel-introduction" class="carousel">
+					<div class="buttons-carousel">
+						<button class="carousel-prev" onclick="carousel.prev()">
+							<i class="fas fa-chevron-left"></i>
+						</button>
+						<button class="carousel-next" onclick="carousel.next()">
+							<i class="fas fa-chevron-right"></i>
+						</button>
+					</div>
+					<div class="carousel-images">
+						<div class="carousel-item">
+							<img class="carousel-image" src="http://dummyimage.com/720x360/4d494d/686a82.gif&text=imagem1" alt="placeholder+image">
+						</div>
+						<div class="carousel-item">
+							<img class="carousel-image" src="http://dummyimage.com/720x360/4d494d/686a82.gif&text=imagem2" alt="placeholder+image">
+						</div>
+						<div class="carousel-item">
+							<img class="carousel-image" src="http://dummyimage.com/720x360/4d494d/686a82.gif&text=imagem3" alt="placeholder+image">
+						</div>
+						<div class="carousel-item">
+							<img class="carousel-image" src="http://dummyimage.com/720x360/4d494d/686a82.gif&text=imagem4" alt="placeholder+image">
+						</div>
+						<div class="carousel-item">
+							<img class="carousel-image" src="http://dummyimage.com/720x360/4d494d/686a82.gif&text=imagem5" alt="placeholder+image">
+						</div>
+						<div class="carousel-item">
+							<img class="carousel-image" src="http://dummyimage.com/720x360/4d494d/686a82.gif&text=imagem6" alt="placeholder+image">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<section id="section-trending">
@@ -91,6 +124,7 @@
 	<section id="section-deal">
 		<div class="content"></div>
 	</section>
-
+	
+	<script src="js/script.js"></script>
 </body>
 </html>
