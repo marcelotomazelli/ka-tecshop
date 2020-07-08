@@ -1,0 +1,127 @@
+/*@media (max-width: 575.98px) {}*/
+/*@media (min-width: 576px) and (max-width: 767.98px) {}*/
+
+@media (max-width: 767.98px) {
+	#h-brand img {
+		height: 60px;
+	}
+	#header-navegation {
+		display: none;
+	}
+	#panel-cart img {
+		width: 55px;
+	}
+
+	/* Botao para abrir o menu responsivo */
+	#panel-optionsmenu {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+	#h-panel {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr 40px;
+		grid-template-areas: "cart optionsmenu";
+	}
+	#panel-cart {
+		grid-area: cart;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+	#panel-optionsmenu > div:first-child + div {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) {
+	#panel-optionsmenu > div:first-child {
+		display: none;
+	}
+	#panel-optionsmenu {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	#h-panel {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: "cart optionsmenu";
+	}
+	#panel-cart {
+		grid-area: cart;
+	}
+	#header-banner {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	#panel-cart img {
+		width: 65px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	
+	#h-search select {
+		display: none;
+		box-shadow: 0 0 3px blue;
+	}
+
+	#h-search input {
+		width: 75%;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+
+	#h-search button {
+		width: 10%;
+	}
+}
+
+@media (min-width: 992px) {
+	/*Parte da formulario do header*/
+	#h-search select {
+		width: 30%;
+	}
+
+	#h-search input {
+		width: 55%;
+	}
+
+	#h-search button {
+		width: 10%;
+	}
+
+	/*Parte do painel do header*/
+	#panel-cart img {
+		width: 75px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+	#panel-cart {
+		position: relative;
+	}
+	#panel-cart > div > p:first-child {
+		display: none;
+	}
+	#panel-cart {
+		flex-direction: column-reverse;
+	}
+}
+
+@media (min-width: 1200px) {
+	#panel-cart {
+		justify-content: flex-end;
+	}
+}
+
+/*@media (min-width: 768px) and (max-width: 991.98px) {}*/
+/*@media (min-width: 992px) and (max-width: 1199.98px) {}*/
+/*@media (min-width: 1200px) {}
