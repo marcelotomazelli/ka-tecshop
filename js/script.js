@@ -41,10 +41,12 @@ function onloadBody() {
 }
 
 
+class Carousel {
 
+	constructor() {
+	}
 
-let carousel = {
-	next: function() {
+	next() {
 		clearInterval(carousel_interval)
 		let carousel_imgs = document.getElementsByClassName('carousel-item')
 		carousel_slide_count += carousel_intro_width
@@ -60,32 +62,27 @@ let carousel = {
 		carousel_interval = setInterval(function() {
 			carousel.autonext()
 		}, 5000)
-	},
-	prev: function() {
+	}
+
+	prev() {
 		clearInterval(carousel_interval)
 		let carousel_imgs = document.getElementsByClassName('carousel-item')
 		if(carousel_slide_count == 0) {
 			carousel_slide_count = carousel_intro_width * (carousel_imgs.length -1)
-			for(let i = 0; i < carousel_imgs.length; i++) {
-				carousel_imgs[i].style.transform = 'translateX(' + -carousel_slide_count + 'px)'
-			}
 		} else {
-			if(carousel_slide_count == carousel_intro_width * (carousel_imgs.length -1)) {
-				carousel_slide_count = carousel_intro_width * (carousel_imgs.length -2)
-			} else {
-				carousel_slide_count -= carousel_intro_width
-			}
+			carousel_slide_count -= carousel_intro_width
+		}
 
-			for(let i = 0; i < carousel_imgs.length; i++) {
-				carousel_imgs[i].style.transform = 'translateX(' + -carousel_slide_count + 'px)'
-			}
+		for(let i = 0; i < carousel_imgs.length; i++) {
+			carousel_imgs[i].style.transform = 'translateX(' + -carousel_slide_count + 'px)'
 		}
 
 		carousel_interval = setInterval(function() {
 			carousel.autonext()
 		}, 5000)
-	},
-	autonext: () => {
+	}
+
+	autonext() {
 		let carousel_imgs = document.getElementsByClassName('carousel-item')
 		carousel_slide_count += carousel_intro_width
 		
@@ -96,8 +93,9 @@ let carousel = {
 		for(let i = 0; i < carousel_imgs.length; i++) {
 			carousel_imgs[i].style.transform = 'translateX(' + -carousel_slide_count + 'px)'
 		}
-	},
-	resizing: () => {
+	}
+
+	resizing() {
 		clearInterval(carousel_interval)
 		let carousel_imgs = document.getElementsByClassName('carousel-item')
 		carousel_slide_count = 0
@@ -109,3 +107,5 @@ let carousel = {
 		}, 5000)
 	}
 }
+
+let carousel = new Carousel()

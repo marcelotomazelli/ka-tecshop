@@ -51,11 +51,23 @@
 	#introdution-cards ul > li:first-child {
 		border-top-left-radius: 6px;
 		border-top-right-radius: 6px;
+		border-bottom: none;
+	}
+
+	#introdution-cards ul > li:first-child + li {
+		border-top: none;
+		border-bottom: none;
+	}
+
+	#introdution-cards ul > li:first-child + li + li {
+		border-top: none;
+		border-bottom: none;
 	}
 
 	#introdution-cards ul > li:first-child + li + li + li {
 		border-bottom-left-radius: 6px;
 		border-bottom-right-radius: 6px;
+		border-top: none;
 	}
 }
 
@@ -117,18 +129,22 @@
 
 	#introdution-cards ul > li:first-child {
 		border-top-left-radius: 6px;
+		border-bottom: none;
 	}
 
 	#introdution-cards ul > li:first-child + li {
 		border-top-right-radius: 6px;
+		border-bottom: none;
 	}
 
 	#introdution-cards ul > li:first-child + li + li {
 		border-bottom-left-radius: 6px;
+		border-top: none;
 	}
 
 	#introdution-cards ul > li:first-child + li + li + li {
 		border-bottom-right-radius: 6px;
+		border-top: none;
 	}
 }
 
@@ -137,9 +153,6 @@
 
 	#h-brand img {
 		height: 60px;
-	}
-	#header-navegation {
-		display: none;
 	}
 	#panel-cart img {
 		width: 55px;
@@ -163,17 +176,10 @@
 		align-items: center;
 		justify-content: flex-end;
 	}
-	#panel-optionsmenu > div:first-child + div {
-		display: none;
-	}
 }
 
 @media (min-width: 768px) {
 	/*  ------|>   HEADER   <|------  */
-
-	#panel-optionsmenu > div:first-child {
-		display: none;
-	}
 	#panel-optionsmenu {
 		display: flex;
 		flex-direction: column;

@@ -38,11 +38,6 @@ a {
 /*--------------------| HEADER |--------------------*/
 /*                     \      /                     */
 
-
-header {
-	margin-bottom: 10px;
-}
-
 #h-brand, #h-search, #h-panel {
 	height: 100%;
 }
@@ -247,20 +242,25 @@ header {
 	margin-right: 10px;
 }
 
+/*                     /            \                     */
+/*--------------------| INTRODUCTION |--------------------*/
+/*                     \            /                     */
+
 /*  ------|>   CAROUSEL   <|------  */
 
-#section-introduction, #section-introduction * {
-	/*border: 1px solid;*/
+#section-introduction {
+	margin-top: 15px;
 }
 
 .carousel {
 	width: 100%;
 	position: relative;
+	background: #3B3B3B;
 }
 
 #carousel-introduction {
 	margin: 0 auto;
-	max-width: 720px;
+	max-width: 726px;
 }
 
 .carousel-images {
@@ -347,6 +347,10 @@ button::selection {
 	font-size: 0.8em;
 }
 
+#introdution-cards ul *:hover {
+	cursor: context-menu;
+}
+
 #introdution-cards ul > li > div:first-child div {
 	height: 40px;
 }
@@ -358,6 +362,15 @@ button::selection {
 #introdution-cards ul > li {
 	padding: 15px;
 	border: 1px solid #D8D8D8;
+}
+
+
+/*                     /        \                     */
+/*--------------------| TRENDING |--------------------*/
+/*                     \        /                     */
+
+#section-trending {
+	margin-top: 15px;
 }
 
 
@@ -391,7 +404,7 @@ button::selection {
 
 
  
-/* #section-introduction {
+ #section-introduction {
 	background: #E92A2A;
 }
 
@@ -408,6 +421,6 @@ button::selection {
 #section-deal {
 	background: #EC8326;
 	height: 400px;
-} */
+} 
  
 
