@@ -6,6 +6,10 @@ body, html {
 	overflow-x: hidden;
 }
 
+body {
+	padding-bottom: 200px;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -318,6 +322,43 @@ button::selection {
 }
 
 
+#introdution-cards {
+	margin-top: 15px;
+}
+
+#introdution-cards ul * {
+	margin: 0;
+	padding: 0;
+}
+
+#introdution-cards ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+#introdution-cards ul h3 {
+	color: #171717;
+	font-size: 0.9em;
+}
+
+#introdution-cards ul h5 {
+	color: #626262;
+	font-size: 0.8em;
+}
+
+#introdution-cards ul > li > div:first-child div {
+	height: 40px;
+}
+
+#introdution-cards ul > li > div div img {
+	text-align: center;
+}
+
+#introdution-cards ul > li {
+	padding: 15px;
+	border: 1px solid #D8D8D8;
+}
 
 
 
@@ -350,7 +391,7 @@ button::selection {
 
 
  
-#section-introduction {
+/* #section-introduction {
 	background: #E92A2A;
 }
 
@@ -367,6 +408,6 @@ button::selection {
 #section-deal {
 	background: #EC8326;
 	height: 400px;
-}
+} */
  
 
