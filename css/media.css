@@ -30,9 +30,18 @@
 		box-shadow: 0 0 15px -12px #000000aa;
 		border-radius: 6px;
 	}
-
+	
+	
 	#introdution-cards ul > li > div {
-		display: flex;
+		position: relative;
+	}
+
+	#introdution-cards ul > li > div > div + div {
+		display: block;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 45px;
 	}
 
 	#introdution-cards ul > li > div:first-child div {
@@ -156,6 +165,14 @@
 	}
 	#panel-cart img {
 		width: 55px;
+	}
+
+	header {
+		background: #6565652a;
+		background: linear-gradient(to bottom, #65656500, #6565652c);
+		border-bottom: 1px solid #BABABA;
+		padding-bottom: 15px;
+		box-shadow: 0 0 7px #2020205a;
 	}
 
 	/* -- BATÃO DO MENU RESPONSIVO -- */

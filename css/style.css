@@ -155,17 +155,19 @@ a {
 #panel-optionsmenu > div:first-child + div a {
 	padding: 5px 14px;
 	border-radius: 5px;
-	border: 1px solid #171717;
+	border: 1px solid #636363;
 	color: #171717;
 	display: block;
 	box-shadow: 0 0 10px -6px #000000aa;
-	transition: 0.5s;
+	transition: 0.35s;
+	color: #636363;
 }
 
 #panel-optionsmenu > div:first-child + div a:hover {
+	border-color: #171717;
 	background: #171717;
 	color: #fff;
-	transition: 0.5s;
+	transition: 0.35s;
 }
 
 #image-user {
@@ -404,7 +406,7 @@ button::selection {
 
 
  
- #section-introduction {
+/* #section-introduction {
 	background: #E92A2A;
 }
 
@@ -421,6 +423,6 @@ button::selection {
 #section-deal {
 	background: #EC8326;
 	height: 400px;
-} 
+} */
  
 

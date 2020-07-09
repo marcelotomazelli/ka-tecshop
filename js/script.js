@@ -1,24 +1,6 @@
 let carousel_intro_width, carousel_intro_height;
-let carousel_slide_count = 0
 let carousel_interval;
-
-function resizingWindow() {
-	let carousel_intro = document.getElementById('carousel-introduction')
-	let carousel_width = carousel_intro.offsetWidth
-	carousel_intro.style.height = (carousel_width / 2) + 'px'
-
-	carousel_intro_width = carousel_width
-	carousel_intro_height = carousel_width / 2
-
-	let carousel_imgs = document.getElementsByClassName('carousel-image')
-
-	for(let i = 0; i < carousel_imgs.length; i++) {
-		carousel_imgs[i].style.width = carousel_intro_width + 'px'
-		carousel_imgs[i].style.height = carousel_intro_height + 'px'
-	}
-
-	carousel.resizing()
-}
+let carousel_obj_intro;
 
 function onloadBody() {
 	let carousel_intro = document.getElementById('carousel-introduction')
@@ -35,77 +17,93 @@ function onloadBody() {
 		carousel_imgs[i].style.height = carousel_intro_height + 'px'
 	}
 
-	carousel_interval = setInterval(function() {
-		carousel.autonext()
-	}, 5000)
+	// Carousel da introdução
+	carousel_obj_intro = new Carousel(items_carousel_intro, carousel_intro_width, 4000)
 }
 
+function resizingWindow() {
+	let carousel_intro = document.getElementById('carousel-introduction')
+	let carousel_width = carousel_intro.offsetWidth
+	carousel_intro.style.height = (carousel_width / 2) + 'px'
+
+	carousel_intro_width = carousel_width
+	carousel_intro_height = carousel_width / 2
+
+	let carousel_imgs = document.getElementsByClassName('carousel-image')
+
+	for(let i = 0; i < carousel_imgs.length; i++) {
+		carousel_imgs[i].style.width = carousel_intro_width + 'px'
+		carousel_imgs[i].style.height = carousel_intro_height + 'px'
+	}
+
+	carousel_obj_intro.resizing(carousel_intro_width)
+}
 
 class Carousel {
 
-	constructor() {
+	constructor(reference_items, carousel_slide_width, time_interval) {
+		this.reference_items = reference_items
+		this.carousel_slide_count = 0
+		this.carousel_slide_width = carousel_slide_width
+		this.time_interval = time_interval
+		this.interval = this.intervalControl(this.time_interval)
+		console.log(this.interval)
+	}
+
+	intervalControl(time) {
+		return setInterval(() => {
+			this.autonext()
+		}, time)
+	}
+
+	updateValues(new_carousel_slide_width) {
+		this.carousel_slide_width = new_carousel_slide_width
+	}
+
+	moveItems() {
+		for(let i = 0; i < this.reference_items.length; i++) {
+			this.reference_items[i].style.transform = 'translateX(-' + this.carousel_slide_count + 'px)'
+		}
 	}
 
 	next() {
-		clearInterval(carousel_interval)
-		let carousel_imgs = document.getElementsByClassName('carousel-item')
-		carousel_slide_count += carousel_intro_width
-		
-		if(carousel_slide_count == carousel_intro_width * carousel_imgs.length) {
-			carousel_slide_count = 0
-		}
+		clearInterval(this.interval)
+		this.carousel_slide_count += this.carousel_slide_width
 
-		for(let i = 0; i < carousel_imgs.length; i++) {
-			carousel_imgs[i].style.transform = 'translateX(' + -carousel_slide_count + 'px)'
+		if(this.carousel_slide_count == this.carousel_slide_width * this.reference_items.length) {
+			this.carousel_slide_count = 0
 		}
-
-		carousel_interval = setInterval(function() {
-			carousel.autonext()
-		}, 5000)
+		this.moveItems()
+		this.interval = this.intervalControl(this.time_interval)
 	}
 
 	prev() {
-		clearInterval(carousel_interval)
-		let carousel_imgs = document.getElementsByClassName('carousel-item')
-		if(carousel_slide_count == 0) {
-			carousel_slide_count = carousel_intro_width * (carousel_imgs.length -1)
+		clearInterval(this.interval)
+		if(this.carousel_slide_count == 0) {
+			this.carousel_slide_count = this.carousel_slide_width * (this.reference_items.length -1)
 		} else {
-			carousel_slide_count -= carousel_intro_width
+			this.carousel_slide_count -= this.carousel_slide_width
 		}
-
-		for(let i = 0; i < carousel_imgs.length; i++) {
-			carousel_imgs[i].style.transform = 'translateX(' + -carousel_slide_count + 'px)'
-		}
-
-		carousel_interval = setInterval(function() {
-			carousel.autonext()
-		}, 5000)
+		this.moveItems()
+		this.interval = this.intervalControl(this.time_interval)
 	}
 
 	autonext() {
-		let carousel_imgs = document.getElementsByClassName('carousel-item')
-		carousel_slide_count += carousel_intro_width
+		this.carousel_slide_count += this.carousel_slide_width
 		
-		if(carousel_slide_count == carousel_intro_width * carousel_imgs.length) {
-			carousel_slide_count = 0
+		if(this.carousel_slide_count == this.carousel_slide_width * this.reference_items.length) {
+			this.carousel_slide_count = 0
 		}
-
-		for(let i = 0; i < carousel_imgs.length; i++) {
-			carousel_imgs[i].style.transform = 'translateX(' + -carousel_slide_count + 'px)'
-		}
+		this.moveItems()
 	}
 
-	resizing() {
-		clearInterval(carousel_interval)
-		let carousel_imgs = document.getElementsByClassName('carousel-item')
-		carousel_slide_count = 0
-		for(let i = 0; i < carousel_imgs.length; i++) {
-			carousel_imgs[i].style.transform = 'translateX(' + carousel_slide_count + 'px)'
-		}
-		carousel_interval = setInterval(function() {
-			carousel.autonext()
-		}, 5000)
+	resizing(new_carousel_slide_width) {
+		clearInterval(this.interval)
+		this.carousel_slide_count = 0
+		this.moveItems()
+		this.updateValues(new_carousel_slide_width)
+		this.interval = this.intervalControl(this.time_interval)
 	}
 }
 
-let carousel = new Carousel()
+let items_carousel_intro = document.getElementsByClassName('carousel-item')
