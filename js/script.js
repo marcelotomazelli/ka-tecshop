@@ -9,11 +9,6 @@ class Carousel {
 		this.last_visible_elements = last_visible_elements
 	}
 
-	updateValues(new_carousel_slide_width, new_last_visible_elements) {
-		this.carousel_slide_width = new_carousel_slide_width
-		this.last_visible_elements = new_last_visible_elements
-	}
-
 	intervalControl(time) {
 		return setInterval(() => {
 			this.autonext()
@@ -63,16 +58,12 @@ class Carousel {
 		clearInterval(this.interval)
 		this.carousel_slide_count = 0
 		this.moveItems()
-		this.updateValues(new_carousel_slide_width, new_last_visible_elements)
+		this.carousel_slide_width = new_carousel_slide_width
+		this.last_visible_elements = new_last_visible_elements
 		this.interval = this.intervalControl(this.time_interval)
 	}
-}
 
-class reziseCarousel {
-	constructor() {
-	}
-
-	static carouselImages(items, id, size = null) {
+	static resizeImages(items, id, size = null) {
 		let item = document.getElementById(id)
 		let w = item.offsetWidth
 		let h = w / size
@@ -87,7 +78,7 @@ class reziseCarousel {
 		return w
 	}
 
-	static carouselSlideItem(items, min, max) {
+	static resizeSlideItem(items, min, max) {
 		let list = document.getElementsByClassName(items)
 		let w = document.getElementsByClassName('content')[0].offsetWidth
 
@@ -119,10 +110,10 @@ let carousel_obj_intro;
 let carousel_obj_trend;
 
 function onloadBody() {
-	carousel_intro_width = reziseCarousel.carouselImages('carousel-image', 'carousel-introduction', 2)
+	carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
 
 	let content_width = document.getElementsByClassName('content')[0].offsetWidth
-	let slide_width_1 = reziseCarousel.carouselSlideItem('slide_items_1', 620, 768)
+	let slide_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
 	let last_slide_elements = Math.round(content_width / slide_width_1)
 
 	// Carousel da introdução
@@ -131,10 +122,10 @@ function onloadBody() {
 }
 
 function resizingWindow() {
-	carousel_intro_width = reziseCarousel.carouselImages('carousel-image', 'carousel-introduction', 2)
+	carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
 
 	let slide_content = document.getElementsByClassName('content')[0].offsetWidth
-	let slide_items_width_1 = reziseCarousel.carouselSlideItem('slide_items_1', 620, 768)
+	let slide_items_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
 
 	let last_view_elements = Math.round(slide_content / slide_items_width_1)
 

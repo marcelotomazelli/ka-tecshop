@@ -170,7 +170,7 @@
 
 	header {
 		background: #6565652a;
-		background: linear-gradient(to bottom, #65656500, #6565652c);
+		background: linear-gradient(to bottom, #65656500, #6565651c);
 		border-bottom: 1px solid #BABABA;
 		padding-bottom: 15px;
 		box-shadow: 0 0 7px #2020204a;
@@ -203,12 +203,12 @@
 
 @media (min-width: 768px) {
 	/*  ------|>   HEADER   <|------  */
-	#panel-optionsmenu {
+	 #panel-optionsmenu {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-	}
+	} 
 	#h-panel {
 		display: grid;
 		grid-template-rows: 1fr;
@@ -218,6 +218,11 @@
 	#panel-cart {
 		grid-area: cart;
 	}
+
+	#panel-cart img {
+		width: 65px;
+	}
+
 	#header-banner {
 		margin-top: 10px;
 		margin-bottom: 10px;
@@ -278,9 +283,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-	#panel-cart img {
-		width: 65px;
-	}
 }
 
 @media (max-width: 991.98px) {
@@ -313,11 +315,6 @@
 
 	#h-search button {
 		width: 10%;
-	}
-
-	/*Parte do painel do header*/
-	#panel-cart img {
-		width: 75px;
 	}
 
 	/* Cards */
