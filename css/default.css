@@ -36,11 +36,11 @@
 	#panel-optionsmenu > div:first-child + div {
 		display: none;
 	}
-	.slide-tittle-controls > div:first-child {
+	#section-trending .slide-tittle-controls > div:first-child {
 		display: none;
 	}
 
-	.slide-tittle-controls > div + div {
+	#section-trending .slide-tittle-controls > div + div {
 		width: 100%;
 	}
 

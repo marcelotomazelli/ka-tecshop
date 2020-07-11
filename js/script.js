@@ -198,6 +198,7 @@ class Carousel {
 
 let carousel_obj_intro
 let carousel_obj_trend
+let carousel_obj_deal
 let initial_width_window
 
 function onloadBody() {
@@ -207,11 +208,13 @@ function onloadBody() {
 
 	let content_width = document.getElementsByClassName('content')[0].offsetWidth
 	let slide_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
+	let slide_width_2 = Carousel.resizeSlideItem('slide_items_2', 620, 768)
 	let last_slide_elements = Math.round(content_width / slide_width_1)
 
 	// Carousel da introdução
 	carousel_obj_intro = new Carousel('carousel-item', carousel_intro_width, 4000, 1)
 	carousel_obj_trend = new Carousel('slide_items_1', slide_width_1, 7000, last_slide_elements)
+	carousel_obj_deal = new Carousel('slide_items_2', slide_width_2, 7000, last_slide_elements)
 }
 
 
@@ -222,10 +225,12 @@ function resizingWindow() {
 
 		let slide_content = document.getElementsByClassName('content')[0].offsetWidth
 		let slide_items_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
+		let slide_items_width_2 = Carousel.resizeSlideItem('slide_items_2', 620, 768)
 
 		let last_view_elements = Math.round(slide_content / slide_items_width_1)
 
 		carousel_obj_intro.resizing(carousel_intro_width, 1)
 		carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
+		carousel_obj_deal.resizing(slide_items_width_2, last_view_elements)
 	}
 }
