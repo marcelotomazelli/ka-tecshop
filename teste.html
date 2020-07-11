@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title></title>
+</head>
+<body>
+	<div id="source" style="border: 1px solid red">testar</div>
+
+	<script>
+		// Register touchstart and touchend listeners for element 'source'
+		var src = document.getElementById("source");
+		var clientX, clientY;
+
+		src.addEventListener('touchmove', (e) => {
+		  // Cache the client X/Y coordinates
+		  console.log(e)
+		  clientX = e.touches[0].clientX;
+		  clientY = e.touches[0].clientY;
+		  console.log(clientX, clientY)
+		}, false);
+
+		src.addEventListener('touchend', function(e) {
+		  var deltaX, deltaY;
+
+		  // Compute the change in X and Y coordinates. 
+		  // The first touch point in the changedTouches
+		  // list is the touch point that was just removed from the surface.
+		  deltaX = e.changedTouches[0].clientX - clientX;
+		  deltaY = e.changedTouches[0].clientY - clientY;
+
+		  // Process the data ... 
+		}, false);
+	</script>
+</body>
+</html>

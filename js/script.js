@@ -7,6 +7,10 @@ class Carousel {
 		this.time_interval = time_interval
 		this.interval = this.intervalControl(this.time_interval)
 		this.last_visible_elements = last_visible_elements
+		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
+		this.movePermition = false
+		this.position_move_relative = 0
+		this.ipx = 0
 	}
 
 	intervalControl(time) {
@@ -25,7 +29,7 @@ class Carousel {
 		clearInterval(this.interval)
 		this.carousel_slide_count += this.carousel_slide_width
 
-		if(this.carousel_slide_count == this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)) {
+		if(this.carousel_slide_count == this.last_traslate_possible) {
 			this.carousel_slide_count = 0
 		}
 		this.moveItems()
@@ -60,7 +64,89 @@ class Carousel {
 		this.moveItems()
 		this.carousel_slide_width = new_carousel_slide_width
 		this.last_visible_elements = new_last_visible_elements
+		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
 		this.interval = this.intervalControl(this.time_interval)
+	}
+
+	down(obj) {
+		clearInterval(this.interval)
+		this.ipx = event.clientX
+		this.position_move_relative = 0
+		this.movePermition = true
+		for(let i = 0; i < this.reference_items.length; i++) {
+			this.reference_items[i].style.transition = '0s'
+		}
+		let body_reference = document.getElementsByTagName('body')[0]
+		body_reference.onmousemove = () => this.move()
+		body_reference.onmouseup = () => this.stop()
+		body_reference.onmouseleave = () => this.stop()
+	}
+
+	stop() {
+		this.movePermition = false
+		for(let i = 0; i < this.reference_items.length; i++) {
+			this.reference_items[i].style.transition = ''
+		}
+
+		let a = this.position_move_relative % this.carousel_slide_width
+		let b = this.carousel_slide_width / 2
+
+		this.position_move_relative -= a
+		this.position_move_relative /= this.carousel_slide_width
+
+		if(a < 0) {
+			a *= -1
+			if(a >= b) {
+				this.position_move_relative--
+			}
+		} else if(a > 0) {
+			if(a >= b) {
+				this.position_move_relative++
+			}
+		}
+
+		if(this.position_move_relative > 0) {
+			this.carousel_slide_count -= this.carousel_slide_width * this.position_move_relative
+		} else {
+			this.carousel_slide_count += this.carousel_slide_width * (-this.position_move_relative)
+		}
+
+		let translate_value = this.reference_items[0].style.transform
+		translate_value = translate_value.replace('translateX(', '')
+		translate_value = translate_value.replace('px)', '')
+		translate_value = parseInt(translate_value) * (-1)
+		translate_value += this.carousel_slide_width
+
+		if(translate_value > this.last_traslate_possible) {
+			this.carousel_slide_count = 0
+		} else if(translate_value < this.carousel_slide_width) {
+			this.carousel_slide_count = this.last_traslate_possible - this.carousel_slide_width
+		}
+
+		this.moveItems()
+
+		let body_reference = document.getElementsByTagName('body')[0]
+		body_reference.onmousemove = ''
+		body_reference.onmouseup = ''
+		body_reference.onmouseleave = ''
+	}
+
+	move() {
+		let translate_value = this.reference_items[0].style.transform
+		if(translate_value != '') {
+			translate_value = translate_value.replace('translateX(', '')
+			translate_value = translate_value.replace('px)', '')
+			translate_value = parseInt(translate_value) * (-1)
+			translate_value += this.carousel_slide_width
+		} else {
+			translate_value = this.carousel_slide_width
+		}
+		if(this.movePermition && translate_value < this.last_traslate_possible + 50 && translate_value > this.carousel_slide_width - 50) {
+			this.position_move_relative = event.clientX - this.ipx
+			for(let i = 0; i < this.reference_items.length; i++) {
+				this.reference_items[i].style.transform = 'translateX(' + -(this.carousel_slide_count + (-this.position_move_relative)) + 'px)'
+			}
+		}
 	}
 
 	static resizeImages(items, id, size = null) {
@@ -106,8 +192,8 @@ class Carousel {
 	}
 }
 
-let carousel_obj_intro;
-let carousel_obj_trend;
+let carousel_obj_intro
+let carousel_obj_trend
 
 function onloadBody() {
 	carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)

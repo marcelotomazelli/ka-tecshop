@@ -264,6 +264,15 @@ h1, h2, h3, h4, h5 {
 	background: #3B3B3B;
 }
 
+.carousel, .carousel * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 #carousel-introduction {
 	margin: 0 auto;
 	max-width: 726px;

@@ -2,24 +2,6 @@
 /*@media (min-width: 576px) and (max-width: 767.98px) {}*/
 
 @media (max-width: 575.98px) {
-	.buttons-carousel:hover button {
-		width: 60px;
-	}
-
-	.buttons-carousel button {
-		width: 35px;
-	}
-
-	.buttons-carousel button:hover {
-		cursor: pointer;
-	}
-
-	.buttons-carousel button i {
-		width: 30px;
-		height: 30px;
-		line-height: 30px;
-	}
-
 	/* CARDS */
 	#introdution-cards ul {
 		padding-left: 1px;
@@ -174,6 +156,13 @@
 		border-bottom: 1px solid #BABABA;
 		padding-bottom: 15px;
 		box-shadow: 0 0 7px #2020204a;
+	}
+	.buttons-carousel {
+		border: 1px solid red;
+	}
+
+	.buttons-carousel button {
+		display: none;
 	}
 
 	/* -- BATÃO DO MENU RESPONSIVO -- */
