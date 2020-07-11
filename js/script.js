@@ -5,7 +5,7 @@ class Carousel {
 		this.carousel_slide_count = 0
 		this.carousel_slide_width = carousel_slide_width
 		this.time_interval = time_interval
-		this.interval = this.intervalControl(this.time_interval)
+		// this.interval = this.intervalControl(this.time_interval)
 		this.last_visible_elements = last_visible_elements
 		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
 		this.movePermition = false

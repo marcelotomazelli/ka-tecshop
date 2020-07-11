@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/content-media.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/carousel.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/media.css">
 
@@ -18,12 +19,19 @@
 </head>
 <body onresize="resizingWindow()" onload="onloadBody()">
 
+	<!-- ➖➖➖➖➖➖  PARTE DO HEADER  ➖➖➖➖➖➖ -->
 	<header>
-		<div id="header-banner">
+
+		<div id="header-banner"> <!-- ⏩ Banner -->
+
 			<div class="content">
+
+				<!---\ Logo /--->
 				<div id="h-brand">
 					<img src="img/logo.png" alt="k a tecshop" />
 				</div>
+
+				<!---\ Formulario /--->
 				<div id="h-search">
 					<form>
 						<select id="">
@@ -36,7 +44,10 @@
 						<button><i class="fas fa-search"></i></button>
 					</form>
 				</div>
+
+				<!---\ Painel /--->
 				<div id="h-panel">
+					<!--Carrinho-->
 					<div id="panel-cart">
 						<div>
 							<p>Carrinho:</p>
@@ -47,6 +58,7 @@
 							<div id="items-cart">0</div>
 						</a>
 					</div>
+					<!--Menu do Painel-->
 					<div id="panel-optionsmenu">
 						<div>
 							<button id="button-responsive-menu"><i class="fas fa-bars"></i></button>
@@ -58,10 +70,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div id="header-navegation">
+		</div> <!-- ◼ Banner -->
+
+		<div id="header-navegation"> <!-- ⏩ Navegação principal -->
 			<div class="content">
-				<nav id="main-main">
+				<nav id="nav-main">
 					<ul >
 						<li>
 							<button id="button-categories">
@@ -76,21 +89,46 @@
 					</ul>
 				</nav>
 			</div>
-		</div>
-	</header>
+		</div> <!-- ◼ Navegação principal -->
 
+	</header>
+	<!-- ➖➖➖➖➖➖  PARTE DO HEADER  ➖➖➖➖➖➖ -->
+
+
+
+
+
+
+
+	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
+
+
+
+
+
+
+
+	<!-- ➖➖➖➖➖➖  INTRODUÇÂO DO MAIN  ➖➖➖➖➖➖ -->
 	<section id="section-introduction">
+
 		<div class="content">
-			<div>
+
+			<div> <!-- ⏩ Carousel -->
 				<div id="carousel-introduction" class="carousel">
+					
+					<!---\ Botões do Carousel /--->
 					<div id="carousel_intro_buttons" class="buttons-carousel" ontouchstart="carousel_obj_intro.down(event)">
+						<!--Batão Prev-->
 						<button class="carousel-prev" onclick="carousel_obj_intro.prev()">
 							<i class="fas fa-chevron-left"></i>
 						</button>
+						<!--Batão Next-->
 						<button class="carousel-next" onclick="carousel_obj_intro.next()">
 							<i class="fas fa-chevron-right"></i>
 						</button>
 					</div>
+
+               		<!---\ Imagens do Carousel /--->
 					<div class="carousel-images">
 						<div class="carousel-item">
 							<img class="carousel-image" src="http://dummyimage.com/720x360/4d494d/686a82.gif&text=imagem1" alt="placeholder+image">
@@ -114,11 +152,13 @@
 							<img class="carousel-image" src="http://dummyimage.com/720x360/4d494d/686a82.gif&text=imagem7" alt="placeholder+image">
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<div id="introdution-cards">
+				</div>
+			</div> <!-- ◼ Carosuel -->
+
+			<div id="introdution-cards"> <!-- ⏩ Cards da Introdução -->
 				<ul>
+
 					<li>
 						<div>
 							<div>
@@ -168,18 +208,43 @@
 					</li>
 
 				</ul>
+			</div> <!-- ◼ Cards da Introdução -->
 
-			</div>
 		</div>
-	</section>
 
+	</section>
+	<!-- ➖➖➖➖➖➖  INTRODUÇÂO DO MAIN ➖➖➖➖➖➖ -->
+
+
+
+
+
+
+
+	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
+
+
+
+
+
+
+
+	<!-- ➖➖➖➖➖➖  SEÇÃO DAS TENDÊNCIAS ➖➖➖➖➖➖ -->
 	<section id="section-trending">
+
 		<div class="content">
-			<div class="content-slide-items">
+			
+			<div class="content-slide-items"> <!-- ⏩ SlideItems das Tendencias -->
+				
+				<!---\ Cabeçalho do SlideItems /--->
 				<div class="slide-tittle-controls">
+
+					<!--Titulo-->
 					<div>
 						<h3>Produtos em tendência</h3>
 					</div>
+
+					<!--Links e Botões-->
 					<div>
 						<ul>
 							<li><a href="#">Destaque</a></li>
@@ -197,6 +262,8 @@
 						</div>
 					</div>
 				</div>
+
+				<!--Corpo do SlideItems-->
 				<div class="slide-carousel" ontouchstart="carousel_obj_trend.down(event)">
 					<div class="slide_items slide_items_1">
 						<div>
@@ -397,12 +464,32 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
+			</div> <!-- ◼ SlideItens das Tendencias -->
 
+		</div>
+
+	</section>
+	<!-- ➖➖➖➖➖➖  SEÇÃO DAS TENDÊNCIAS ➖➖➖➖➖➖ -->
+
+
+
+
+
+
+
+	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
+
+
+
+
+
+
+
+	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ANÚNCIOS ➖➖➖➖➖➖ -->
 	<section id="section-advertising">
+
 		<div class="content">
+
 			<div>
 				<div>
 					<img src="http://dummyimage.com/370x245/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
@@ -415,16 +502,42 @@
 					<img src="http://dummyimage.com/370x245/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
 				</div>
 			</div>
-		</div>
-	</section>
 
+		</div>
+
+	</section>
+	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ANÚNCIOS ➖➖➖➖➖➖ -->
+
+
+
+
+
+
+
+	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
+
+
+
+
+
+
+
+	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ESPECIAIS DO DIA ➖➖➖➖➖➖ -->
 	<section id="section-deal">
+
 		<div class="content">
-			<div class="content-slide-items">
+
+			<div class="content-slide-items"> <!-- ⏩ SlideItens dos Especiais -->
+	
+				<!---\ Cabeçalho do SlideItems /--->
 				<div class="slide-tittle-controls">
+
+					<!--Titulo-->
 					<div>
 						<h3>Especiais do dia</h3>
 					</div>
+
+					<!--Links e Botões-->
 					<div>
 						<div>
 							<button onclick="carousel_obj_deal.prev()">
@@ -435,8 +548,12 @@
 							</button>
 						</div>
 					</div>
+
 				</div>
+
+				<!--Corpo do SlideItems-->
 				<div class="slide-carousel" ontouchstart="carousel_obj_deal.down(event)">
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -466,6 +583,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -495,6 +613,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -524,6 +643,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -553,6 +673,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -582,6 +703,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -611,6 +733,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -640,6 +763,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -669,6 +793,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="slide_items slide_items_2">
 						<div>
 							<div>
@@ -698,11 +823,17 @@
 							</div>
 						</div>
 					</div>
+
 				</div>
-			</div>
+
+			</div> <!-- ◼ SlideItens dos Especiais -->
+
 		</div>
+
 	</section>
-	
+	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ESPECIAIS DO DIA ➖➖➖➖➖➖ -->
+
+
 	<script src="js/script.js"></script>
 </body>
 </html>

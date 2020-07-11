@@ -1,6 +1,5 @@
 .content {
 	height: 100%;
-	/*background: #0000002e;*/
 }
 @media (max-width: 575.98px) {
 	.content {
@@ -8,14 +7,12 @@
 		margin-right: 10px;
 	}
 }
-
 @media (min-width: 576px) and (max-width: 767.98px) {
 	.content {
 		margin-left: 26px;
 		margin-right: 26px;
 	}
 }
-
 @media (min-width: 768px) {
 	.content {
 		margin-left: auto;
@@ -24,11 +21,7 @@
 	#panel-optionsmenu > div:first-child {
 		display: none;
 	}
-	.slide-tittle-controls > div + div > * {
-		float: left;
-	}
 }
-
 @media (max-width: 767.98px) {
 	#header-navegation {
 		display: none;
@@ -43,51 +36,19 @@
 	#section-trending .slide-tittle-controls > div + div {
 		width: 100%;
 	}
-
-	.slide-tittle-controls > div + div > ul {
-		font-size: 0.8em;
-		line-height: 16px;
-		float: left;
-	}
-	.slide-tittle-controls > div + div > div {
-		float: right;
-	}
-
-	.slide_items > div {
-		max-width: 220px;
-	}
-	
-	.slide_items > div > div:first-child > div {
-		display: none;
-	}
-
-	.slide_items > div > div + div + div {
-		display: none;
-	}
 }
-
 @media (min-width: 768px) and (max-width: 991.98px) {
 	.content {
 		width: 726px;
-	}
-
-	.slide_items {
-		min-width: 242px;
 	}
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
 	.content {
 		width: 940px;
 	}
-	.slide_items {
-		min-width: 235px;
-	}
 }
 @media (min-width: 1200px) {
 	.content {
 		width: 1135px;
-	}
-	.slide_items {
-		min-width: 227px;
 	}
 }

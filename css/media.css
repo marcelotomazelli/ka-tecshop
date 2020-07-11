@@ -192,24 +192,6 @@
 		align-items: center;
 		justify-content: flex-end;
 	}
-
-	.slide_items > div {
-		padding: 20px 10px;
-		box-shadow: 0 0 10px -7px #1B1B1Bca;
-	}
-
-	.slide_items > div > div:first-child > a + div + div {
-		top: 5px;
-	}
-
-	.slide_items > div > div:first-child > a + div + div ul li {
-		padding-top: 2px;
-		min-width: 40px;
-		max-width: 40px;
-		min-height: 40px;
-		max-height: 40px;
-		font-size: 0.8em;
-	}
 }
 
 @media (min-width: 768px) {
@@ -273,29 +255,6 @@
 	#introdution-cards ul > li:first-child + li + li + li {
 		border-top-right-radius: 6px;
 		border-bottom-right-radius: 6px;
-	}
-
-	.slide_items > div {
-		padding: 10px;
-	}
-
-
-	.slide_items > div > div + div + div a {
-		font-size: 0.9em;
-	}
-
-	.slide_items > div {
-		box-shadow: 0 0 10px -7px #1B1B1B5a;
-	}
-
-	.slide_items > div:hover {
-		box-shadow: 0 0 10px -7px #1B1B1Bfa;
-	}
-
-	.slide_items:hover > div > div:first-child > a + div + div {
-		opacity: 0;
-		margin-top: -50px;
-		transition: 0.3s;
 	}
 }
 
