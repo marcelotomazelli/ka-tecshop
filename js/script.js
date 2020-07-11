@@ -54,8 +54,9 @@ class Carousel {
 		if(this.carousel_slide_count >= aux) {
 			this.carousel_slide_count = 0
 		}
-		this.moveItems()
 
+		this.carousel_slide_count 
+		this.moveItems()
 	}
 
 	resizing(new_carousel_slide_width, new_last_visible_elements) {
@@ -68,18 +69,18 @@ class Carousel {
 		this.interval = this.intervalControl(this.time_interval)
 	}
 
-	down(obj) {
+	down(downevent) {
 		clearInterval(this.interval)
-		this.ipx = event.clientX
+		this.ipx = downevent.touches[0].clientX
 		this.position_move_relative = 0
 		this.movePermition = true
 		for(let i = 0; i < this.reference_items.length; i++) {
 			this.reference_items[i].style.transition = '0s'
 		}
 		let body_reference = document.getElementsByTagName('body')[0]
-		body_reference.onmousemove = () => this.move()
-		body_reference.onmouseup = () => this.stop()
-		body_reference.onmouseleave = () => this.stop()
+		body_reference.ontouchmove = () => this.move(event)
+		body_reference.ontouchend = () => this.stop()
+		body_reference.ontouchcancel = () => this.stop()
 	}
 
 	stop() {
@@ -126,12 +127,14 @@ class Carousel {
 		this.moveItems()
 
 		let body_reference = document.getElementsByTagName('body')[0]
-		body_reference.onmousemove = ''
-		body_reference.onmouseup = ''
-		body_reference.onmouseleave = ''
+		body_reference.ontouchmove = ''
+		body_reference.ontouchend = ''
+		body_reference.ontouchcancel = ''
+
+		this.interval = this.intervalControl(this.time_interval)
 	}
 
-	move() {
+	move(moveevent) {
 		let translate_value = this.reference_items[0].style.transform
 		if(translate_value != '') {
 			translate_value = translate_value.replace('translateX(', '')
@@ -141,10 +144,11 @@ class Carousel {
 		} else {
 			translate_value = this.carousel_slide_width
 		}
+
 		if(this.movePermition && translate_value < this.last_traslate_possible + 50 && translate_value > this.carousel_slide_width - 50) {
-			this.position_move_relative = event.clientX - this.ipx
+			this.position_move_relative = event.touches[0].clientX - this.ipx
 			for(let i = 0; i < this.reference_items.length; i++) {
-				this.reference_items[i].style.transform = 'translateX(' + -(this.carousel_slide_count + (-this.position_move_relative)) + 'px)'
+				this.reference_items[i].style.transform = 'translateX(' + -(this.carousel_slide_count + (-this.position_move_relative))  + 'px)'
 			}
 		}
 	}
@@ -194,8 +198,11 @@ class Carousel {
 
 let carousel_obj_intro
 let carousel_obj_trend
+let initial_width_window
 
 function onloadBody() {
+	initial_width_window = window.innerWidth
+
 	carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
 
 	let content_width = document.getElementsByClassName('content')[0].offsetWidth
@@ -207,14 +214,18 @@ function onloadBody() {
 	carousel_obj_trend = new Carousel('slide_items_1', slide_width_1, 7000, last_slide_elements)
 }
 
+
+
 function resizingWindow() {
-	carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
+	if(initial_width_window != window.innerWidth) {
+		carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
 
-	let slide_content = document.getElementsByClassName('content')[0].offsetWidth
-	let slide_items_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
+		let slide_content = document.getElementsByClassName('content')[0].offsetWidth
+		let slide_items_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
 
-	let last_view_elements = Math.round(slide_content / slide_items_width_1)
+		let last_view_elements = Math.round(slide_content / slide_items_width_1)
 
-	carousel_obj_intro.resizing(carousel_intro_width, 1)
-	carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
+		carousel_obj_intro.resizing(carousel_intro_width, 1)
+		carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
+	}
 }
