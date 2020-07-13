@@ -5,10 +5,8 @@ class Carousel {
 		this.carousel_slide_count = 0
 		this.carousel_slide_width = carousel_slide_width
 		this.time_interval = time_interval
-		// this.interval = this.intervalControl(this.time_interval)
 		this.last_visible_elements = last_visible_elements
 		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
-		this.movePermition = false
 		this.position_move_relative = 0
 		this.ipx = 0
 	}
@@ -73,7 +71,6 @@ class Carousel {
 		clearInterval(this.interval)
 		this.ipx = downevent.touches[0].clientX
 		this.position_move_relative = 0
-		this.movePermition = true
 		for(let i = 0; i < this.reference_items.length; i++) {
 			this.reference_items[i].style.transition = '0s'
 		}
@@ -84,7 +81,6 @@ class Carousel {
 	}
 
 	stop() {
-		this.movePermition = false
 		for(let i = 0; i < this.reference_items.length; i++) {
 			this.reference_items[i].style.transition = ''
 		}
@@ -145,7 +141,7 @@ class Carousel {
 			translate_value = this.carousel_slide_width
 		}
 
-		if(this.movePermition && translate_value < this.last_traslate_possible + 50 && translate_value > this.carousel_slide_width - 50) {
+		if(translate_value < this.last_traslate_possible + 50 && translate_value > this.carousel_slide_width - 50) {
 			this.position_move_relative = event.touches[0].clientX - this.ipx
 			for(let i = 0; i < this.reference_items.length; i++) {
 				this.reference_items[i].style.transform = 'translateX(' + -(this.carousel_slide_count + (-this.position_move_relative))  + 'px)'

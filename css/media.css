@@ -1,4 +1,11 @@
 @media (max-width: 575.98px) {
+	/* CONTROLE DE VISIBILIDADE
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	/* ✏ são as duas imagens a direta */
+	#section-advertising .content > div > div + div + div {
+		display: none;
+	}
+
 	/* CARDS DA PRIMEIRA SEÇÃO 
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#introdution-cards ul {
@@ -57,11 +64,6 @@
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#section-advertising .content > div {
 		grid-template-columns: 1fr 1fr;
-	}
-	
-	/* ✏ são as duas imagens a direta */
-	#section-advertising .content > div > div + div + div {
-		display: none;
 	}
 }
 
