@@ -389,7 +389,6 @@ div das imagens ~~ */
 	color: #F32749;
 }
 
-
 /* ~~ Esta é a div que contem o link inferior ~~~  */
 .slide_items > div > div + div + div {
 	text-align: center;
@@ -402,7 +401,7 @@ div das imagens ~~ */
 	}
 }
 
-/* ~ Esta é o link inferior ~ */
+/* ~ Este é o link inferior ~ */
 .slide_items > div > div + div + div > a {
 	display: inline-block;
 	border-radius: 40px;

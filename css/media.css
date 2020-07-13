@@ -1,8 +1,6 @@
-/*@media (max-width: 575.98px) {}*/
-/*@media (min-width: 576px) and (max-width: 767.98px) {}*/
-
 @media (max-width: 575.98px) {
-	/* CARDS */
+	/* CARDS DA PRIMEIRA SEÇÃO 
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#introdution-cards ul {
 		padding-left: 1px;
 		padding-top: 1px;
@@ -12,32 +10,25 @@
 		box-shadow: 0 0 15px -12px #000000aa;
 		border-radius: 6px;
 	}
+
+	#introdution-cards ul > li {
+		margin-top: -1px;
+		margin-left: -1px;
+	}
 	
-	
+	/* ✏ é uma div auxiliar que contem todo conteudo */
 	#introdution-cards ul > li > div {
 		position: relative;
 	}
 
+	/* ✏ é parte do texto */
 	#introdution-cards ul > li > div > div + div {
 		display: block;
 		height: 100%;
 		position: absolute;
 		top: 0;
 		left: 45px;
-	}
-
-	#introdution-cards ul > li > div:first-child div {
-		margin-right: 5px;
-	}
-
-	#introdution-cards ul > li > div > div:first-child + div {
-		height: 100%;
-		padding-top: 3px;
-	}
-
-	#introdution-cards ul > li {
-		margin-top: -1px;
-		margin-left: -1px;
+		padding-top: 4px;
 	}
 
 	#introdution-cards ul > li:first-child {
@@ -62,26 +53,23 @@
 		border-top: none;
 	}
 
-
+	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#section-advertising .content > div {
 		grid-template-columns: 1fr 1fr;
 	}
+	
+	/* ✏ são as duas imagens a direta */
 	#section-advertising .content > div > div + div + div {
 		display: none;
 	}
 }
 
 @media (min-width: 576px) {
-	.buttons-carousel:hover button {
-		width: 100px;
-	}
-
+	/* CAROUSEL DE IMAGENS DA INTRODUÇÃO
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	.buttons-carousel button {
 		width: 50px;
-	}
-
-	.buttons-carousel button:hover {
-		cursor: pointer;
 	}
 
 	.buttons-carousel button i {
@@ -90,14 +78,24 @@
 		line-height: 40px;
 	}
 
+	.buttons-carousel:hover button {
+		width: 100px;
+	}
+
+	.buttons-carousel button:hover {
+		cursor: pointer;
+	}
+	
+	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#section-advertising .content > div {
 		grid-template-columns: 1fr 1fr 1fr;
 	}
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-	/* CARDS */
-
+	/* CARDS DA PRIMEIRA SEÇÃO
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#introdution-cards ul {
 		padding-left: 1px;
 		padding-top: 1px;
@@ -107,28 +105,31 @@
 		box-shadow: 0 0 15px -12px #000000aa;
 		border-radius: 6px;
 	}
-
-	#introdution-cards ul > li > div {
-		display: flex;
+	
+	#introdution-cards ul > li {
+		margin-left: -1px;
+		margin-bottom: -1px;
 	}
 
 	#introdution-cards ul h5 {
 		color: #626262;
 		font-size: 0.75em;
 	}
-
-	#introdution-cards ul > li > div:first-child div {
+	
+	/* ✏ div auxiliar que contem a imagem e texto */
+	#introdution-cards ul > li > div {
+		display: flex;
+	}
+	
+	/* ✏ são as divs da imagem e texto */
+	#introdution-cards ul > li > div div {
 		margin-right: 5px;
 	}
-
+	
+	/* ✏ div do texto */
 	#introdution-cards ul > li > div > div:first-child + div {
 		height: 100%;
-		padding: 3px 0;
-	}
-
-	#introdution-cards ul > li {
-		margin-left: -1px;
-		margin-bottom: -1px;
+		padding-top: 5px;
 	}
 
 	#introdution-cards ul > li:first-child {
@@ -153,15 +154,39 @@
 }
 
 @media (max-width: 767.98px) {
-	/*  ------|>   HEADER   <|------  */
+	/* CONTROLE DE VISIBILIDADE
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	/* ✏ link do perfil */
+	#panel-optionsmenu > div:first-child + div { display: none }
 
-	#h-brand img {
-		height: 60px;
+	/* ✏ botoes do carousel */
+	.buttons-carousel button { display: none }
+	
+	/* ✏ titulo do trending */
+	#section-trending .slide-tittle-controls > div:first-child {
+		display: none }
+
+	/* HEADER CONTENT
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#header-banner .content {
+		display: grid;
+		grid-template-rows: 1fr 40px;
+		grid-template-columns: 120px 1fr;
+		grid-template-areas: "brand panel"
+						 	 "search search";
 	}
-	#panel-cart img {
-		width: 55px;
+	#h-brand {
+		grid-area: brand;
+	}
+	#h-search {
+		grid-area: search;
+	}
+	#h-panel {
+		grid-area: panel;
 	}
 
+	/* HEADER
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	header {
 		background: #6565652a;
 		background: linear-gradient(to bottom, #65656500, #6565651c);
@@ -170,60 +195,91 @@
 		box-shadow: 0 0 7px #2020204a;
 	}
 
-	.buttons-carousel button {
-		display: none;
-	}
+	#h-brand img { height: 60px }
 
-	/* -- BATÃO DO MENU RESPONSIVO -- */
+	#panel-cart img { width: 55px }
+
 	#panel-optionsmenu {
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
 	}
+	
 	#h-panel {
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr 50px;
 		grid-template-areas: "cart optionsmenu";
 	}
+
 	#panel-cart {
 		grid-area: cart;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
 	}
+
+	/* SEÇÂO DO SLIDE TRENDING
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	/* ✏ div que contem os links e botoes */
+	#section-trending .slide-tittle-controls > div + div {
+		width: 100%
+	}
 }
 
 @media (min-width: 768px) {
-	/*  ------|>   HEADER   <|------  */
-	 #panel-optionsmenu {
+	/* CONTROLE DE VISIBILIDADE
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	/* ✏ botão do menu responsivo */
+	#panel-optionsmenu > div:first-child {
+		display: none
+	}
+
+	/* HEADER CONTENT
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#header-banner .content {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 170px 2fr 1.2fr;
+		grid-template-areas: "brand search panel";
+	}
+	#h-brand {
+		grid-area: brand;
+	}
+	#h-search {
+		grid-area: search;
+	}
+	#h-panel {
+		grid-area: panel;
+	}
+
+	/* HEADER
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#panel-optionsmenu {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-	} 
+	}
+
 	#h-panel {
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas: "cart optionsmenu";
 	}
-	#panel-cart {
-		grid-area: cart;
-	}
 
-	#panel-cart img {
-		width: 65px;
-	}
+	#panel-cart { grid-area: cart }
+
+	#panel-cart img { width: 65px }
 
 	#header-banner {
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
 	
-
-	/* CARDS */
-
+	/* CARDS DA PRIMEIRA SEÇÃO 
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#introdution-cards ul {
 		padding-left: 1px;
 		display: grid;
@@ -233,18 +289,19 @@
 		border-radius: 6px;
 	}
 
+	#introdution-cards ul > li {
+		margin-left: -1px;
+	}
+
 	#introdution-cards ul > li > div {
 		display: flex;
 		flex-direction: column;
 		text-align: center;
 	}
-
-	#introdution-cards ul > li > div:first-child div {
+	
+	/* ✏ div da imagem */
+	#introdution-cards ul > li > div > div:first-child {
 		margin-bottom: 5px;
-	}
-
-	#introdution-cards ul > li {
-		margin-left: -1px;
 	}
 
 	#introdution-cards ul > li:first-child {
@@ -258,11 +315,9 @@
 	}
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
-
 @media (max-width: 991.98px) {
-	
+	/* HEADER
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#h-search select {
 		display: none;
 		box-shadow: 0 0 3px blue;
@@ -277,13 +332,17 @@
 	#h-search button {
 		width: 10%;
 	}
+	
+	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#section-advertising .content > div {
 		grid-gap: 6px;
 	}
 }
 
 @media (min-width: 992px) {
-	/*Parte da formulario do header*/
+	/* HEADER
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#h-search select {
 		width: 30%;
 	}
@@ -295,28 +354,34 @@
 	#h-search button {
 		width: 10%;
 	}
-
-	/* Cards */
 }
 
 @media (min-width: 768px) and (max-width: 1199.98px) {
+	/* HEADER
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#panel-cart {
 		position: relative;
 	}
+
 	#panel-cart > div > p:first-child {
 		display: none;
 	}
+
 	#panel-cart {
 		flex-direction: column-reverse;
 	}
 }
 
 @media (min-width: 1200px) {
+	/* HEADER
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#panel-cart {
 		justify-content: flex-end;
 	}
 }
 
+/*@media (max-width: 575.98px) {}*/
+/*@media (min-width: 576px) and (max-width: 767.98px) {}*/
 /*@media (min-width: 768px) and (max-width: 991.98px) {}*/
 /*@media (min-width: 992px) and (max-width: 1199.98px) {}*/
 /*@media (min-width: 1200px) {}
