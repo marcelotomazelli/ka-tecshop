@@ -20,12 +20,12 @@ a {
 
 a:link, a:active, a:visited {
 	color: #454545;
-	transition: 0.2s;
+	transition: 0.3s;
 }
 
 a:hover {
-	color: #B20D0D;
-	transition: 0.2s;
+	color: #D01F1F;
+	transition: 0.3s;
 }
 
 input,
@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5 {
 
 /*  ------|>   MENU DE NAVEGAÇÃO PRINCIPAL   <|------  */
 
-#nav-main ul {
+#nav-main > ul {
 	padding: 0;
 	margin: 0;
 	list-style-type: none;
@@ -191,15 +191,15 @@ h1, h2, h3, h4, h5 {
 	height: 42px;
 }
 
-#nav-main ul li {
+#nav-main > ul > li {
 	height: 100%;
 }
-#nav-main ul li a, #button-categories {
+#nav-main > ul > li > a, #button-categories {
 	border: none;
 	display: block;
 	height: 100%;
 	line-height: 42px;
-	padding: 0 25px;
+	padding: 0 20px;
 	background: transparent;
 	color: #fff;
 	font-size: 1em;
@@ -208,7 +208,16 @@ h1, h2, h3, h4, h5 {
 	transition: 0.3s;
 }
 
-#nav-main ul li a:hover {
+#button-categories {
+	background-color: #232323;
+}
+
+#button-categories {
+	text-align: left;
+	width: 245px;
+}
+
+#nav-main > ul > li > a:hover {
 	background: #2D2D2D;
 }
 
@@ -222,6 +231,129 @@ h1, h2, h3, h4, h5 {
 	margin-right: 10px;
 }
 
+/*                     /               \                     */
+/*--------------------| MENU CATEGORIES |--------------------*/
+/*                     \               /                     */
+
+#button-categories:focus + nav ul {
+}
+
+#menu-categories {
+	position: relative;
+}
+
+#menu-categories > nav {
+	position: absolute;
+	top: 42px;
+	z-index: 10;
+	width: 100%;
+	opacity: 1;
+	transition: 1s;
+}
+
+#menu-categories > nav ul {
+	border-left: 1px solid #D9D9D9;
+	border-right: 1px solid #D9D9D9;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	flex-direction: column;
+	height: 100%;
+	transition: 0.4s;
+}
+
+#menu-categories > nav ul li a {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	background-color: #F8F8F8;
+	padding-left: 12px;
+	border-bottom: 1px solid #D9D9D9;
+	position: relative;
+}
+
+#menu-categories > nav ul li a i:first-child {
+	/*border: 1px solid red;*/
+	width: 25px;
+	text-align: center;
+}
+
+#menu-categories > nav ul li a i:first-child + i {
+	position: absolute;
+	top: 13px;
+	right: 15px;
+	line-height: 100%;
+	font-size: 14px;
+	transform: rotate(90deg);
+	transition: 0.3s;
+}
+
+.last-item-aside a, #menu-categories > nav ul {
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#menu-categories > nav ul {
+}
+
+.catedorie-dropdown {
+	position: relative;
+}
+
+.catedorie-dropdown > div {
+	width: 250px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background: #F3F3F3;
+	box-shadow: 0 0 10px -7px #000000;
+	transform: translateX(1px);
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.4s;
+}
+
+.catedorie-dropdown::before {
+	font-family: 'Font Awesome 5 Free';
+  	font-weight: 900;
+	content: '\f054';
+	color: #454545;
+	height: 20px;
+	width: 20px;
+	text-align: center;
+	line-height: 20px;
+	z-index: 4;
+	transform: rotate(90deg);
+	font-size: 0.8em;
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	transition: 0.2s;
+}
+
+.catedorie-dropdown:hover > div {
+	visibility: visible;
+	opacity: 1;
+	transition: 0.3s;
+}
+
+#menu-categories > nav ul li.catedorie-dropdown:hover::before {
+	transform: rotate(0deg);
+	color: #D01F1F;
+	transition: 0.3s;
+}
+
+
+
+
+
+
+
+
 /*                     /            \                     */
 /*--------------------| INTRODUCTION |--------------------*/
 /*                     \            /                     */
@@ -232,11 +364,6 @@ h1, h2, h3, h4, h5 {
 
 #carousel-introduction {
 	margin: 0 auto;
-	max-width: 726px;
-}
-
-#introdution-cards {
-	margin-top: 15px;
 }
 
 #introdution-cards ul * {
@@ -357,7 +484,7 @@ footer > div > div:first-child > ul > li i {
 footer > div > div h3 {
 	margin: 5px 0;
 	padding: 10px 0;
-	border-bottom: 2px solid #E23939;
+	border-bottom: 2px solid #E23939aa;
 }
 
 footer > div > div > ul > li {
@@ -382,24 +509,4 @@ footer > div > div > ul > li {
 
 
 
-
-
- 
-/*#section-introduction {
- 	background: #E92A2A;
- }
- 
- #section-trending {
- 	background: #3471D6;
- }
- 
- #section-advertising {
- 	background: #6CDA36;
- }
- 
- #section-deal {
- 	background: #EC8326;
- 	height: 400px;
- }   */ 
- 
 

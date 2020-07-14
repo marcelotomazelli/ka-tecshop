@@ -201,7 +201,7 @@ let initial_width_window
 function onloadBody() {
 	initial_width_window = window.innerWidth
 
-	carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
+	let carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
 
 	let content_width = document.getElementsByClassName('content')[0].offsetWidth
 	let slide_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
@@ -218,7 +218,7 @@ function onloadBody() {
 
 function resizingWindow() {
 	if(initial_width_window != window.innerWidth) {
-		carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
+		let carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
 
 		let slide_content = document.getElementsByClassName('content')[0].offsetWidth
 		let slide_items_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
@@ -242,6 +242,27 @@ function openListFooter(id_list) {
 		document.getElementById(id_list).style = ''
 		console.log('Blz')
 	}
-	
-
 }
+
+function categoriesMenu() {
+	let tagstyle = document.getElementById('for-style-categories')
+	if(tagstyle.innerHTML != '') {
+		resstyle = tagstyle.innerHTML
+		tagstyle.innerHTML = ''
+		document.getElementById('button-categories').style.backgroundColor = '#DE2222'
+	} else {
+		tagstyle.innerHTML = resstyle
+		document.getElementById('button-categories').style = ''
+	}
+
+	setTimeout(function() {
+		let carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
+		console.log(carousel_intro_width)
+		carousel_obj_intro.resizing(carousel_intro_width, 1)
+	}, 400)
+	
+}
+
+let resstyle;
+
+document.getElementById('button-categories').addEventListener('click', categoriesMenu)

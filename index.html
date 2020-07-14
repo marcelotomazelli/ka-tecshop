@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta charset="UTF-8">
-	<title>KA TECSHOP - Loja Virtual</title>
+	<title>KA - Loja Virtual</title>
 	
 	<link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
 
@@ -14,7 +14,37 @@
 	<link rel="stylesheet" type="text/css" href="css/media.css">
 
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="fontawesome/css/all.css">
+
+	<!-- Para Estilos do menu Categoria -->
+	<style id="for-style-categories" type="text/css">
+		#menu-categories > nav {
+			opacity: 0;
+		}
+
+		#menu-categories > nav ul li a {
+			height: 0px;
+			line-height: 0px;
+			font-size: 0em;
+			border: none;
+		}
+
+		.catedorie-dropdown::before {
+			opacity: 0;
+		}
+
+		@media (min-width: 768px) and (max-width: 1199.98px) {
+			#section-introduction > div > div:first-child {
+				margin: 0 auto;
+			}
+		}
+
+		@media (min-width: 992px) and (max-width: 1199.98px) {
+			#section-introduction > div > div {
+				margin: 15px auto 0;
+			}
+		}
+	</style>
 </head>
 <body onresize="resizingWindow()" onload="onloadBody()">
 
@@ -69,12 +99,84 @@
 		<div id="header-navegation"> <!-- ⏩ Navegação principal -->
 			<div class="content">
 				<nav id="nav-main">
-					<ul >
-						<li>
+					<ul>
+						<li id="menu-categories">
 							<button id="button-categories">
-								<i class="fas fa-bars"></i>
+								<i class="fas fa-shapes"></i>
 								Categorias
 							</button>
+							<nav>
+								<ul>
+									<li>
+										<a href="#">
+											<i class="fas fa-clock"></i>
+											Smartwatch
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-mobile-alt"></i>
+											Smartphone
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-laptop"></i>
+											Laptops
+										</a>
+									</li>
+									<li class="catedorie-dropdown">
+										<a href="#">
+											<i class="fas fa-desktop"></i>
+											Desktops
+										</a>
+										<div></div>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-tablet-alt"></i>
+											Tablets
+										</a>
+									</li>
+									<li class="catedorie-dropdown">
+										<a href="#">
+											<i class="fas fa-headphones-alt"></i>
+											Headphone
+										</a>
+										<div></div>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-microphone"></i>
+											Microphone
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-camera"></i>
+											Cameras
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="far fa-keyboard"></i>
+											Keyboard
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="fas fa-mouse"></i>
+											Mouse
+										</a>
+									</li>
+									<li class="last-item-aside">
+										<a href="#">
+											<i class="fas fa-gamepad"></i>
+											Videogame
+										</a>
+									</li>
+								</ul>
+							</nav>
 						</li>
 						<li><a href="#">Home</a></li>
 						<li><a href="#">Especiais</a></li>
@@ -90,6 +192,11 @@
 
 
 
+	<!-- <aside id="menu-categories"> ⏩ Menu categorias
+	 	<div class="content">
+	 		
+	 	</div>
+	 </aside> --> <!-- ◼ Navegação principal -->
 
 
 
