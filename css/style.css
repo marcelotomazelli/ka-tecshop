@@ -6,10 +6,6 @@ body, html {
 	/*overflow-x: hidden;*/
 }
 
-body {
-	padding-bottom: 200px;
-}
-
 * {
 	box-sizing: border-box;
 }
@@ -48,19 +44,17 @@ h1, h2, h3, h4, h5 {
 /*                     /      \                     */
 /*--------------------| HEADER |--------------------*/
 /*                     \      /                     */
-
 #h-brand, #h-search, #h-panel {
 	height: 100%;
 }
 
 #header-navegation {
 	height: 42px;
-	background: #171717;
+	background: linear-gradient(to bottom, #181818, #0B0B0B);
 	margin-top: 10px;
 }
 
 #h-brand {
-	height: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -110,7 +104,7 @@ h1, h2, h3, h4, h5 {
 }
 
 #h-search button {
-	background: #151515;
+	background: linear-gradient(145deg, #2F2F2F, #171717);
 	color: #fff;
 
 	border: 1px solid #151515;
@@ -118,71 +112,46 @@ h1, h2, h3, h4, h5 {
 	border-bottom-right-radius: 5px;
 }
 
+#h-search button i {
+	position: relative;
+	top: 1px;
+}
+
 #h-search select:hover, #h-search button:hover {
 	cursor: pointer;
 }
 
-#h-panel > div {
-	height: 100%;
-}
-
-#panel-cart {
+#h-panel {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
 }
 
-#panel-cart > a {
-	position: relative;
+#cart {
+	background: url(../img/cart-icon.png) no-repeat;
+	background-size: 39px 39px;
 }
 
-#panel-cart > div {
-	font-size: 0.8em;
-}
-#panel-cart > div p {
-	margin: 0;
-	text-align: right;
-	font-weight: bold;
-}
-
-#items-cart {
-	width: 20px;
-	height: 20px;
-	line-height: 20px;
-	text-align: center;
-	color: #fff;
-	font-size: 0.8em;
-	background: #BF1E22ea;
-	border-radius: 20px;
-	box-shadow: 0 0 10px -4px #161616aa;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-}
-#panel-optionsmenu {
-	grid-area: optionsmenu;
-	/*border: 1px solid;*/
-}
-
-#panel-optionsmenu * {
-	/*border: 1px solid;*/
-}
-
-#panel-optionsmenu > div:first-child + div a {
-	display: block;
-	transition: 0.35s;
-	text-align: center;
-}
-
-#image-user {
-	margin: 5px auto;
-	background: url(../img/default-image-user.png) no-repeat #EEEEEE;
+#favorites {
+	background: url(../img/heart.png) no-repeat;
+	background-position: 3px 4px;
 	background-size: 32px 32px;
-	background-position: 11px 12px;
-	width: 56px;
-	height: 56px;
-	border: 1px solid #BBBBBB;
-	border-radius: 5px;
+}
+
+#link-profile {
+	background: url(../img/user.png) no-repeat;
+	background-position: 2px 1px;
+	background-size: 36px 36px;
+}
+
+#h-panel > * {
+	display: block;
+	height: 40px;
+	width: 40px;
+}
+
+#h-panel > a {
+	margin: 0 12px;
 }
 
 #button-responsive-menu {
@@ -190,6 +159,7 @@ h1, h2, h3, h4, h5 {
 	background: none;
 	width: 40px;
 	height: 40px;
+	margin-left: 5px;
 	font-size: 1.8em;
 }
 
@@ -201,6 +171,14 @@ h1, h2, h3, h4, h5 {
 
 #button-responsive-menu:hover {
 	cursor: pointer;
+}
+
+.icon-bar {
+	height: 3px;
+	width: 26px;
+	background: #171717;
+	margin: 5px 0;
+	border-radius: 5px;
 }
 
 /*  ------|>   MENU DE NAVEGAÇÃO PRINCIPAL   <|------  */
@@ -221,7 +199,7 @@ h1, h2, h3, h4, h5 {
 	display: block;
 	height: 100%;
 	line-height: 42px;
-	padding: 0 20px;
+	padding: 0 25px;
 	background: transparent;
 	color: #fff;
 	font-size: 1em;
@@ -312,33 +290,12 @@ h1, h2, h3, h4, h5 {
 	clear: both;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Seção de anuncios */
-
+/*                     /        \                     */
+/*--------------------| ANUNCIOS |--------------------*/
+/*                     \        /                     */
 #section-advertising {
 	margin-top: 15px;
 }
-
-
 
 #section-advertising .content > div {
 	display: grid;
@@ -369,6 +326,43 @@ h1, h2, h3, h4, h5 {
 	margin-top: 15px;
 }
 
+/*                     /      \                     */
+/*--------------------| FOOTER |--------------------*/
+/*                     \      /                     */
+
+footer {
+	margin-top: 25px;
+	padding: 10px 0;
+	border-top: 1px solid #D8D8D8;
+}
+
+footer > div > div {
+	/*border: 1px solid red;*/
+
+}
+
+footer > div > div > ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+footer > div > div:first-child > ul > li i {
+	width: 20px;
+	color: #2A2A2A;
+	margin-right: 7px;
+	text-align: center;
+}
+
+footer > div > div h3 {
+	margin: 5px 0;
+	padding: 10px 0;
+	border-bottom: 2px solid #E23939;
+}
+
+footer > div > div > ul > li {
+	line-height: 25px;
+}
 
 
 

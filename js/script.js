@@ -7,6 +7,7 @@ class Carousel {
 		this.time_interval = time_interval
 		this.last_visible_elements = last_visible_elements
 		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
+		this.interval = this.intervalControl(this.time_interval)
 		this.position_move_relative = 0
 		this.ipx = 0
 	}
@@ -229,4 +230,18 @@ function resizingWindow() {
 		carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
 		carousel_obj_deal.resizing(slide_items_width_2, last_view_elements)
 	}
+}
+
+function openListFooter(id_list) {
+	let list = document.getElementById(id_list)
+	console.log(list.style.height)
+	if(list.style.height == '') {
+		document.getElementById(id_list).style.height = 'auto'
+		document.getElementById(id_list).style.opacity = 1
+	} else {
+		document.getElementById(id_list).style = ''
+		console.log('Blz')
+	}
+	
+
 }

@@ -27,7 +27,7 @@
 
 				<!---\ Logo /--->
 				<div id="h-brand">
-					<img src="img/logo.png" alt="k a tecshop" />
+					<img src="img/brand.png" alt="k a tecshop" />
 				</div>
 
 				<!---\ Formulario /--->
@@ -46,27 +46,22 @@
 
 				<!---\ Painel /--->
 				<div id="h-panel">
-					<!--Carrinho-->
-					<div id="panel-cart">
-						<div>
-							<p>Carrinho:</p>
-							<p>R$ <span>0,00</span></p>
-						</div>
-						<a href="#">
-							<img src="img/shoppingbag.png" alt=""/>
-							<div id="items-cart">0</div>
-						</a>
-					</div>
-					<!--Menu do Painel-->
-					<div id="panel-optionsmenu">
-						<div>
-							<button id="button-responsive-menu"><i class="fas fa-bars"></i></button>
-						</div>
-						<div>
-							<a id="image-user" href="#"></a>
-							<a href="#">Perfil</a>
-						</div>
-					</div>
+					<!--Link Carrinho-->
+					<a id="cart" href="#"></a>
+
+					<!--Link Favoritos-->
+					<a id="favorites" href="#"></a>
+
+					<!--Link Perfil-->
+					<a id="link-profile" href="#"></a>
+
+					<!--Botao-->
+					<button id="button-responsive-menu">
+						<i class="icon-bar"></i>
+						<i class="icon-bar"></i>
+						<i class="icon-bar"></i>
+					</button>
+
 				</div>
 			</div>
 		</div> <!-- ◼ Banner -->
@@ -832,6 +827,61 @@
 	</section>
 	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ESPECIAIS DO DIA ➖➖➖➖➖➖ -->
 
+
+
+
+
+
+
+	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
+
+
+
+
+
+
+
+	<!-- ➖➖➖➖➖➖  RODAPÉ ➖➖➖➖➖➖ -->
+	<footer>
+		<div class="content">
+			<div>
+				<h3 onclick="openListFooter('footer-contate')">Contato<i class="fas fa-plus"></i></h3>
+				<ul id="footer-contate">
+					<li><i class="fas fa-map-marker-alt"></i>Lorem ipsum dolor sit amet, 24</li>
+					<li><i class="fas fa-envelope"></i>company@dominio.com</li>
+					<li><i class="fas fa-phone"></i>+55 (12) 12345-1234</li>
+				</ul>
+			</div>
+			<div>
+				<h3 onclick="openListFooter('footer-extra')">Extras<i class="fas fa-plus"></i></h3>
+				<ul id="footer-extra">
+					<li>Brands</li>
+					<li>Gift Certificates</li>
+					<li>Affiliate</li>
+					<li>Specials</li>
+				</ul>
+			</div>
+			<div>
+				<h3 onclick="openListFooter('footer-information')">Information<i class="fas fa-plus"></i></h3>
+				<ul id="footer-information">
+					<li>Sobre nós</li>
+					<li>Delivery information</li>
+					<li>Privacy Policy</li>
+					<li>Terms & Conditions</li>
+					<li>Contato</li>
+					<li>Site Map</li>
+				</ul>
+			</div>
+			<div>
+				<h3 onclick="openListFooter('footer-account')">Minha Conta<i class="fas fa-plus"></i></h3>
+				<ul id="footer-account">
+					<li>My Account</li>
+					<li>Order History</li>
+					<li>Wish List</li>
+				</ul>
+			</div>
+		</div>
+	</footer>
 
 	<script src="js/script.js"></script>
 </body>
