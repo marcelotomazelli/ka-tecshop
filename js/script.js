@@ -230,29 +230,20 @@ function resizingWindow() {
 	}
 }
 
-function openListFooter(id_list) {
-	let list = document.getElementById(id_list)
-	if(list.style.height == '') {
-		document.getElementById(id_list).style.height = 'auto'
-		document.getElementById(id_list).style.opacity = 1
-	} else {
-		document.getElementById(id_list).style = ''
-	}
-}
-
 function categoriesMenu() {
 	setTimeout(function() {
 		let carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
-		console.log(carousel_intro_width)
 		carousel_obj_intro.resizing(carousel_intro_width, 1)
-	}, 400)	
+	}, 600)	
 }
 
-function changeClass(id_element, class_name) {
-	let el = document.getElementById(id_element)
-	if(el.className == '') {
-		el.className = class_name
-	} else {
-		el.className = ''
+function changeClass(id_elements, new_class, old_class) {
+	for(let i = 0; i < id_elements.length; i++) {
+		let el = document.getElementById(id_elements[i])
+		if(el.className == old_class) {
+			el.className = new_class
+		} else {
+			el.className = old_class
+		}
 	}
 }

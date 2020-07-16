@@ -60,7 +60,13 @@
 					<a id="link-profile" href="#"></a>
 
 					<!--Botao-->
-					<button id="button-responsive-menu" onclick="changeClass('menu-categories_resp', 'open');changeClass('button-responsive-menu', 'open');changeClass('bodyid', 'open')">
+					<button 
+					   id="button-responsive-menu"
+					   onclick="changeClass([
+								   	'menu-categories_resp',
+								   	'button-responsive-menu',
+								   	'bodyid'
+								   ], 'open', '')">
 						<i class="icon-bar"></i>
 						<i class="icon-bar"></i>
 						<i class="icon-bar"></i>
@@ -74,8 +80,14 @@
 			<div class="content">
 				<nav id="nav-main">
 					<ul>
-						<li id="menu-categories">
-							<button id="button-categories" onclick="changeClass('menu-categories', 'close');changeClass('section-introduction', 'close');categoriesMenu()">
+						<li id="menu-categories" class="open">
+							<button 
+								id="button-categories" 
+								onclick="changeClass([
+												'menu-categories', 
+												'section-introduction'
+											], 'open', 'close');
+											categoriesMenu()">
 								<i class="fas fa-shapes"></i>
 								Categorias
 							</button>
@@ -195,6 +207,20 @@
 
 
 
+
+
+
+
+
+	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
+
+
+
+
+
+
+
+	<!-- ➖➖➖➖➖➖  ASIDE  ➖➖➖➖➖➖ -->
 	<aside id="menu-categories_resp"> <!-- ⏩ Menu categorias -->
 	 	<nav>
 	 		<ul>
@@ -205,7 +231,7 @@
 	 				</a>
 	 			</li>
 	 			<li class="catedorie-dropdown">
-	 				<button href="#" onclick="changeClass('smartphone-categories', 'open')">
+	 				<button href="#" onclick="changeClass(['smartphone-categories'], 'open', '')">
 	 					<i class="fas fa-mobile-alt"></i>
 	 					Smartphone
 	 				</button>
@@ -236,7 +262,7 @@
 	 				</a>
 	 			</li>
 	 			<li class="catedorie-dropdown">
-	 				<button href="#" onclick="changeClass('desktops-categories', 'open')">
+	 				<button href="#" onclick="changeClass(['desktops-categories'], 'open', '')">
 	 					<i class="fas fa-desktop"></i>
 	 					Desktops
 	 				</button>
@@ -304,6 +330,11 @@
 	 		</ul>
 	 	</nav>
 	</aside> <!-- ◼ Navegação principal -->
+	<!-- ➖➖➖➖➖➖  ASIDE  ➖➖➖➖➖➖ -->
+
+
+
+
 
 
 
@@ -317,7 +348,7 @@
 
 
 	<!-- ➖➖➖➖➖➖  INTRODUÇÂO DO MAIN  ➖➖➖➖➖➖ -->
-	<section id="section-introduction" class="close">
+	<section id="section-introduction" class="open">
 
 		<div class="content">
 
@@ -364,7 +395,7 @@
 				</div>
 			</div> <!-- ◼ Carosuel -->
 
-			<div id="introdution-cards"> <!-- ⏩ Cards da Introdução -->
+			<div id="introduction-cards"> <!-- ⏩ Cards da Introdução -->
 				<ul>
 
 					<li>
@@ -1058,26 +1089,41 @@
 	<!-- ➖➖➖➖➖➖  RODAPÉ ➖➖➖➖➖➖ -->
 	<footer>
 		<div class="content">
-			<div>
-				<h3 onclick="openListFooter('footer-contate')">Contato<i class="fas fa-plus"></i></h3>
-				<ul id="footer-contate">
+			<div id="footer-contate" class="close">
+				<h3 onclick="changeClass(['footer-contate'], 'open', 'close')">
+					Contato
+					<i class="fas fa-plus"></i>
+					<i class="fas fa-minus"></i>
+					<div></div>
+				</h3>
+				<ul>
 					<li><i class="fas fa-map-marker-alt"></i>Lorem ipsum dolor sit amet, 24</li>
 					<li><i class="fas fa-envelope"></i>company@dominio.com</li>
 					<li><i class="fas fa-phone"></i>+55 (12) 12345-1234</li>
 				</ul>
 			</div>
-			<div>
-				<h3 onclick="openListFooter('footer-extra')">Extras<i class="fas fa-plus"></i></h3>
-				<ul id="footer-extra">
+			<div id="footer-extra" class="close">
+				<h3 onclick="changeClass(['footer-extra'], 'open', 'close')">
+					Extras
+					<i class="fas fa-plus"></i>
+					<i class="fas fa-minus"></i>
+					<div></div>
+				</h3>
+				<ul>
 					<li>Brands</li>
 					<li>Gift Certificates</li>
 					<li>Affiliate</li>
 					<li>Specials</li>
 				</ul>
 			</div>
-			<div>
-				<h3 onclick="openListFooter('footer-information')">Information<i class="fas fa-plus"></i></h3>
-				<ul id="footer-information">
+			<div id="footer-information" class="close">
+				<h3 onclick="changeClass(['footer-information'], 'open', 'close')">
+					Information
+					<i class="fas fa-plus"></i>
+					<i class="fas fa-minus"></i>
+					<div></div>
+				</h3>
+				<ul>
 					<li>Sobre nós</li>
 					<li>Delivery information</li>
 					<li>Privacy Policy</li>
@@ -1086,9 +1132,14 @@
 					<li>Site Map</li>
 				</ul>
 			</div>
-			<div>
-				<h3 onclick="openListFooter('footer-account')">Minha Conta<i class="fas fa-plus"></i></h3>
-				<ul id="footer-account">
+			<div id="footer-account" class="close">
+				<h3 onclick="changeClass(['footer-account'], 'open', 'close')">
+					Minha Conta
+					<i class="fas fa-plus"></i>
+					<i class="fas fa-minus"></i>
+					<div></div>
+				</h3>
+				<ul>
 					<li>My Account</li>
 					<li>Order History</li>
 					<li>Wish List</li>
