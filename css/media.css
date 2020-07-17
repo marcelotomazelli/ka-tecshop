@@ -107,6 +107,9 @@
 @media (max-width: 767.98px) {
 	/* CONTROLE DE VISIBILIDADE
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	/* ✏ media config acima do banner */
+	#media-config { display: none; }
+
 	/* ✏ link do perfil */
 	#link-profile { display: none; }
 
@@ -143,14 +146,21 @@
 	/* HEADER
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	header {
-		background: linear-gradient(to bottom, #F5F5F5, #EAEAEA);
+		background: linear-gradient(to bottom, #F5F5F5, #E5E5E5);
 		border-bottom: 1px solid #CECECE;
-		padding-top: 5px;
-		padding-bottom: 5px;
+		padding-bottom: 11px;
+		box-shadow: 0 0 8px #0000002a;
 	}
 
+
 	#h-search input {
-		background: #F1F1F1;
+		background: #F8F8F8;
+		border: none;
+	}
+
+	#h-search button {
+		background: linear-gradient(145deg, #1B1B1B, #333333);
+		border: none;
 	}
 
 	#h-brand img { height: 50px }

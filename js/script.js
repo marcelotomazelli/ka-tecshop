@@ -167,7 +167,7 @@ class Carousel {
 
 	static resizeSlideItem(items, min, max) {
 		let list = document.getElementsByClassName(items)
-		let w = document.getElementsByClassName('content')[0].offsetWidth
+		let w = document.getElementsByClassName('content')[1].offsetWidth
 
 		if(window.innerWidth < min) {
 			w /= 2
@@ -188,7 +188,7 @@ class Carousel {
 			w = document.getElementsByClassName(items)[0].offsetWidth
 			w = Math.round(w)
 		}
-
+	
 		return w
 	}
 }
