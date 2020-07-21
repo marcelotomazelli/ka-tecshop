@@ -1,3 +1,8 @@
+<?php
+
+	require "controle.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +13,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/carousel.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/carousel.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/media.css">
 
@@ -22,357 +27,12 @@
 </head>
 <body id="bodyid" onresize="resizingWindow()" onload="onloadBody()">
 
-	<!-- ➖➖➖➖➖➖  PARTE DO HEADER  ➖➖➖➖➖➖ -->
-	<header>
-		<div id="media-config">
-			<div class="content">
-				<div>
-					<ul>
-						<li><a href="#">
-							<i class="fab fa-facebook-f"></i>
-						</a></li>
-						<li><a href="#">
-							<i class="fab fa-instagram"></i>
-						</a></li>
-						<li><a href="#">
-							<i class="fab fa-linkedin-in"></i>
-						</a></li>
-						<li><a href="#">
-							<i class="fab fa-twitter"></i>
-						</a></li>
-						<li><a href="#">
-							<i class="fab fa-linkedin-in"></i>
-						</a></li>
-					</ul>
-				</div>
-				<div></div>
-			</div>
-		</div>
-
-		<div id="header-banner"> <!-- ⏩ Banner -->
-
-			<div class="content">
-
-				<!---\ Logo /--->
-				<div id="h-brand">
-					<img src="img/brand.png" alt="k a tecshop" />
-				</div>
-
-				<!---\ Formulario /--->
-				<div id="h-search">
-					<form>
-						<select id="">
-							<option value="all">Todas as categorias</option>
-							<option value="#">Teste</option>
-							<option value="#">Teste</option>
-							<option value="#">Teste</option>
-						</select>
-						<input type="text" placeholder="Digite aqui sua pesquisa..." />
-						<button><i class="fas fa-search"></i></button>
-					</form>
-				</div>
-
-				<!---\ Painel /--->
-				<div id="h-panel">
-					<!--Link Carrinho-->
-					<a id="cart" href="#"></a>
-
-					<!--Link Favoritos-->
-					<a id="favorites" href="#"></a>
-
-					<!--Link Perfil-->
-					<a id="link-profile" href="#"></a>
-
-					<!--Botao-->
-					<button 
-					   id="button-responsive-menu"
-					   onclick="changeClass([
-								   	'menu-categories_resp',
-								   	'button-responsive-menu',
-								   	'bodyid'
-								   ], 'open', '')">
-						<i class="icon-bar"></i>
-						<i class="icon-bar"></i>
-						<i class="icon-bar"></i>
-					</button>
-
-				</div>
-			</div>
-		</div> <!-- ◼ Banner -->
-
-		<div id="header-navegation"> <!-- ⏩ Navegação principal -->
-			<div class="content">
-				<nav id="nav-main">
-					<ul>
-						<li id="menu-categories" class="open">
-							<button 
-								id="button-categories" 
-								onclick="changeClass([
-												'menu-categories', 
-												'section-introduction'
-											], 'open', 'close');
-											categoriesMenu()">
-								<i class="fas fa-shapes"></i>
-								Categorias
-							</button>
-							<nav>
-								<ul>
-									<li>
-										<a href="#">
-											<i class="fas fa-clock"></i>
-											Smartwatch
-										</a>
-									</li>
-									<li class="catedorie-dropdown">
-										<a href="#">
-											<i class="fas fa-mobile-alt"></i>
-											Smartphone
-										</a>
-										<div>
-											<ul>
-												<li><a href="#">Android</a></li>
-												<li><a href="#">Samsung</a></li>
-												<li><a href="#">Motorola</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-											</ul>
-											<ul>
-												<li><a href="#">IOS</a></li>
-												<li><a href="#">iPhone 9</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-											</ul>
-										</div>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fas fa-laptop"></i>
-											Laptops
-										</a>
-									</li>
-									<li class="catedorie-dropdown">
-										<a href="#">
-											<i class="fas fa-desktop"></i>
-											Desktops
-										</a>
-										<div>
-											<ul>
-												<li><a href="#">PC</a></li>
-												<li><a href="#">Positivo</a></li>
-												<li><a href="#">Dell</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-											</ul>
-											<ul>
-												<li><a href="#">Mac</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-											</ul>
-										</div>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fas fa-tablet-alt"></i>
-											Tablets
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fas fa-headphones-alt"></i>
-											Headphone
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fas fa-microphone"></i>
-											Microphone
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fas fa-camera"></i>
-											Cameras
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="far fa-keyboard"></i>
-											Teclados
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fas fa-mouse"></i>
-											Mouse
-										</a>
-									</li>
-									<li class="last-item-aside">
-										<a href="#">
-											<i class="fas fa-gamepad"></i>
-											Videogame
-										</a>
-									</li>
-								</ul>
-							</nav>
-						</li>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Especiais</a></li>
-						<li><a href="#">Contato</a></li>
-						<li><a href="#">Sobre nós</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div> <!-- ◼ Navegação principal -->
-
-	</header>
-	<!-- ➖➖➖➖➖➖  PARTE DO HEADER  ➖➖➖➖➖➖ -->
-
-
-
-
-
-
-
-
-	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
-
-
-
-
-
-
-
-	<!-- ➖➖➖➖➖➖  ASIDE  ➖➖➖➖➖➖ -->
-	<aside id="menu-categories_resp"> <!-- ⏩ Menu categorias -->
-	 	<nav>
-	 		<ul>
-	 			<li>
-	 				<a href="#">
-	 					<i class="fas fa-clock"></i>
-	 					Smartwatch
-	 				</a>
-	 			</li>
-	 			<li class="catedorie-dropdown">
-	 				<button href="#" onclick="changeClass(['smartphone-categories'], 'open', '')">
-	 					<i class="fas fa-mobile-alt"></i>
-	 					Smartphone
-	 				</button>
-	 				<div id="smartphone-categories">
-	 					<ul>
-							<li><a href="#">VER TODOS</a></li>
-	 					</ul>
-	 					<ul>
-	 						<li><a href="#">Android</a></li>
-	 						<li><a href="#">Samsung</a></li>
-	 						<li><a href="#">Motorola</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 					</ul>
-	 					<ul>
-	 						<li><a href="#">IOS</a></li>
-	 						<li><a href="#">iPhone 9</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 					</ul>
-	 				</div>
-	 			</li>
-	 			<li>
-	 				<a href="#">
-	 					<i class="fas fa-laptop"></i>
-	 					Laptops
-	 				</a>
-	 			</li>
-	 			<li class="catedorie-dropdown">
-	 				<button href="#" onclick="changeClass(['desktops-categories'], 'open', '')">
-	 					<i class="fas fa-desktop"></i>
-	 					Desktops
-	 				</button>
-	 				<div id="desktops-categories">
-	 					<ul>
-							<li><a href="#">VER TODOS</a></li>
-	 					</ul>
-	 					<ul>
-	 						<li><a href="#">PC</a></li>
-	 						<li><a href="#">Positivo</a></li>
-	 						<li><a href="#">Dell</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 					</ul>
-	 					<ul>
-	 						<li><a href="#">Mac</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 						<li><a href="#">Teste</a></li>
-	 					</ul>
-	 				</div>
-	 			</li>
-	 			<li>
-	 				<a href="#">
-	 					<i class="fas fa-tablet-alt"></i>
-	 					Tablets
-	 				</a>
-	 			</li>
-	 			<li>
-	 				<a href="#">
-	 					<i class="fas fa-headphones-alt"></i>
-	 					Headphone
-	 				</a>
-	 			</li>
-	 			<li>
-	 				<a href="#">
-	 					<i class="fas fa-microphone"></i>
-	 					Microphone
-	 				</a>
-	 			</li>
-	 			<li>
-	 				<a href="#">
-	 					<i class="fas fa-camera"></i>
-	 					Cameras
-	 				</a>
-	 			</li>
-	 			<li>
-	 				<a href="#">
-	 					<i class="far fa-keyboard"></i>
-	 					Teclados
-	 				</a>
-	 			</li>
-	 			<li>
-	 				<a href="#">
-	 					<i class="fas fa-mouse"></i>
-	 					Mouse
-	 				</a>
-	 			</li>
-	 			<li class="last-item-aside">
-	 				<a href="#">
-	 					<i class="fas fa-gamepad"></i>
-	 					Videogame
-	 				</a>
-	 			</li>
-	 		</ul>
-	 	</nav>
-	</aside> <!-- ◼ Navegação principal -->
-	<!-- ➖➖➖➖➖➖  ASIDE  ➖➖➖➖➖➖ -->
-
-
-
-
-
-
-
-
-	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
-
-
-
-
-
+	
+	<? require_once "header.php" ?>
 
 
 	<!-- ➖➖➖➖➖➖  INTRODUÇÂO DO MAIN  ➖➖➖➖➖➖ -->
-	<section id="section-introduction" class="open">
+	<section id="section-introduction" class="close">
 
 		<div class="content">
 
@@ -498,9 +158,9 @@
 					<!--Links e Botões-->
 					<div>
 						<ul>
-							<li><a href="#">Destaque</a></li>
-							<li><a href="#">BestSeller</a></li>
-							<li><a href="#">Últimos</a></li>
+							<li><button>Destaque</button></li>
+							<li><button>BestSeller</button></li>
+							<li><button>Últimos</button></li>
 							<div class="clear"></div>
 						</ul>
 						<div>
@@ -516,11 +176,14 @@
 
 				<!--Corpo do SlideItems-->
 				<div class="slide-carousel" ontouchstart="carousel_obj_trend.down(event)">
+
+					<? foreach($lista_produtos as $valor) { ?>
+
 					<div class="slide_items slide_items_1">
 						<div>
 							<div>
 								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=1" alt="placeholder+image">
+									<img src="img_produtos/<?= $valor['id_produto']?>/index.jpg">
 								</a>
 								<div>
 									<a href="#">
@@ -530,190 +193,16 @@
 							</div>
 							
 							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
+								<h2><a href=""><?= $valor['nome_curto']?></a></h2>
+								<h3><?= $valor['valor']?></h3>
 							</div>
 							<div>
 								<a href="#">Adicionar ao carrinho</a>
 							</div>
 						</div>
 					</div>
-					<div class="slide_items slide_items_1">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=2" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-					<div class="slide_items slide_items_1">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=3" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-					<div class="slide_items slide_items_1">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=4" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-					<div class="slide_items slide_items_1">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=5" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-					<div class="slide_items slide_items_1">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=6" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-					<div class="slide_items slide_items_1">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=7" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-					<div class="slide_items slide_items_1">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=8" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-					<div class="slide_items slide_items_1">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=9" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
+
+					<? } ?>
 				</div>
 			</div> <!-- ◼ SlideItens das Tendencias -->
 

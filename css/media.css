@@ -30,9 +30,6 @@
 		margin-left: 10px;
 	}
 
-
-	
-
 	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#section-advertising .content > div {
@@ -107,9 +104,6 @@
 @media (max-width: 767.98px) {
 	/* CONTROLE DE VISIBILIDADE
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
-	/* ✏ media config acima do banner */
-	#media-config { display: none; }
-
 	/* ✏ link do perfil */
 	#link-profile { display: none; }
 
@@ -146,16 +140,15 @@
 	/* HEADER
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	header {
-		background: linear-gradient(to bottom, #F5F5F5, #E5E5E5);
-		border-bottom: 1px solid #CECECE;
-		padding-bottom: 11px;
+		background-color: #F8F8F8;
+		border-bottom: 3px solid #131313;
+		padding-top: 5px;
+		padding-bottom: 10px;
 		box-shadow: 0 0 8px #0000002a;
 	}
 
-
 	#h-search input {
-		background: #F8F8F8;
-		border: none;
+		background: #F6F6F6;
 	}
 
 	#h-search button {
@@ -271,6 +264,16 @@
 		height: 50px;
 	}
 
+
+	#introduction-cards > ul > li:hover > div > div:first-child > img {
+		transform: rotateY(5400deg);
+		transition: 60s;
+	}
+	#introduction-cards > ul > li > div > div:first-child > img {
+		transform: rotateY(0deg);
+		transition: 10s;
+	}
+
 	
 	/* FOOTER
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
@@ -366,7 +369,7 @@
 		display: none;
 		box-shadow: 0 0 3px blue;
 	}
-
+	
 	#h-search input {
 		width: 75%;
 		border-top-left-radius: 5px;

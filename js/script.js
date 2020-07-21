@@ -58,16 +58,6 @@ class Carousel {
 		this.moveItems()
 	}
 
-	resizing(new_carousel_slide_width, new_last_visible_elements) {
-		clearInterval(this.interval)
-		this.carousel_slide_count = 0
-		this.moveItems()
-		this.carousel_slide_width = new_carousel_slide_width
-		this.last_visible_elements = new_last_visible_elements
-		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
-		this.interval = this.intervalControl(this.time_interval)
-	}
-
 	down(downevent) {
 		clearInterval(this.interval)
 		this.ipx = downevent.touches[0].clientX
@@ -150,6 +140,16 @@ class Carousel {
 		}
 	}
 
+	resizing(new_carousel_slide_width, new_last_visible_elements) {
+		clearInterval(this.interval)
+		this.carousel_slide_count = 0
+		this.moveItems()
+		this.carousel_slide_width = new_carousel_slide_width
+		this.last_visible_elements = new_last_visible_elements
+		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
+		this.interval = this.intervalControl(this.time_interval)
+	}
+
 	static resizeImages(items, id, size = null) {
 		let item = document.getElementById(id)
 		let w = item.offsetWidth
@@ -167,7 +167,7 @@ class Carousel {
 
 	static resizeSlideItem(items, min, max) {
 		let list = document.getElementsByClassName(items)
-		let w = document.getElementsByClassName('content')[1].offsetWidth
+		let w = document.getElementsByClassName('content')[0].offsetWidth
 
 		if(window.innerWidth < min) {
 			w /= 2
@@ -190,6 +190,17 @@ class Carousel {
 		}
 	
 		return w
+	}
+
+	static updateValuesOnRezise(items) {
+		let list = document.getElementsByClassName(items)
+		let w = document.getElementsByClassName('content')[0].offsetWidth
+
+		for(let i = 0; i < list.length; i++) {
+			list[i].style = ''
+		}
+		w = document.getElementsByClassName(items)[0].offsetWidth
+		return Math.round(w)
 	}
 }
 
@@ -219,14 +230,24 @@ function resizingWindow() {
 		let carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
 
 		let slide_content = document.getElementsByClassName('content')[0].offsetWidth
-		let slide_items_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
-		let slide_items_width_2 = Carousel.resizeSlideItem('slide_items_2', 620, 768)
-
-		let last_view_elements = Math.round(slide_content / slide_items_width_1)
-
+		let slide_items_width_1, slide_items_width_2, last_view_elements
 		carousel_obj_intro.resizing(carousel_intro_width, 1)
-		carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
-		carousel_obj_deal.resizing(slide_items_width_2, last_view_elements)
+
+		if(window.innerWidth < 768) {
+			slide_items_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
+			slide_items_width_2 = Carousel.resizeSlideItem('slide_items_2', 620, 768)
+			last_view_elements = Math.round(slide_content / slide_items_width_1)
+
+			carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
+			carousel_obj_deal.resizing(slide_items_width_2, last_view_elements)
+		} else {
+			slide_items_width_1 = Carousel.updateValuesOnRezise('slide_items_1')
+			slide_items_width_2 = Carousel.updateValuesOnRezise('slide_items_2')
+			last_view_elements = Math.round(slide_content / slide_items_width_1)
+
+			carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
+			carousel_obj_deal.resizing(slide_items_width_2, last_view_elements)
+		}
 	}
 }
 

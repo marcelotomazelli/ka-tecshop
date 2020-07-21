@@ -144,8 +144,18 @@ div das imagens ~~ */
 	padding: 6px 15px;
 }
 
-.slide-tittle-controls > div + div ul > li a {
+.slide-tittle-controls > div + div ul > li button {
+	border: none;
+	background: none;
+	color: #454545;
 	display: block;
+	transition: 0.3s;
+}
+
+.slide-tittle-controls > div + div ul > li button:hover {
+	cursor: pointer;
+	color: #D01F1F;
+	transition: 0.3s;
 }
 
 /* ~~~ Parte dos botões ~~~ */
@@ -228,9 +238,8 @@ div das imagens ~~ */
 .slide_items > div {
 	height: 100%;
 	width: 100%;
-	background: #FFFFFF;
 	padding: 10px;
-	border: 1px solid #E3E3E3;
+	border: 1px solid #DCDCDC;
 	border-radius: 5px;
 }
 
@@ -246,11 +255,11 @@ div das imagens ~~ */
 @media (min-width: 768px) {
 	.slide_items > div {
 		padding: 10px;
-		box-shadow: 0 0 10px -7px #1B1B1B5a;
+		box-shadow: 0 0 10px -2px #00000022;
 	}
 
 	.slide_items > div:hover {
-		box-shadow: 0 0 10px -7px #1B1B1Bfa;
+		box-shadow: 0 0 10px -2px #0000003a;
 	}
 }
 
@@ -301,6 +310,11 @@ div das imagens ~~ */
 	box-shadow: 0 0 10px -5px #000000aa;
 }
 
+.slide_items > div > div:first-child > a + div > a:hover {
+	background: #F43434;
+	color: #fff;
+}
+
 .slide_items > div > div:first-child > a + div > a i {
 	position: relative;
 	top: 2px;
@@ -327,7 +341,7 @@ div das imagens ~~ */
 @media (min-width: 768px) {
 	.slide_items:hover > div > div:first-child > a + div + div {
 		opacity: 0;
-		margin-top: -50px;
+		margin-top: -100px;
 		transition: 0.3s;
 	}
 }
@@ -405,7 +419,7 @@ div das imagens ~~ */
 	display: inline-block;
 	border-radius: 40px;
 	padding: 10px 12px;
-	border: 1px solid #D2D2D2;
+	border: 1px solid #D7D7D7;
 }
 
 .slide_items > div > div + div + div > a:hover {
