@@ -1,261 +1,75 @@
-class Carousel {
+/*
+Legenda
+crsl - carousel
+s - slide
+si - slide items
+*/
 
-	constructor(reference_items, carousel_slide_width, time_interval, last_visible_elements) {
-		this.reference_items = document.getElementsByClassName(reference_items)
-		this.carousel_slide_count = 0
-		this.carousel_slide_width = carousel_slide_width
-		this.time_interval = time_interval
-		this.last_visible_elements = last_visible_elements
-		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
-		this.interval = this.intervalControl(this.time_interval)
-		this.position_move_relative = 0
-		this.ipx = 0
-	}
+let crslObj_intro, crslObj_trend, crslObj_deal
 
-	intervalControl(time) {
-		return setInterval(() => {
-			this.autonext()
-		}, time)
-	}
-
-	moveItems() {
-		for(let i = 0; i < this.reference_items.length; i++) {
-			this.reference_items[i].style.transform = 'translateX(-' + this.carousel_slide_count + 'px)'
-		}
-	}
-
-	next() {
-		clearInterval(this.interval)
-		this.carousel_slide_count += this.carousel_slide_width
-
-		if(this.carousel_slide_count == this.last_traslate_possible) {
-			this.carousel_slide_count = 0
-		}
-		this.moveItems()
-		this.interval = this.intervalControl(this.time_interval)
-	}
-
-	prev() {
-		clearInterval(this.interval)
-		if(this.carousel_slide_count == 0) {
-			this.carousel_slide_count = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements)
-		} else {
-			this.carousel_slide_count -= this.carousel_slide_width
-		}
-		this.moveItems()
-		this.interval = this.intervalControl(this.time_interval)
-	}
-
-	autonext() {
-		this.carousel_slide_count += this.carousel_slide_width
-		let aux = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
-		
-		if(this.carousel_slide_count >= aux) {
-			this.carousel_slide_count = 0
-		}
-
-		this.carousel_slide_count 
-		this.moveItems()
-	}
-
-	down(downevent) {
-		clearInterval(this.interval)
-		this.ipx = downevent.touches[0].clientX
-		this.position_move_relative = 0
-		for(let i = 0; i < this.reference_items.length; i++) {
-			this.reference_items[i].style.transition = '0s'
-		}
-		let body_reference = document.getElementsByTagName('body')[0]
-		body_reference.ontouchmove = () => this.move(event)
-		body_reference.ontouchend = () => this.stop()
-		body_reference.ontouchcancel = () => this.stop()
-	}
-
-	stop() {
-		for(let i = 0; i < this.reference_items.length; i++) {
-			this.reference_items[i].style.transition = ''
-		}
-
-		let a = this.position_move_relative % this.carousel_slide_width
-		let b = this.carousel_slide_width / 2
-
-		this.position_move_relative -= a
-		this.position_move_relative /= this.carousel_slide_width
-
-		if(a < 0) {
-			a *= -1
-			if(a >= b) {
-				this.position_move_relative--
-			}
-		} else if(a > 0) {
-			if(a >= b) {
-				this.position_move_relative++
-			}
-		}
-
-		if(this.position_move_relative > 0) {
-			this.carousel_slide_count -= this.carousel_slide_width * this.position_move_relative
-		} else {
-			this.carousel_slide_count += this.carousel_slide_width * (-this.position_move_relative)
-		}
-
-		let translate_value = this.reference_items[0].style.transform
-		translate_value = translate_value.replace('translateX(', '')
-		translate_value = translate_value.replace('px)', '')
-		translate_value = parseInt(translate_value) * (-1)
-		translate_value += this.carousel_slide_width
-
-		if(translate_value > this.last_traslate_possible) {
-			this.carousel_slide_count = 0
-		} else if(translate_value < this.carousel_slide_width) {
-			this.carousel_slide_count = this.last_traslate_possible - this.carousel_slide_width
-		}
-
-		this.moveItems()
-
-		let body_reference = document.getElementsByTagName('body')[0]
-		body_reference.ontouchmove = ''
-		body_reference.ontouchend = ''
-		body_reference.ontouchcancel = ''
-
-		this.interval = this.intervalControl(this.time_interval)
-	}
-
-	move(moveevent) {
-		let translate_value = this.reference_items[0].style.transform
-		if(translate_value != '') {
-			translate_value = translate_value.replace('translateX(', '')
-			translate_value = translate_value.replace('px)', '')
-			translate_value = parseInt(translate_value) * (-1)
-			translate_value += this.carousel_slide_width
-		} else {
-			translate_value = this.carousel_slide_width
-		}
-
-		if(translate_value < this.last_traslate_possible + 50 && translate_value > this.carousel_slide_width - 50) {
-			this.position_move_relative = event.touches[0].clientX - this.ipx
-			for(let i = 0; i < this.reference_items.length; i++) {
-				this.reference_items[i].style.transform = 'translateX(' + -(this.carousel_slide_count + (-this.position_move_relative))  + 'px)'
-			}
-		}
-	}
-
-	resizing(new_carousel_slide_width, new_last_visible_elements) {
-		clearInterval(this.interval)
-		this.carousel_slide_count = 0
-		this.moveItems()
-		this.carousel_slide_width = new_carousel_slide_width
-		this.last_visible_elements = new_last_visible_elements
-		this.last_traslate_possible = this.carousel_slide_width * (this.reference_items.length - this.last_visible_elements + 1)
-		this.interval = this.intervalControl(this.time_interval)
-	}
-
-	static resizeImages(items, id, size = null) {
-		let item = document.getElementById(id)
-		let w = item.offsetWidth
-		let h = w / size
-		item.style.height = h + 'px'
-
-		let list = document.getElementsByClassName(items)
-
-		for(let i = 0; i < list.length; i++) {
-			list[i].style.width = w + 'px'
-			list[i].style.height = h + 'px'
-		}
-		return w
-	}
-
-	static resizeSlideItem(items, min, max) {
-		let list = document.getElementsByClassName(items)
-		let w = document.getElementsByClassName('content')[0].offsetWidth
-
-		if(window.innerWidth < min) {
-			w /= 2
-			w = Math.round(w)
-			for(let i = 0; i < list.length; i++) {
-				list[i].style.minWidth = w + 'px'
-			}
-		} else if(window.innerWidth >= min && window.innerWidth < max) {
-			w /= 3
-			w = Math.round(w)
-			for(let i = 0; i < list.length; i++) {
-				list[i].style.minWidth = w + 'px'
-			}
-		} else {
-			for(let i = 0; i < list.length; i++) {
-				list[i].style = ''
-			}
-			w = document.getElementsByClassName(items)[0].offsetWidth
-			w = Math.round(w)
-		}
-	
-		return w
-	}
-
-	static updateValuesOnRezise(items) {
-		let list = document.getElementsByClassName(items)
-		let w = document.getElementsByClassName('content')[0].offsetWidth
-
-		for(let i = 0; i < list.length; i++) {
-			list[i].style = ''
-		}
-		w = document.getElementsByClassName(items)[0].offsetWidth
-		return Math.round(w)
-	}
-}
-
-let carousel_obj_intro
-let carousel_obj_trend
-let carousel_obj_deal
-let initial_width_window
+// largura inicial do client
+let iw_client
 
 function onloadBody() {
-	initial_width_window = window.innerWidth
+	// Definindo a largura inicial
+	iw_client = window.innerWidth
 
-	let carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
+	// Trabalhando a proporção do carousel da intro
+	let crslWidth_intro = Carousel.resizeImages('carousel-intro', 'carousel-image', 2)
 
+	// Se a largura do client for menor que 768 ele vai trabalhar com o tamanho dos slide items
+	let sWidth_trend = Carousel.resizeSlideItem('si_trend', 620, 768)
+	let slWidth_deal = Carousel.resizeSlideItem('si_deal', 620, 768)
+
+	// Definindo a quantidade de elementos que aparecem na tela
 	let content_width = document.getElementsByClassName('content')[0].offsetWidth
-	let slide_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
-	let slide_width_2 = Carousel.resizeSlideItem('slide_items_2', 620, 768)
-	let last_slide_elements = Math.round(content_width / slide_width_1)
+	let view_elements = Math.round(content_width / sWidth_trend)
 
-	// Carousel da introdução
-	carousel_obj_intro = new Carousel('carousel-item', carousel_intro_width, 4000, 1)
-	carousel_obj_trend = new Carousel('slide_items_1', slide_width_1, 7000, last_slide_elements)
-	carousel_obj_deal = new Carousel('slide_items_2', slide_width_2, 7000, last_slide_elements)
+	// Criando as instâncias
+	crslObj_intro = new Carousel('carousel-item', crslWidth_intro, 4000, 1)
+	crslObj_trend = new Carousel('si_trend', sWidth_trend, 7000, view_elements)
+	crslObj_deal = new Carousel('si_deal', slWidth_deal, 7000, view_elements)
 }
 
 function resizingWindow() {
-	if(initial_width_window != window.innerWidth) {
-		let carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
+	// Verifica se o evento foi somente no eixo x
+	/* A intenção é evitar o resize em dispositivos moveis quando o evento é disparado 
+	ao rolar a tela e a barra superior do proprio navegador esconder */ 
+	if(iw_client != window.innerWidth) {
+		// Aplicando resize no carousel da intro
+		let crslWidth_intro = Carousel.resizeImages('carousel-intro', 'carousel-image', 2)
+		crslObj_intro.resizing(crslWidth_intro, 1)
 
+		// Pegando largura do content
 		let slide_content = document.getElementsByClassName('content')[0].offsetWidth
-		let slide_items_width_1, slide_items_width_2, last_view_elements
-		carousel_obj_intro.resizing(carousel_intro_width, 1)
+
+		// Definindo variveis que serão usados em ambas as condições
+		let siWidth_trend, siWidth_deal
 
 		if(window.innerWidth < 768) {
-			slide_items_width_1 = Carousel.resizeSlideItem('slide_items_1', 620, 768)
-			slide_items_width_2 = Carousel.resizeSlideItem('slide_items_2', 620, 768)
-			last_view_elements = Math.round(slide_content / slide_items_width_1)
-
-			carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
-			carousel_obj_deal.resizing(slide_items_width_2, last_view_elements)
+			// Trabalhando o resize
+			siWidth_trend = Carousel.resizeSlideItem('si_trend', 620, 768)
+			siWidth_deal = Carousel.resizeSlideItem('si_deal', 620, 768)
 		} else {
-			slide_items_width_1 = Carousel.updateValuesOnRezise('slide_items_1')
-			slide_items_width_2 = Carousel.updateValuesOnRezise('slide_items_2')
-			last_view_elements = Math.round(slide_content / slide_items_width_1)
-
-			carousel_obj_trend.resizing(slide_items_width_1, last_view_elements)
-			carousel_obj_deal.resizing(slide_items_width_2, last_view_elements)
+			// Trabalhando o update dos valores, pois não é necessario resize
+			siWidth_trend = Carousel.updValSlideItens('si_trend')
+			siWidth_deal = Carousel.updValSlideItens('si_deal')
 		}
+
+		// Definindo a quantidade de elementos que aparecem na tela
+		let view_elements = Math.round(slide_content / siWidth_trend)
+
+		crslObj_trend.resizing(siWidth_trend, view_elements)
+		crslObj_deal.resizing(siWidth_deal, view_elements)
 	}
 }
 
+// Função para mudança de visulização na interação com o menu de categorias
 function categoriesMenu() {
 	setTimeout(function() {
-		let carousel_intro_width = Carousel.resizeImages('carousel-image', 'carousel-introduction', 2)
-		carousel_obj_intro.resizing(carousel_intro_width, 1)
-	}, 600)	
+		let crslWidth_intro = Carousel.resizeImages('carousel-intro', 'carousel-image', 2)
+		crslObj_intro.resizing(crslWidth_intro, 1)
+	}, 1000)	
 }
 
 function changeClass(id_elements, new_class, old_class) {
