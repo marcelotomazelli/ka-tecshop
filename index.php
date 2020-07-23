@@ -1,8 +1,6 @@
-<?php
-
-	require "controle.php";
+<?php 
+	require "./php/list_products.php";
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="css/media.css">
 
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="fontawesome/css/all.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 
 	<!-- Para Estilos do menu Categoria -->
 	<style type="text/css">
@@ -27,31 +25,29 @@
 </head>
 <body id="bodyid" onresize="resizingWindow()" onload="onloadBody()">
 
-	
-	<? require_once "header.php" ?>
+	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
+	<? require_once "phphtml/header.php" ?>
 
-
-	<!-- ➖➖➖➖➖➖  INTRODUÇÂO DO MAIN  ➖➖➖➖➖➖ -->
+	<!--|➖➖➖➖  Seção introdocção  ➖➖➖➖|-->
 	<section id="section-introduction" class="close">
-
 		<div class="content">
 
 			<div> <!-- ⏩ Carousel -->
-				<div id="carousel-introduction" class="carousel">
+				<div id="carousel-intro" class="carousel">
 					
-					<!---\ Botões do Carousel /--->
-					<div id="carousel_intro_buttons" class="buttons-carousel" ontouchstart="carousel_obj_intro.down(event)">
-						<!--Batão Prev-->
-						<button class="carousel-prev" onclick="carousel_obj_intro.prev()">
+					<!---\ Botões do Carousel--->
+					<div id="carousel_intro_buttons" class="buttons-carousel" ontouchstart="crslObj_intro.touch(event)">
+						<!--; Batão Prev-->
+						<button class="carousel-prev" onclick="crslObj_intro.prev()">
 							<i class="fas fa-chevron-left"></i>
 						</button>
-						<!--Batão Next-->
-						<button class="carousel-next" onclick="carousel_obj_intro.next()">
+						<!--; Batão Next-->
+						<button class="carousel-next" onclick="crslObj_intro.next()">
 							<i class="fas fa-chevron-right"></i>
 						</button>
 					</div>
 
-               		<!---\ Imagens do Carousel /--->
+               		<!---\ Imagens do Carousel--->
 					<div class="carousel-images">
 						<div class="carousel-item">
 							<img class="carousel-image" src="img/poster1.jpg" alt="placeholder+image">
@@ -70,10 +66,11 @@
 			<div id="introduction-cards"> <!-- ⏩ Cards da Introdução -->
 				<ul>
 
+ 					<!-- <|----------------------------|> -->
 					<li>
 						<div>
 							<div>
-								<img src="img/card-gift.png">
+								<img src="img/icons/card-gift.png">
 							</div>
 							<div>
 								<h3>Presente Especial</h3>
@@ -82,10 +79,11 @@
 						</div>
 					</li>
 					
+ 					<!-- <|----------------------------|> -->
 					<li>
 						<div>
 							<div>
-								<img src="img/card-payment.png">
+								<img src="img/icons/card-payment.png">
 							</div>
 							<div>
 								<h3>Pagamento Seguros</h3>
@@ -94,10 +92,11 @@
 						</div>
 					</li>
 					
+ 					<!-- <|----------------------------|> -->
 					<li>
 						<div>
 							<div>
-								<img src="img/card-suport.png">
+								<img src="img/icons/card-suport.png">
 							</div>
 							<div>
 								<h3>7/24 Suporte</h3>
@@ -106,10 +105,11 @@
 						</div>
 					</li>
 					
+ 					<!-- <|----------------------------|> -->
 					<li>
 						<div>
 							<div>
-								<img src="img/card-offer.png">
+								<img src="img/icons/card-offer.png">
 							</div>
 							<div>
 								<h3>Ofertas Especiais</h3>
@@ -122,112 +122,89 @@
 			</div> <!-- ◼ Cards da Introdução -->
 
 		</div>
-
 	</section>
-	<!-- ➖➖➖➖➖➖  INTRODUÇÂO DO MAIN ➖➖➖➖➖➖ -->
 
-
-
-
-
-
-
-	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
-
-
-
-
-
-
-
-	<!-- ➖➖➖➖➖➖  SEÇÃO DAS TENDÊNCIAS ➖➖➖➖➖➖ -->
+	<!--|➖➖➖➖  Seção das têndencias  ➖➖➖➖|-->
 	<section id="section-trending">
-
 		<div class="content">
-			
-			<div class="content-slide-items"> <!-- ⏩ SlideItems das Tendencias -->
+			<div class="content-slide-items"> <!-- ⏩ SlideItems das tendencias -->
 				
-				<!---\ Cabeçalho do SlideItems /--->
+				<!---\ Cabeçalho do SlideItems --->
 				<div class="slide-tittle-controls">
 
-					<!--Titulo-->
+					<!--; Titulo-->
 					<div>
 						<h3>Produtos em tendência</h3>
 					</div>
 
-					<!--Links e Botões-->
+					<!--; Links e Botões-->
 					<div>
 						<ul>
-							<li><button>Destaque</button></li>
-							<li><button>BestSeller</button></li>
-							<li><button>Últimos</button></li>
+							<li>
+								<button onclick="requisitionAjax('destaque')">Destaque</button>
+							</li>
+							<li>
+								<button onclick="requisitionAjax('bestseller')">BestSeller</button>
+							</li>
+							<li>
+								<button onclick="requisitionAjax('ultimos')">Últimos</button>
+							</li>
 							<div class="clear"></div>
 						</ul>
 						<div>
-							<button onclick="carousel_obj_trend.prev()">
+							<button onclick="crslObj_trend.prev()">
 								<i class="fas fa-chevron-left"></i>
 							</button>
-							<button onclick="carousel_obj_trend.next()">
+							<button onclick="crslObj_trend.next()">
 								<i class="fas fa-chevron-right"></i>
 							</button>
 						</div>
 					</div>
 				</div>
 
-				<!--Corpo do SlideItems-->
-				<div class="slide-carousel" ontouchstart="carousel_obj_trend.down(event)">
-
-					<? foreach($lista_produtos as $valor) { ?>
-
-					<div class="slide_items slide_items_1">
-						<div>
+				<!--; Corpo do SlideItems-->
+				<div id="si-trend-content" class="slide-carousel" ontouchstart="crslObj_trend.touch(event)">
+					
+					<!-- Script que constroe a visulização dos produtos em destaque -->
+					<? foreach($list_dstq as $value) { ?>
+										
+						<div class="slide_items si_trend">
 							<div>
-								<a href="#">
-									<img src="img_produtos/<?= $valor['id_produto']?>/index.jpg">
-								</a>
 								<div>
 									<a href="#">
-										<i class="fas fa-heart"></i>
+										<img src="img_produtos/<?= $value['id_produto']?>/index.jpg">
 									</a>
+									<div>
+										<a href="#">
+											<i class="fas fa-heart"></i>
+										</a>
+									</div>
+								</div>
+								
+								<div>
+									<h2><a href=""><?= $value['nome_curto']?></a></h2>
+									<h3>
+										R$ 
+										<?= 
+											$value['valor']
+										?>
+									</h3>
+								</div>
+								<div>
+									<a href="#">Adicionar ao carrinho</a>
 								</div>
 							</div>
-							
-							<div>
-								<h2><a href=""><?= $valor['nome_curto']?></a></h2>
-								<h3><?= $valor['valor']?></h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
 						</div>
-					</div>
-
+						
 					<? } ?>
+
 				</div>
 			</div> <!-- ◼ SlideItens das Tendencias -->
-
 		</div>
-
 	</section>
-	<!-- ➖➖➖➖➖➖  SEÇÃO DAS TENDÊNCIAS ➖➖➖➖➖➖ -->
 
-
-
-
-
-
-
-	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
-
-
-
-
-
-
-
-	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ANÚNCIOS ➖➖➖➖➖➖ -->
+	<!--|➖➖➖➖  Seção dos anúncios ➖➖➖➖|-->
 	<section id="section-advertising">
-
 		<div class="content">
 
 			<div>
@@ -235,8 +212,12 @@
 					<img src="http://dummyimage.com/370x245/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
 					<img src="http://dummyimage.com/370x245/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
 				</div>
-				<div><img src="http://dummyimage.com/370x500
-					/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image"></div>
+
+				<div>
+					<img src="http://dummyimage.com/370x500
+					/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
+				</div>
+
 				<div>
 					<img src="http://dummyimage.com/370x245/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
 					<img src="http://dummyimage.com/370x245/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
@@ -244,27 +225,11 @@
 			</div>
 
 		</div>
-
 	</section>
-	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ANÚNCIOS ➖➖➖➖➖➖ -->
 
 
-
-
-
-
-
-	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
-
-
-
-
-
-
-
-	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ESPECIAIS DO DIA ➖➖➖➖➖➖ -->
+	<!-- |➖➖➖➖  Seção dos especiais do dia  ➖➖➖➖| -->
 	<section id="section-deal">
-
 		<div class="content">
 
 			<div class="content-slide-items"> <!-- ⏩ SlideItens dos Especiais -->
@@ -280,10 +245,10 @@
 					<!--Links e Botões-->
 					<div>
 						<div>
-							<button onclick="carousel_obj_deal.prev()">
+							<button onclick="crslObj_deal.prev()">
 								<i class="fas fa-chevron-left"></i>
 							</button>
-							<button onclick="carousel_obj_deal.next()">
+							<button onclick="crslObj_deal.next()">
 								<i class="fas fa-chevron-right"></i>
 							</button>
 						</div>
@@ -292,363 +257,56 @@
 				</div>
 
 				<!--Corpo do SlideItems-->
-				<div class="slide-carousel" ontouchstart="carousel_obj_deal.down(event)">
-
-					<div class="slide_items slide_items_2">
-						<div>
+				<div class="slide-carousel" ontouchstart="crslObj_deal.touch(event)">
+					
+					<? for($i = 1; $i <= 9; $i++) { ?>
+						<div class="slide_items si_deal">
 							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=1" alt="placeholder+image">
-								</a>
+
 								<div>
 									<a href="#">
-										<i class="fas fa-heart"></i>
+										<img src="http://dummyimage.com/1000x1000/4d494d/686a82.gif&text=<?= $i?>" alt="placeholder+image">
 									</a>
+									<div>
+										<a href="#">
+											<i class="fas fa-heart"></i>
+										</a>
+									</div>
+									<div>
+										<ul>
+											<li><span><?= rand(0, 375); ?></span>dias</li>
+											<li><span><?= rand(0, 23); ?></span>horas</li>
+											<li><span><?= rand(0, 60); ?></span>min</li>
+										</ul>
+									</div>
 								</div>
+								
 								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
+									<h2><a href="">Teste</a></h2>
+									<h3><?= rand(0, 9999).','.rand(0, 99) ?></h3>
 								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
 
-					<div class="slide_items slide_items_2">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=2" alt="placeholder+image">
-								</a>
 								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
+									<a href="#">Adicionar ao carrinho</a>
 								</div>
-								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
 
-					<div class="slide_items slide_items_2">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=3" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
 							</div>
 						</div>
-					</div>
-
-					<div class="slide_items slide_items_2">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=4" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="slide_items slide_items_2">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=5" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="slide_items slide_items_2">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=6" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="slide_items slide_items_2">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=7" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="slide_items slide_items_2">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=8" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="slide_items slide_items_2">
-						<div>
-							<div>
-								<a href="#">
-									<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=9" alt="placeholder+image">
-								</a>
-								<div>
-									<a href="#">
-										<i class="fas fa-heart"></i>
-									</a>
-								</div>
-								<div>
-									<ul>
-										<li><span>273</span>dias</li>
-										<li><span>14</span>horas</li>
-										<li><span>6</span>min</li>
-									</ul>
-								</div>
-							</div>
-							
-							<div>
-								<h2><a href="">Teste</a></h2>
-								<h3>R$12,34</h3>
-							</div>
-							<div>
-								<a href="#">Adicionar ao carrinho</a>
-							</div>
-						</div>
-					</div>
+					<? } ?>
 
 				</div>
 
 			</div> <!-- ◼ SlideItens dos Especiais -->
 
 		</div>
-
 	</section>
-	<!-- ➖➖➖➖➖➖  SEÇÃO DOS ESPECIAIS DO DIA ➖➖➖➖➖➖ -->
+
+	<!-- |➖➖➖➖  Rodapé  ➖➖➖➖| -->
+	<? require_once "phphtml/footer.php" ?>
 
 
-
-
-
-
-
-	<!-- ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ -->
-
-
-
-
-
-
-
-	<!-- ➖➖➖➖➖➖  RODAPÉ ➖➖➖➖➖➖ -->
-	<footer>
-		<div class="content">
-			<div id="footer-contate" class="close">
-				<h3 onclick="changeClass(['footer-contate'], 'open', 'close')">
-					Contato
-					<i class="fas fa-plus"></i>
-					<i class="fas fa-minus"></i>
-					<div></div>
-				</h3>
-				<ul>
-					<li><i class="fas fa-map-marker-alt"></i>Lorem ipsum dolor sit amet, 24</li>
-					<li><i class="fas fa-envelope"></i>company@dominio.com</li>
-					<li><i class="fas fa-phone"></i>+55 (12) 12345-1234</li>
-				</ul>
-			</div>
-			<div id="footer-extra" class="close">
-				<h3 onclick="changeClass(['footer-extra'], 'open', 'close')">
-					Extras
-					<i class="fas fa-plus"></i>
-					<i class="fas fa-minus"></i>
-					<div></div>
-				</h3>
-				<ul>
-					<li>Brands</li>
-					<li>Gift Certificates</li>
-					<li>Affiliate</li>
-					<li>Specials</li>
-				</ul>
-			</div>
-			<div id="footer-information" class="close">
-				<h3 onclick="changeClass(['footer-information'], 'open', 'close')">
-					Information
-					<i class="fas fa-plus"></i>
-					<i class="fas fa-minus"></i>
-					<div></div>
-				</h3>
-				<ul>
-					<li>Sobre nós</li>
-					<li>Delivery information</li>
-					<li>Privacy Policy</li>
-					<li>Terms & Conditions</li>
-					<li>Contato</li>
-					<li>Site Map</li>
-				</ul>
-			</div>
-			<div id="footer-account" class="close">
-				<h3 onclick="changeClass(['footer-account'], 'open', 'close')">
-					Minha Conta
-					<i class="fas fa-plus"></i>
-					<i class="fas fa-minus"></i>
-					<div></div>
-				</h3>
-				<ul>
-					<li>My Account</li>
-					<li>Order History</li>
-					<li>Wish List</li>
-				</ul>
-			</div>
-		</div>
-	</footer>
-
+	<!-- ➖➖|´/ Script \`|➖➖ -->
+	<script src="js/carousel.class.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>

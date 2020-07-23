@@ -129,18 +129,18 @@ body.open {
 }
 
 #cart {
-	background: url(../img/cart-icon.png) no-repeat;
+	background: url(../img/icons/cart-icon.png) no-repeat;
 	background-size: 39px 39px;
 }
 
 #favorites {
-	background: url(../img/heart.png) no-repeat;
+	background: url(../img/icons/heart.png) no-repeat;
 	background-position: 3px 4px;
 	background-size: 32px 32px;
 }
 
 #link-profile {
-	background: url(../img/user.png) no-repeat;
+	background: url(../img/icons/user.png) no-repeat;
 	background-position: 2px 1px;
 	background-size: 36px 36px;
 }
@@ -560,7 +560,7 @@ body.open {
 	margin-top: 15px;
 }
 
-#carousel-introduction {
+#carousel-intro {
 	margin: 0 auto;
 }
 
@@ -603,6 +603,10 @@ body.open {
 
 #section-trending {
 	margin-top: 15px;
+}
+
+#section-trending .create {
+	opacity: 0;
 }
 
 .clear {
