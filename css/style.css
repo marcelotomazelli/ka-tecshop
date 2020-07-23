@@ -605,6 +605,10 @@ body.open {
 	margin-top: 15px;
 }
 
+#section-trending .create {
+	opacity: 0;
+}
+
 .clear {
 	clear: both;
 }

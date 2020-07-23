@@ -44,7 +44,7 @@ class Carousel {
 		clearInterval(this.interval)
 		this.t_current += this.sWidth
 		
-		if(this.t_current == this.t_limit)
+		if(this.t_current >= this.t_limit)
 			this.t_current = 0
 
 		this.moveItems()
@@ -198,28 +198,30 @@ class Carousel {
 	}
 
 	// Metodo que redimenciona os elementos do carousel com visualização de um ou mais elementos
-	static resizeSlideItem(items, min, max) {
+	static resizeSlideItem(items, min, mid, max, view1, view2, view3) {
 		let list = document.getElementsByClassName(items)
 		let w = document.getElementsByClassName('content')[0].offsetWidth
 
-		if(window.innerWidth < min) {
-			w /= 2
-			w = Math.round(w)
-			for(let i = 0; i < list.length; i++)
-				list[i].style.minWidth = w + 'px'
-		} else if(window.innerWidth >= min && window.innerWidth < max) {
-			w /= 3
-			w = Math.round(w)
-			for(let i = 0; i < list.length; i++)
-				list[i].style.minWidth = w + 'px'
+		let wWidth = window.innerWidth
+		let result
+		if(wWidth < max) {
+			if(wWidth < min) {
+				w /= view1
+			} else if(wWidth >= min && wWidth < mid) {
+				w /= view2
+			} else if(wWidth >= mid && wWidth < max) {
+				w /= view3
+			}
+			result = w + 'px'
 		} else {
-			for(let i = 0; i < list.length; i++)
-				list[i].style = ''
 			w = document.getElementsByClassName(items)[0].offsetWidth
-			w = Math.round(w)
+			result = ''
 		}
-	
-		return w
+
+		for(let i = 0; i < list.length; i++)
+			list[i].style.minWidth = result
+
+		return Math.round(w)
 	}
 
 	// Metodo para atualizar alguns valores no evento de resize devido a não necessidade de ficar redimencioando

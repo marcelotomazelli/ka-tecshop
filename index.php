@@ -1,3 +1,6 @@
+<?php 
+	require "./php/list_products.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +26,7 @@
 <body id="bodyid" onresize="resizingWindow()" onload="onloadBody()">
 
 	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
-	<? require_once "php/header.php" ?>
+	<? require_once "phphtml/header.php" ?>
 
 	<!--|➖➖➖➖  Seção introdocção  ➖➖➖➖|-->
 	<section id="section-introduction" class="close">
@@ -137,9 +140,15 @@
 					<!--; Links e Botões-->
 					<div>
 						<ul>
-							<li><button>Destaque</button></li>
-							<li><button>BestSeller</button></li>
-							<li><button>Últimos</button></li>
+							<li>
+								<button onclick="requisitionAjax('destaque')">Destaque</button>
+							</li>
+							<li>
+								<button onclick="requisitionAjax('bestseller')">BestSeller</button>
+							</li>
+							<li>
+								<button onclick="requisitionAjax('ultimos')">Últimos</button>
+							</li>
 							<div class="clear"></div>
 						</ul>
 						<div>
@@ -154,15 +163,16 @@
 				</div>
 
 				<!--; Corpo do SlideItems-->
-				<div class="slide-carousel" ontouchstart="crslObj_trend.touch(event)">
-
-					<? for($i = 1; $i <= 9; $i++) { ?>
+				<div id="si-trend-content" class="slide-carousel" ontouchstart="crslObj_trend.touch(event)">
+					
+					<!-- Script que constroe a visulização dos produtos em destaque -->
+					<? foreach($list_dstq as $value) { ?>
 										
 						<div class="slide_items si_trend">
 							<div>
 								<div>
 									<a href="#">
-										<img src="img_produtos/<?= $i ?>/index.jpg">
+										<img src="img_produtos/<?= $value['id_produto']?>/index.jpg">
 									</a>
 									<div>
 										<a href="#">
@@ -172,8 +182,13 @@
 								</div>
 								
 								<div>
-									<h2><a href="">Teste</a></h2>
-									<h3><?= rand(0, 9999).','.rand(0, 99) ?></h3>
+									<h2><a href=""><?= $value['nome_curto']?></a></h2>
+									<h3>
+										R$ 
+										<?= 
+											$value['valor']
+										?>
+									</h3>
 								</div>
 								<div>
 									<a href="#">Adicionar ao carrinho</a>
@@ -243,13 +258,14 @@
 
 				<!--Corpo do SlideItems-->
 				<div class="slide-carousel" ontouchstart="crslObj_deal.touch(event)">
+					
 					<? for($i = 1; $i <= 9; $i++) { ?>
 						<div class="slide_items si_deal">
 							<div>
 
 								<div>
 									<a href="#">
-										<img src="http://dummyimage.com/180x180/4d494d/686a82.gif&text=<?= $i?>" alt="placeholder+image">
+										<img src="http://dummyimage.com/1000x1000/4d494d/686a82.gif&text=<?= $i?>" alt="placeholder+image">
 									</a>
 									<div>
 										<a href="#">
@@ -277,6 +293,7 @@
 							</div>
 						</div>
 					<? } ?>
+
 				</div>
 
 			</div> <!-- ◼ SlideItens dos Especiais -->
@@ -285,11 +302,11 @@
 	</section>
 
 	<!-- |➖➖➖➖  Rodapé  ➖➖➖➖| -->
-	<? require_once "php/footer.php" ?>
+	<? require_once "phphtml/footer.php" ?>
 
 
 	<!-- ➖➖|´/ Script \`|➖➖ -->
-	<script src="js/carousel-class.js"></script>
+	<script src="js/carousel.class.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>

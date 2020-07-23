@@ -149,6 +149,7 @@ div das imagens ~~ */
 	background: none;
 	color: #454545;
 	display: block;
+	padding: 0;
 	transition: 0.3s;
 }
 
@@ -245,7 +246,7 @@ div das imagens ~~ */
 
 @media (max-width: 767.98px) {
 	.slide_items > div {
-		max-width: 220px;
+		max-width: 230px;
 		padding: 20px 10px;
 		box-shadow: 0 0 10px -7px #1B1B1Bca;
 	}
