@@ -22,7 +22,21 @@ function onLoad() {
 	crslObj_trend = new Carousel('SpSlide-trend', 'si_trend', 7000)
 	crslObj_deal = new Carousel('SpSlide-deal', 'si_deal', 7000)
 	
-	// Trabalhando a proporção do carousel da intro
+
+	sizing()
+}
+
+function resizing() {
+	// Verifica se o evento foi somente no eixo x
+	/* A intenção é evitar o resize em dispositivos moveis quando o evento é disparado 
+	ao rolar a tela e a barra superior do proprio navegador esconder */ 
+	if(iw_client != window.innerWidth) {
+		sizing()
+	}
+}
+
+function sizing() {
+	// Aplicando resize no carousel da intro
 	crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
 
 	if(window.innerWidth < si_maxW) {
@@ -35,27 +49,6 @@ function onLoad() {
 		crslObj_deal.updValSlideItens()
 	}
 }
-
-function resizing() {
-	// Verifica se o evento foi somente no eixo x
-	/* A intenção é evitar o resize em dispositivos moveis quando o evento é disparado 
-	ao rolar a tela e a barra superior do proprio navegador esconder */ 
-	if(iw_client != window.innerWidth) {
-		// Aplicando resize no carousel da intro
-		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
-
-		if(window.innerWidth < si_maxW) {
-			// Trabalhando o resize
-			crslObj_trend.sizeSlideItem(si_minW, si_maxW, 2, 3)
-			crslObj_deal.sizeSlideItem(si_minW, si_maxW, 2, 3)
-		} else {
-			// Trabalhando o update dos valores, pois não é necessario resize
-			crslObj_trend.updValSlideItens()
-			crslObj_deal.updValSlideItens()
-		}
-	}
-}
-
 // Função responsavel por fazer as requisições da seção das tendencias
 function requisitionAjax(index) {
 	if(index != current_trend_list) {

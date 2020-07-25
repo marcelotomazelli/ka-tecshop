@@ -46,7 +46,6 @@ class Carousel {
 		clearInterval(this.interval)
 		this.t_current += this.sWidth
 
-		console.log(this.t_current + ' | ' + this.t_limit)
 		if(this.t_current >= this.t_limit)
 			this.t_current = 0
 
@@ -184,7 +183,6 @@ class Carousel {
 			}
 		}
 		this.t_limit = this.sWidth * (this.quant_items - this.view_elements + 1)
-		console.log(this.view_elements)
 		this.moveItems()
 		this.interval = this.intervalControl()
 	}
