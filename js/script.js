@@ -9,7 +9,7 @@ let crslObj_intro, crslObj_trend, crslObj_deal
 let si_minW = 620
 let si_maxW = 768
 let current_trend_list = 'destaque'
-
+let time_o
 // largura inicial do client
 let iw_client
 
@@ -29,10 +29,13 @@ function onLoad() {
 function resizing() {
 	// Verifica se o evento foi somente no eixo x
 	/* A intenção é evitar o resize em dispositivos moveis quando o evento é disparado 
-	ao rolar a tela e a barra superior do proprio navegador esconder */ 
-	if(iw_client != window.innerWidth) {
-		sizing()
-	}
+	ao rolar a tela e a barra superior do proprio navegador esconder */
+	clearTimeout(time_o)
+	time_o = setTimeout(function() {
+		if(iw_client != window.innerWidth) {
+			sizing()
+		}
+	}, 500)
 }
 
 function sizing() {
@@ -49,6 +52,53 @@ function sizing() {
 		crslObj_deal.updValSlideItens()
 	}
 }
+
+
+// Função para mudança de visulização na interação com o menu de categorias
+function categoriesMenu() {
+	setTimeout(() => {
+		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+	}, 750)
+}
+
+function changeClass(id_elements, new_class, old_class) {
+	for(let i = 0; i < id_elements.length; i++) {
+		let el = document.getElementById(id_elements[i])
+		if(el.className.includes(old_class))
+			el.className = el.className.replace(old_class, new_class)
+		else 
+			el.className = el.className.replace(new_class, old_class)
+
+	}
+}
+
+document.getElementById('button-categories').onclick = () => {
+	let elements = ['menu-categories', 'section-introduction', 'button-categories']
+	changeClass(elements, 'close_l', 'open_l')
+	categoriesMenu()
+}
+
+document.getElementById('button-responsive-menu').onclick = () => {
+	let elements = ['menu-categories', 'button-responsive-menu', 'bodyid']
+	changeClass(elements, 'open_s', 'close_s')
+}
+
+window.onload =  onLoad
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Função responsavel por fazer as requisições da seção das tendencias
 function requisitionAjax(index) {
 	if(index != current_trend_list) {
@@ -140,24 +190,3 @@ function requisitionAjax(index) {
 		xhttp.send()
 	}
 }
-
-// Função para mudança de visulização na interação com o menu de categorias
-function categoriesMenu() {
-	setTimeout(() => {
-		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
-	}, 750)
-}
-
-function changeClass(id_elements, new_class, old_class) {
-	for(let i = 0; i < id_elements.length; i++) {
-		let el = document.getElementById(id_elements[i])
-		if(el.className == old_class) {
-			el.className = new_class
-		} else {
-			el.className = old_class
-		}
-	}
-}
-
-
-window.onload =  onLoad

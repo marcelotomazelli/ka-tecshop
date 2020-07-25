@@ -23,13 +23,13 @@
 	<style type="text/css">
 	</style>
 </head>
-<body id="bodyid" onresize="resizing()">
+<body id="bodyid" onresize="resizing()" class="close_s">
 
 	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
 	<? require_once "phphtml/header.php" ?>
 
 	<!--|➖➖➖➖  Seção introdocção  ➖➖➖➖|-->
-	<section id="section-introduction" class="open">
+	<section id="section-introduction" class="open_l">
 		<div class="content">
 
 			<div> <!-- ⏩ Carousel -->
