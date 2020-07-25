@@ -1,29 +1,32 @@
 class Carousel {
-	constructor(ref_items, sWidth, time_interval, view_elements) {
-		this.ref_items = document.getElementsByClassName(ref_items)
+	constructor(s_element, h_collection, time_interval) {
+		this.s_element = document.getElementById(s_element)
+		this.h_collection = document.getElementsByClassName(h_collection)
+		this.quant_items = this.h_collection.length
 
 		// Largura que o slide deve se mover
-		this.sWidth = sWidth
+		this.sWidth = 0
 
 		// Quantidade de elemntos que aparecem na tela
-		this.view_elements = view_elements
+		this.view_elements = undefined
 
 		// Usados no eventos de toque
 		this.ipx = 0
 		this.mpx = 0
 		// ipx => initial positionX
 		// mpx => move positionX
-		this.bpx = 0
-		// bpx => border positionX
 
 		// Usados para controle do movimento
 		this.t_current = 0
-		this.t_limit = this.sWidth * (this.ref_items.length - this.view_elements + 1)
+		this.t_limit = undefined
 		// t => translate
 
 		// Usados para controle do intervalo
 		this.time_interval = time_interval
 		this.interval = this.intervalControl()
+
+
+		this.refWidth_to_Cal = document.getElementsByClassName('content')[0]
 	}
 
 	// Metodo que retorne o intevalo
@@ -35,15 +38,15 @@ class Carousel {
 
 	// Metodo responsavel por percorrer e atualizar os valores, causando o movimento dos items
 	moveItems() {
-		for(let i = 0; i < this.ref_items.length; i++)
-			this.ref_items[i].style.transform = 'translateX(-' + this.t_current + 'px)'
+		this.s_element.style.transform = 'translateX(-' + this.t_current + 'px)'
 	}
 
 	// Metodo utilizado no botão "proximo >"
 	next() {
 		clearInterval(this.interval)
 		this.t_current += this.sWidth
-		
+
+		console.log(this.t_current + ' | ' + this.t_limit)
 		if(this.t_current >= this.t_limit)
 			this.t_current = 0
 
@@ -80,18 +83,16 @@ class Carousel {
 		this.ipx = downevent.touches[0].clientX
 		this.mpx = 0
 
-		for(let i = 0; i < this.ref_items.length; i++)
-			this.ref_items[i].style.transition = '0s'
+		this.s_element.style.transition = '0s'
 
-		let body_reference = document.getElementsByTagName('body')[0]
-		body_reference.ontouchmove = () => this.move(event)
-		body_reference.ontouchend = () => this.stop()
-		body_reference.ontouchcancel = () => this.stop()
+		document.ontouchmove = () => this.move(event)
+		document.ontouchend = () => this.stop()
+		document.ontouchcancel = () => this.stop()
 	}
 
 	// Metodo utilizado no evento de touchmove
 	move(moveevent) {
-		let t_relative = this.ref_items[0].style.transform
+		let t_relative = this.s_element.style.transform
 		if(t_relative != '') {
 			t_relative = t_relative.replace('translateX(', '')
 			t_relative = t_relative.replace('px)', '')
@@ -119,15 +120,13 @@ class Carousel {
 
 		if(m_permition) {
 			this.mpx = event.touches[0].clientX - this.ipx
-			for(let i = 0; i < this.ref_items.length; i++) 
-				this.ref_items[i].style.transform = 'translateX(' + -(this.t_current + (-this.mpx))  + 'px)'
+			this.s_element.style.transform = 'translateX(' + -(this.t_current + (-this.mpx))  + 'px)'
 		}
 	}
 
 	// Metodo utilizado no evento de touchend
 	stop() {
-		for(let i = 0; i < this.ref_items.length; i++) 
-			this.ref_items[i].style.transition = ''
+		this.s_element.style.transition = ''
 
 		let a = this.mpx % this.sWidth
 		let b = this.sWidth / 2
@@ -149,7 +148,7 @@ class Carousel {
 		else
 			this.t_current += this.sWidth * (-this.mpx)
 
-		let t_relative = this.ref_items[0].style.transform
+		let t_relative = this.s_element.style.transform
 		t_relative = t_relative.replace('translateX(', '')
 		t_relative = t_relative.replace('px)', '')
 		t_relative = parseInt(t_relative) * (-1)
@@ -162,31 +161,40 @@ class Carousel {
 
 		this.moveItems()
 
-		let body_reference = document.getElementsByTagName('body')[0]
-		body_reference.ontouchmove = ''
-		body_reference.ontouchend = ''
-		body_reference.ontouchcancel = ''
+		document.ontouchmove = null
+		document.ontouchend = null
+		document.ontouchcancel = null
 
 		this.interval = this.intervalControl()
 	}
 
 	// Metodo responsavel por atualizar os valor no evento de resize
-	resizing(N_sWidth, N_view_elements) {
+	sizing(w, t) {
 		clearInterval(this.interval)
+
+		let content_width = this.refWidth_to_Cal.offsetWidth
 		this.t_current = 0
+		this.sWidth = w
+		if(t == 'i') {
+			this.view_elements = 1
+		} else {
+			this.view_elements = content_width / this.sWidth
+			if(!Number.isInteger(this.view_elements)) {
+				this.view_elements = Math.round(this.view_elements)
+			}
+		}
+		this.t_limit = this.sWidth * (this.quant_items - this.view_elements + 1)
+		console.log(this.view_elements)
 		this.moveItems()
-		this.sWidth = N_sWidth
-		this.view_elements = N_view_elements
-		this.t_limit = this.sWidth * (this.ref_items.length - this.view_elements + 1)
 		this.interval = this.intervalControl()
 	}
 
 	// Metodo que redimenciona os elementos do carousel com visualização de um unico elemento
-	static resizeImages(id, items, size = null) {
+	sizeImages(id, items, size = null) {
 		let item = document.getElementById(id)
 		let w = item.offsetWidth
 		let h = w / size
-		item.style.height = h + 'px'
+		item.style.maxHeight = h + 'px'
 
 		let list = document.getElementsByClassName(items)
 
@@ -194,45 +202,45 @@ class Carousel {
 			list[i].style.width = w + 'px'
 			list[i].style.height = h + 'px'
 		}
-		return w
+		
+		this.sizing(w, 'i')
 	}
 
 	// Metodo que redimenciona os elementos do carousel com visualização de um ou mais elementos
-	static resizeSlideItem(items, min, mid, max, view1, view2, view3) {
-		let list = document.getElementsByClassName(items)
-		let w = document.getElementsByClassName('content')[0].offsetWidth
+	sizeSlideItem(min, max, view1, view2) {
+		let list = this.h_collection
+		let w = this.refWidth_to_Cal.offsetWidth
 
 		let wWidth = window.innerWidth
+
 		let result
 		if(wWidth < max) {
 			if(wWidth < min) {
 				w /= view1
-			} else if(wWidth >= min && wWidth < mid) {
+			} else if(wWidth >= min && wWidth < max) {
 				w /= view2
-			} else if(wWidth >= mid && wWidth < max) {
-				w /= view3
 			}
 			result = w + 'px'
 		} else {
-			w = document.getElementsByClassName(items)[0].offsetWidth
+			w = this.h_collection.offsetWidth
 			result = ''
 		}
 
 		for(let i = 0; i < list.length; i++)
 			list[i].style.minWidth = result
 
-		return Math.round(w)
+		if(!Number.isInteger(w)) {
+			w = Math.round(w)
+		}
+
+		this.sizing(w, 'si')
 	}
 
 	// Metodo para atualizar alguns valores no evento de resize devido a não necessidade de ficar redimencioando
-	static updValSlideItens(items) {
-		let list = document.getElementsByClassName(items)
-		let w = document.getElementsByClassName('content')[0].offsetWidth
-		
-		for(let i = 0; i < list.length; i++)
-			list[i].style = ''
+	updValSlideItens() {
+		for(let i = 0; i < this.quant_items; i++)
+			this.h_collection[i].style.minWidth = ''
 
-		w = document.getElementsByClassName(items)[0].offsetWidth
-		return Math.round(w)
+		this.sizing(this.h_collection[0].offsetWidth, 'si')
 	}
 }

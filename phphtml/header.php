@@ -14,7 +14,7 @@
 			<div id="h-search">
 				<form>
 					<select id="">
-						<option value="all">Todas as categorias</option>
+						<option value="all">Categorias</option>
 						<option value="#">Teste</option>
 						<option value="#">Teste</option>
 						<option value="#">Teste</option>
@@ -60,7 +60,7 @@
 				<ul>
 					
  					<!--\ Item categorias -->
-					<li id="menu-categories" class="close">
+					<li id="menu-categories" class="open">
 						
 						<!--; Botão -->
 						<button 
@@ -206,7 +206,7 @@
 								<li class="last-item-aside">
 									<a href="#">
 										<i class="fas fa-gamepad"></i>
-										Videogame
+										Consoles
 									</a>
 								</li>
 							</ul>

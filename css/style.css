@@ -2,6 +2,7 @@ body, html {
 	padding: 0;
 	margin: 0;
 	font-family: "Sen", sans-serif;
+	background: #F8F8F8;
 }
 
 * {
@@ -46,20 +47,23 @@ body.open {
 /*                     /      \                     */
 /*--------------------| HEADER |--------------------*/
 /*                     \      /                     */
-#h-brand, #h-search, #h-panel {
-	height: 100%;
+
+header {
+	background: #FFF;
 }
 
 #header-navegation {
-	height: 42px;
-	background: linear-gradient(to bottom, #181818, #0B0B0B);
-	margin-top: 10px;
+	background-color: #232323;
+}
+
+#h-brand, #h-search, #h-panel {
+	height: 100%;
 }
 
 #h-brand {
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 }
 
 #h-search {
@@ -85,7 +89,7 @@ body.open {
 #h-search select:focus,
 #h-search input:focus,
 #h-search button:focus {
-	box-shadow: 0 0 7px -4px #000000aa;
+	box-shadow: 0 0 5px #5151511e;
 }
 
 #h-search select,
@@ -125,30 +129,27 @@ body.open {
 #h-panel {
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
 }
 
 #cart {
 	background: url(../img/icons/cart-icon.png) no-repeat;
-	background-size: 39px 39px;
+	background-size: 32px 32px;
 }
 
 #favorites {
 	background: url(../img/icons/heart.png) no-repeat;
-	background-position: 3px 4px;
 	background-size: 32px 32px;
 }
 
 #link-profile {
 	background: url(../img/icons/user.png) no-repeat;
-	background-position: 2px 1px;
-	background-size: 36px 36px;
+	background-size: 32px 32px;
 }
 
 #h-panel > * {
 	display: block;
-	height: 40px;
-	width: 40px;
+	height: 32px;
+	width: 32px;
 }
 
 #h-panel > a {
@@ -218,6 +219,10 @@ body.open {
 
 /*  ------|>   MENU DE NAVEGAÇÃO PRINCIPAL   <|------  */
 
+#header-navegation {
+	margin-top: 10px;
+}
+
 #nav-main > ul {
 	padding: 0;
 	margin: 0;
@@ -236,7 +241,7 @@ body.open {
 	line-height: 42px;
 	padding: 0 20px;
 	background: transparent;
-	color: #fff;
+	color: #E4E4E4;
 	font-size: 1em;
 	font-family: unset;
 	text-transform: uppercase;
@@ -244,16 +249,18 @@ body.open {
 }
 
 #button-categories {
-	background-color: #232323;
-	text-align: left;
+	color: #fff;
+	background: #3C3C3C;
 }
 
 .open #button-categories {
 	background: #DE2222;
+	transition: 0.3s;
 }
 
 #nav-main > ul > li > a:hover {
-	background: #2D2D2D;
+	background: #3C3C3C;
+	color: #fff;
 }
 
 #button-categories:hover {
@@ -308,6 +315,7 @@ body.open {
 	list-style-type: none;
 	flex-direction: column;
 	height: 100%;
+	background-color: #FFF;
 	transition: 0.4s;
 }
 
@@ -315,7 +323,6 @@ body.open {
 	display: block;
 	height: 40px;
 	line-height: 40px;
-	background-color: #FBFBFB;
 	padding-left: 12px;
 	border-bottom: 1px solid #DFDFDF;
 	position: relative;
@@ -575,10 +582,9 @@ body.open {
 	padding: 0;
 	margin: 0;
 	list-style-type: none;
-	border: 1px solid #DADADA;
+	border: 1px solid #DFDFDF;
 	border-radius: 6px;
-	box-shadow: 0 0 10px -6px #0000005a;
-	background: #F9F9F9;
+	background: #FFFFFF;
 }
 
 #introduction-cards > ul > li img {
@@ -605,8 +611,19 @@ body.open {
 	margin-top: 15px;
 }
 
-#section-trending .create {
-	opacity: 0;
+#SpSlide-trend {
+	animation-duration: 1.5s;
+	animation-direction: alternate;
+	animation-iteration-count: 2;
+}
+
+@keyframes ajax-trend {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
 }
 
 .clear {

@@ -38,19 +38,23 @@ Legenda:
 \* ------------------------ */
 
 .carousel-images {
-	display: flex;
 	overflow-x: hidden;
 	z-index: 0;
+}
+
+.carousel-content {
+	display: flex;
+	transition: 0.6s;
 }
 
 /* ~~ Esta é uma div que contem a imagem ~~ */
 .carousel-item {
 	height: 100%;
-	transition: 0.6s;
 }
 
 /* ~ Esta é a imagem ~ */
 .carousel-image {
+	height: 100%;
 	display: block;
 }
 
@@ -206,15 +210,18 @@ div das imagens ~~ */
 
 .slide-carousel {
 	margin-top: 5px;
-	display: flex;
 	overflow-x: hidden;
+}
+
+.slide-content {
+	display: flex;
+	transition: 0.5s;
 }
 
 .slide_items {
 	padding: 5px 10px;
 	display: flex;
 	justify-content: center;
-	transition: 0.5s;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -240,15 +247,14 @@ div das imagens ~~ */
 	height: 100%;
 	width: 100%;
 	padding: 10px;
+	background: #fff;
 	border: 1px solid #DCDCDC;
 	border-radius: 5px;
 }
 
 @media (max-width: 767.98px) {
 	.slide_items > div {
-		max-width: 230px;
 		padding: 20px 10px;
-		box-shadow: 0 0 10px -7px #1B1B1Bca;
 	}
 }
 
@@ -256,11 +262,10 @@ div das imagens ~~ */
 @media (min-width: 768px) {
 	.slide_items > div {
 		padding: 10px;
-		box-shadow: 0 0 10px -2px #00000022;
 	}
 
 	.slide_items > div:hover {
-		box-shadow: 0 0 10px -2px #0000003a;
+		box-shadow: 0 0 10px -2px #00000012;
 	}
 }
 
@@ -321,7 +326,6 @@ div das imagens ~~ */
 	top: 2px;
 }
 
-
 /* ~~ Esta é a div do marcador de tempo ~~ */
 .slide_items > div > div:first-child > a + div + div {
 	position: absolute;
@@ -330,6 +334,8 @@ div das imagens ~~ */
 	align-items: center;
 	box-sizing: content-box;
 	transition: 0.3s;
+	top: 0;
+	bottom: 0;
 }
 
 
@@ -342,8 +348,9 @@ div das imagens ~~ */
 @media (min-width: 768px) {
 	.slide_items:hover > div > div:first-child > a + div + div {
 		opacity: 0;
-		margin-top: -100px;
-		transition: 0.3s;
+		top: -80px;
+		bottom: 220px;
+		transition: 0.2s;
 	}
 }
 

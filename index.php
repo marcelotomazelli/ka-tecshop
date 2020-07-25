@@ -23,13 +23,13 @@
 	<style type="text/css">
 	</style>
 </head>
-<body id="bodyid" onresize="resizingWindow()" onload="onloadBody()">
+<body id="bodyid" onresize="resizing()">
 
 	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
 	<? require_once "phphtml/header.php" ?>
 
 	<!--|➖➖➖➖  Seção introdocção  ➖➖➖➖|-->
-	<section id="section-introduction" class="close">
+	<section id="section-introduction" class="open">
 		<div class="content">
 
 			<div> <!-- ⏩ Carousel -->
@@ -49,14 +49,16 @@
 
                		<!---\ Imagens do Carousel--->
 					<div class="carousel-images">
-						<div class="carousel-item">
-							<img class="carousel-image" src="img/poster1.jpg" alt="placeholder+image">
-						</div>
-						<div class="carousel-item">
-							<img class="carousel-image" src="img/poster2.jpg" alt="placeholder+image">
-						</div>
-						<div class="carousel-item">
-							<img class="carousel-image" src="img/poster3.jpg" alt="placeholder+image">
+						<div id="SpCarousel-intro" class="carousel-content">
+							<div class="carousel-item">
+								<img class="carousel-image" src="img/poster1.jpg" alt="placeholder+image">
+							</div>
+							<div class="carousel-item">
+								<img class="carousel-image" src="img/poster2.jpg" alt="placeholder+image">
+							</div>
+							<div class="carousel-item">
+								<img class="carousel-image" src="img/poster3.jpg" alt="placeholder+image">
+							</div>
 						</div>
 					</div>
 
@@ -163,40 +165,43 @@
 				</div>
 
 				<!--; Corpo do SlideItems-->
-				<div id="si-trend-content" class="slide-carousel" ontouchstart="crslObj_trend.touch(event)">
+				<div class="slide-carousel" ontouchstart="crslObj_trend.touch(event)">
 					
-					<!-- Script que constroe a visulização dos produtos em destaque -->
-					<? foreach($list_dstq as $value) { ?>
-										
-						<div class="slide_items si_trend">
-							<div>
+					<div id="SpSlide-trend" class="slide-content">
+						<!-- Script que constroe a visulização dos produtos em destaque -->
+						<? foreach($list_dstq as $value) { ?>
+											
+							<div class="slide_items si_trend">
 								<div>
-									<a href="#">
-										<img src="img_produtos/<?= $value['id_produto']?>/index.jpg">
-									</a>
 									<div>
 										<a href="#">
-											<i class="fas fa-heart"></i>
+											<img src="img_produtos/<?= $value['id_produto']?>/index.jpg">
 										</a>
+										<div>
+											<a href="#">
+												<i class="fas fa-heart"></i>
+											</a>
+										</div>
+									</div>
+									
+									<div>
+										<h2><a href=""><?= $value['nome_curto']?></a></h2>
+										<h3>
+											R$ 
+											<?= 
+												$value['valor']
+											?>
+										</h3>
+									</div>
+									<div>
+										<a href="#">Adicionar ao carrinho</a>
 									</div>
 								</div>
-								
-								<div>
-									<h2><a href=""><?= $value['nome_curto']?></a></h2>
-									<h3>
-										R$ 
-										<?= 
-											$value['valor']
-										?>
-									</h3>
-								</div>
-								<div>
-									<a href="#">Adicionar ao carrinho</a>
-								</div>
 							</div>
-						</div>
-						
-					<? } ?>
+							
+						<? } ?>
+
+					</div>
 
 				</div>
 			</div> <!-- ◼ SlideItens das Tendencias -->
@@ -258,41 +263,42 @@
 
 				<!--Corpo do SlideItems-->
 				<div class="slide-carousel" ontouchstart="crslObj_deal.touch(event)">
-					
-					<? for($i = 1; $i <= 9; $i++) { ?>
-						<div class="slide_items si_deal">
-							<div>
-
+					<div id="SpSlide-deal" class="slide-content">
+						<? for($i = 1; $i <= 9; $i++) { ?>
+							<div class="slide_items si_deal">
 								<div>
-									<a href="#">
-										<img src="http://dummyimage.com/1000x1000/4d494d/686a82.gif&text=<?= $i?>" alt="placeholder+image">
-									</a>
+
 									<div>
 										<a href="#">
-											<i class="fas fa-heart"></i>
+											<img src="http://dummyimage.com/1000x1000/4d494d/686a82.gif&text=<?= $i?>" alt="placeholder+image">
 										</a>
+										<div>
+											<a href="#">
+												<i class="fas fa-heart"></i>
+											</a>
+										</div>
+										<div>
+											<ul>
+												<li><span><?= rand(0, 375); ?></span>dias</li>
+												<li><span><?= rand(0, 23); ?></span>horas</li>
+												<li><span><?= rand(0, 60); ?></span>min</li>
+											</ul>
+										</div>
 									</div>
+									
 									<div>
-										<ul>
-											<li><span><?= rand(0, 375); ?></span>dias</li>
-											<li><span><?= rand(0, 23); ?></span>horas</li>
-											<li><span><?= rand(0, 60); ?></span>min</li>
-										</ul>
+										<h2><a href="">Teste</a></h2>
+										<h3><?= rand(0, 9999).','.rand(0, 99) ?></h3>
 									</div>
-								</div>
-								
-								<div>
-									<h2><a href="">Teste</a></h2>
-									<h3><?= rand(0, 9999).','.rand(0, 99) ?></h3>
-								</div>
 
-								<div>
-									<a href="#">Adicionar ao carrinho</a>
-								</div>
+									<div>
+										<a href="#">Adicionar ao carrinho</a>
+									</div>
 
+								</div>
 							</div>
-						</div>
-					<? } ?>
+						<? } ?>
+					</div>
 
 				</div>
 

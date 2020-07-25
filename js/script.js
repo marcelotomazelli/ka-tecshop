@@ -6,62 +6,53 @@ si - slide items
 */
 
 let crslObj_intro, crslObj_trend, crslObj_deal
+let si_minW = 620
+let si_maxW = 768
 let current_trend_list = 'destaque'
 
 // largura inicial do client
 let iw_client
 
-function onloadBody() {
+function onLoad() {
 	// Definindo a largura inicial
 	iw_client = window.innerWidth
 
-	// Trabalhando a proporção do carousel da intro
-	let crslWidth_intro = Carousel.resizeImages('carousel-intro', 'carousel-image', 2)
-
-	// Se a largura do client for menor que 768 ele vai trabalhar com o tamanho dos slide items
-	let sWidth_trend = Carousel.resizeSlideItem('si_trend', 400, 620, 768, 2, 2, 3)
-	let slWidth_deal = Carousel.resizeSlideItem('si_deal', 400, 620, 768, 1, 2, 3)
-
-	// Definindo a quantidade de elementos que aparecem na tela
-	let content_width = document.getElementsByClassName('content')[0].offsetWidth
-	let view_elements = Math.round(content_width / sWidth_trend)
-
 	// Criando as instâncias
-	crslObj_intro = new Carousel('carousel-item', crslWidth_intro, 4000, 1)
-	crslObj_trend = new Carousel('si_trend', sWidth_trend, 7000, view_elements)
-	crslObj_deal = new Carousel('si_deal', slWidth_deal, 7000, view_elements)
+	crslObj_intro = new Carousel('SpCarousel-intro', 'carousel-item', 4000)
+	crslObj_trend = new Carousel('SpSlide-trend', 'si_trend', 7000)
+	crslObj_deal = new Carousel('SpSlide-deal', 'si_deal', 7000)
+	
+	// Trabalhando a proporção do carousel da intro
+	crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+
+	if(window.innerWidth < si_maxW) {
+		// Trabalhando o resize
+		crslObj_trend.sizeSlideItem(si_minW, si_maxW, 2, 3)
+		crslObj_deal.sizeSlideItem(si_minW, si_maxW, 2, 3)
+	} else {
+		// Trabalhando o update dos valores, pois não é necessario resize
+		crslObj_trend.updValSlideItens()
+		crslObj_deal.updValSlideItens()
+	}
 }
 
-function resizingWindow() {
+function resizing() {
 	// Verifica se o evento foi somente no eixo x
 	/* A intenção é evitar o resize em dispositivos moveis quando o evento é disparado 
 	ao rolar a tela e a barra superior do proprio navegador esconder */ 
 	if(iw_client != window.innerWidth) {
 		// Aplicando resize no carousel da intro
-		let crslWidth_intro = Carousel.resizeImages('carousel-intro', 'carousel-image', 2)
-		crslObj_intro.resizing(crslWidth_intro, 1)
+		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
 
-		// Pegando largura do content
-		let slide_content = document.getElementsByClassName('content')[0].offsetWidth
-
-		// Definindo variveis que serão usados em ambas as condições
-		let siWidth_trend, siWidth_deal
-
-		if(window.innerWidth < 768) {
+		if(window.innerWidth < si_maxW) {
 			// Trabalhando o resize
-			siWidth_trend = Carousel.resizeSlideItem('si_trend', 370, 620, 768, 2, 2, 3)
-			siWidth_deal = Carousel.resizeSlideItem('si_deal', 370, 620, 768, 1, 2, 3)
+			crslObj_trend.sizeSlideItem(si_minW, si_maxW, 2, 3)
+			crslObj_deal.sizeSlideItem(si_minW, si_maxW, 2, 3)
 		} else {
 			// Trabalhando o update dos valores, pois não é necessario resize
-			siWidth_trend = Carousel.updValSlideItens('si_trend')
-			siWidth_deal = Carousel.updValSlideItens('si_deal')
+			crslObj_trend.updValSlideItens()
+			crslObj_deal.updValSlideItens()
 		}
-
-		// Definindo a quantidade de elementos que aparecem na tela
-		let view_elements = Math.round(slide_content / siWidth_trend)
-
-		crslObj_trend.resizing(siWidth_trend, view_elements)
-		crslObj_deal.resizing(siWidth_deal, view_elements)
 	}
 }
 
@@ -74,13 +65,10 @@ function requisitionAjax(index) {
 		xhttp.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200) {
 				list = JSON.parse(this.responseText)
-				let t_list = document.getElementById('si-trend-content')
+				let t_list = document.getElementById('SpSlide-trend')
+				t_list.style.animationName = 'ajax-trend'
 				let h = t_list.offsetHeight
 				t_list.style.minHeight = h + 'px'
-
-				let old_items = document.getElementsByClassName('si_trend')
-				for(let i = 0; i < old_items.length; i++)
-					old_items[i].style.opacity = 0
 
 				setTimeout(function() {
 					t_list.innerHTML = '';
@@ -140,29 +128,20 @@ function requisitionAjax(index) {
 						t_list.appendChild(item)
 					})
 
-					setTimeout(function() {
-						let new_items = document.getElementsByClassName('si_trend')
-						for(let i = 0; i < old_items.length; i++)
-							new_items[i].style.opacity = 1
-					}, 500)
-
-					let slide_content = document.getElementsByClassName('content')[0].offsetWidth
-					let siWidth_trend
 
 					if(window.innerWidth < 768) {
-						siWidth_trend = Carousel.resizeSlideItem('si_trend', 370, 620, 768, 2, 2, 3)
+						crslObj_trend.sizeSlideItem(si_minW, si_maxW, 2, 3)
 					} else {
-						siWidth_trend = Carousel.updValSlideItens('si_trend')
+						crslObj_trend.updValSlideItens()
 					}
 
-					// Definindo a quantidade de elementos que aparecem na tela
-					let view_elements = Math.round(slide_content / siWidth_trend)
-
-					crslObj_trend.resizing(siWidth_trend, view_elements)
+					setTimeout(function() {
+						t_list.style.animationName = ''
+					},1500)
 
 					t_list.style.height = ''
 					current_trend_list = index
-				},1000);
+				},1500);
 			}
 		}
 		xhttp.send()
@@ -171,10 +150,9 @@ function requisitionAjax(index) {
 
 // Função para mudança de visulização na interação com o menu de categorias
 function categoriesMenu() {
-	setTimeout(function() {
-		let crslWidth_intro = Carousel.resizeImages('carousel-intro', 'carousel-image', 2)
-		crslObj_intro.resizing(crslWidth_intro, 1)
-	}, 1000)	
+	setTimeout(() => {
+		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+	}, 750)
 }
 
 function changeClass(id_elements, new_class, old_class) {
@@ -188,8 +166,5 @@ function changeClass(id_elements, new_class, old_class) {
 	}
 }
 
-/*setTimeout(function() {
-	console.log(document.getElementById('section-trending').offsetHeight)
-}, 5000)*/
 
-
+window.onload =  onLoad

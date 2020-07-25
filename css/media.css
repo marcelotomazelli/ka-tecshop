@@ -57,6 +57,13 @@
 	.buttons-carousel button:hover {
 		cursor: pointer;
 	}
+
+
+	#section-introduction > div > div
+	#section-introduction.open > div > div
+	#section-introduction.close > div > div {
+		transition: 0.1s;
+	}
 	
 	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
@@ -140,19 +147,19 @@
 	/* HEADER
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	header {
-		background-color: #F8F8F8;
-		border-bottom: 3px solid #131313;
 		padding-top: 5px;
 		padding-bottom: 10px;
 		box-shadow: 0 0 8px #0000002a;
 	}
 
+	#h-panel {
+		justify-content: flex-end;
+	}
+
 	#h-search input {
-		background: #F6F6F6;
 	}
 
 	#h-search button {
-		background: linear-gradient(145deg, #1B1B1B, #333333);
 		border: none;
 	}
 
@@ -255,15 +262,21 @@
 
 	/* HEADER
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	header {
+		box-shadow: 0 0 15px -5px #0000003a;
+	}
 	#header-banner {
-		margin-top: 10px;
+		padding-top: 10px;
 		margin-bottom: 10px;
+	}
+
+	#h-panel {
+		justify-content: flex-end;
 	}
 
 	#h-brand img {
 		height: 50px;
 	}
-
 
 	#introduction-cards > ul > li:hover > div > div:first-child > img {
 		transform: rotateY(5400deg);
@@ -292,7 +305,7 @@
 	/* HEADER
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#header-banner .content {
-		grid-template-columns: 95px 1fr 200px;
+		grid-template-columns: 170px 1fr 170px;
 	}
 
 	/* INRODUCTION
@@ -409,7 +422,7 @@
 	}
 
 	#header-banner .content {
-		grid-template-columns: 130px 1fr 200px;
+		grid-template-columns: 200px 1fr 200px;
 	}
 
 	#button-categories {
@@ -481,6 +494,7 @@
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#section-introduction.open > div > div {
 		margin-left: 290px;
+		/*transition: 0s;*/
 	}
 
 	#section-introduction.close > div {
@@ -488,9 +502,6 @@
  		grid-template-columns: 600px 1fr;
  		grid-gap: 15px;
  	}
-}
-
-@media (max-width: 1199.98px) {
 }
 
 @media (min-width: 1200px) {
