@@ -33,9 +33,9 @@ if($permission) {
 	$stmt->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
 	$stmt->bindValue(':password', $_POST['password'], PDO::PARAM_STR);
 	$stmt->execute();
-	header('Location: ../login.php?t=login&register=success');
+	header('Location: ../access_page.php?t=login&register=success');
 } else {
-	header('Location: ../login.php?t=register&e=register&email=' . $_POST['email'] . '&name=' . $_POST['name']);
+	header('Location: ../access_page.php?t=register&e=register&email=' . $_POST['email'] . '&name=' . $_POST['name']);
 }
 
 ?>
