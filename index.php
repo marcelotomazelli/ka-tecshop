@@ -6,14 +6,14 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta charset="UTF-8">
-	<title>KA - Loja Virtual</title>
+	<title>KA TECSHOP</title>
 	
 	<link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<link rel="stylesheet" type="text/css" href="css/carousel.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
 	<link rel="stylesheet" type="text/css" href="css/media.css">
 
 	<!-- Font Awesome -->
@@ -214,13 +214,12 @@
 
 			<div>
 				<div>
-					<img src="http://dummyimage.com/370x245/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
+					<img src="img/ad-02.jpg">
 					<img src="http://dummyimage.com/370x245/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
 				</div>
 
 				<div>
-					<img src="http://dummyimage.com/370x500
-					/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">
+					<a href=""><img src="img/ad-01.jpg"></a>
 				</div>
 
 				<div>
@@ -313,6 +312,6 @@
 
 	<!-- ➖➖|´/ Script \`|➖➖ -->
 	<script src="js/carousel.class.js"></script>
-	<script src="js/script.js"></script>
+	<script src="js/home.js"></script>
 </body>
 </html>

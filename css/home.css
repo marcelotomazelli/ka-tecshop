@@ -1,0 +1,173 @@
+/*                     /            \                     */
+/*--------------------| INTRODUCTION |--------------------*/
+/*                     \            /                     */
+
+#section-introduction {
+	margin-top: 15px;
+}
+
+#carousel-intro {
+	margin: 0 auto;
+}
+
+#section-introduction > div,
+#section-introduction > div > div,
+#introduction-cards ul,
+#introduction-cards li {
+	transition: 0.5s;
+}
+
+#introduction-cards > ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	border: 1px solid #DFDFDF;
+	border-radius: 6px;
+	background: #FFFFFF;
+}
+
+#introduction-cards > ul > li img {
+	display: block;
+	height: 40px;
+	width: 40px;
+}
+
+#introduction-cards h3 {
+	font-size: 1em;
+	color: #212121;
+}
+
+#introduction-cards h5 {
+	font-size: 0.85em;
+	color: #626262;
+}
+
+/*                     /        \                     */
+/*--------------------| TRENDING |--------------------*/
+/*                     \        /                     */
+
+#section-trending {
+	margin-top: 15px;
+}
+
+#SpSlide-trend {
+	animation-duration: 1.5s;
+	animation-direction: alternate;
+	animation-iteration-count: 2;
+}
+
+@keyframes ajax-trend {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.clear {
+	clear: both;
+}
+
+/*                     /        \                     */
+/*--------------------| ANUNCIOS |--------------------*/
+/*                     \        /                     */
+#section-advertising {
+	margin-top: 15px;
+}
+
+#section-advertising .content > div {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 10px;
+}
+
+#section-advertising .content > div > div img {
+	width: 100%;
+	display: block;
+	border-radius: 2px;
+}
+
+#section-advertising .content > div > div:first-child {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#section-advertising .content > div > div + div + div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#section-deal {
+	margin-top: 15px;
+}
+
+/*                     /      \                     */
+/*--------------------| FOOTER |--------------------*/
+/*                     \      /                     */
+
+footer {
+	margin-top: 25px;
+	padding: 10px 0;
+	border-top: 1px solid #D8D8D8;
+}
+
+footer > div > div {
+	/*border: 1px solid red;*/
+
+}
+
+footer > div > div > ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+footer > div > div:first-child > ul > li i {
+	width: 20px;
+	color: #2A2A2A;
+	margin-right: 7px;
+	text-align: center;
+}
+
+footer > div > div h3 {
+	margin: 5px 0;
+	padding: 10px 0;
+	position: relative;
+}
+
+footer > div > div h3 > div {
+	height: 2px;
+	width: 50px;
+	background: #EF3333aa;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+footer > div > div > ul > li {
+	line-height: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

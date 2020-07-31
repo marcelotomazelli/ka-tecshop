@@ -1,3 +1,7 @@
+<?php
+	require "./php/authentication_control.php";
+?>
+<link rel="stylesheet" type="text/css" href="css/header-footer.css">
 <!--|➖➖  Header  ➖➖|-->
 <header>
 
@@ -33,7 +37,45 @@
 				<a id="favorites" href="#"></a>
 
 				<!--; Link Perfil-->
-				<a id="link-profile" href="#"></a>
+				<div id="div-login">
+
+					<a id="link-profile" href="./access_page.php">
+					</a>
+					
+					<? if($authenticated) { ?>
+						<div id="with-login">
+							<span>Olá <span><?= $_SESSION['name'] ?></span></span>
+							<ul>
+								<li>
+									<a href="#">Minha conta</a>
+								</li>
+								<li>
+									<a href="#">Histórico</a>
+								</li>
+								<li>
+									<a href="#">Meu carrinho</a>
+								</li>
+								<li>
+									<a href="#">Lista de favoritos</a>
+								</li>
+								<li>
+									<a href="./php/session_end.php">Logoff</a>
+								</li>
+							</ul>
+						</div>
+					<? } else { ?>
+						<div id="without-login">
+							<div>
+								<span>Novo consumidor?</span>
+								<a href="./access_page.php?t=register">Cadastrar-se</a>
+							</div>
+							<div>
+								<span>Bem-vindo ao KA TECSHOP</span>
+								<a href="./access_page.php?t=login">Login</a>
+							</div>
+						</div>
+					<? } ?>
+				</div>
 
 				<!--; Botao-->
 				<button id="button-responsive-menu" class="close_s">
@@ -68,6 +110,54 @@
 						<aside id="menu-categories" class="close_s open_l">
 							<nav>
 								<ul>
+									
+
+									<li id="painel-perfil-resp">
+										<? if($authenticated) { ?>
+											<div id="with-login-resp">
+												<a href="#">
+													<img src="img/icons/user.png">
+												</a>
+												<span>Olá <span><?= $_SESSION['name'] ?></span></span>
+												<div>
+													<ul>
+														<li>
+															<a href="#">Minha conta</a>
+														</li>
+														<li>
+															<a href="#">Histórico</a>
+														</li>
+														<li>
+															<a href="#">Meu carrinho</a>
+														</li>
+														<li>
+															<a href="#">Lista de favoritos</a>
+														</li>
+														<li>
+															<a href="./php/session_end.php">Logoff</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										<? } else { ?>
+											<div id="without-login-resp">
+												<a href="./access_page.php">
+													<img src="img/icons/user.png">
+												</a>
+												<div>
+													<div>
+														<span>Novo consumidor?</span>
+														<a href="./access_page.php?t=register">Cadastrar-se</a>
+													</div>
+														
+													<div>
+														<span>Bem-vindo ao KA TECSHOP</span>
+														<a href="./access_page.php?t=login">Login</a>
+													</div>
+												</div>
+											</div>
+										<? } ?>
+									</li>
 
 	 								<!-- <|----------------------------|> -->
 									<li>
@@ -79,12 +169,12 @@
 
 
 	 								<!-- <|Dropdown----------------------------|> -->
-									<li class="catedorie-dropdown">
+									<li class="categorie-dropdown close_s" id="smartphone-ctgr">
 										<a href="#">
 											<i class="fas fa-mobile-alt"></i>
 											Smartphone
 										</a>
-										<button onclick="">
+										<button id="button-smartphone-ctgr">
 											<i class="fas fa-mobile-alt"></i>
 											Smartphone
 										</button>
@@ -119,12 +209,14 @@
 											Laptops
 										</a>
 									</li>
-									<li class="catedorie-dropdown">
+
+
+									<li class="categorie-dropdown close_s" id="desktop-ctgr">
 										<a href="#">
 											<i class="fas fa-desktop"></i>
 											Desktops
 										</a>
-										<button>
+										<button id="button-desktop-ctgr">
 											<i class="fas fa-desktop"></i>
 											Desktops
 										</button>

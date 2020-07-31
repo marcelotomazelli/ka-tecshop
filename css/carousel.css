@@ -335,6 +335,7 @@ div das imagens ~~ */
 	box-sizing: content-box;
 	transition: 0.3s;
 	top: 0;
+	visibility: visible;
 	bottom: 0;
 }
 
@@ -348,8 +349,8 @@ div das imagens ~~ */
 @media (min-width: 768px) {
 	.slide_items:hover > div > div:first-child > a + div + div {
 		opacity: 0;
-		top: -80px;
-		bottom: 220px;
+		top: -100px;
+		visibility: hidden;
 		transition: 0.2s;
 	}
 }

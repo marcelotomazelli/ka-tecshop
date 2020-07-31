@@ -1,6 +1,5 @@
 <?
-	require "./php/connection.php";
-	// require "./connection.php";
+	require "./php/connection_class.php";
 
 	$connection = new Connection();
 	$connection = $connection->connect();

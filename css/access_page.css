@@ -1,0 +1,171 @@
+.info {
+	color: red;
+	font-size: 0.9em;
+}
+
+.info .success {
+	color: #74CE1E;
+	font-size: 1.1em;
+}
+
+input.invalid-input {
+	border: 1px solid #F32626 !important;
+	box-shadow: 0 0 5px -2px #F32626aa;
+}
+
+body {
+	display: grid;
+	grid-template-rows: 63px 1fr;
+}
+
+html, body {
+	height: 100%;
+}
+
+header {
+	border-bottom: 1px solid #DBDBDB;
+	background: #FFFFFF;
+}
+
+header img {
+	height: 60px;
+	display: block;
+}
+
+main {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	height: 100%;
+	padding-bottom: 50px;
+}
+
+/* div que contem os botoes mais acima e os formularios */
+#content-forms {
+	margin-top: 30px;
+	max-width: 400px;
+	width: 100%;
+}
+
+/* Botões de controle de visualização mais acima */
+#buttons-control-view {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+#buttons-control-view button {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	padding: 5px 10px;
+	line-height: 30px;
+}
+
+.open_r #buttons-control-view #button-r,
+.open_l #buttons-control-view #button-l {
+	color: #F12121;
+}
+
+#buttons-control-view button:hover {
+	cursor: pointer;
+}
+
+/* Barra de sublinhado */
+#buttons-control-view button > span {
+	background: #F12121;
+	height: 2px;
+	width: 0;
+	margin: 0 auto;
+	display: block;
+	transition: 0.3s;
+}
+
+.open_r #buttons-control-view #button-r > span,
+.open_l #buttons-control-view #button-l > span {
+	width: 100%;
+	transition: 0.3s;
+}
+
+/* div que contem os formulários */
+#forms {
+	width: 100%;
+	margin-top: 10px;
+	padding: 0 15px;
+}
+
+#forms > div > form > input,
+#forms > div > button {
+	display: block;
+	width: 100%;
+	padding: 10px 15px;
+	margin: 10px 0px;
+	border-radius: 3px;
+}
+
+#forms > div > form > span {
+	font-size: 0.9em;
+	color: #464646;
+	margin-top: 20px;
+	display: block;
+}
+
+#forms > div > form > input {
+	border: 1px solid #DBDBDB;
+}
+
+#forms > div > form > input:focus {
+	box-shadow: 0 0 5px -2px #4CA4FFaa;
+}
+
+/* botoões abaixo dos formilarios */
+#forms > div > button {
+	border: none;
+	background-color: #FA3232;
+	color: #fff;
+	font-weight: bold;
+	margin-top: 30px;
+	text-transform: uppercase;
+}
+
+#forms > div > button:hover {
+	background-color: #DB2727;
+	cursor: pointer;
+}
+
+#terms-regs {
+	font-size: 0.9em;
+	color: #3B3B3B;
+	text-align: center;
+}
+
+#terms-regs > span > a {
+	color: #F92A2A;
+}
+
+#forget-password a {
+	font-size: 0.9em;
+	color: #F92A2A;
+}
+
+#form-register,
+#form-login {
+	display: none;
+}
+
+.open_r #form-register,
+.open_l #form-login {
+	display: block;
+}
+
+
+footer {
+	position: fixed;
+	bottom: 0;
+	background-color: #141414;
+	height: 25px;
+	line-height: 25px;
+	width: 100%;
+	font-size: 0.8em;
+	color: #EAEAEA;
+	padding: 0 15px;
+}

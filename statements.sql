@@ -72,3 +72,10 @@ SET
 	categoria_especial = 'temp_oft'
 WHERE
 	id_produto IN(4,21,27,50,13,6,48,18,43);
+
+CREATE TABLE tb_usuarios(
+	id_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(300) NOT NULL,
+	email VARCHAR(300) NOT NULL,
+	senha VARCHAR(20) NOT NULL
+);

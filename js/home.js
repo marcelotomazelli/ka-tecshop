@@ -13,7 +13,7 @@ let time_o
 // largura inicial do client
 let iw_client
 
-function onLoad() {
+function initialConfig() {
 	// Definindo a largura inicial
 	iw_client = window.innerWidth
 
@@ -21,7 +21,6 @@ function onLoad() {
 	crslObj_intro = new Carousel('SpCarousel-intro', 'carousel-item', 4000)
 	crslObj_trend = new Carousel('SpSlide-trend', 'si_trend', 7000)
 	crslObj_deal = new Carousel('SpSlide-deal', 'si_deal', 7000)
-	
 
 	sizing()
 }
@@ -53,14 +52,6 @@ function sizing() {
 	}
 }
 
-
-// Função para mudança de visulização na interação com o menu de categorias
-function categoriesMenu() {
-	setTimeout(() => {
-		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
-	}, 750)
-}
-
 function changeClass(id_elements, new_class, old_class) {
 	for(let i = 0; i < id_elements.length; i++) {
 		let el = document.getElementById(id_elements[i])
@@ -72,10 +63,15 @@ function changeClass(id_elements, new_class, old_class) {
 	}
 }
 
+window.onload =  initialConfig
+
 document.getElementById('button-categories').onclick = () => {
 	let elements = ['menu-categories', 'section-introduction', 'button-categories']
 	changeClass(elements, 'close_l', 'open_l')
-	categoriesMenu()
+	
+	setTimeout(() => {
+		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+	}, 750)
 }
 
 document.getElementById('button-responsive-menu').onclick = () => {
@@ -83,13 +79,14 @@ document.getElementById('button-responsive-menu').onclick = () => {
 	changeClass(elements, 'open_s', 'close_s')
 }
 
-window.onload =  onLoad
+document.getElementById('button-smartphone-ctgr').onclick = () => {
+	changeClass(['smartphone-ctgr'], 'open_s', 'close_s')
+}
 
 
-
-
-
-
+document.getElementById('button-desktop-ctgr').onclick = () => {
+	changeClass(['desktop-ctgr'], 'open_s', 'close_s')
+}
 
 
 
