@@ -52,7 +52,7 @@ if(!empty($result)) {
 		print_r($_SESSION);
 		header('Location: ../index.php');
 	} else {
-		header('Location: ../access_page.php?t=login&e=pass&email=' . $result->email);
+		header('Location: ../access_page.php?t=login&e=pass&email=' . $_POST['email']);
 	}
 } else {
 	header('Location: ../access_page.php?t=login&e=login&email=' . $_POST['email']);

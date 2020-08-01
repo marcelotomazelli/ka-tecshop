@@ -129,7 +129,7 @@ if($authenticated) {
 							type="email" 
 							name="email" 
 							placeholder="Endereço de email"
-							value="<?php if(isset($_GET['email']) && isset($_GET['e']) && $_GET['e'] == 'login') { echo $_GET['email']; } ?>">
+							value="<?php if(isset($_GET['e']) && isset($_GET['email'])) { echo $_GET['email']; } ?>">
 
 						<span>Informe sua senha:</span>
 
@@ -152,7 +152,9 @@ if($authenticated) {
 
 	<!--|➖➖  Footer  ➖➖|-->
 	<footer>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque rem autem, tenetur magni delectus vel molestias inventore sint.
+		<div class="content">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque rem autem, tenetur magni delectus vel molestias inventore sint.
+		</div>
 	</footer>
 
 	<? if(!empty($t_action))  { ?>

@@ -139,7 +139,9 @@ if($authenticated) {
 
 	<!--|➖➖  Footer  ➖➖|-->
 	<footer>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque rem autem, tenetur magni delectus vel molestias inventore sint.
+		<div class="content">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque rem autem, tenetur magni delectus vel molestias inventore sint.
+		</div>
 	</footer>
 
 	<script src="./js/forget_page.js"></script>

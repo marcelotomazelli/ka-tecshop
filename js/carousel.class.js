@@ -13,12 +13,15 @@ class Carousel {
 		// Usados no eventos de toque
 		this.ipx = 0
 		this.mpx = 0
+		this.rpx = 0
 		// ipx => initial positionX
 		// mpx => move positionX
 
 		// Usados para controle do movimento
 		this.t_current = 0
-		this.t_limit = undefined
+		this.auxt_current = 0
+		this.t_limit = 0
+		this.t_relative = 0
 		// t => translate
 
 		// Usados para controle do intervalo
@@ -39,6 +42,7 @@ class Carousel {
 	// Metodo responsavel por percorrer e atualizar os valores, causando o movimento dos items
 	moveItems() {
 		this.s_element.style.transform = 'translateX(-' + this.t_current + 'px)'
+		this.auxt_current = this.t_current
 	}
 
 	// Metodo utilizado no botão "proximo >"
@@ -81,7 +85,7 @@ class Carousel {
 		clearInterval(this.interval)
 		this.ipx = downevent.touches[0].clientX
 		this.mpx = 0
-
+		this.t_relative = 0
 		this.s_element.style.transition = '0s'
 
 		document.ontouchmove = () => this.move(event)
@@ -91,35 +95,35 @@ class Carousel {
 
 	// Metodo utilizado no evento de touchmove
 	move(moveevent) {
-		let t_relative = this.s_element.style.transform
-		if(t_relative != '') {
-			t_relative = t_relative.replace('translateX(', '')
-			t_relative = t_relative.replace('px)', '')
-			t_relative = parseInt(t_relative) * (-1)
-			t_relative += this.sWidth
-		} else {
-			t_relative = this.sWidth
+		let permition = true
+
+		this.mpx = event.touches[0].clientX - this.ipx
+
+		if(this.t_relative > (this.t_limit - this.sWidth) + 50) {
+			permition = false
+			this.rpx = event.touches[0].clientX
+			if(this.rpx < this.ipx) {
+				this.ipx = event.touches[0].clientX
+			} else {
+				this.auxt_current = this.t_relative
+				permition = true
+			}
 		}
 
-		let m_permition
-		let p_exception
-
-		if(t_relative > this.sWidth - 50 && t_relative < this.t_limit + 50) {
-			m_permition = true
-		} else if(t_relative <= this.sWidth - 50) {
-			p_exception = this.ipx + 50
-			if(event.touches[0].clientX < p_exception) 
-				m_permition = true
-		} else if(t_relative >= this.t_limit + 50) {
-			p_exception = this.ipx - 50
-			if(event.touches[0].clientX > p_exception)
-				m_permition = true
+		if(this.t_relative < -50) {
+			permition = false
+			this.rpx = event.touches[0].clientX
+			if(this.rpx > this.ipx) {
+				this.ipx = event.touches[0].clientX
+			} else {
+				this.auxt_current = this.t_relative
+				permition = true
+			}
 		}
 
-
-		if(m_permition) {
-			this.mpx = event.touches[0].clientX - this.ipx
-			this.s_element.style.transform = 'translateX(' + -(this.t_current + (-this.mpx))  + 'px)'
+		if(permition) {
+			this.t_relative = this.auxt_current - this.mpx
+			this.s_element.style.transform = 'translateX(' + -this.t_relative  + 'px)'
 		}
 	}
 
@@ -127,36 +131,24 @@ class Carousel {
 	stop() {
 		this.s_element.style.transition = ''
 
-		let a = this.mpx % this.sWidth
-		let b = this.sWidth / 2
+		let a = Math.round(this.t_relative) % this.sWidth
 
-		this.mpx -= a
-		this.mpx /= this.sWidth
+		if(this.t_relative > (this.t_limit - this.sWidth)) {
+			this.t_current = 0
+		} else if(this.t_relative < 0) {
+			this.t_current = this.t_limit - this.sWidth
+		} else {
+			this.t_relative = Math.round(this.t_relative) - a
 
-		if(a < 0) {
-			a *= -1
-			if(a >= b)
-				this.mpx--
-		} else if(a > 0) {
-			if(a >= b)
-				this.mpx++
+			if(a > this.sWidth/3) {
+				this.t_relative += this.sWidth
+			}
+
+			this.t_current = this.t_relative
 		}
 
-		if(this.mpx > 0)
-			this.t_current -= this.sWidth * this.mpx
-		else
-			this.t_current += this.sWidth * (-this.mpx)
+		
 
-		let t_relative = this.s_element.style.transform
-		t_relative = t_relative.replace('translateX(', '')
-		t_relative = t_relative.replace('px)', '')
-		t_relative = parseInt(t_relative) * (-1)
-		t_relative += this.sWidth
-
-		if(t_relative > this.t_limit)
-			this.t_current = 0
-		else if(t_relative < this.sWidth)
-			this.t_current = this.t_limit - this.sWidth
 
 		this.moveItems()
 

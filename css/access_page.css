@@ -162,10 +162,8 @@ footer {
 	position: fixed;
 	bottom: 0;
 	background-color: #141414;
-	height: 25px;
-	line-height: 25px;
 	width: 100%;
 	font-size: 0.8em;
 	color: #EAEAEA;
-	padding: 0 15px;
+	padding: 5px 0;
 }
