@@ -105,69 +105,295 @@
 	margin-top: 15px;
 }
 
-/*                     /      \                     */
-/*--------------------| FOOTER |--------------------*/
-/*                     \      /                     */
+/*                     /       \                     */
+/*--------------------|  MEDIA  |--------------------*/
+/*                     \       /                     */
+@media (max-width: 575.98px) {
+	/* CONTROLE DE VISIBILIDADE
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	/* ✏ são as duas imagens a direta */
+	#section-advertising .content > div > div + div + div {
+		display: none;
+	}
 
-footer {
-	margin-top: 25px;
-	padding: 10px 0;
-	border-top: 1px solid #D8D8D8;
+	/* CARDS
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#introduction-cards {
+		margin-top: 12px;
+	}
+
+	#introduction-cards > ul > li > div {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		height: 72px;
+		padding: 0 20px;
+	}
+
+	#introduction-cards > ul > li > div > div:last-child {
+		margin-left: 10px;
+	}
+
+	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#section-advertising .content > div {
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
-footer > div > div {
-	/*border: 1px solid red;*/
+@media (min-width: 576px) {
+	/* CAROUSEL DE IMAGENS DA INTRODUÇÃO
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	.buttons-carousel button {
+		width: 50px;
+	}
 
+	.buttons-carousel button i {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+	}
+
+	.buttons-carousel:hover button {
+		width: 100px;
+	}
+
+	.buttons-carousel button:hover {
+		cursor: pointer;
+	}
+	
+	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#section-advertising .content > div {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }
 
-footer > div > div > ul {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
+@media (min-width: 576px) and (max-width: 767.98px) {
+	/* CARDS
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#introduction-cards {
+		margin-top: 15px;
+	}
+
+	#introduction-cards > ul {
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	#introduction-cards > ul > li > div {
+		display: flex;
+		align-items: center;
+		height: 72px;
+		padding: 0 15px;
+	}
+
+	#introduction-cards > ul > li > div > div:last-child {
+		margin-left: 10px;
+	}
+
+	#introduction-cards > ul > li:first-child,
+	#introduction-cards > ul > li:first-child + li + li {
+		border-right: 1px solid #D1D1D1;
+	}
 }
 
-footer > div > div:first-child > ul > li i {
-	width: 20px;
-	color: #2A2A2A;
-	margin-right: 7px;
-	text-align: center;
+@media (max-width: 767.98px) {
+	/* CONTROLE DE VISUALIZAÇÂO
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	/* ✏ botoes do carousel */
+	.buttons-carousel button { display: none }
+	
+	/* ✏ titulo do trending */
+	#section-trending .slide-tittle-controls > div:first-child {
+		display: none }
+
+	/* SEÇÂO DO SLIDE TRENDING
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	/* ✏ div que contem os links e botoes */
+	#section-trending .slide-tittle-controls > div + div {
+		width: 100%
+	}
 }
 
-footer > div > div h3 {
-	margin: 5px 0;
-	padding: 10px 0;
-	position: relative;
+@media (min-width: 768px) {
+	/* SECTION INTRODUCTION
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#section-introduction > div > div
+	#section-introduction.open_l > div > div
+	#section-introduction.close_l > div > div {
+		transition: 0.1s;
+	}
+
+	#introduction-cards > ul > li:hover > div > div:first-child > img {
+		transform: rotateY(5400deg);
+		transition: 60s;
+	}
+	#introduction-cards > ul > li > div > div:first-child > img {
+		transform: rotateY(0deg);
+		transition: 10s;
+	}
 }
 
-footer > div > div h3 > div {
-	height: 2px;
-	width: 50px;
-	background: #EF3333aa;
-	position: absolute;
-	bottom: 0;
-	left: 0;
+@media (min-width: 768px) and (max-width: 991.98px) {
+	/* INRODUCTION
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#section-introduction.open_l > div > div {
+		margin-left: 260px;
+	}
+
+	/* CARDS OPEN
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#introduction-cards {
+		margin-top: 15px;
+	}
+
+	.open_l #introduction-cards > ul {
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.open_l #introduction-cards > ul > li > div {
+		display: flex;
+		align-items: center;
+		padding: 0 15px;
+		height: 80px;
+	}
+
+	.open_l #introduction-cards > ul > li > div > div:last-child {
+		margin-left: 10px;
+	}
+
+	.open_l #introduction-cards > ul > li:first-child,
+	.open_l #introduction-cards > ul > li:first-child + li + li {
+		border-right: 1px solid #D1D1D1;
+	}
+
+	/* CARDS CLOSE
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	.close_l #introduction-cards > ul {
+		display: flex;
+	}
+
+	.close_l #introduction-cards > ul > li {
+		width: 25%;
+	}
+
+	.close_l #introduction-cards > ul > li > div {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 15px 0;
+	}
+
+	.close_l #introduction-cards > ul > li > div > div:last-child {
+		height: 100%;
+		margin-top: 5px;
+	}
+
+	.close_l #introduction-cards > ul > li {
+		border-right: 1px solid #D1D1D1;
+	}
+
+	.close_l #introduction-cards > ul > li:last-child {
+		border: none;
+	}
 }
 
-footer > div > div > ul > li {
-	line-height: 25px;
+@media (max-width: 991.98px) {
+	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#section-advertising .content > div {
+		grid-gap: 6px;
+	}
 }
 
+@media (min-width: 992px) {
+	/* CARDS OPEN
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	.open_l #introduction-cards {
+		margin-top: 15px;
+	}
 
+	.open_l #introduction-cards > ul {
+		display: flex;
+	}
 
+	.open_l #introduction-cards > ul > li {
+		width: 25%;
+	}
 
+	.open_l #introduction-cards > ul > li > div {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 15px 0;
+	}
 
+	.open_l #introduction-cards > ul > li > div > div:last-child {
+		height: 100%;
+		margin-top: 5px;
+	}
 
+	.open_l #introduction-cards > ul > li {
+		border-right: 1px solid #D1D1D1;
+	}
 
+	.open_l #introduction-cards > ul > li:last-child {
+		border: none;
+	}
 
+	/* CARDS CLOSE
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	.close_l #introduction-cards > ul {
+		height: 100%;
+	}
 
+	.close_l #introduction-cards > ul > li {
+		height: 25%;
+	}
 
+	.close_l #introduction-cards > ul > li > div {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		padding: 0 12px;
+	}
+	.close_l #introduction-cards > ul > li > div > div:last-child {
+		margin-left: 8px;
+	}
+}
 
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	/* INRODUCTION
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#section-introduction.open_l > div > div {
+		margin-left: 290px;
+	}
 
+	#section-introduction.close_l > div {
+ 		display: grid;
+ 		grid-template-columns: 600px 1fr;
+ 		grid-gap: 15px;
+ 	}
+}
 
+@media (min-width: 1200px) {
+	/* INRODUCTION
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	#section-introduction.open_l > div > div:first-child {
+		margin-left: 290px;
+	}
 
-
-
-
-
-
-
+	#section-introduction.close_l > div {
+		display: grid;
+		grid-template-columns: 720px 1fr;
+		grid-gap: 15px;
+	}
+}

@@ -456,7 +456,11 @@ header {
 
 #button-categories {
 	color: #fff;
+}
+
+#button-categories.close_l {
 	background: #3C3C3C;
+	
 }
 
 #button-categories.open_l {
@@ -782,6 +786,24 @@ header {
 		display: none
 	}
 
+	/* HEADER
+	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	header {
+		box-shadow: 0 0 15px -5px #0000003a;
+	}
+	#header-banner {
+		padding-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	#h-panel {
+		justify-content: flex-end;
+	}
+
+	#h-brand img {
+		height: 50px;
+	}
+
 	/* HEADER CONTENT
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	#header-banner .content {
@@ -983,6 +1005,12 @@ header {
 	#h-search button {
 		width: 10%;
 	}
+
+	#button-categories {
+		background-color: #232323;
+		text-align: left;
+		width: 245px;
+	}
 }
 
 @media (min-width: 992px) {
@@ -1011,8 +1039,44 @@ header {
 	}
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
+/*                     /      \                     */
+/*--------------------| FOOTER |--------------------*/
+/*                     \      /                     */
+
+footer {
+	margin-top: 25px;
+	padding: 10px 0;
+	border-top: 1px solid #D8D8D8;
 }
 
-@media (min-width: 1200px) {
+footer > div > div > ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+footer > div > div:first-child > ul > li i {
+	width: 20px;
+	color: #2A2A2A;
+	margin-right: 7px;
+	text-align: center;
+}
+
+footer > div > div h3 {
+	margin: 5px 0;
+	padding: 10px 0;
+	position: relative;
+}
+
+footer > div > div h3 > div {
+	height: 2px;
+	width: 50px;
+	background: #EF3333aa;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+footer > div > div > ul > li {
+	line-height: 25px;
 }

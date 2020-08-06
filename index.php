@@ -14,7 +14,6 @@
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<link rel="stylesheet" type="text/css" href="css/carousel.css">
 	<link rel="stylesheet" type="text/css" href="css/home.css">
-	<link rel="stylesheet" type="text/css" href="css/media.css">
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
@@ -29,7 +28,7 @@
 	<? require_once "phphtml/header.php" ?>
 
 	<!--|➖➖➖➖  Seção introdocção  ➖➖➖➖|-->
-	<section id="section-introduction" class="open_l">
+	<section id="section-introduction" class="close_l">
 		<div class="content">
 
 			<div> <!-- ⏩ Carousel -->

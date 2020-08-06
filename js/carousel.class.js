@@ -83,7 +83,7 @@ class Carousel {
 	// Metodo utilizado no evento de touchstart
 	touch(downevent) {
 		clearInterval(this.interval)
-		this.ipx = downevent.touches[0].clientX
+		this.ipx = Math.round(downevent.touches[0].clientX)
 		this.mpx = 0
 		this.t_relative = 0
 		this.s_element.style.transition = '0s'
@@ -97,13 +97,13 @@ class Carousel {
 	move(moveevent) {
 		let permition = true
 
-		this.mpx = event.touches[0].clientX - this.ipx
+		this.mpx = Math.round(event.touches[0].clientX) - this.ipx
 
 		if(this.t_relative > (this.t_limit - this.sWidth) + 50) {
 			permition = false
-			this.rpx = event.touches[0].clientX
+			this.rpx = Math.round(event.touches[0].clientX)
 			if(this.rpx < this.ipx) {
-				this.ipx = event.touches[0].clientX
+				this.ipx = Math.round(event.touches[0].clientX)
 			} else {
 				this.auxt_current = this.t_relative
 				permition = true
@@ -112,9 +112,9 @@ class Carousel {
 
 		if(this.t_relative < -50) {
 			permition = false
-			this.rpx = event.touches[0].clientX
+			this.rpx = Math.round(event.touches[0].clientX)
 			if(this.rpx > this.ipx) {
-				this.ipx = event.touches[0].clientX
+				this.ipx = Math.round(event.touches[0].clientX)
 			} else {
 				this.auxt_current = this.t_relative
 				permition = true
@@ -138,7 +138,7 @@ class Carousel {
 		} else if(this.t_relative < 0) {
 			this.t_current = this.t_limit - this.sWidth
 		} else {
-			this.t_relative = Math.round(this.t_relative) - a
+			this.t_relative = this.t_relative - a
 
 			if(a > this.sWidth/3) {
 				this.t_relative += this.sWidth
@@ -146,9 +146,6 @@ class Carousel {
 
 			this.t_current = this.t_relative
 		}
-
-		
-
 
 		this.moveItems()
 

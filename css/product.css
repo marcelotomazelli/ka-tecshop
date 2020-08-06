@@ -1,0 +1,434 @@
+#mainproduct {
+	margin-top: 15px;
+}
+
+#imgs {
+	/*border: 1px solid red;*/
+}
+
+#image {
+	padding: 15px;
+	max-width: 500px;
+}
+
+#image img {
+	display: block;
+	width: 100%;
+	border: 1px solid #E1E1E1;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: #fff;
+	box-shadow: 0 0 10px #0000000a;
+}
+
+#Spsi-imgs {
+	overflow-x: scroll;
+}
+
+#si-imgs {
+	display: flex;
+}
+
+
+#si-imgs button {
+	padding: 7px;
+	border: none;
+	background: none;
+	display: block;
+	cursor: pointer;
+}
+
+#si-imgs img {
+	display: block;
+	width: 100%;
+	border: 1px solid #E1E1E1;
+	border-radius: 4px;
+	padding: 5px;
+	padding-bottom: 0;
+	background-color: #fff;
+}
+
+
+
+#name h1 {
+	font-size: 1.3em;
+	padding: 0;
+}
+
+#dates th {
+	width: 175px;
+	padding: 0;
+	text-align: left;
+}
+
+#dates a {
+	color: #EC2D2D;
+}
+
+#numbers > span {
+	font-size: 1.1em;
+	font-weight: normal;
+}
+
+#numbers > div {
+	display: flex;
+}
+
+#numbers > div > * {
+	display: block;
+	width: 40px;
+	height: 40px;
+}
+
+#numbers > div > button {
+	border-radius: none;
+	border: none;
+	background-color: #EB2727;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+#numbers > div > button:first-child {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+#numbers > div > span {
+	text-align: center;
+	line-height: 40px;
+	border-top: 1px solid #D1D1D1;
+	border-bottom: 1px solid #D1D1D1;
+	background-color: #F2F2F2; 
+}
+
+#numbers > div > button:last-child {
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+#numbers > div > button:hover {
+	background-color: #D51E1E;
+	transition: 0.3s;
+}
+
+#add-cart {
+
+}
+
+#add-cart > * {
+	height: 40px;
+	display: inline-block;
+	line-height: 40px;
+	padding: 0 15px;
+	border: 1px solid #E1E1E1;
+}
+
+#add-cart > a:first-child {
+	border-radius: 40px;
+}
+
+#add-cart > a:last-child {
+	border-radius: 4px;
+}
+
+#add-cart > a:hover {
+	background-color: #EB2727;
+	border: 1px solid #EB2727;
+	color: #fff;
+}
+
+
+#reviews-link {
+	display: flex;
+	align-items: center;
+}
+
+#reviews-link > * {
+	margin-right: 10px;
+}
+
+#reviews-link > span {
+	margin-right: 15px;
+}
+#reviews-link > button {
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	color: #454545;
+}
+
+#reviews-link > button:hover {
+	cursor: pointer;
+	color: #D01F1F;
+}
+
+
+.stars > * {
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	width: 20px;
+	height: 15px;
+	position: relative;
+}
+
+.stars i {
+	font-size: 1.1em;
+}
+
+.stars .not-filled {
+	color: #7F7F7F;
+}
+
+.stars .filled {
+	color: #F6D22A;
+}
+
+.stars .not-filled.medium {
+	transform: rotateY(180deg);
+	position: absolute;
+	top: 0;
+	right: 1px;
+	z-index: 1;
+}
+
+.stars > span > i:first-child {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+
+
+#midias img {
+	width: 28px;
+	height: 28px;
+	display: block;
+}
+
+#midias {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+#midias > * {
+	margin-right: 10px;
+}
+
+#midias > a:hover {
+	opacity: 0.8;
+}
+
+
+
+
+#info > div {
+	padding: 20px 0;
+	border-bottom: 1px solid #E1E1E1;
+}
+
+#info > div:first-child {
+	padding-top: 0;
+}
+#info > div:last-child {
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+
+#text-info {
+	margin-top: 15px;
+}
+
+.text-info {
+	margin-top: 15px;
+}
+
+.text-info > div:first-child {
+	border: 1px solid #E1E1E1;
+	border-bottom: none;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	padding: 0 15px;
+	background-color: #fff;
+	color: #E23535;
+	display: flex;
+	align-items: center;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.text-info > div:first-child > i {
+	font-size: 1.3em;
+	margin-right: 5px;
+	line-height: 40px;
+}
+
+.text-info > div:last-child {
+	border: 1px solid #E1E1E1;
+	padding: 15px;
+	width: 100%;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	background-color: #fff;
+}
+
+
+
+
+#description {
+	text-align: justify;
+}
+
+#specification table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#specification table td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#specification > div > table:first-child ~ table {
+	margin-top: 12px;
+}
+
+#specification table tr {
+	border: 1px solid #D3D3D3;
+	border-collapse: collapse;
+	height: 40px;
+	padding: 10px 0;
+}
+
+
+
+
+#specification table * {
+	padding-left: 10px;
+}
+
+.tittle-item {
+	text-align: left;
+}
+
+.row-item td:first-child {
+	width: 65%;
+	border-right: 1px solid #D3D3D3;
+}
+
+.row-item td:last-child {
+	width: 35%;
+}
+
+.one-row-item td:last-child {
+	width: 0%;
+}
+
+
+
+
+#reviews label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+#reviews form {
+	width: 100%;
+	margin: 0;
+}
+
+#reviews textarea {
+	height: 78px;
+	min-width: 100%;
+	max-width: 100%;
+	border: 1px solid #D7D7D7;
+	padding: 10px;
+}
+
+#stars-review {
+	margin: 10px 0;
+}
+
+#stars-review > div:first-child {
+	margin-bottom: 5px;
+}
+
+#button-start-review {
+	background-color: transparent;
+	border: none;
+	color: #7F7F7F;
+	cursor: pointer;
+}
+
+
+#send-review {
+	display: flex;
+	justify-content: flex-end;
+}
+
+#button-send-review {
+	padding: 7px 20px;
+	border: none;
+	background-color: #E83737;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+#button-send-review:hover {
+	background-color: #DE3030;
+	transition: 0.3s;
+}
+
+#new-review {
+	padding: 10px;
+	background-color: #F9F9F9;
+	border: 1px solid #E1E1E1;
+	border-radius: 5px;
+}
+
+#new-review input[type="text"] {
+	display: block;
+	width: 100%;
+	border: 1px solid #D7D7D7;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+
+
+.old-review {
+	margin: 10px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #E1E1E1;
+}
+
+.old-review > div:last-child {
+	margin-top: 10px;
+}
+
+#old-reviews > div.old-review:last-child {
+	border: none;
+}
+
+.name-review,
+.name-review + div {
+	margin-bottom: 5px;
+}
+
+.name-review > span:first-child {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	margin-right: 5px;
+}
+
+.review-coment {
+	font-size: 0.9em;
+	color: #363636;
+}

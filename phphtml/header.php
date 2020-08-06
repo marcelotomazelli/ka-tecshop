@@ -11,7 +11,9 @@
 
 			<!---\ Logo --->
 			<div id="h-brand">
-				<img src="img/brand.png" alt="k a tecshop" />
+				<a href="index.php">
+					<img src="img/brand.png" alt="k a tecshop" />
+				</a>
 			</div>
 
 			<!---\ Formulario --->
@@ -101,13 +103,13 @@
 						<!--; Botão -->
 						<button 
 							id="button-categories"
-							class="open_l" 
+							class="close_l" 
 						>
 							<i class="fas fa-shapes"></i>
 							Categorias
 						</button>
 						
-						<aside id="menu-categories" class="close_s open_l">
+						<aside id="menu-categories" class="close_s close_l">
 							<nav>
 								<ul>
 									
@@ -170,7 +172,7 @@
 
 	 								<!-- <|Dropdown----------------------------|> -->
 									<li class="categorie-dropdown close_s" id="smartphone-ctgr">
-										<a href="#">
+										<a href="categories.php?ctgr=sp">
 											<i class="fas fa-mobile-alt"></i>
 											Smartphone
 										</a>
@@ -181,7 +183,7 @@
 										<div>
 											<ul>
 												<li>
-													<a href="#">VER TUDO</a>
+													<a href="categories.php?ctgr=sp">VER TUDO</a>
 												</li>
 											</ul>
 											<ul>
@@ -320,4 +322,4 @@
 	</div> <!-- ◼ Navegação principal -->
 
 </header>
-
+<script src="js/header.js"></script>

@@ -23,6 +23,13 @@ function initialConfig() {
 	crslObj_deal = new Carousel('SpSlide-deal', 'si_deal', 7000)
 
 	sizing()
+
+	let elements = ['menu-categories', 'section-introduction', 'button-categories']
+	changeClass(elements, 'close_l', 'open_l')
+	
+	setTimeout(() => {
+		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+	}, 750)
 }
 
 function resizing() {
@@ -52,49 +59,7 @@ function sizing() {
 	}
 }
 
-function changeClass(id_elements, new_class, old_class) {
-	for(let i = 0; i < id_elements.length; i++) {
-		let el = document.getElementById(id_elements[i])
-		if(el.className.includes(old_class))
-			el.className = el.className.replace(old_class, new_class)
-		else 
-			el.className = el.className.replace(new_class, old_class)
-
-	}
-}
-
 window.onload =  initialConfig
-
-document.getElementById('button-categories').onclick = () => {
-	let elements = ['menu-categories', 'section-introduction', 'button-categories']
-	changeClass(elements, 'close_l', 'open_l')
-	
-	setTimeout(() => {
-		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
-	}, 750)
-}
-
-document.getElementById('button-responsive-menu').onclick = () => {
-	let elements = ['menu-categories', 'button-responsive-menu', 'bodyid']
-	changeClass(elements, 'open_s', 'close_s')
-}
-
-document.getElementById('button-smartphone-ctgr').onclick = () => {
-	changeClass(['smartphone-ctgr'], 'open_s', 'close_s')
-}
-
-
-document.getElementById('button-desktop-ctgr').onclick = () => {
-	changeClass(['desktop-ctgr'], 'open_s', 'close_s')
-}
-
-
-
-
-
-
-
-
 
 // Função responsavel por fazer as requisições da seção das tendencias
 function requisitionAjax(index) {
@@ -186,4 +151,13 @@ function requisitionAjax(index) {
 		}
 		xhttp.send()
 	}
+}
+
+document.getElementById('button-categories').onclick = () => {
+	let elements = ['menu-categories', 'section-introduction', 'button-categories']
+	changeClass(elements, 'close_l', 'open_l')
+	
+	setTimeout(() => {
+		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+	}, 750)
 }
