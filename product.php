@@ -255,14 +255,71 @@
 
 				<div id="ask" class="text-info">
 					<div><i class="fas fa-comments"></i> Perguntas</div>
-					<div></div>
+					<div id="questions">
+						<div class="question">
+							<div><i class="fas fa-comment"></i></div>
+							<div>
+								<span class="question-tittle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+								<span class="question-author">Romero <span>16/03/2011</span></span>
+								<span class="button-answer"><button>Responder</button></span>
+								<div class="answers">
+									<div class="answer">
+										<div><i class="fas fa-comment"></i></div>
+										<div>
+											<span class="answer-tittle"><i>Lorem iusto vero hic omnis illo reprehenderit ullam quo quod!</i></span>
+											<span class="answer-author">Leonidas <span>19/03/2011</span></span>
+										</div>
+									</div>
+									<div class="answer">
+										<div><i class="fas fa-comment"></i></div>
+										<div>
+											<span class="answer-tittle"><i>Lorem iusto vero hic omnis illo reprehenderit ullam quo quod!</i></span>
+											<span class="answer-author">Leonidas <span>19/03/2011</span></span>
+										</div>
+									</div>
+									<div class="answer">
+										<div><i class="fas fa-comment"></i></div>
+										<div>
+											<span class="answer-tittle"><i>Lorem iusto vero hic omnis illo reprehenderit ullam quo quod!</i></span>
+											<span class="answer-author">Leonidas <span>19/03/2011</span></span>
+										</div>
+									</div>
+									<div class="new-aswer">
+										<label for="a1">Resposta:</label>
+										<form action="#">
+											<textarea name="#" id="a1"></textarea>
+										</form>
+										<div><button class="button-send-answer">Enviar</button></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="question">
+							<div><i class="fas fa-comment"></i></div>
+							<div>
+								<span class="question-tittle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+								<span class="question-author">Romero <span>16/03/2011</span></span>
+								<span class="button-answer"><button>Responder</button></span>
+								<div class="answers">
+									<div class="answer">
+										<div><i class="fas fa-comment"></i></div>
+										<div>
+											<span class="answer-tittle"><i>Lorem iusto vero hic omnis illo reprehenderit ullam quo quod!</i></span>
+											<span class="answer-author">Leonidas <span>19/03/2011</span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div id="reviews" class="text-info">
 					<div><i class="fas fa-star"></i>Avaliações (<span>10</span>)</div>
 					<div>
 						<div id="old-reviews">
-							<? for($i = 0; $i <= 10; $i++) { ?>
+							<? for($i = 1 ; $i <= 10; $i++) { ?>
 								<div class="old-review">
 									<div>
 										<div class="name-review">
@@ -297,7 +354,7 @@
 								</div>
 								<div>
 									<label for="ta1">Comentário:</label>
-									<textarea name="" id="ta1" cols="30" rows="10"></textarea>
+									<textarea name="" id="ta1"></textarea>
 								</div>
 								<input type="hidden" name="review">
 							</form>

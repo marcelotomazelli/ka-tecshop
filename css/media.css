@@ -137,6 +137,13 @@
 	#imgs {
 		margin-bottom: 15px;
 	}
+
+	
+	#si-imgs button {
+		min-width: 120px;
+		max-width: 120px;
+	}
+
 }
 
 @media (min-width: 768px) {

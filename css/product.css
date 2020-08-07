@@ -72,6 +72,7 @@
 
 #numbers > div {
 	display: flex;
+	margin-top: 10px;
 }
 
 #numbers > div > * {
@@ -256,6 +257,7 @@
 	padding: 0 15px;
 	background-color: #fff;
 	color: #E23535;
+	text-transform: uppercase;
 	display: flex;
 	align-items: center;
 	border-top-left-radius: 4px;
@@ -350,6 +352,127 @@
 	padding: 10px;
 }
 
+
+
+
+
+
+#questions > div:first-child ~ div {
+	margin-top: 10px;
+}
+
+.question {
+	display: grid;
+	grid-template-columns: 25px 1fr;
+	margin-top: 
+}
+
+.question > div > i {
+	transform: rotateY(180deg);
+	color: #0000005a;
+}
+
+.question-tittle {
+	display: block;
+	font-weight: bold;
+}
+
+.question-author {
+	font-size: 0.8em;
+	color: #6D6D6D;
+}
+
+.button-answer {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.button-answer button {
+	border: none;
+	background-color: transparent;
+	text-decoration: underline;
+	font-size: 0.9em;
+	padding: 0;
+	cursor: pointer;
+}
+
+.button-answer button:hover {
+	color: #EE3636;
+}
+
+
+.answers > div:first-child ~ div {
+	margin-top: 10px;
+}
+
+.answer {
+	display: grid;
+	grid-template-columns: 25px 1fr;
+}
+
+.answer > div:first-child > i {
+	color: #FF0000aa;
+}
+
+.answer-tittle {
+	display: block;
+}
+
+.answer-author {
+	font-size: 0.8em;
+	color: #6D6D6D;
+
+}
+
+
+
+.new-aswer {
+	padding: 10px;
+	border: 1px solid #E1E1E1;
+	background-color: #F9F9F9;
+	border-radius: 4px;
+}
+
+.new-aswer label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.new-aswer form {
+	width: 100%;
+	margin: 0;
+}
+
+.new-aswer textarea {
+	height: 78px;
+	min-width: 100%;
+	max-width: 100%;
+	border: 1px solid #D7D7D7;
+	padding: 10px;
+}
+
+.new-aswer > div {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.button-send-answer {
+	padding: 7px 20px;
+	border: none;
+	background-color: #E83737;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+.button-send-answer:hover {
+	background-color: #DE3030;
+	transition: 0.3s;
+}
+
+
+
 #stars-review {
 	margin: 10px 0;
 }
@@ -403,8 +526,7 @@
 
 
 .old-review {
-	margin: 10px 0;
-	padding-bottom: 10px;
+	padding: 10px;
 	border-bottom: 1px solid #E1E1E1;
 }
 
