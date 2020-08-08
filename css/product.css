@@ -2,10 +2,6 @@
 	margin-top: 15px;
 }
 
-#imgs {
-	/*border: 1px solid red;*/
-}
-
 #image {
 	padding: 15px;
 	max-width: 500px;
@@ -111,10 +107,6 @@
 #numbers > div > button:hover {
 	background-color: #D51E1E;
 	transition: 0.3s;
-}
-
-#add-cart {
-
 }
 
 #add-cart > * {

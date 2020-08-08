@@ -29,17 +29,112 @@
 					<button><i class="fas fa-search"></i></button>
 				</form>
 			</div>
+			
+			<?php
+
+				if(1 == rand(1,6)) {
+					$items = rand(5,9);
+				} else {
+					$items = rand(0,4);
+				}
+
+				$products = array();
+
+				for($i = 1; $i <= $items; $i++) {
+
+					$first_value = 0;
+
+					if(1 == rand(1,5)) {
+						$first_value = rand(7,15999);
+					} else {
+						$first_value = rand(7,599);
+					}
+
+					$product = [
+						'id' => rand(1,50),
+						'qtd' => rand(1,3),
+						'valor' => $first_value.'.'.rand(0,99)
+					];
+
+					array_push($products, $product);
+				}
+
+				$total = 0.00;
+
+				if($items != 0) {
+					foreach($products as $value) {
+						$total += ($value['valor'] + 0) * $value['qtd'];
+					}
+				}
+
+			?>
 
 			<!---\ Painel --->
 			<div id="h-panel">
 				<!--; Link Carrinho-->
-				<a id="cart" href="#"></a>
+				<div id="div-cart" class="dropdown-panel">
+					<a id="link-cart" href="cart.php">
+						<div>
+							<div id="cart-tittle">
+								<span>Carrinho</span>
+								<span>
+									<?php
+										echo 'R$ ';
+										if($items != 0) {
+											echo str_replace('.', ',', $total);
+										} else {
+											echo '0,00';
+										}
+									?>
+								</span>
+							</div>
+							<span id="number-items-cart"><?= $items ?></span>
+						</div>
+					</a>
+					<div id="cart">
+						<div id="products-cart">
+							<? foreach($products as $value) { ?>
+								<table>
+									<tr class="product-cart">
+										<td><img src="img_produtos/<?= $value['id']?>/index.jpg" height="60"alt=""></td>
+										<td>Teste 1</td>
+										<td><?= $value['qtd'] ?>x</td>
+										<td>R$ <?= str_replace('.', ',', ($value['valor'] * $value['qtd']))?></td>
+										<td>
+											<button>
+												<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
+											</button>
+										</td>
+									</tr>
+								</table>
+							<? } ?>
+						</div>
+						<? if($items != 0) { ?>
+							<table class="cart-total">
+								<tr class="two-items-table">
+									<td>Frete:</td>
+									<td>R$ 15,00</td>
+								</tr>
+								<tr class="two-items-table">
+									<td>Desconto:</td>
+									<td>Nenhum</td>
+								</tr>
+								<tr class="two-items-table">
+									<td>Total:</td>
+									<td>R$ <span><?= str_replace('.', ',', ($total + 15))?></span></td>
+								</tr>
+							</table>
+						<? } else { ?>
+							<span>Nenhum item no carrinho.</span>
+						<? } ?>
+					</div>
+				</div>
 
 				<!--; Link Favoritos-->
 				<a id="favorites" href="#"></a>
 
 				<!--; Link Perfil-->
-				<div id="div-login">
+				<div id="div-login" class="dropdown-panel">
 
 					<a id="link-profile" href="./access_page.php">
 					</a>

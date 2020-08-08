@@ -40,9 +40,14 @@ h1, h2, h3, h4, h5 {
 	padding: 0;
 }
 
+button:hover {
+	cursor: pointer;
+}
+
 .content {
 	height: 100%;
 }
+
 @media (max-width: 575.98px) {
 	.content {
 		margin-left: 10px;
