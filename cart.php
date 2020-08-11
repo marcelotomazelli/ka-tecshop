@@ -1,3 +1,6 @@
+<?php 
+	require "./php/authentication_control.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,73 +44,81 @@
 	<main id="maincart">
 		<div class="content">
 			
-			<section id="products-list">
-				<div>
-					<table class="product-table">
+			<? if($items == 0) { ?>
+				<section id="cartempty">
+					<span>Seu carrinho de compras está vazio.</span>
+					<span>Temos os melhores produtos e preços, aproveite!</span>
+					<span><a href="index.php">Ir para Home</a></span>
+				</section>
+			<? } else { ?>
+				<section id="products-list">
+					<div>
+						<table class="product-table">
 
-						<thead>
-							<tr class="product-line">
-								<th>Imagem</th>
-								<th>Nome</th>
-								<th>Quantidade</th>
-								<th>Unidade</th>
-								<th>Total</th>
-								<th>Excluir</th>
-							</tr>
-						</thead>
-
-						<tbody>
-							<? foreach($products as $value) { ?>
+							<thead>
 								<tr class="product-line">
-									<td>
-										<a href="#">
-											<img src="img_produtos/<?= $value['id']?>/index.jpg" alt="">
-										</a>
-									</td>
-									<td class="name-product">Teste</td>
-									<td><?= $value['qtd'] ?>x</td>
-									<td>R$ <?= str_replace('.', ',', $value['valor']) ?></td>
-									<td>R$ <?= str_replace('.', ',', ($value['valor'] * $value['qtd'])) ?></td>
-									<td class="button-delete">
-										<button>
-											<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
-										</button>
-									</td>
+									<th>Imagem</th>
+									<th>Nome</th>
+									<th>Quantidade</th>
+									<th>Unidade</th>
+									<th>Total</th>
+									<th>Excluir</th>
 								</tr>
-							<? } ?>
-						</tbody>
-					</table>
-				</div>
-			</section>
+							</thead>
 
-			<section id="generalinfo-cart">
-				<div id="infocart-total">
-					<table class="cart-total">
-						<tr class="two-items-table">
-							<td>Frete:</td>
-							<td>R$ 15,00</td>
-						</tr>
-						<tr class="two-items-table">
-							<td>Desconto:</td>
-							<td>Nenhum</td>
-						</tr>
-						<tr class="two-items-table">
-							<td>Total:</td>
-							<td>R$ <span><?= str_replace('.', ',', ($total + 15))?></span></td>
-						</tr>
-					</table>
-				</div>
+							<tbody>
+								<? foreach($products as $value) { ?>
+									<tr class="product-line">
+										<td>
+											<a href="#">
+												<img src="img_produtos/<?= $value['id']?>/index.jpg" alt="">
+											</a>
+										</td>
+										<td class="name-product">Teste</td>
+										<td><?= $value['qtd'] ?>x</td>
+										<td>R$ <?= str_replace('.', ',', $value['valor']) ?></td>
+										<td>R$ <?= str_replace('.', ',', ($value['valor'] * $value['qtd'])) ?></td>
+										<td class="button-delete">
+											<button>
+												<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
+											</button>
+										</td>
+									</tr>
+								<? } ?>
+							</tbody>
+						</table>
+					</div>
+				</section>
 
-				<div id="infocart-footer">
-					<div>
-						<button>Continuar comprando</button>
-						<button>Limpar carrinho</button>
+				<section id="generalinfo-cart">
+					<div id="infocart-total">
+						<table class="cart-total">
+							<tr class="two-items-table">
+								<td>Frete:</td>
+								<td>R$ 15,00</td>
+							</tr>
+							<tr class="two-items-table">
+								<td>Desconto:</td>
+								<td>Nenhum</td>
+							</tr>
+							<tr class="two-items-table">
+								<td>Total:</td>
+								<td>R$ <span><?= str_replace('.', ',', ($total + 15))?></span></td>
+							</tr>
+						</table>
 					</div>
-					<div>
-						<button>Finalizar compra</button>
+
+					<div id="infocart-footer">
+						<div>
+							<button>Continuar comprando</button>
+							<button>Limpar carrinho</button>
+						</div>
+						<div>
+							<button>Finalizar compra</button>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			<? } ?>
 
 		</div>
 	</main>

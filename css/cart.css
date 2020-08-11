@@ -114,3 +114,35 @@
 	background-color: #D52323;
 	transition: 0.3s;
 }
+
+
+
+#cartempty > span {
+	display: block;
+}
+
+#cartempty > span:first-child {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+#cartempty > span:first-child ~ span {
+	margin-top: 15px;
+}
+
+#cartempty > span:first-child + span {
+	color: #7A7A7A;
+	margin-bottom: 30px;
+}
+
+#cartempty > span:last-child > a {
+	margin-top: 10px;
+	padding: 7px 15px;
+	background-color: #ED3535;
+	border-radius: 4px;
+	color: #fff;
+}
+
+#cartempty > span:last-child > a:hover {
+	background-color: #DB3C3C;
+}

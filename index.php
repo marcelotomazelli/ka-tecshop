@@ -1,4 +1,5 @@
 <?php 
+	require "./php/authentication_control.php";
 	require "./php/list_products.php";
 ?>
 <!DOCTYPE html>

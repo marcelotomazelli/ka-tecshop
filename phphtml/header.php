@@ -1,6 +1,3 @@
-<?php
-	require "./php/authentication_control.php";
-?>
 <link rel="stylesheet" type="text/css" href="css/header-footer.css">
 <!--|➖➖  Header  ➖➖|-->
 <header>
@@ -136,7 +133,7 @@
 				<!--; Link Perfil-->
 				<div id="div-login" class="dropdown-panel">
 
-					<a id="link-profile" href="./access_page.php">
+					<a id="link-profile" href="./myaccount.php">
 					</a>
 					
 					<? if($authenticated) { ?>
@@ -144,13 +141,13 @@
 							<span>Olá <span><?= $_SESSION['name'] ?></span></span>
 							<ul>
 								<li>
-									<a href="#">Minha conta</a>
+									<a href="myaccount.php">Minha conta</a>
 								</li>
 								<li>
-									<a href="#">Histórico</a>
+									<a href="#">Pedidos</a>
 								</li>
 								<li>
-									<a href="#">Meu carrinho</a>
+									<a href="cart.php">Meu carrinho</a>
 								</li>
 								<li>
 									<a href="#">Lista de favoritos</a>
@@ -219,16 +216,16 @@
 												<div>
 													<ul>
 														<li>
-															<a href="#">Minha conta</a>
+															<a href="./myaccount.php">Minha conta</a>
 														</li>
 														<li>
-															<a href="#">Histórico</a>
+															<a href="./myaccount.php?p=pedidos">Pedidos</a>
 														</li>
 														<li>
-															<a href="#">Meu carrinho</a>
+															<a href="./cart.php">Meu carrinho</a>
 														</li>
 														<li>
-															<a href="#">Lista de favoritos</a>
+															<a href="./myaccount.php?p=favoritos">Lista de favoritos</a>
 														</li>
 														<li>
 															<a href="./php/session_end.php">Logoff</a>

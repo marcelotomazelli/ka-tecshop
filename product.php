@@ -1,3 +1,7 @@
+<?php
+	require "./php/authentication_control.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

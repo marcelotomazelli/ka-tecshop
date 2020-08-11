@@ -157,43 +157,6 @@
 }
 
 
-.stars > * {
-	padding: 0;
-	margin: 0;
-	display: inline-block;
-	width: 20px;
-	height: 15px;
-	position: relative;
-}
-
-.stars i {
-	font-size: 1.1em;
-}
-
-.stars .not-filled {
-	color: #7F7F7F;
-}
-
-.stars .filled {
-	color: #F6D22A;
-}
-
-.stars .not-filled.medium {
-	transform: rotateY(180deg);
-	position: absolute;
-	top: 0;
-	right: 1px;
-	z-index: 1;
-}
-
-.stars > span > i:first-child {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 2;
-}
-
-
 
 #midias img {
 	width: 28px;
