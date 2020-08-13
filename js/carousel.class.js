@@ -1,11 +1,14 @@
 class Carousel {
-	constructor(s_element, h_collection, time_interval) {
-		this.s_element = document.getElementById(s_element)
-		this.h_collection = document.getElementsByClassName(h_collection)
-		this.quant_items = this.h_collection.length
+	constructor(name, time_interval) {
+		this.s_element = document.getElementById('S' + name)
+		this.collection = document.getElementsByClassName('I' + name)
+		// 'S' => super
+		// 'I' => items
+
+		this.quant_items = this.collection.length
 
 		// Largura que o slide deve se mover
-		this.sWidth = 0
+		this.s_width = 0
 
 		// Quantidade de elemntos que aparecem na tela
 		this.view_elements = undefined
@@ -28,6 +31,20 @@ class Carousel {
 		this.time_interval = time_interval
 		this.interval = this.intervalControl()
 
+		this.interactions = [(name + 't'), (name + 'p'), (name + 'n')]
+
+		this.interactions.forEach((id) => {
+			let el = document.getElementById(id)
+			let type = id.replace(id.slice(0, (id.length - 1)), '')
+
+			if(type === 't')
+				el.ontouchstart = () => this.touch(event)
+			else if(type === 'p')
+				el.onclick = () => this.prev()
+			else if(type === 'n')
+				el.onclick = () => this.next()
+
+		})
 
 		this.refWidth_to_Cal = document.getElementsByClassName('content')[0]
 	}
@@ -42,13 +59,12 @@ class Carousel {
 	// Metodo responsavel por percorrer e atualizar os valores, causando o movimento dos items
 	moveItems() {
 		this.s_element.style.transform = 'translateX(-' + this.t_current + 'px)'
-		this.auxt_current = this.t_current
 	}
 
 	// Metodo utilizado no botão "proximo >"
 	next() {
 		clearInterval(this.interval)
-		this.t_current += this.sWidth
+		this.t_current += this.s_width
 
 		if(this.t_current >= this.t_limit)
 			this.t_current = 0
@@ -60,10 +76,10 @@ class Carousel {
 	// Metodo utilizado no batão "anterior <"
 	prev() {
 		clearInterval(this.interval)
-		this.t_current -= this.sWidth
+		this.t_current -= this.s_width
 
-		if(this.t_current == -this.sWidth)
-			this.t_current = this.t_limit - this.sWidth
+		if(this.t_current == -this.s_width)
+			this.t_current = this.t_limit - this.s_width
 
 		this.moveItems()
 		this.interval = this.intervalControl()
@@ -71,7 +87,7 @@ class Carousel {
 
 	// Metodo utilizado no intervalo para os elementos se moverem sozinhos
 	autonext() {
-		this.t_current += this.sWidth
+		this.t_current += this.s_width
 		
 		if(this.t_current >= this.t_limit)
 			this.t_current = 0
@@ -83,6 +99,7 @@ class Carousel {
 	// Metodo utilizado no evento de touchstart
 	touch(downevent) {
 		clearInterval(this.interval)
+		this.auxt_current = this.t_current
 		this.ipx = Math.round(downevent.touches[0].clientX)
 		this.mpx = 0
 		this.t_relative = 0
@@ -99,7 +116,7 @@ class Carousel {
 
 		this.mpx = Math.round(event.touches[0].clientX) - this.ipx
 
-		if(this.t_relative > (this.t_limit - this.sWidth) + 50) {
+		if(this.t_relative > (this.t_limit - this.s_width) + 50) {
 			permition = false
 			this.rpx = Math.round(event.touches[0].clientX)
 			if(this.rpx < this.ipx) {
@@ -131,17 +148,17 @@ class Carousel {
 	stop() {
 		this.s_element.style.transition = ''
 
-		let a = Math.round(this.t_relative) % this.sWidth
+		let a = Math.round(this.t_relative) % this.s_width
 
-		if(this.t_relative > (this.t_limit - this.sWidth)) {
+		if(this.t_relative > (this.t_limit - this.s_width)) {
 			this.t_current = 0
 		} else if(this.t_relative < 0) {
-			this.t_current = this.t_limit - this.sWidth
+			this.t_current = this.t_limit - this.s_width
 		} else {
 			this.t_relative = this.t_relative - a
 
-			if(a > this.sWidth/3) {
-				this.t_relative += this.sWidth
+			if(a > this.s_width/3) {
+				this.t_relative += this.s_width
 			}
 
 			this.t_current = this.t_relative
@@ -162,16 +179,16 @@ class Carousel {
 
 		let content_width = this.refWidth_to_Cal.offsetWidth
 		this.t_current = 0
-		this.sWidth = w
+		this.s_width = w
 		if(t == 'i') {
 			this.view_elements = 1
 		} else {
-			this.view_elements = content_width / this.sWidth
+			this.view_elements = content_width / this.s_width
 			if(!Number.isInteger(this.view_elements)) {
 				this.view_elements = Math.round(this.view_elements)
 			}
 		}
-		this.t_limit = this.sWidth * (this.quant_items - this.view_elements + 1)
+		this.t_limit = this.s_width * (this.quant_items - this.view_elements + 1)
 		this.moveItems()
 		this.interval = this.intervalControl()
 	}
@@ -195,7 +212,7 @@ class Carousel {
 
 	// Metodo que redimenciona os elementos do carousel com visualização de um ou mais elementos
 	sizeSlideItem(min, max, view1, view2) {
-		let list = this.h_collection
+		let list = this.collection
 		let w = this.refWidth_to_Cal.offsetWidth
 
 		let wWidth = window.innerWidth
@@ -209,7 +226,7 @@ class Carousel {
 			}
 			result = w + 'px'
 		} else {
-			w = this.h_collection.offsetWidth
+			w = this.collection.offsetWidth
 			result = ''
 		}
 
@@ -226,8 +243,8 @@ class Carousel {
 	// Metodo para atualizar alguns valores no evento de resize devido a não necessidade de ficar redimencioando
 	updValSlideItens() {
 		for(let i = 0; i < this.quant_items; i++)
-			this.h_collection[i].style.minWidth = ''
+			this.collection[i].style.minWidth = ''
 
-		this.sizing(this.h_collection[0].offsetWidth, 'si')
+		this.sizing(this.collection[0].offsetWidth, 'si')
 	}
 }

@@ -158,7 +158,6 @@ div das imagens ~~ */
 }
 
 .slide-tittle-controls > div + div ul > li button:hover {
-	cursor: pointer;
 	color: #D01F1F;
 	transition: 0.3s;
 }
@@ -199,7 +198,6 @@ div das imagens ~~ */
 }
 
 .slide-tittle-controls > div + div > div button:hover {
-	cursor: pointer;
 	color: #B20D0D;
 	transition: 0.3s;
 }

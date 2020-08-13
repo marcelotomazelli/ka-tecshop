@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<link rel="stylesheet" type="text/css" href="css/categories.css">
-	<link rel="stylesheet" type="text/css" href="css/media.css">
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
@@ -28,7 +27,7 @@
 	<? require_once "phphtml/header.php" ?>
 
 	<!--|➖➖➖➖  Parte localização  ➖➖➖➖|-->
-	<section id="divloc">
+	<section class="currentloc">
 		<div class="content">
 			<ul>
 				<li>
@@ -95,9 +94,10 @@
 				</div>
 			</aside>
 
-			<section id="view-products" class="list">
+			<section id="view-products" class="grid">
 				<div id="central-filter">
-					<div>
+
+					<div id="buttons-layout">
 						<button id="button-grid">
 							<i class="fas fa-th"></i>
 							<span>Grid</span>
@@ -142,7 +142,7 @@
 						<div class="item-products">
 							<div>
 
-								<div>
+								<div class="product-img">
 									<a href="product.php">
 										<img src="img_produtos/<?= $i?>/index.jpg">
 									</a>
@@ -153,13 +153,13 @@
 									</div>
 								</div>
 								
-								<div>
+								<div class="product-info">
 									<h2><a href="">Teste</a></h2>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni nesciunt, impedit? Facere nesciunt, tempora...</p>
 									<h3>R$ <?= rand(0, 9999).','.rand(0, 99) ?></h3>
 								</div>
 
-								<div>
+								<div class="product-addcart">
 									<a href="#">Adicionar ao carrinho</a>
 								</div>
 
@@ -169,7 +169,7 @@
 
 				</div>
 
-				<div id="pages-list">
+				<div class="pages-list">
 					<ul>
 						<li class="active">
 							<a href="#">1</a>

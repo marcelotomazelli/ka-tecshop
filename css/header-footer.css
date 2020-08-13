@@ -103,6 +103,34 @@ header {
 	min-width: 40px;
 }
 
+#favorites {
+	background: url(../img/icons/heart.png) no-repeat;
+}
+
+#link-cart {
+	background: url(../img/icons/cart.png) no-repeat;
+}
+
+#link-profile {
+	background: url(../img/icons/user.png) no-repeat;
+}
+
+#favorites,
+#link-cart,
+#link-profile {
+	background-size: 32px 32px;
+	background-position: 3px 4px;
+}
+
+#link-cart > div {
+	display: flex;
+	align-items: center;
+	position: relative;
+	min-height: 40px;
+	max-height: 40px;
+	margin: 0 5px;
+}
+
 #link-cart > div > span {
 	font-size: 0.9em;
 	height: 20px;
@@ -113,49 +141,27 @@ header {
 	color: #fff;
 	position: absolute;
 	bottom: -2px;
-	right: 13px;
+	left: -3px;
 	display: block;
 	text-align: center;
 }
 
-#link-cart > div {
-	background: url(../img/icons/cart.png) no-repeat center right;
-	background-size: 32px 32px;
-	padding-right: 35px;
-	display: flex;
-	align-items: center;
-	position: relative;
-	min-height: 40px;
-	max-height: 40px;
-	margin: 0 5px;
+#cart-tittle {
+	height: 100%;
+	position: absolute;
+	right: 40px;
 }
 
 #cart-tittle > span {
+	display: block;
 	text-align: right;
+	font-size: 0.9em;
 	position: relative;
-	top: 3px;
+	top: 5px;
 }
 
 #cart-tittle > span:first-child {
-	font-size: 0.8em;
 	font-weight: bold;
-	display: block;
-}
-
-#cart-tittle > span:last-child {
-	font-size: 0.9em;
-}
-
-#favorites {
-	background: url(../img/icons/heart.png) no-repeat;
-	background-size: 32px 32px;
-	background-position: 3px 4px;
-}
-
-#link-profile {
-	background: url(../img/icons/user.png) no-repeat;
-	background-size: 32px 32px;
-	background-position: 3px 4px;
 }
 
 .dropdown-panel {
@@ -186,6 +192,10 @@ header {
 	visibility: hidden;
 	opacity: 0;
 	transition: 0.3s;
+}
+
+#div-cart > a span {
+	white-space: nowrap;
 }
 
 #div-cart > div {

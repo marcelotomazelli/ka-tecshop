@@ -2,6 +2,44 @@
 	margin-top: 15px;
 }
 
+/* ************************************************ *\
+|* ---------------- CARRINHO VAZIO ---------------- *|
+\* ************************************************ */
+
+#cartempty > span {
+	display: block;
+}
+
+#cartempty > span:first-child {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+#cartempty > span:first-child ~ span {
+	margin-top: 15px;
+}
+
+#cartempty > span:first-child + span {
+	color: #7A7A7A;
+	margin-bottom: 30px;
+}
+
+#cartempty > span:last-child > a {
+	margin-top: 10px;
+	padding: 7px 15px;
+	background-color: #ED3535;
+	border-radius: 4px;
+	color: #fff;
+}
+
+#cartempty > span:last-child > a:hover {
+	background-color: #DB3C3C;
+}
+
+/* ************************************************ *\
+|* -------------------- TABELA -------------------- *|
+\* ************************************************ */
+
 @media (max-width: 767.98px) {
 	#products-list > div {
 		overflow-x: scroll;
@@ -12,7 +50,7 @@
 	background-color: #fff;
 }
 
-.product-table {
+#product-table {
 	border-collapse: collapse;
 	box-shadow:  0 0 5px #0000000f;
 }
@@ -64,6 +102,9 @@
 	white-space: nowrap;
 }
 
+/* ************************************************** *\
+|* --------------- INFORMAÇÕES FINAIS --------------- *|
+\* ************************************************** */
 
 #generalinfo-cart {
 	margin-top: 15px;
@@ -87,6 +128,13 @@
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-between;
+}
+
+@media (max-width: 575.98px) {
+	#infocart-footer {
+		display: flex;
+		flex-direction: column-reverse;
+	}
 }
 
 #infocart-footer button {
@@ -115,34 +163,14 @@
 	transition: 0.3s;
 }
 
+@media (max-width: 575.98px) {
+	#infocart-footer {
+		display: flex;
+		flex-direction: column-reverse;
+	}
 
-
-#cartempty > span {
-	display: block;
-}
-
-#cartempty > span:first-child {
-	font-size: 1.3em;
-	font-weight: bold;
-}
-
-#cartempty > span:first-child ~ span {
-	margin-top: 15px;
-}
-
-#cartempty > span:first-child + span {
-	color: #7A7A7A;
-	margin-bottom: 30px;
-}
-
-#cartempty > span:last-child > a {
-	margin-top: 10px;
-	padding: 7px 15px;
-	background-color: #ED3535;
-	border-radius: 4px;
-	color: #fff;
-}
-
-#cartempty > span:last-child > a:hover {
-	background-color: #DB3C3C;
+	#infocart-footer > div {
+		margin-top: 6px;
+		text-align: center;
+	}
 }

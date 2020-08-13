@@ -68,8 +68,10 @@
 
 			<!---\ Painel --->
 			<div id="h-panel">
+
 				<!--; Link Carrinho-->
 				<div id="div-cart" class="dropdown-panel">
+
 					<a id="link-cart" href="cart.php">
 						<div>
 							<div id="cart-tittle">
@@ -88,6 +90,7 @@
 							<span id="number-items-cart"><?= $items ?></span>
 						</div>
 					</a>
+
 					<div id="cart">
 						<div id="products-cart">
 							<? foreach($products as $value) { ?>
@@ -125,32 +128,32 @@
 							<span>Nenhum item no carrinho.</span>
 						<? } ?>
 					</div>
+
 				</div>
 
 				<!--; Link Favoritos-->
-				<a id="favorites" href="#"></a>
+				<a id="favorites" href="./myaccount.php?p=favoritos"></a>
 
 				<!--; Link Perfil-->
 				<div id="div-login" class="dropdown-panel">
 
-					<a id="link-profile" href="./myaccount.php">
-					</a>
+					<a id="link-profile" href="./myaccount.php"></a>
 					
 					<? if($authenticated) { ?>
 						<div id="with-login">
 							<span>Olá <span><?= $_SESSION['name'] ?></span></span>
 							<ul>
 								<li>
-									<a href="myaccount.php">Minha conta</a>
+									<a href="./myaccount.php">Minha conta</a>
 								</li>
 								<li>
-									<a href="#">Pedidos</a>
+									<a href="./myaccount.php?p=pedidos">Pedidos</a>
 								</li>
 								<li>
 									<a href="cart.php">Meu carrinho</a>
 								</li>
 								<li>
-									<a href="#">Lista de favoritos</a>
+									<a href="./myaccount.php?p=favoritos">Lista de favoritos</a>
 								</li>
 								<li>
 									<a href="./php/session_end.php">Logoff</a>
@@ -169,6 +172,7 @@
 							</div>
 						</div>
 					<? } ?>
+
 				</div>
 
 				<!--; Botao-->
@@ -209,7 +213,7 @@
 									<li id="painel-perfil-resp">
 										<? if($authenticated) { ?>
 											<div id="with-login-resp">
-												<a href="#">
+												<a href="./myaccount.php">
 													<img src="img/icons/user.png">
 												</a>
 												<span>Olá <span><?= $_SESSION['name'] ?></span></span>

@@ -23,7 +23,7 @@
 	<style type="text/css">
 	</style>
 </head>
-<body id="bodyid" onresize="resizing()" class="close_s">
+<body id="bodyid" class="close_s">
 
 	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
 	<? require_once "phphtml/header.php" ?>
@@ -36,27 +36,27 @@
 				<div id="carousel-intro" class="carousel">
 					
 					<!---\ Botões do Carousel--->
-					<div id="carousel_intro_buttons" class="buttons-carousel" ontouchstart="crslObj_intro.touch(event)">
+					<div id="introt" class="buttons-carousel">
 						<!--; Batão Prev-->
-						<button class="carousel-prev" onclick="crslObj_intro.prev()">
+						<button id="introp" class="carousel-prev">
 							<i class="fas fa-chevron-left"></i>
 						</button>
 						<!--; Batão Next-->
-						<button class="carousel-next" onclick="crslObj_intro.next()">
+						<button id="intron" class="carousel-next">
 							<i class="fas fa-chevron-right"></i>
 						</button>
 					</div>
 
                		<!---\ Imagens do Carousel--->
 					<div class="carousel-images">
-						<div id="SpCarousel-intro" class="carousel-content">
-							<div class="carousel-item">
+						<div id="Sintro" class="carousel-content">
+							<div class="carousel-item Iintro">
 								<img class="carousel-image" src="img/poster1.jpg" alt="placeholder+image">
 							</div>
-							<div class="carousel-item">
+							<div class="carousel-item Iintro">
 								<img class="carousel-image" src="img/poster2.jpg" alt="placeholder+image">
 							</div>
-							<div class="carousel-item">
+							<div class="carousel-item Iintro">
 								<img class="carousel-image" src="img/poster3.jpg" alt="placeholder+image">
 							</div>
 						</div>
@@ -143,21 +143,21 @@
 					<div>
 						<ul>
 							<li>
-								<button onclick="requisitionAjax('destaque')">Destaque</button>
+								<button id="reqd">Destaque</button>
 							</li>
 							<li>
-								<button onclick="requisitionAjax('bestseller')">BestSeller</button>
+								<button id="reqb">BestSeller</button>
 							</li>
 							<li>
-								<button onclick="requisitionAjax('ultimos')">Últimos</button>
+								<button id="requ">Últimos</button>
 							</li>
 							<div class="clear"></div>
 						</ul>
 						<div>
-							<button onclick="crslObj_trend.prev()">
+							<button id="trendp">
 								<i class="fas fa-chevron-left"></i>
 							</button>
-							<button onclick="crslObj_trend.next()">
+							<button id="trendn">
 								<i class="fas fa-chevron-right"></i>
 							</button>
 						</div>
@@ -165,13 +165,13 @@
 				</div>
 
 				<!--; Corpo do SlideItems-->
-				<div class="slide-carousel" ontouchstart="crslObj_trend.touch(event)">
+				<div class="slide-carousel" id="trendt">
 					
-					<div id="SpSlide-trend" class="slide-content">
+					<div id="Strend" class="slide-content">
 						<!-- Script que constroe a visulização dos produtos em destaque -->
 						<? foreach($list_dstq as $value) { ?>
 											
-							<div class="slide_items si_trend">
+							<div class="slide_items Itrend">
 								<div>
 									<div>
 										<a href="#">
@@ -249,10 +249,10 @@
 					<!--Links e Botões-->
 					<div>
 						<div>
-							<button onclick="crslObj_deal.prev()">
+							<button id="dealp">
 								<i class="fas fa-chevron-left"></i>
 							</button>
-							<button onclick="crslObj_deal.next()">
+							<button id="dealn">
 								<i class="fas fa-chevron-right"></i>
 							</button>
 						</div>
@@ -261,10 +261,10 @@
 				</div>
 
 				<!--Corpo do SlideItems-->
-				<div class="slide-carousel" ontouchstart="crslObj_deal.touch(event)">
-					<div id="SpSlide-deal" class="slide-content">
+				<div class="slide-carousel" id="dealt">
+					<div id="Sdeal" class="slide-content">
 						<? for($i = 1; $i <= 9; $i++) { ?>
-							<div class="slide_items si_deal">
+							<div class="slide_items Ideal">
 								<div>
 
 									<div>

@@ -2,12 +2,49 @@
 	margin-top: 15px;
 }
 
-#image {
+@media (min-width: 768px) {
+	#mainproduct > div.content {
+		display: grid;
+		grid-template-rows: auto auto;
+		grid-template-areas: "imgs info"
+							 "tinfo tinfo";
+	}
+
+	#product-imgs {
+		grid-area: imgs }
+
+	#info {
+		grid-area: info }
+
+	#informations {
+		grid-area: tinfo }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	#mainproduct > div.content {
+		grid-template-columns: 360px 1fr }
+}
+
+@media (min-width: 992px) {
+	#mainproduct > div.content {
+		grid-template-columns: 440px 1fr }
+}
+
+/* ************************************************* *\
+|* -------------------- IMAGENS -------------------- *|
+\* ************************************************* */
+
+@media (max-width: 767.98px) {
+	#product-imgs {
+		margin-bottom: 15px }
+}
+
+#main-image {
 	padding: 15px;
 	max-width: 500px;
 }
 
-#image img {
+#main-image img {
 	display: block;
 	width: 100%;
 	border: 1px solid #E1E1E1;
@@ -17,7 +54,10 @@
 	box-shadow: 0 0 10px #0000000a;
 }
 
-#Spsi-imgs {
+/* ----------------- CAROUSEL ----------------- */
+
+/* Super si-imgs */
+#Ssi-imgs {
 	overflow-x: scroll;
 }
 
@@ -25,8 +65,7 @@
 	display: flex;
 }
 
-
-#si-imgs button {
+#si-imgs > button {
 	padding: 7px;
 	border: none;
 	background: none;
@@ -34,7 +73,22 @@
 	cursor: pointer;
 }
 
-#si-imgs img {
+@media (max-width: 767.98px) {
+	#si-imgs > button {
+		max-width: 120px;
+		min-width: 120px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	#si-imgs > button { min-width: 120px }
+}
+
+@media (min-width: 992px) {
+	#si-imgs > button { min-width: 110px }
+}
+
+#si-imgs > button > img {
 	display: block;
 	width: 100%;
 	border: 1px solid #E1E1E1;
@@ -44,12 +98,41 @@
 	background-color: #fff;
 }
 
+/* ************************************************** *\
+|* ------------- INFORMAÇÕES PRINCIPAIS ------------- *|
+\* ************************************************** */
 
+@media (min-width: 768px) and (max-width: 991.98px) {
+	#info {
+		padding-left: 15px }
+}
+
+@media (min-width: 992px) {
+	#info {
+		padding-left: 20px }
+}
+
+#info > div {
+	padding: 20px 0;
+	border-bottom: 1px solid #E1E1E1;
+}
+
+#info > div:first-child {
+	padding-top: 0;
+}
+#info > div:last-child {
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+/* ----------------- NAME ----------------- */
 
 #name h1 {
 	font-size: 1.3em;
 	padding: 0;
 }
+
+/* ----------------- DADOS ----------------- */
 
 #dates th {
 	width: 175px;
@@ -60,6 +143,8 @@
 #dates a {
 	color: #EC2D2D;
 }
+
+/* ----------------- NUMBERS ----------------- */
 
 #numbers > span {
 	font-size: 1.1em;
@@ -109,6 +194,8 @@
 	transition: 0.3s;
 }
 
+/* ----------------- ADD CART ----------------- */
+
 #add-cart > * {
 	height: 40px;
 	display: inline-block;
@@ -131,6 +218,7 @@
 	color: #fff;
 }
 
+/* ----------------- REVIEWS ----------------- */
 
 #reviews-link {
 	display: flex;
@@ -156,7 +244,7 @@
 	color: #D01F1F;
 }
 
-
+/* ----------------- MIDIAS ----------------- */
 
 #midias img {
 	width: 28px;
@@ -178,32 +266,19 @@
 	opacity: 0.8;
 }
 
+/* ************************************************* *\
+|* ------------------ INFORMAÇÕES ------------------ *|
+\* ************************************************* */
 
-
-
-#info > div {
-	padding: 20px 0;
-	border-bottom: 1px solid #E1E1E1;
-}
-
-#info > div:first-child {
-	padding-top: 0;
-}
-#info > div:last-child {
-	padding-bottom: 0;
-	border-bottom: none;
-}
-
-
-#text-info {
+#informations {
 	margin-top: 15px;
 }
 
-.text-info {
+.info-container {
 	margin-top: 15px;
 }
 
-.text-info > div:first-child {
+.info-container > div:first-child {
 	border: 1px solid #E1E1E1;
 	border-bottom: none;
 	height: 40px;
@@ -219,13 +294,13 @@
 	border-top-right-radius: 4px;
 }
 
-.text-info > div:first-child > i {
+.info-container > div:first-child > i {
 	font-size: 1.3em;
 	margin-right: 5px;
 	line-height: 40px;
 }
 
-.text-info > div:last-child {
+.info-container > div:last-child {
 	border: 1px solid #E1E1E1;
 	padding: 15px;
 	width: 100%;
@@ -234,12 +309,17 @@
 	background-color: #fff;
 }
 
-
-
+/* ************************************************* *\
+|* ------------------- DESCRIÇÃO ------------------- *|
+\* ************************************************* */
 
 #description {
 	text-align: justify;
 }
+
+/* ************************************************ *\
+|* ---------------- ESPECIFICAÇÕES ---------------- *|
+\* ************************************************ */
 
 #specification table {
 	width: 100%;
@@ -262,9 +342,6 @@
 	padding: 10px 0;
 }
 
-
-
-
 #specification table * {
 	padding-left: 10px;
 }
@@ -286,40 +363,19 @@
 	width: 0%;
 }
 
-
-
-
-#reviews label {
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
-#reviews form {
-	width: 100%;
-	margin: 0;
-}
-
-#reviews textarea {
-	height: 78px;
-	min-width: 100%;
-	max-width: 100%;
-	border: 1px solid #D7D7D7;
-	padding: 10px;
-}
-
-
-
-
-
+/* ************************************************* *\
+|* ------------------- PERGUNTAS ------------------- *|
+\* ************************************************* */
 
 #questions > div:first-child ~ div {
 	margin-top: 10px;
 }
 
+/* ----------------- CLASS QUESTION ----------------- */
+
 .question {
 	display: grid;
 	grid-template-columns: 25px 1fr;
-	margin-top: 
 }
 
 .question > div > i {
@@ -355,6 +411,7 @@
 	color: #EE3636;
 }
 
+/* ----------------- CLASS ANSWER/s ----------------- */
 
 .answers > div:first-child ~ div {
 	margin-top: 10px;
@@ -379,7 +436,7 @@
 
 }
 
-
+/* ----------------- CLASS NEW ANSWER ----------------- */
 
 .new-aswer {
 	padding: 10px;
@@ -426,7 +483,76 @@
 	transition: 0.3s;
 }
 
+/* ************************************************ *\
+|* ------------------ AVALIAÇÕES ------------------ *|
+\* ************************************************ */
 
+/* -------------- ANTIGAS AVALIAÇÕES -------------- */
+
+#old-reviews > div.old-review:last-child {
+	border: none;
+}
+
+.old-review {
+	padding: 10px;
+	border-bottom: 1px solid #E1E1E1;
+}
+
+.old-review > div:last-child {
+	margin-top: 10px;
+}
+
+.name-review,
+.name-review + div {
+	margin-bottom: 5px;
+}
+
+.name-review > span:first-child {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 1.1em;
+	margin-right: 5px;
+}
+
+.review-coment {
+	font-size: 0.9em;
+	color: #363636;
+}
+
+/* --------------- NOVAS AVALIAÇÕES --------------- */
+
+#new-review {
+	padding: 10px;
+	background-color: #F9F9F9;
+	border: 1px solid #E1E1E1;
+	border-radius: 5px;
+}
+
+#reviews form {
+	width: 100%;
+	margin: 0;
+}
+
+#reviews label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+#new-review input[type="text"] {
+	display: block;
+	width: 100%;
+	border: 1px solid #D7D7D7;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+
+#reviews textarea {
+	height: 78px;
+	min-width: 100%;
+	max-width: 100%;
+	border: 1px solid #D7D7D7;
+	padding: 10px;
+}
 
 #stars-review {
 	margin: 10px 0;
@@ -436,13 +562,12 @@
 	margin-bottom: 5px;
 }
 
-#button-start-review {
+#button-star-review {
 	background-color: transparent;
 	border: none;
 	color: #7F7F7F;
 	cursor: pointer;
 }
-
 
 #send-review {
 	display: flex;
@@ -462,50 +587,4 @@
 #button-send-review:hover {
 	background-color: #DE3030;
 	transition: 0.3s;
-}
-
-#new-review {
-	padding: 10px;
-	background-color: #F9F9F9;
-	border: 1px solid #E1E1E1;
-	border-radius: 5px;
-}
-
-#new-review input[type="text"] {
-	display: block;
-	width: 100%;
-	border: 1px solid #D7D7D7;
-	padding: 5px 10px;
-	margin-bottom: 10px;
-}
-
-
-.old-review {
-	padding: 10px;
-	border-bottom: 1px solid #E1E1E1;
-}
-
-.old-review > div:last-child {
-	margin-top: 10px;
-}
-
-#old-reviews > div.old-review:last-child {
-	border: none;
-}
-
-.name-review,
-.name-review + div {
-	margin-bottom: 5px;
-}
-
-.name-review > span:first-child {
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 1.1em;
-	margin-right: 5px;
-}
-
-.review-coment {
-	font-size: 0.9em;
-	color: #363636;
 }

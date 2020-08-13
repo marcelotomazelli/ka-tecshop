@@ -3,10 +3,66 @@
 }
 
 @media (min-width: 768px) {
-	#mainmyaccount > div {
+	#mainmyaccount > div.content {
 		display: grid;
 		grid-template-columns: 245px 1fr;
 		grid-gap: 15px;
+	}
+}
+
+
+/* *********************************************** *\
+|* -------------- BOTÃO ABRIR ASIDE -------------- *|
+\* *********************************************** */
+
+#btn-asidemyaccount {
+	z-index: 3;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 40px;
+	border: none;
+	color: #fff;
+	background-color: #2B2B2B;
+	box-shadow: 0 0 6px #0000001a;
+	opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+	#btn-asidemyaccount {
+		display: none }
+}
+
+/* *********************************************** *\
+|* -------------------- ASIDE -------------------- *|
+\* *********************************************** */
+
+@media (max-width: 767.98px) {
+	#asidemyaccount {
+		z-index: 3;
+		position: fixed;
+		bottom: 70px;
+		right: 10px;
+		background-color: #fff;
+		padding: 10px;
+		border-radius: 5px;
+		box-shadow: 0 0 6px #0000001a;
+		transition: 0.4s;
+	}
+
+	#asidemyaccount.close {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	#asidemyaccount.open {
+		visibility: visible;
+		opacity: 1;
 	}
 }
 
@@ -44,18 +100,21 @@
 	text-align: center;
 }
 
-
 #asidemyaccount > ul:last-child {
 	border-radius: 5px;
 	background-color: #F3F3F3;
 }
 
-.account-search-bar > div {
+/* *********************************************** *\
+|* -------------------- ASIDE -------------------- *|
+\* *********************************************** */
+
+#search-bar > div {
 	display: flex;
 	justify-content: center;
 }
 
-.account-search-bar > span {
+#search-bar > span {
 	font-size: 1.5em;
 	display: block;
 	font-weight: bold;
@@ -63,12 +122,12 @@
 	margin-bottom: 10px;
 }
 
-.account-search-bar > div > form {
+#search-bar > div > form {
 	display: block;
 	width: 80%;
 }
 
-.account-search-bar > div > form > input {
+#search-bar > div > form > input {
 	display: block;
 	width: 100%;
 	padding: 10px 15px;
@@ -77,7 +136,7 @@
 	border-bottom-left-radius: 4px;
 }
 
-.account-search-bar > div > button {
+#search-bar > div > button {
 	display: block;
 	padding: 10px 15px;
 	margin-left: -1px;
@@ -88,20 +147,13 @@
 	border-bottom-right-radius: 4px;
 }
 
-.account-search-bar > div > button > i {
+#search-bar > div > button > i {
 	transform: rotateY(180deg);
 }
 
-
-#accountresults {
-	margin-top: 15px;
-}
-
-#accountresults > div:first-child ~ div {
-	margin-top: 15px;
-	padding-top: 15px;
-	border-top: 1px solid #D5D5D5;
-}
+/* *********************************************** *\
+|* -------------------- PAGES -------------------- *|
+\* *********************************************** */
 
 .empty {
 	border-bottom: 1px solid #D5D5D5;
@@ -110,56 +162,71 @@
 	color: #8B8B8B;
 }
 
+#accountpages {
+	margin-top: 15px;
+}
 
+#accountpages > div:first-child ~ div {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 1px solid #D5D5D5;
+}
 
+/* *********************************************** *\
+|* ------------------- PEDIDOS ------------------- *|
+\* *********************************************** */
 
+.pending {
+	background-color: #E82828 }
 
+.delivered {
+	background-color: #252525 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-.p1results {
+.resultrequests > div:first-child {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 5px;
 }
 
-.p1results > span:first-child {
+.resultrequests > div:first-child > span:first-child {
 	padding: 3px 0;
 	font-weight: bold;
 }
 
-.p1results > span:last-child {
+.resultrequests > div:first-child > span:last-child {
 	border-radius: 4px;
 	color: #fff;
 	padding: 3px 10px;
 }
 
-.pending {
-	background-color: #E82828;
-}
-
-.delivered {
-	background-color: #252525;
-}
-
-.p2resuls {
+.resultrequests > div:last-child {
 	margin-top: 7px;
+}
+
+@media (max-width: 575.98px) {
+	.resultrequests > div:last-child > span {
+		display: block;
+		margin-top: 5px;
+	}
+}
+
+@media (min-width: 576px) {
+	.resultrequests > div:last-child {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: flex-end;
+		justify-content: space-between;
+	}
 }
 
 .imgsrequests {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
+}
+
+.imgsrequests img {
+	height: 60px;
 }
 
 .imgsrequests > a {
@@ -179,53 +246,55 @@
 	display: none;
 }
 
-.imgsrequests img {
-	height: 60px;
-}
-
-.p2resuls > span > a {
-	cursor: pointer;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* *********************************************** *\
+|* ------------------ FAVORITOS ------------------ *|
+\* *********************************************** */
 
 .favorite-product {
 	display: grid;
-	grid-template-columns: 20px 90px 1fr 150px;
 	grid-column-gap: 5px;
 }
 
-.favorite-product > div:first-child {
+@media (max-width: 575.98px) {
+	.favorite-product {
+		grid-template-columns: 20px 90px 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas: "h i s"
+		                     "h t t";
+		grid-row-gap: 5px;
+	}
+
+	.fheart { grid-area: h }
+
+	.fimg { grid-area: i }
+
+	.finfo { grid-area: t }
+
+	.fstars { grid-area: s }
+}
+
+@media (min-width: 576px) {
+	.favorite-product {
+		grid-template-columns: 20px 90px 1fr 150px }
+}
+
+.fheart {
 	display: flex;
 	align-items: center;
 }
 
-.favorite-product > div:first-child i {
+.fheart i {
 	color: #EE2E2E;
 }
 
-.favorite-product > div:first-child button {
+.fheart button {
 	padding: 0;
 	margin: 0;
 	border: none;
 	background-color: transparent;
 }
 
-.favorite-product > div:first-child + div > a {
+.fimg > a {
 	display: block;
 	padding: 5px;
 	border-radius: 4px;
@@ -233,12 +302,12 @@
 	box-shadow: 0 0 4px #0000001a;
 }
 
-.favorite-product > div:first-child + div + div > a {
+.finfo > a {
 	display: block;
 	font-size: 1.2em;
 }
 
-.favorite-product > div:first-child + div + div > span {
+.finfo > span {
 	font-size: 0.9em;
 	color: #9D9D9D;
 }
@@ -249,30 +318,56 @@
 }
 
 
-.favorite-product > div:last-child {
+.fstars {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-end;
 }
 
-.favorite-product > div:last-child a {
+.fstars a {
 	padding: 7px 15px;
 	background-color: #323232;
 	border-radius: 4px;
 	color: #fff;
 }
 
+/* ************************************************ *\
+|* ------------------ AVALIAÇÕES ------------------ *|
+\* ************************************************ */
 
+@media (max-width: 575.98px) {
+	.review-product {
+		display: grid;
+		grid-template-columns: 90px 1fr;
+		grid-template-rows: 30px 1fr;
+		grid-template-areas: "l l"
+							 "i n";
+		grid-gap: 10px;
+	}
 
+	.review-product > div:first-child {
+		grid-area: i;
+	}
 
+	.review-product > div:first-child + div {
+		grid-area: n;
+	}
+	.review-product > div:last-child {
+		grid-area: l;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+}
 
-
-
-
-
-
-
+@media (min-width: 576px) {
+	.review-product {
+		display: grid;
+		grid-template-columns: 90px 1fr 120px;
+		grid-column-gap: 10px;
+	}
+}
 
 .review-product > div:first-child a {
 	display: block;
@@ -283,10 +378,19 @@
 }
 
 
-.review-product > div:first-child + div a {
+.review-product > div:first-child + div > a {
 	font-size: 1.1em;
 	display: block;
 	margin-bottom: 10px;
+}
+
+@media (min-width: 576px) {
+	.review-product > div:last-child {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: space-between;
+	}
 }
 
 .review-product > div:last-child > a {
@@ -298,7 +402,6 @@
 
 .review-product > div:last-child > a:first-child {
 	background-color: #E34141;
-
 }
 
 .review-product img {
@@ -320,32 +423,4 @@
 .review-comment > div:first-child + div {
 	color: #585858;
 	padding-bottom: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-#btn-asidemyaccount {
-	z-index: 3;
-	position: fixed;
-	bottom: 10px;
-	right: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 50px;
-	height: 50px;
-	border-radius: 40px;
-	border: none;
-	color: #fff;
-	background-color: #2B2B2B;
-	box-shadow: 0 0 6px #0000001a;
-	opacity: 0.9;
 }

@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<link rel="stylesheet" type="text/css" href="css/cart.css">
-	<link rel="stylesheet" type="text/css" href="css/media.css">
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
@@ -28,7 +27,7 @@
 	<? require_once "phphtml/header.php" ?>
 
 	<!--|➖➖➖➖  Parte localização  ➖➖➖➖|-->
-	<section id="divloc">
+	<section class="currentloc">
 		<div class="content">
 			<ul>
 				<li>
@@ -53,7 +52,7 @@
 			<? } else { ?>
 				<section id="products-list">
 					<div>
-						<table class="product-table">
+						<table id="product-table">
 
 							<thead>
 								<tr class="product-line">
@@ -86,6 +85,7 @@
 									</tr>
 								<? } ?>
 							</tbody>
+							
 						</table>
 					</div>
 				</section>

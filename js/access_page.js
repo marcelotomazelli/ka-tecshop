@@ -2,7 +2,7 @@ function changeClass(id, class_change) {
 	document.getElementById(id).className = class_change
 }
 
-function initialConfig() {
+window.onload = () => {
 	// -\- Para a visualização de acordo com a inteção do usuario -/-
 	if(document.getElementById('t-action')) {
 		let t_action = document.getElementById('t-action').innerHTML
@@ -35,14 +35,14 @@ function initialConfig() {
 	}
 }
 
-let button_r = document.getElementById('button-r')
-let button_l = document.getElementById('button-l')
+let btn_r = document.getElementById('button-r')
+let btn_l = document.getElementById('button-l')
 let button_login = document.getElementById('button-login')
 let button_register = document.getElementById('button-register')
 const login_elements = ['l_ie', 'l_ip']
 const register_elements = ['r_n', 'r_ie', 'r_iec', 'r_ip', 'r_ipc']
 
-button_r.onclick = () => {
+btn_r.onclick = () => {
 	changeClass('content-forms', 'open_r')
 	let information = document.getElementById('login-info')
 	information.innerHTML = ''
@@ -53,7 +53,7 @@ button_r.onclick = () => {
 	})
 }
 
-button_l.onclick = () => {
+btn_l.onclick = () => {
 	changeClass('content-forms', 'open_l')
 	let information = document.getElementById('register-info')
 	information.innerHTML = ''
@@ -69,7 +69,6 @@ button_l.onclick = () => {
 button_register.onclick = () => {
 	let submit_dates = true
 	let email, pass
-
 	let information = document.getElementById('register-info')
 	information.innerHTML = ''
 
@@ -141,7 +140,6 @@ button_register.onclick = () => {
 }
 
 button_login.onclick = () => {
-
 	let submit_dates = true
 	let information = document.getElementById('login-info')
 	information.innerHTML = ''
@@ -189,16 +187,8 @@ button_login.onclick = () => {
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 
-register_elements.forEach((id) => {
-	let el = document.getElementById(id)
-	el.onfocus = () => {
-		if(el.className == 'invalid-input') {
-			el.className = ''
-		}
-	}
-})
-
-login_elements.forEach((id) => {
+let inputs = login_elements.concat(register_elements)
+inputs.forEach((id) => {
 	let el = document.getElementById(id)
 	el.onfocus = () => {
 		if(el.className == 'invalid-input') {

@@ -5,7 +5,6 @@ function changeClass(id_elements, new_class, old_class) {
 			el.className = el.className.replace(old_class, new_class)
 		else 
 			el.className = el.className.replace(new_class, old_class)
-
 	}
 }
 

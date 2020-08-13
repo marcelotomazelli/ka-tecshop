@@ -1,26 +1,35 @@
 /*
 Legenda
 crsl - carousel
+Sp - super
 s - slide
 si - slide items
 */
 
-let crslObj_intro, crslObj_trend, crslObj_deal
-let si_minW = 620
-let si_maxW = 768
-let current_trend_list = 'destaque'
-let time_o
+let crslObjIntro, crslObjTrend, crslObjDeal
+let si_minW, si_maxW, current_trend_list
+let retime
 // largura inicial do client
 let iw_client
 
-function initialConfig() {
+window.onload = () => {
 	// Definindo a largura inicial
 	iw_client = window.innerWidth
+	si_minW = 620
+	si_maxW = 768
+	current_trend_list = 'destaque' 
 
 	// Criando as instâncias
-	crslObj_intro = new Carousel('SpCarousel-intro', 'carousel-item', 4000)
-	crslObj_trend = new Carousel('SpSlide-trend', 'si_trend', 7000)
-	crslObj_deal = new Carousel('SpSlide-deal', 'si_deal', 7000)
+	crslObjIntro = new Carousel('intro', 4000)
+	crslObjTrend = new Carousel('trend', 7000)
+	crslObjDeal = new Carousel('deal', 7000)
+
+	/* 
+	Para o carousel todos os ids e class tem um mesmo nome em comum
+	que será utilizado no construct para fazer as 
+	devidas referencias a elementos,
+	devem estar corretamente nomeados no html
+	*/ 
 
 	sizing()
 
@@ -28,16 +37,16 @@ function initialConfig() {
 	changeClass(elements, 'close_l', 'open_l')
 	
 	setTimeout(() => {
-		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+		crslObjIntro.sizeImages('carousel-intro', 'carousel-image', 2)
 	}, 750)
 }
 
-function resizing() {
-	// Verifica se o evento foi somente no eixo x
-	/* A intenção é evitar o resize em dispositivos moveis quando o evento é disparado 
-	ao rolar a tela e a barra superior do proprio navegador esconder */
-	clearTimeout(time_o)
-	time_o = setTimeout(function() {
+// Verifica se o evento foi somente no eixo x
+/* A intenção é evitar o resize em dispositivos moveis quando o evento é disparado 
+ao rolar a tela e a barra superior do proprio navegador esconder */
+window.onresize = () => {
+	clearTimeout(retime)
+	retime = setTimeout(function() {
 		if(iw_client != window.innerWidth) {
 			sizing()
 		}
@@ -46,20 +55,18 @@ function resizing() {
 
 function sizing() {
 	// Aplicando resize no carousel da intro
-	crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+	crslObjIntro.sizeImages('carousel-intro', 'carousel-image', 2)
 
 	if(window.innerWidth < si_maxW) {
 		// Trabalhando o resize
-		crslObj_trend.sizeSlideItem(si_minW, si_maxW, 2, 3)
-		crslObj_deal.sizeSlideItem(si_minW, si_maxW, 2, 3)
+		crslObjTrend.sizeSlideItem(si_minW, si_maxW, 2, 3)
+		crslObjDeal.sizeSlideItem(si_minW, si_maxW, 2, 3)
 	} else {
 		// Trabalhando o update dos valores, pois não é necessario resize
-		crslObj_trend.updValSlideItens()
-		crslObj_deal.updValSlideItens()
+		crslObjTrend.updValSlideItens()
+		crslObjDeal.updValSlideItens()
 	}
 }
-
-window.onload =  initialConfig
 
 // Função responsavel por fazer as requisições da seção das tendencias
 function requisitionAjax(index) {
@@ -135,9 +142,9 @@ function requisitionAjax(index) {
 
 
 					if(window.innerWidth < 768) {
-						crslObj_trend.sizeSlideItem(si_minW, si_maxW, 2, 3)
+						crslObjTrend.sizeSlideItem(si_minW, si_maxW, 2, 3)
 					} else {
-						crslObj_trend.updValSlideItens()
+						crslObjTrend.updValSlideItens()
 					}
 
 					setTimeout(function() {
@@ -158,6 +165,11 @@ document.getElementById('button-categories').onclick = () => {
 	changeClass(elements, 'close_l', 'open_l')
 	
 	setTimeout(() => {
-		crslObj_intro.sizeImages('carousel-intro', 'carousel-image', 2)
+		crslObjIntro.sizeImages('carousel-intro', 'carousel-image', 2)
 	}, 750)
 }
+
+
+document.getElementById('reqd').onclick = () => requisitionAjax('destaque')
+document.getElementById('reqb').onclick = () => requisitionAjax('bestseller')
+document.getElementById('requ').onclick = () => requisitionAjax('ultimos')

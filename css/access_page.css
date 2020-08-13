@@ -66,10 +66,6 @@ main {
 	color: #F12121;
 }
 
-#buttons-control-view button:hover {
-	cursor: pointer;
-}
-
 /* Barra de sublinhado */
 #buttons-control-view button > span {
 	background: #F12121;
@@ -129,7 +125,6 @@ main {
 
 #forms > div > button:hover {
 	background-color: #DB2727;
-	cursor: pointer;
 }
 
 #terms-regs {
@@ -156,7 +151,6 @@ main {
 .open_l #form-login {
 	display: block;
 }
-
 
 footer {
 	position: fixed;

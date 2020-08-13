@@ -23,7 +23,7 @@ if($authenticated) {
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<link rel="stylesheet" type="text/css" href="css/access_page.css">
 </head>
-<body onload="initialConfig()">
+<body>
 
 	<!--|➖➖  Header  ➖➖|-->
 	<header>

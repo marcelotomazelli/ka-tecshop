@@ -1,26 +1,31 @@
-#maincategories {
-	margin-top: 15px;
+ /* *********************************************** *\
+|* ---------------- MAIN CATEGORIES ---------------- *|
+ \* *********************************************** */
+#maincategories { 
+	margin-top: 15px }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	#maincategories > div {
+		display: grid;
+		grid-template-columns: 245px 1fr;
+		grid-column-gap: 15px;
+	}
 }
 
+@media (min-width: 992px) {
+	#maincategories > div {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		grid-column-gap: 15px;
+	}
+}
 
-/*                     /               \                     */
-/*--------------------| MAIN CATEGORIES |--------------------*/
-/*                     \               /                     */
-
-/*                     /            \                     */
-/*--------------------| ASIDE FILTRO |--------------------*/
-/*                     \            /                     */
+ /* ************************************************ *\
+|* ------------------ FILTRO ASIDE ------------------ *|
+ \* ************************************************ */
 
 #asidefilter {
-	border: 1px solid red;
-}
-
-
-
-
-/*                     /      \                     */
-/*--------------------| FILTRO |--------------------*/
-/*                     \      /                     */
+	border: 1px solid red }
 
 #filter {
 	border: 1px solid #E1E1E1;
@@ -42,8 +47,7 @@
 
 /* ultima parte */
 #filter > form > div:last-child {
-	border: none;
-}
+	border: none }
 
 /* seleconando os titulos depois da primeira parte */
 #filter > form > div:first-child ~ div > div:first-child {
@@ -67,7 +71,8 @@
 }
 
 
-/*                 \ PREÇO /                 */
+
+ /* -------------------- PREÇOS -------------------- */
 
 #formprice > div:first-child + div {
 	display: grid;
@@ -100,8 +105,7 @@
 
 #min-price-value,
 #max-price-value {
-	display: none;
-}
+	display: none }
 
 #min-box,
 #max-box {
@@ -116,12 +120,10 @@
 }
 
 #min-box {
-	left: -1px;
-}
+	left: -1px }
 
 #max-box {
-	right: -1px;
-}
+	right: -1px }
 
 #view-middle {
 	height: 100%;
@@ -131,21 +133,17 @@
 	position: absolute;
 }
 
-/*                 \ MARCA /                 */
+ /* -------------------- MARCA -------------------- */
 
 #formbrand > div {
-	margin-top: 2px;
-}
+	margin-top: 2px }
 
 #formbrand input {
-	display: none;
-}
+	display: none }
 
 #formbrand label {
 	padding-left: 20px;
-	cursor: pointer;
-	position: relative;
-}
+	position: relative }
 
 #formbrand label::before {
 	font-family: 'Font Awesome 5 Free';
@@ -171,19 +169,15 @@
 	border: 1px solid #E13333;
 }
 
-/*                 \ ESTOQUE /                 */
+/* -------------------- ESTOQUE -------------------- */
+#formstock > div { 
+	margin-top: 2px }
 
-#formstock > div {
-	margin-top: 2px;
-}
-
-#formstock input {
-	display: none;
-}
+#formstock input { 
+	display: none }
 
 #formstock label {
 	padding-left: 20px;
-	cursor: pointer;
 	position: relative;
 }
 
@@ -221,16 +215,18 @@
 }
 
 #formstock input:checked + label::before {
-	border: 1px solid #E13333;
-}
+	border: 1px solid #E13333 }
 
 #formstock input:checked + label::after {
-	background-color: #E13333;
-}
+	background-color: #E13333 }
 
-/*                     /              \                     */
-/*--------------------| FILTRO CENTRAL |--------------------*/
-/*                     \              /                     */
+ /* ************************************************ *\
+|* ----------------- FILTRO CENTRAL ----------------- *|
+ \* ************************************************ */
+
+@media (max-width: 767.98px) {
+ 	#view-products { margin-top: 15px }
+}
 
 #central-filter {
 	border: 1px solid #E1E1E1;
@@ -239,11 +235,53 @@
 	padding: 5px 15px;
 }
 
-#central-filter > div:first-child {
-	display: flex;
+@media (max-width: 991.98px) {
+	#central-filter {
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-gap: 6px;
+		padding: 10px 20px;
+	}
 }
 
-#central-filter > div:first-child > button {
+@media (min-width: 992px) {
+	#central-filter {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+#central-filter form {
+	height: 100% }
+
+#central-filter select {
+	border: 1px solid #E1E1E1;
+	padding: 5px 10px;
+	border-radius: 3px;
+	height: 100%;
+	font-size: 0.8em;
+}
+
+#central-filter select:focus {
+	box-shadow: 0 0 3px #357DCF3a }
+
+@media (max-width: 991.98px) {
+	#central-filter label {
+		display: flex;
+		align-items: center;
+	}
+
+	#central-filter select {
+		background: none;
+		min-width: 100%;
+	}
+}
+
+#buttons-layout {
+	display: flex }
+
+#buttons-layout > button {
 	position: relative;
 	width: 40px;
 	height: 40px;
@@ -252,26 +290,20 @@
 	border: 1px solid #3C3C3C4a;
 	color: #3C3C3C;
 	border-radius: 5px;
-	cursor: pointer;
 	transition: 0.2s;
 }
 
-.grid #central-filter > div:first-child > button:first-child {
+.grid #button-grid,
+.list #button-list {
 	border-color: #DC3333;
 	color: #DC3333;
 }
 
-
-.list #central-filter > div:first-child > button:last-child {
-	border-color: #DC3333;
-	color: #DC3333;
-}
-
-#central-filter > div:first-child > button:first-child {
+#buttons-layout > button:first-child {
 	margin-right: 10px;
 }
 
-#central-filter > div:first-child > button > span {
+#buttons-layout > button > span {
 	position: absolute;
 	min-width: 100%;
 	font-size: 0.8em;
@@ -286,48 +318,33 @@
 	transition: 0.2s;
 }
 
-#central-filter > div:first-child > button:hover {
+#buttons-layout > button:hover {
 	border-color: #DC3333;
 	color: #DC3333;
 	transition: 0.2s;
 }
 
-#central-filter > div:first-child > button:hover > span {
+#buttons-layout > button:hover > span {
 	visibility: visible;
 	opacity: 1;
 	transition: 0.2s;
 }
 
-#central-filter form {
-	height: 100%;
+@media (max-width: 991.98px) {
+	#central-filter > div:first-child + div > form {
+		display: grid;
+		grid-template-columns: 110px 1fr;
+	}  
 
+	#central-filter > div:last-child > form {
+		display: grid;
+		grid-template-columns: 72px 1fr;
+	}
 }
 
-#central-filter label:hover {
-	cursor: pointer;
-}
-
-#central-filter select {
-	border: 1px solid #E1E1E1;
-	padding: 5px 10px;
-	border-radius: 3px;
-	height: 100%;
-	font-size: 0.8em;
-}
-
-#central-filter select:hover {
-	cursor: pointer;
-}
-
-#central-filter select:focus {
-	box-shadow: 0 0 3px #357DCF3a;
-}
-
-
-
-/*                     /                 \                     */
-/*--------------------| LISTA DE PRODUTOS |--------------------*/
-/*                     \                 /                     */
+ /* *********************************************** *\
+|* --------------- LISTA DE PRODUTOS --------------- *|
+ \* *********************************************** */
 
 #list-products {
 	margin-top: 15px;
@@ -339,12 +356,34 @@
 	box-shadow: 0 0 10px -3px #0000002a;
 }
 
-/*--------------------| LAYOUT GRID |--------------------*/
+ /* *********************************************** *\
+|* ------------------ LAYOUT GRID ------------------ *|
+ \* *********************************************** */
 
 .grid .item-products {
 	padding: 5px 10px;
 	display: flex;
 	justify-content: center;
+}
+
+@media (max-width: 575.98px) {
+	.grid .item-products { max-width: 50% }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.grid .item-products { max-width: 33.333333% } 
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.grid .item-products { max-width: 50% }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.grid .item-products { max-width: 33.33333% }
+}
+
+@media (min-width: 1200px) {
+	.grid .item-products { max-width: 25% }
 }
 
 /* ~~~ Esse seleciona o elemento auxilar (que é o visivel) ~~~ */
@@ -363,7 +402,6 @@
 	}
 }
 
-
 @media (min-width: 768px) {
 	.grid .item-products > div {
 		padding: 10px;
@@ -375,7 +413,7 @@
 }
 
 /* ~~ Esta é div das imagens e botões ~~ */
-.grid .item-products > div > div:first-child {
+.grid .product-img {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -383,69 +421,69 @@
 }
 
 /* ~ É o link que contem a imagem ~ */
-.grid .item-products > div > div:first-child > a {
+.grid .product-img > a {
 	display: flex;
 	justify-content: center;
 }
-.grid .item-products > div > div:first-child > a img {
+.grid .product-img > a img {
 	display: block;
 	width: 100%;
 }
 
 /* ~~ link de favoritar ~~ */
-.grid .item-products > div > div:first-child > div {
+.grid .product-img > div {
 	position: absolute;
 	right: 0px;
 }
 
 @media (max-width: 767.98px) {
-	.grid .item-products > div > div:first-child > div {
+	.grid .product-img > div {
 		top: -15px;
 	}
 }
 
 @media (min-width: 768px) {
-	.grid .item-products > div > div:first-child > div {
+	.grid .product-img > div {
 		top: -5px;
 	}
 }
 
-.grid .item-products > div > div:first-child > a + div > a {
+.grid .product-img > a + div > a {
 	display: block;
 	color: #fff;
 	text-shadow: 0 0 2px #000;
 	font-size: 1.2em;
 }
 
-.grid .item-products > div > div:first-child > a + div > a:hover {
+.grid .product-img > a + div > a:hover {
 	color: #F43434;
 	text-shadow: none;
 }
 
-.grid .item-products > div > div:first-child > a + div > a i {
+.grid .product-img > a + div > a i {
 	position: relative;
 	top: 2px;
 }
 
 /* ~~ Esta é a div do nome do produto e preço abaixo da imagem ~~ */
-.grid .item-products > div > div + div {
+.grid .product-info {
 	text-align: center;
 	margin: 7px 0 5px;
 }
 
 /* ~ Estilo das titulos ~ */
-.grid .item-products > div > div + div > h2 {
+.grid .product-info > h2 {
 	margin-bottom: 3px;
 	font-size: 1em;
 	margin-bottom: 3px;
 }
 
-.grid .item-products > div > div + div > h3 {
+.grid .product-info > h3 {
 	font-size: 0.8em;
 	color: #F32749;
 }
 
-.grid .item-products > div > div:first-child + div > p {
+.grid .product-img + div > p {
 	overflow-y: hidden;
 	font-size: 0.9em;
 	color: #5E5E5E;
@@ -453,44 +491,34 @@
 }
 
 /* ~~ Esta é a div que contem o link inferior ~~~  */
-.grid .item-products > div > div + div + div {
+.grid .product-info + div {
 	text-align: center;
 	font-size: 0.8em;
 }
 
 @media (max-width: 767.98px) {
-	.grid .item-products > div > div + div + div {
+	.grid .product-info + div {
 		display: none;
 	}
 }
 
 /* ~ Este é o link inferior ~ */
-.grid .item-products > div > div + div + div > a {
+.grid .product-info + div > a {
 	display: inline-block;
 	border-radius: 40px;
 	padding: 10px 12px;
 	border: 1px solid #D7D7D7;
 }
 
-.grid .item-products > div > div + div + div > a:hover {
+.grid .product-info + div > a:hover {
 	border: 1px solid #F04747;
 	background: #F04747;
 	color: #fff;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+ /* *********************************************** *\
+|* ----------------- LAYOUT LISTA ------------------ *|
+ \* *********************************************** */
 
 .list .item-products {
 	width: 100%;
@@ -512,158 +540,108 @@
 	grid-column-gap: 15px;
 }
 
-.list .item-products > div > div:first-child {
+@media (max-width: 575.98px) {
+	.list .item-products > div {
+		grid-template-columns: 110px 1fr;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.list .item-products > div {
+		grid-template-columns: 130px 1fr }
+}
+
+@media (min-width: 768px) {
+	.list .item-products > div {
+		grid-template-columns: 170px 1fr }
+}
+
+.list .product-img {
 	grid-area: i;
 }
 
-.list .item-products > div > div:first-child + div {
+.list .product-img + div {
 	grid-area: t;
 }
 
 
-.list .item-products > div > div:last-child {
+.list .product-addcart {
 	grid-area: l;
 }
 
-.list .item-products > div > div:first-child > a {
+.list .product-img > a {
 	display: block;
 }
 
-.list .item-products > div > div:first-child > a > img {
+.list .product-img > a > img {
 	display: block;
 	width: 100%;
 }
 
-
-
-.list .item-products > div > div:first-child {
+.list .product-img {
 	position: relative;
 	height: 100%;
 	display: flex;
 	align-items: center;
 }
 
-.list .item-products > div > div:first-child > div {
+.list .product-img > div {
 	position: absolute;
 	top: 0;
 	right: -5px;
 	font-size: 1.2em;
 }
 
-.list .item-products > div > div:first-child > div > a {
+.list .product-img > div > a {
 	color: #ffffff;
 	text-shadow: 0 0 2px #000000aa;
 }
 
-.list .item-products > div > div:first-child > div > a:hover {
+.list .product-img > div > a:hover {
 	color: #F44E4E;
 	text-shadow: none;
 }
 
-.list .item-products > div > div:first-child + div > h2 {
+.list .product-img + div > h2 {
 	font-weight: normal;
 	padding-bottom: 10px;
 }
 
-.list .item-products > div > div:first-child + div > h3 {
+.list .product-img + div > h3 {
 	font-size: 1em;
 	margin: 6px 0 0;
 	color: #F22F2F;
 }
 
-.list .item-products > div > div:first-child + div > p {
+.list .product-img + div > p {
 	margin: 0;
 	padding: 0;
 	color: #5E5E5E;
 	text-align: justify;
 }
 
-
-
-.grid .item-products > div > div:first-child + div > p {
-	color: #5E5E5E;
+@media (max-width: 575.98px) {
+	.list .product-img + div > p {
+		text-align: left;
+		height: 35px;
+		overflow-y: hidden;
+	}
 }
 
-
-.list .item-products > div > div:last-child {
+.list .product-addcart {
 	display: flex;
 	align-items: center;
 }
 
-.list .item-products > div > div:last-child > a {
+.list .product-addcart > a {
 	border: 1px solid #E1E1E1;
 	padding: 10px 20px;
 	border-radius: 20px;
 	font-size: 0.9em;
 }
 
-.list .item-products > div > div:last-child > a:hover {
+.list .product-addcart > a:hover {
 	border: 1px solid #EB2929;
 	background-color: #EB2929;
-	color: #fff;
-}
-
-
-
-
-
-
-
-#pages-list {
-	display: flex;
-	margin-top: 15px;
-}
-
-#pages-list > ul {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	display: flex;
-}
-
-#pages-list > ul > li {
-	border: 1px solid #E1E1E1;
-	margin-right: -1px;
-	transition: 0.2s;
-}
-
-#pages-list > ul > li:first-child {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-
-#pages-list > ul > li:last-child {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-
-#pages-list > ul a {
-	height: 35px;
-	width: 40px;
-	line-height: 35px;
-	display: block;
-	transition: 0s;
-	text-align: center;
-}
-
-#pages-list > ul li:hover {
-	border-color: #E93636;
-	background-color: #E93636;
-	transition: 0.2s;
-	z-index: 2;
-}
-
-#pages-list > ul li:hover a {
-	color: #fff;
-	transition: 0s;
-}
-
-#pages-list > ul li.active {
-	border-color: #E93636;
-	background-color: #E93636;
-	z-index: 1;
-}
-
-#pages-list > ul li.active a {
 	color: #fff;
 }
