@@ -1,5 +1,7 @@
-function changeClass(id, class_change) {
-	document.getElementById(id).className = class_change
+const _changes = {
+	class: (id, new_class) => {
+		document.getElementById(id).className = new_class
+	}
 }
 
 window.onload = () => {
@@ -22,15 +24,15 @@ window.onload = () => {
 	// -\- Para tratativa de erros -/-
 
 	if(document.getElementById('r_ie').value != '') {
-		changeClass('r_ie', 'invalid-input')
+		_changes.class('r_ie', 'invalid-input')
 	}
 
 	if(document.getElementById('login-info').innerHTML != '') {
 		let text = document.getElementById('login-info').innerHTML
 		if(text.includes('Email')) {
-			changeClass('l_ie', 'invalid-input')
+			_changes.class('l_ie', 'invalid-input')
 		} else if(text.includes('Senha incorreta.')) {
-			changeClass('l_ip', 'invalid-input')
+			_changes.class('l_ip', 'invalid-input')
 		}
 	}
 }
@@ -43,7 +45,7 @@ const login_elements = ['l_ie', 'l_ip']
 const register_elements = ['r_n', 'r_ie', 'r_iec', 'r_ip', 'r_ipc']
 
 btn_r.onclick = () => {
-	changeClass('content-forms', 'open_r')
+	_changes.class('content-forms', 'open_r')
 	let information = document.getElementById('login-info')
 	information.innerHTML = ''
 	login_elements.forEach((id) => {
@@ -54,7 +56,7 @@ btn_r.onclick = () => {
 }
 
 btn_l.onclick = () => {
-	changeClass('content-forms', 'open_l')
+	_changes.class('content-forms', 'open_l')
 	let information = document.getElementById('register-info')
 	information.innerHTML = ''
 	register_elements.forEach((id) => {
@@ -187,7 +189,7 @@ button_login.onclick = () => {
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 
-let inputs = login_elements.concat(register_elements)
+let inputs = register_elements.concat(login_elements)
 inputs.forEach((id) => {
 	let el = document.getElementById(id)
 	el.onfocus = () => {

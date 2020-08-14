@@ -2,10 +2,18 @@
 	margin-top: 15px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
 	#mainmyaccount > div.content {
 		display: grid;
 		grid-template-columns: 245px 1fr;
+		grid-gap: 15px;
+	}
+}
+
+@media (min-width: 992px) {
+	#mainmyaccount > div.content {
+		display: grid;
+		grid-template-columns: 280px 1fr;
 		grid-gap: 15px;
 	}
 }

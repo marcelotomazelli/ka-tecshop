@@ -33,15 +33,14 @@ class Carousel {
 
 		this.interactions = [(name + 't'), (name + 'p'), (name + 'n')]
 
-		this.interactions.forEach((id) => {
+		this.interactions.forEach((id, i) => {
 			let el = document.getElementById(id)
-			let type = id.replace(id.slice(0, (id.length - 1)), '')
-
-			if(type === 't')
+			
+			if(i === 0)
 				el.ontouchstart = () => this.touch(event)
-			else if(type === 'p')
+			else if(i === 1)
 				el.onclick = () => this.prev()
-			else if(type === 'n')
+			else if(i === 2)
 				el.onclick = () => this.next()
 
 		})
