@@ -16,13 +16,13 @@ Legenda:
 |                                                     |
  \* ............................................... */
 
-.carousel {
+.carousel-anitem {
 	width: 100%;
 	position: relative;
 	/*background: #3B3B3B;*/
 }
 
-.carousel, .carousel * {
+.carousel-anitem, .carousel-anitem * {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -37,23 +37,23 @@ Legenda:
 |-- Estilo para as imagens --|
 \* ------------------------ */
 
-.carousel-images {
+.anitem-images {
 	overflow-x: hidden;
 	z-index: 0;
 }
 
-.carousel-content {
+.anitem-content {
 	display: flex;
 	transition: 0.6s;
 }
 
 /* ~~ Esta é uma div que contem a imagem ~~ */
-.carousel-item {
+.anitem {
 	height: 100%;
 }
 
 /* ~ Esta é a imagem ~ */
-.carousel-image {
+.anitem-image {
 	height: 100%;
 	display: block;
 }
@@ -66,7 +66,7 @@ Legenda:
 
 /* ~~ Esta é uma div que contem os botões e fica acima da 
 div das imagens ~~ */
-.buttons-carousel {
+.anitem-controls {
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -76,8 +76,9 @@ div das imagens ~~ */
 }
 
 /* ~ Este são os botões ~ */
-.buttons-carousel button {
+.anitem-controls button {
 	height: 100%;
+	width: 50px;
 	background: none;
 	border: none;
 	color: #fff;
@@ -86,18 +87,28 @@ div das imagens ~~ */
 	transition: 0.5s;
 }
 
-.buttons-carousel:hover button {
+.anitem-controls:hover button {
 	opacity: 1;
+	width: 100px;
 	transition: 0.5s;
 }
 
-.buttons-carousel button i {
+.anitem-controls button i {
 	background: #000000aa;
 	border-radius: 40px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
 }
 
-.buttons-carousel button:hover i {
+.anitem-controls button:hover i {
 	background: #000000ea;
+}
+
+@media (max-width: 767.98px) {
+	.anitem-controls button {
+		display: none;
+	}
 }
 
  /* ............................................... *\
@@ -107,7 +118,7 @@ div das imagens ~~ */
  \* ............................................... */
 
 /* Contem todo conteudo do SlideItems */
-.content-slide-items {
+.carousel-several {
 	display: grid;
 	grid-template-rows: 50px 1fr;
 	grid-template-columns: 1fr;
@@ -119,7 +130,7 @@ div das imagens ~~ */
 |-- Estilo para o cabeçalho --|
 \* ------------------------- */
 
-.slide-tittle-controls {
+.several-controls {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -127,7 +138,7 @@ div das imagens ~~ */
 }
 
 /* ~ Seleção do titulo ~ */
-.slide-tittle-controls > div:first-child h3 {
+.several-controls > div:first-child h3 {
 	margin: 0;
 	padding: 0;
 	line-height: 50px;
@@ -137,18 +148,18 @@ div das imagens ~~ */
 }
 
 /* ~~~ Lista de links do cabeçalho ~~~ */
-.slide-tittle-controls > div + div ul {
+.several-controls > div + div ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 }
 
-.slide-tittle-controls > div + div ul > li {
+.several-controls > div + div ul > li {
 	float: left;
 	padding: 6px 15px;
 }
 
-.slide-tittle-controls > div + div ul > li button {
+.several-controls > div + div ul > li button {
 	border: none;
 	background: none;
 	color: #454545;
@@ -157,7 +168,7 @@ div das imagens ~~ */
 	transition: 0.3s;
 }
 
-.slide-tittle-controls > div + div ul > li button:hover {
+.several-controls > div + div ul > li button:hover {
 	color: #D01F1F;
 	transition: 0.3s;
 }
@@ -166,29 +177,29 @@ div das imagens ~~ */
 /* ~~ Esse contem os botões ~~ */
 
 @media (max-width: 767.98px) {
-	.slide-tittle-controls > div + div > ul {
+	.several-controls > div + div > ul {
 		font-size: 0.8em;
 		line-height: 16px;
 		float: left;
 	}
-	.slide-tittle-controls > div + div > div {
+	.several-controls > div + div > div {
 		float: right;
 	}
 }
 
 @media (min-width: 768px) {
-	.slide-tittle-controls > div + div > * {
+	.several-controls > div + div > * {
 		float: left;
 	}
 }
 
-.slide-tittle-controls > div + div > div {
+.several-controls > div + div > div {
 	display: inline;
 	padding: 6px 10px;
 }
 
 /* ~ Esse é os botões ~ */
-.slide-tittle-controls > div + div > div button {
+.several-controls > div + div > div button {
 	padding: 0 5px;
 	margin: 0 5px;
 	border: none;
@@ -197,7 +208,7 @@ div das imagens ~~ */
 	transition: 0.3s;
 }
 
-.slide-tittle-controls > div + div > div button:hover {
+.several-controls > div + div > div button:hover {
 	color: #B20D0D;
 	transition: 0.3s;
 }
@@ -206,42 +217,42 @@ div das imagens ~~ */
 |-- Estilo para os items de slide --|
 \* ------------------------------- */
 
-.slide-carousel {
+.several-body {
 	margin-top: 5px;
 	overflow-x: hidden;
 }
 
-.slide-content {
+.several-content {
 	display: flex;
 	transition: 0.5s;
 }
 
-.slide_items {
+.severalitems {
 	padding: 5px 10px;
 	display: flex;
 	justify-content: center;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-	.slide_items {
+	.severalitems {
 		min-width: 242px;
 	}
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-	.slide_items {
+	.severalitems {
 		min-width: 235px;
 	}
 }
 
 @media (min-width: 1200px) {
-	.slide_items {
+	.severalitems {
 		min-width: 227px;
 	}
 }
 
 /* ~~~ Esse seleciona a caixa aux que é a visivel ~~~ */
-.slide_items > div {
+.severalitems > div {
 	height: 100%;
 	width: 100%;
 	padding: 10px;
@@ -251,24 +262,24 @@ div das imagens ~~ */
 }
 
 @media (max-width: 767.98px) {
-	.slide_items > div {
+	.severalitems > div {
 		padding: 20px 10px;
 	}
 }
 
 
 @media (min-width: 768px) {
-	.slide_items > div {
+	.severalitems > div {
 		padding: 10px;
 	}
 
-	.slide_items > div:hover {
+	.severalitems > div:hover {
 		box-shadow: 0 0 10px -2px #00000012;
 	}
 }
 
 /* ~~ Esta é div das imagens e botões ~~ */
-.slide_items > div > div:first-child {
+.severalitems > div > div:first-child {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -276,34 +287,34 @@ div das imagens ~~ */
 }
 
 @media (max-width: 767.98px) {
-	.slide_items > div > div:first-child > div {
+	.severalitems > div > div:first-child > div {
 		display: none;
 	}
 }
 
 /* ~ É a parte da imagem ~ */
-.slide_items > div > div:first-child > a {
+.severalitems > div > div:first-child > a {
 	display: flex;
 	justify-content: center;
 }
-.slide_items > div > div:first-child > a img {
+.severalitems > div > div:first-child > a img {
 	display: block;
 	width: 100%;
 }
 
 /* ~~ div do link de favoritar ~~ */
-.slide_items > div > div:first-child > a + div {
+.severalitems > div > div:first-child > a + div {
 	position: absolute;
 	opacity: 0;
 	transition: 0.3s;
 }
 
-.slide_items:hover > div > div:first-child > a + div {
+.severalitems:hover > div > div:first-child > a + div {
 	opacity: 1;
 	transition: 0.3s;
 }
 
-.slide_items > div > div:first-child > a + div > a {
+.severalitems > div > div:first-child > a + div > a {
 	height: 40px;
 	width: 40px;
 	line-height: 40px;
@@ -314,18 +325,18 @@ div das imagens ~~ */
 	box-shadow: 0 0 10px -5px #000000aa;
 }
 
-.slide_items > div > div:first-child > a + div > a:hover {
+.severalitems > div > div:first-child > a + div > a:hover {
 	background: #F43434;
 	color: #fff;
 }
 
-.slide_items > div > div:first-child > a + div > a i {
+.severalitems > div > div:first-child > a + div > a i {
 	position: relative;
 	top: 2px;
 }
 
 /* ~~ Esta é a div do marcador de tempo ~~ */
-.slide_items > div > div:first-child > a + div + div {
+.severalitems > div > div:first-child > a + div + div {
 	position: absolute;
 	width: 100%;
 	display: flex;
@@ -339,13 +350,13 @@ div das imagens ~~ */
 
 
 @media (max-width: 767.98px) {
-	.slide_items > div > div:first-child > a + div + div {
+	.severalitems > div > div:first-child > a + div + div {
 		top: 5px;
 	}
 }
 
 @media (min-width: 768px) {
-	.slide_items:hover > div > div:first-child > a + div + div {
+	.severalitems:hover > div > div:first-child > a + div + div {
 		opacity: 0;
 		top: -100px;
 		visibility: hidden;
@@ -353,7 +364,7 @@ div das imagens ~~ */
 	}
 }
 
-.slide_items > div > div:first-child > a + div + div ul {
+.severalitems > div > div:first-child > a + div + div ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
@@ -363,7 +374,7 @@ div das imagens ~~ */
 	box-sizing: content-box;
 }
 
-.slide_items > div > div:first-child > a + div + div ul li {
+.severalitems > div > div:first-child > a + div + div ul li {
 	padding-top: 5px;
 	margin: 0 3px;
 	width: 50px;
@@ -376,7 +387,7 @@ div das imagens ~~ */
 }
 
 @media (max-width: 767.98px) {
-	.slide_items > div > div:first-child > a + div + div ul li {
+	.severalitems > div > div:first-child > a + div + div ul li {
 		padding-top: 2px;
 		min-width: 40px;
 		max-width: 40px;
@@ -386,60 +397,60 @@ div das imagens ~~ */
 	}
 }
 
-.slide_items > div > div:first-child > a + div + div ul li span {
+.severalitems > div > div:first-child > a + div + div ul li span {
 	line-height: 20px;
 	display: block;
 }
 
 /* ~~ Esta é a div do nome do produto e preço abaixo da imagem ~~ */
-.slide_items > div > div + div {
+.severalitems > div > div + div {
 	text-align: center;
 	margin: 7px 0 5px;
 }
 
 /* ~ Estilo das titulos ~ */
-.slide_items > div > div + div > h2 {
+.severalitems > div > div + div > h2 {
 	margin-bottom: 3px;
 	font-size: 1em;
 	margin-bottom: 3px;
 }
 
-.slide_items > div > div + div > h3 {
+.severalitems > div > div + div > h3 {
 	font-size: 0.8em;
 	color: #F32749;
 }
 
 /* ~~ Esta é a div que contem o link inferior ~~~  */
-.slide_items > div > div + div + div {
+.severalitems > div > div + div + div {
 	text-align: center;
 	font-size: 0.9em;
 }
 
 @media (max-width: 767.98px) {
-	.slide_items > div > div + div + div {
+	.severalitems > div > div + div + div {
 		display: none;
 	}
 }
 
 /* ~ Este é o link inferior ~ */
-.slide_items > div > div + div + div > a {
+.severalitems > div > div + div + div > a {
 	display: inline-block;
 	border-radius: 40px;
 	padding: 10px 12px;
 	border: 1px solid #D7D7D7;
 }
 
-.slide_items > div > div + div + div > a:hover {
+.severalitems > div > div + div + div > a:hover {
 	border: 1px solid #F04747;
 	background: #F04747;
 	color: #fff;
 }
 
 @media (max-width: 767.98px) {
-	.slide_items > div > div:first-child > div {
+	.severalitems > div > div:first-child > div {
 		display: none;
 	}
-	.slide_items > div > div + div + div {
+	.severalitems > div > div + div + div {
 		display: none;
 	}
 }

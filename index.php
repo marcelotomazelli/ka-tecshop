@@ -33,31 +33,31 @@
 		<div class="content">
 
 			<div> <!-- ⏩ Carousel -->
-				<div id="carousel-intro" class="carousel">
+				<div id="carousel-intro" class="carousel-anitem">
 					
 					<!---\ Botões do Carousel--->
-					<div id="introt" class="buttons-carousel">
+					<div id="introt" class="anitem-controls">
 						<!--; Batão Prev-->
-						<button id="introp" class="carousel-prev">
+						<button id="introp">
 							<i class="fas fa-chevron-left"></i>
 						</button>
 						<!--; Batão Next-->
-						<button id="intron" class="carousel-next">
+						<button id="intron">
 							<i class="fas fa-chevron-right"></i>
 						</button>
 					</div>
 
                		<!---\ Imagens do Carousel--->
-					<div class="carousel-images">
-						<div id="Sintro" class="carousel-content">
-							<div class="carousel-item Iintro">
-								<img class="carousel-image" src="img/poster1.jpg" alt="placeholder+image">
+					<div class="anitem-images">
+						<div id="Sintro" class="anitem-content">
+							<div class="anitem Iintro">
+								<img class="anitem-image" src="img/poster1.jpg" alt="placeholder+image">
 							</div>
-							<div class="carousel-item Iintro">
-								<img class="carousel-image" src="img/poster2.jpg" alt="placeholder+image">
+							<div class="anitem Iintro">
+								<img class="anitem-image" src="img/poster2.jpg" alt="placeholder+image">
 							</div>
-							<div class="carousel-item Iintro">
-								<img class="carousel-image" src="img/poster3.jpg" alt="placeholder+image">
+							<div class="anitem Iintro">
+								<img class="anitem-image" src="img/poster3.jpg" alt="placeholder+image">
 							</div>
 						</div>
 					</div>
@@ -129,10 +129,10 @@
 	<!--|➖➖➖➖  Seção das têndencias  ➖➖➖➖|-->
 	<section id="section-trending">
 		<div class="content">
-			<div class="content-slide-items"> <!-- ⏩ SlideItems das tendencias -->
+			<div class="carousel-several"> <!-- ⏩ SlideItems das tendencias -->
 				
 				<!---\ Cabeçalho do SlideItems --->
-				<div class="slide-tittle-controls">
+				<div class="several-controls">
 
 					<!--; Titulo-->
 					<div>
@@ -165,13 +165,13 @@
 				</div>
 
 				<!--; Corpo do SlideItems-->
-				<div class="slide-carousel" id="trendt">
+				<div class="several-body" id="trendt">
 					
-					<div id="Strend" class="slide-content">
+					<div id="Strend" class="several-content">
 						<!-- Script que constroe a visulização dos produtos em destaque -->
 						<? foreach($list_dstq as $value) { ?>
 											
-							<div class="slide_items Itrend">
+							<div class="severalitems Itrend">
 								<div>
 									<div>
 										<a href="#">
@@ -236,10 +236,10 @@
 	<section id="section-deal">
 		<div class="content">
 
-			<div class="content-slide-items"> <!-- ⏩ SlideItens dos Especiais -->
+			<div class="carousel-several"> <!-- ⏩ SlideItens dos Especiais -->
 	
 				<!---\ Cabeçalho do SlideItems /--->
-				<div class="slide-tittle-controls">
+				<div class="several-controls">
 
 					<!--Titulo-->
 					<div>
@@ -261,10 +261,11 @@
 				</div>
 
 				<!--Corpo do SlideItems-->
-				<div class="slide-carousel" id="dealt">
-					<div id="Sdeal" class="slide-content">
+				<div class="several-body" id="dealt">
+
+					<div id="Sdeal" class="several-content">
 						<? for($i = 1; $i <= 9; $i++) { ?>
-							<div class="slide_items Ideal">
+							<div class="severalitems Ideal">
 								<div>
 
 									<div>

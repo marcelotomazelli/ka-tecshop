@@ -37,7 +37,7 @@ window.onload = () => {
 	changeClass(elements, 'close_l', 'open_l')
 	
 	setTimeout(() => {
-		crslObjIntro.sizeImages('carousel-intro', 'carousel-image', 2)
+		crslObjIntro.sizeAnItem('carousel-intro', 'anitem-image', 2)
 	}, 750)
 }
 
@@ -55,16 +55,16 @@ window.onresize = () => {
 
 function sizing() {
 	// Aplicando resize no carousel da intro
-	crslObjIntro.sizeImages('carousel-intro', 'carousel-image', 2)
+	crslObjIntro.sizeAnItem('carousel-intro', 'anitem-image', 2)
 
 	if(window.innerWidth < si_maxW) {
 		// Trabalhando o resize
-		crslObjTrend.sizeSlideItem(si_minW, si_maxW, 2, 3)
-		crslObjDeal.sizeSlideItem(si_minW, si_maxW, 2, 3)
+		crslObjTrend.sizeSeveralItems(si_minW, si_maxW, 2, 3)
+		crslObjDeal.sizeSeveralItems(si_minW, si_maxW, 2, 3)
 	} else {
 		// Trabalhando o update dos valores, pois não é necessario resize
-		crslObjTrend.updValSlideItens()
-		crslObjDeal.updValSlideItens()
+		crslObjTrend.updSeveralItems()
+		crslObjDeal.updSeveralItems()
 	}
 }
 
@@ -77,7 +77,7 @@ function requisitionAjax(index) {
 		xhttp.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200) {
 				list = JSON.parse(this.responseText)
-				let t_list = document.getElementById('SpSlide-trend')
+				let t_list = document.getElementById('Strend')
 				t_list.style.animationName = 'ajax-trend'
 				let h = t_list.offsetHeight
 				t_list.style.minHeight = h + 'px'
@@ -87,7 +87,7 @@ function requisitionAjax(index) {
 
 					list.forEach((obj) => {
 						let item = document.createElement('div')
-						item.className = 'slide_items si_trend create'
+						item.className = 'severalitems Itrend'
 
 						let divp = document.createElement('div')
 
@@ -142,9 +142,9 @@ function requisitionAjax(index) {
 
 
 					if(window.innerWidth < 768) {
-						crslObjTrend.sizeSlideItem(si_minW, si_maxW, 2, 3)
+						crslObjTrend.sizeSeveralItems(si_minW, si_maxW, 2, 3)
 					} else {
-						crslObjTrend.updValSlideItens()
+						crslObjTrend.updSeveralItems()
 					}
 
 					setTimeout(function() {

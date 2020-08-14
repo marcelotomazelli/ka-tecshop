@@ -194,7 +194,7 @@ class Carousel {
 	}
 
 	// Metodo que redimenciona os elementos do carousel com visualização de um unico elemento
-	sizeImages(id, items, size = null) {
+	sizeAnItem(id, items, size = null) {
 		let item = document.getElementById(id)
 		let w = item.offsetWidth
 		let h = w / size
@@ -211,7 +211,7 @@ class Carousel {
 	}
 
 	// Metodo que redimenciona os elementos do carousel com visualização de um ou mais elementos
-	sizeSlideItem(min, max, view1, view2) {
+	sizeSeveralItems(min, max, view1, view2) {
 		let list = this.collection
 		let w = this.refWidth_to_Cal.offsetWidth
 
@@ -241,7 +241,7 @@ class Carousel {
 	}
 
 	// Metodo para atualizar alguns valores no evento de resize devido a não necessidade de ficar redimencioando
-	updValSlideItens() {
+	updSeveralItems() {
 		for(let i = 0; i < this.quant_items; i++)
 			this.collection[i].style.minWidth = ''
 

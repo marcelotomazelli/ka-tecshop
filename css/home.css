@@ -50,7 +50,7 @@
 	margin-top: 15px;
 }
 
-#SpSlide-trend {
+#Strend {
 	animation-duration: 1.5s;
 	animation-direction: alternate;
 	animation-iteration-count: 2;
@@ -202,17 +202,14 @@
 @media (max-width: 767.98px) {
 	/* CONTROLE DE VISUALIZAÇÂO
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
-	/* ✏ botoes do carousel */
-	.buttons-carousel button { display: none }
-	
 	/* ✏ titulo do trending */
-	#section-trending .slide-tittle-controls > div:first-child {
+	#section-trending .several-controls > div:first-child {
 		display: none }
 
 	/* SEÇÂO DO SLIDE TRENDING
 	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
 	/* ✏ div que contem os links e botoes */
-	#section-trending .slide-tittle-controls > div + div {
+	#section-trending .several-controls > div + div {
 		width: 100%
 	}
 }
