@@ -6,6 +6,11 @@ si - several items
 
 */
 
+// Criando as instâncias
+const _crslIntro = new Carousel('intro', 4000)
+const _crslTrend = new Carousel('trend', 7000)
+const _crslDeal = new Carousel('deal', 7000)
+
 const _carousel = {
 	sizing: () => {
 		// Aplicando resize no carousel da intro
@@ -27,7 +32,7 @@ const _ajax = {
 	requisition: (new_index, current_index, _instance) => {
 		if(new_index != current_index) {
 			let xhttp = new XMLHttpRequest();
-			xhttp.open('POST', `../php/request_index.php?i=${new_index}`, true)
+			xhttp.open('POST', `../phpscripts/index_request.php?i=${new_index}`, true)
 			xhttp.onreadystatechange = function() {
 				if(this.readyState == 4 && this.status == 200) {
 					let json_result = JSON.parse(this.responseText)
@@ -122,11 +127,6 @@ const _ajaxTrend = {
 	}
 }
 
-// Criando as instâncias
-const _crslIntro = new Carousel('intro', 4000)
-const _crslTrend = new Carousel('trend', 7000)
-const _crslDeal = new Carousel('deal', 7000)
-
 let si_minW, si_maxW, ctrend
 let retime
 // largura inicial do client
@@ -154,6 +154,8 @@ window.onload = () => {
 	setTimeout(() => {
 		_crslIntro.sizeAnItem('carousel-intro', 'anitem-image', 2)
 	}, 750)
+
+	_ajax.requisition('destaque', ctrend, _ajaxTrend)
 }
 
 // Verifica se o evento foi somente no eixo x

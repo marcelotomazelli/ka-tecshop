@@ -41,7 +41,7 @@
 				<div class="imgsrequests">
 					<? foreach($value['produtos'] as $id) { ?>
 						<a href="#">
-							<img src="img_produtos/<?= $id ?>/index.jpg">
+							<img src="../resourses-katecshop/img_produtos/<?= $id ?>/index.jpg">
 						</a>
 					<? } ?>
 				</div>

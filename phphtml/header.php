@@ -96,7 +96,7 @@
 							<? foreach($products as $value) { ?>
 								<table>
 									<tr class="product-cart">
-										<td><img src="img_produtos/<?= $value['id']?>/index.jpg" height="60"alt=""></td>
+										<td><img src="./img_produtos/<?= $value['id']?>/index.jpg" height="60"alt=""></td>
 										<td>Teste 1</td>
 										<td><?= $value['qtd'] ?>x</td>
 										<td>R$ <?= str_replace('.', ',', ($value['valor'] * $value['qtd']))?></td>
@@ -156,7 +156,7 @@
 									<a href="./myaccount.php?p=favoritos">Lista de favoritos</a>
 								</li>
 								<li>
-									<a href="./php/session_end.php">Logoff</a>
+									<a href="./phpscripts/session_end.php">Logoff</a>
 								</li>
 							</ul>
 						</div>
@@ -232,7 +232,7 @@
 															<a href="./myaccount.php?p=favoritos">Lista de favoritos</a>
 														</li>
 														<li>
-															<a href="./php/session_end.php">Logoff</a>
+															<a href="./phpscripts/session_end.php">Logoff</a>
 														</li>
 													</ul>
 												</div>

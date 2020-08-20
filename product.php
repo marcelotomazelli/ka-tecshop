@@ -1,5 +1,5 @@
 <?php
-	require "./php/authentication_control.php";
+	require "./phpscripts/authentication_control.php";
 ?>
 
 <!DOCTYPE html>
@@ -54,25 +54,25 @@
 			<div id="product-imgs">
 
 				<div id="main-image">
-					<img src="img_produtos/<?= $id ?>/index.jpg">
+					<img src="./img_produtos/<?= $id ?>/index.jpg">
 				</div>
 
 				<div id="Ssi-imgs">
 					<div id="si-imgs">
 						<button>
-							<img src="img_produtos/<?= $id ?>/index.jpg">
+							<img src="./img_produtos/<?= $id ?>/index.jpg">
 						</button>
 						<button>
-							<img src="img_produtos/<?= $id ?>/1.jpg">
+							<img src="./img_produtos/<?= $id ?>/1.jpg">
 						</button>
 						<button>
-							<img src="img_produtos/<?= $id ?>/2.jpg">
+							<img src="./img_produtos/<?= $id ?>/2.jpg">
 						</button>
 						<button>
-							<img src="img_produtos/<?= $id ?>/3.jpg">
+							<img src="./img_produtos/<?= $id ?>/3.jpg">
 						</button>
 						<button>
-							<img src="img_produtos/<?= $id ?>/4.jpg">
+							<img src="./img_produtos/<?= $id ?>/4.jpg">
 						</button>
 					</div>
 				</div>

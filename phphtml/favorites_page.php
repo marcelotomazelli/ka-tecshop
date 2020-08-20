@@ -23,7 +23,7 @@
 
 			<div class="fimg">
 				<a href="#">
-					<img src="img_produtos/<?= $value ?>/index.jpg">
+					<img src="../resourses-katecshop/img_produtos/<?= $value ?>/index.jpg">
 				</a>
 			</div>
 

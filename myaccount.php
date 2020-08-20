@@ -1,5 +1,5 @@
 <?php
-	require "./php/authentication_control.php";
+	require "./phpscripts/authentication_control.php";
 	if(!$authenticated) {
 		header('Location: access_page.php?t=login');
 	}

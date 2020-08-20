@@ -1,7 +1,7 @@
 <?php
 
 
-require './php/authentication_control.php';
+require './phpscripts/authentication_control.php';
 if($authenticated) {
 	header('Location: index.php');
 } else {
@@ -62,7 +62,7 @@ if($authenticated) {
 							}
 						?>
 					</span>
-					<form name="formregister" action="./php/new_register.php" method="post">
+					<form name="formregister" action="./phpscripts/new_register.php" method="post">
 						<span>Nome:</span>
 						<input
 							id="r_n" 
@@ -120,7 +120,7 @@ if($authenticated) {
 							<div class="success">Senha alterada com sucesso.</div>
 						<? } ?>
 					</span>
-					<form name="formlogin" action="./php/session_start.php" method="post" >
+					<form name="formlogin" action="./phpscripts/session_start.php" method="post" >
 
 						<span>Informe seu email:</span>
 

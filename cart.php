@@ -1,5 +1,5 @@
 <?php 
-	require "./php/authentication_control.php";
+	require "./phpscripts/authentication_control.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,7 +70,7 @@
 									<tr class="product-line">
 										<td>
 											<a href="#">
-												<img src="img_produtos/<?= $value['id']?>/index.jpg" alt="">
+												<img src="./img_produtos/<?= $value['id']?>/index.jpg" alt="">
 											</a>
 										</td>
 										<td class="name-product">Teste</td>

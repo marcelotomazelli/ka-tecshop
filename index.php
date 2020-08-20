@@ -1,6 +1,4 @@
-<?php 
-	require "./php/authentication_control.php";
-	require "./php/list_products.php";
+<?php
 ?>
 <!DOCTYPE html>
 <html>
@@ -175,7 +173,7 @@
 								<div>
 									<div>
 										<a href="#">
-											<img src="img_produtos/<?= $value['id_produto']?>/index.jpg">
+											<img src="./img_produtos/<?= $value['id']?>/index.jpg">
 										</a>
 										<div>
 											<a href="#">

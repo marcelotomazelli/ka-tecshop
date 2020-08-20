@@ -1,5 +1,5 @@
 <?php 
-	require "./php/authentication_control.php";
+	require "./phpscripts/authentication_control.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -144,7 +144,7 @@
 
 								<div class="product-img">
 									<a href="product.php">
-										<img src="img_produtos/<?= $i?>/index.jpg">
+										<img src="./img_produtos/<?= $i?>/index.jpg">
 									</a>
 									<div>
 										<a href="#">
