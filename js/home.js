@@ -11,6 +11,7 @@ const _crslIntro = new Carousel('intro', 4000)
 const _crslTrend = new Carousel('trend', 7000)
 const _crslDeal = new Carousel('deal', 7000)
 
+// objeto responsavel por funções do carousel no home
 const _carousel = {
 	sizing: () => {
 		// Aplicando resize no carousel da intro
@@ -29,14 +30,15 @@ const _carousel = {
 }
 
 const _ajax = {
-	requisition: (new_index, current_index, _instance) => {
-		if(new_index != current_index) {
+	requisition: (directory, nindex, current_index, _instance) => {
+
+		if(nindex != current_index) {
 			let xhttp = new XMLHttpRequest();
-			xhttp.open('POST', `../phpscripts/index_request.php?i=${new_index}`, true)
+			xhttp.open('POST', directory, true)
 			xhttp.onreadystatechange = function() {
 				if(this.readyState == 4 && this.status == 200) {
 					let json_result = JSON.parse(this.responseText)
-					_instance.execute(json_result, new_index)
+					_instance.execute(json_result, nindex)
 				}
 			}
 			xhttp.send()
@@ -45,7 +47,7 @@ const _ajax = {
 }
 
 const _ajaxTrend = {
-	execute: (json_result, new_index) => {
+	execute: (json_result, nindex) => {
 		const content = document.getElementById('Strend')
 		let h = content.offsetHeight
 
@@ -68,7 +70,7 @@ const _ajaxTrend = {
 				let aimg = document.createElement('a')
 				aimg.href = '#'
 				let img = document.createElement('img')
-				img.src = `img_produtos/${obj.id_produto}/index.jpg`
+				img.src = `img_produtos/${obj.id}/index.jpg`
 				aimg.appendChild(img)
 
 				let div1_2 = document.createElement('div')
@@ -122,7 +124,7 @@ const _ajaxTrend = {
 			},1500)
 
 			content.style.height = ''
-			ctrend = new_index
+			ctrend = nindex
 		},1500);
 	}
 }
@@ -154,8 +156,6 @@ window.onload = () => {
 	setTimeout(() => {
 		_crslIntro.sizeAnItem('carousel-intro', 'anitem-image', 2)
 	}, 750)
-
-	_ajax.requisition('destaque', ctrend, _ajaxTrend)
 }
 
 // Verifica se o evento foi somente no eixo x
@@ -167,7 +167,7 @@ window.onresize = () => {
 		if(iw_client != window.innerWidth) {
 			_carousel.sizing()
 		}
-	}, 500)
+	}, 600)
 }
 
 // Sobreescreve o definido no header.js, pois no caso da home algumas diferenças no layout
@@ -182,8 +182,9 @@ document.getElementById('button-categories').onclick = () => {
 
 const btns_trend = ['destaque', 'bestseller', 'ultimos']
 
-btns_trend.forEach((value) => {
-	let id = 'req' + value.replace((value.slice(1, value.length)), '')
+btns_trend.forEach((nindex) => {
+	let directory = `../phpscripts/scriptIndex.php?i=${nindex}`
+	let id = 'req' + nindex.replace((nindex.slice(1, nindex.length)), '')
 	let el = document.getElementById(id)
-	el.onclick = () => _ajax.requisition(value, ctrend, _ajaxTrend)
+	el.onclick = () => _ajax.requisition(directory, nindex, ctrend, _ajaxTrend)
 })

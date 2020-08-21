@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="css/header-footer.css">
 <!--|➖➖  Header  ➖➖|-->
 <header>
 
@@ -139,7 +138,18 @@
 
 					<a id="link-profile" href="./myaccount.php"></a>
 					
-					<? if($authenticated) { ?>
+					<? if(!$authenticated) { ?>
+						<div id="without-login">
+							<div>
+								<span>Novo consumidor?</span>
+								<a href="./access_page.php?t=register">Cadastrar-se</a>
+							</div>
+							<div>
+								<span>Bem-vindo ao KA TECSHOP</span>
+								<a href="./access_page.php?t=login">Login</a>
+							</div>
+						</div>
+					<? } else { ?>
 						<div id="with-login">
 							<span>Olá <span><?= $_SESSION['name'] ?></span></span>
 							<ul>
@@ -156,20 +166,9 @@
 									<a href="./myaccount.php?p=favoritos">Lista de favoritos</a>
 								</li>
 								<li>
-									<a href="./phpscripts/session_end.php">Logoff</a>
+									<a href="./phpscripts/scriptSession.php?action=end">Logoff</a>
 								</li>
 							</ul>
-						</div>
-					<? } else { ?>
-						<div id="without-login">
-							<div>
-								<span>Novo consumidor?</span>
-								<a href="./access_page.php?t=register">Cadastrar-se</a>
-							</div>
-							<div>
-								<span>Bem-vindo ao KA TECSHOP</span>
-								<a href="./access_page.php?t=login">Login</a>
-							</div>
 						</div>
 					<? } ?>
 

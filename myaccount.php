@@ -1,10 +1,9 @@
 <?php
-	require "./phpscripts/authentication_control.php";
-	if(!$authenticated) {
-		header('Location: access_page.php?t=login');
-	}
+require './phpscripts/scriptSession.php';
+if(!$authenticated) {
+	header('Location: ./access_page.php?t=register');
+}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +15,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/header-footer.css">
 	<link rel="stylesheet" type="text/css" href="css/myaccount.css">
 
 	<!-- Font Awesome -->

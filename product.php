@@ -1,5 +1,5 @@
 <?php
-	require "./phpscripts/authentication_control.php";
+	require "./phpscripts/scriptSession.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/header-footer.css">
 	<link rel="stylesheet" type="text/css" href="css/product.css">
 
 	<!-- Font Awesome -->

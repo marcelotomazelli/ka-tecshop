@@ -1,4 +1,6 @@
 <?php
+	require './phpscripts/scriptIndex.php';
+	require './phpscripts/scriptSession.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +13,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/header-footer.css">
 	<link rel="stylesheet" type="text/css" href="css/carousel.css">
 	<link rel="stylesheet" type="text/css" href="css/home.css">
 
@@ -167,13 +170,14 @@
 					
 					<div id="Strend" class="several-content">
 						<!-- Script que constroe a visulização dos produtos em destaque -->
-						<? foreach($list_dstq as $value) { ?>
+
+						<? foreach($list_trend as $value) { ?>
 											
 							<div class="severalitems Itrend">
 								<div>
 									<div>
 										<a href="#">
-											<img src="./img_produtos/<?= $value['id']?>/index.jpg">
+											<img src="./img_produtos/<?= $value->id?>/index.jpg">
 										</a>
 										<div>
 											<a href="#">
@@ -183,12 +187,9 @@
 									</div>
 									
 									<div>
-										<h2><a href=""><?= $value['nome_curto']?></a></h2>
+										<h2><a href=""><?= $value->nome_curto?></a></h2>
 										<h3>
-											R$ 
-											<?= 
-												$value['valor']
-											?>
+											R$ <?= $value->valor ?>
 										</h3>
 									</div>
 									<div>

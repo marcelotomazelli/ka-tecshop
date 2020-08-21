@@ -1,6 +1,6 @@
 <?php
 
-require './phpscripts/authentication_control.php';
+require './phpscripts/scriptSession.php';
 
 $verified_email = false;
 $verified_code = false;
@@ -62,7 +62,7 @@ if($authenticated) {
 							?>
 						</span>
 
-						<form name="formverifyemail" action="./phpscripts/forget_control.php?t=email" method="post">
+						<form name="formverifyemail" action="./phpscripts/scriptForget.php?t=email" method="post">
 							<span>Informe seu email:</span>
 							<input 
 								id="v_ie"
@@ -89,7 +89,7 @@ if($authenticated) {
 							?>
 						</span>
 
-						<form name="formverifycode" action="./phpscripts/forget_control.php?t=code" method="post">
+						<form name="formverifycode" action="./phpscripts/scriptForget.php?t=code" method="post">
 							<span>Informe o código:</span>
 							<input 
 								id="v_ic"
@@ -109,7 +109,7 @@ if($authenticated) {
 				<? if($verified_email && $verified_code) { ?>
 					<div id="form-new-pass">
 
-						<form name="formnewpass" action="./phpscripts/forget_control.php?t=newpass" method="post">
+						<form name="formnewpass" action="./phpscripts/scriptForget.php?t=newpass" method="post">
 							<span>Informe a senha:</span>
 
 							<input 
