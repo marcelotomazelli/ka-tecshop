@@ -33,20 +33,14 @@
 					$value *= 100;
 					$value = floor($value);
 
-					$a_ = strlen($value);
+					$value .= '';
 
-					$value /= 100;
+					$aux = substr($value,(strlen($value)-2));
 
-					$b_ = strlen($value);
-
-					if($a_ == $b_) {
-						$value .= '0';
-					} else if($a_ > $b_) {
-						$value .= '.00';
-					}
-
-					$value = str_replace('.', ',', $value);
-
+					$value = str_replace($aux, '', $value);
+					$value .= ',';
+					$value .= $aux;
+					
 					return $value;
 				}
 

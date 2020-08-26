@@ -3,7 +3,7 @@
 		
 		<!--\ Contato -->
 		<div id="footer-contate" class="close">
-			<h3 onclick="changeClass(['footer-contate'], 'open', 'close')">
+			<h3 onclick="_changes.class(['footer-contate'], 'open', 'close')">
 				Contato
 				<i class="fas fa-plus"></i>
 				<i class="fas fa-minus"></i>
@@ -18,7 +18,7 @@
 
 		<!--\ Extras -->
 		<div id="footer-extra" class="close">
-			<h3 onclick="changeClass(['footer-extra'], 'open', 'close')">
+			<h3 onclick="_changes.class(['footer-extra'], 'open', 'close')">
 				Extras
 				<i class="fas fa-plus"></i>
 				<i class="fas fa-minus"></i>
@@ -34,7 +34,7 @@
 
 		<!--\ Informações -->
 		<div id="footer-information" class="close">
-			<h3 onclick="changeClass(['footer-information'], 'open', 'close')">
+			<h3 onclick="_changes.class(['footer-information'], 'open', 'close')">
 				Information
 				<i class="fas fa-plus"></i>
 				<i class="fas fa-minus"></i>
@@ -52,7 +52,7 @@
 
 		<!--\ Parte da conta -->
 		<div id="footer-account" class="close">
-			<h3 onclick="changeClass(['footer-account'], 'open', 'close')">
+			<h3 onclick="_changes.class(['footer-account'], 'open', 'close')">
 				Minha Conta
 				<i class="fas fa-plus"></i>
 				<i class="fas fa-minus"></i>

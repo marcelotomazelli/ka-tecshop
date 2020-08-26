@@ -41,14 +41,8 @@
 
 	<main id="maincart">
 		<div class="content">
-			
-			<? if($items == 0) { ?>
-				<section id="cartempty">
-					<span>Seu carrinho de compras está vazio.</span>
-					<span>Temos os melhores produtos e preços, aproveite!</span>
-					<span><a href="index.php">Ir para Home</a></span>
-				</section>
-			<? } else { ?>
+
+			<? if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) { ?>
 				<section id="products-list">
 					<div>
 						<table id="product-table">
@@ -64,18 +58,21 @@
 								</tr>
 							</thead>
 
+							<!-- Tudo o que é necessario para esse  -->
 							<tbody>
-								<? foreach($products as $value) { ?>
+								<? foreach($listcart as $i => $product) { ?>
+									<? $qtt = $_SESSION['cart'][$i]['qtt'] ?>
+									<? $totalitem = $product->valor * $qtt ?>
 									<tr class="product-line">
 										<td>
 											<a href="#">
-												<img src="./img_produtos/<?= $value['id']?>/index.jpg" alt="">
+												<img src="./img_produtos/<?= $product->id ?>/index.jpg" alt="">
 											</a>
 										</td>
-										<td class="name-product">Teste</td>
-										<td><?= $value['qtd'] ?>x</td>
-										<td>R$ <?= str_replace('.', ',', $value['valor']) ?></td>
-										<td>R$ <?= str_replace('.', ',', ($value['valor'] * $value['qtd'])) ?></td>
+										<td class="name-product"><?= $product->nome ?></td>
+										<td><?= $qtt ?>x</td>
+										<td>R$ <?= correctValueRS($product->valor) ?></td>
+										<td>R$ <?= correctValueRS($totalitem) ?></td>
 										<td class="button-delete">
 											<button>
 												<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
@@ -102,7 +99,8 @@
 							</tr>
 							<tr class="two-items-table">
 								<td>Total:</td>
-								<td>R$ <span><?= str_replace('.', ',', ($total + 15))?></span></td>
+
+								<td>R$ <span><?= $valuetotal ?></span></td>
 							</tr>
 						</table>
 					</div>
@@ -117,8 +115,13 @@
 						</div>
 					</div>
 				</section>
+			<? } else { ?>
+				<section id="cartempty">
+					<span>Seu carrinho de compras está vazio.</span>
+					<span>Temos os melhores produtos e preços, aproveite!</span>
+					<span><a href="index.php">Ir para Home</a></span>
+				</section>
 			<? } ?>
-
 		</div>
 	</main>
 	

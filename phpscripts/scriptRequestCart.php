@@ -23,7 +23,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
 	};
 
 	$query = "
-		SELECT id, nome_curto, detalhes.valor
+		SELECT id, nome, nome_curto, detalhes.valor
 		FROM 
 			produtos
 		    LEFT JOIN detalhes ON (produtos.id = detalhes.produto_id)

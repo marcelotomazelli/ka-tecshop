@@ -120,8 +120,11 @@
 }
 
 #infocart-total * {
-	padding: 10px;
 	border-color: #CCCCCC;
+}
+
+#infocart-total td {
+	padding: 10px 20px;
 }
 
 #infocart-footer {
