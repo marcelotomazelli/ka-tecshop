@@ -19,10 +19,6 @@
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-
-	<!-- Para Estilos do menu Categoria -->
-	<style type="text/css">
-	</style>
 </head>
 <body id="bodyid" class="close_s">
 
@@ -189,11 +185,11 @@
 									<div>
 										<h2><a href=""><?= $value->nome_curto?></a></h2>
 										<h3>
-											R$ <?= $value->valor ?>
+											R$ <?= str_replace('.', ',', $value->valor) ?>
 										</h3>
 									</div>
 									<div>
-										<a href="#">Adicionar ao carrinho</a>
+										<button id="id<?= $value->id?>" class="addcart">Adicionar ao carrinho</button>
 									</div>
 								</div>
 							</div>
@@ -291,7 +287,7 @@
 									</div>
 
 									<div>
-										<a href="#">Adicionar ao carrinho</a>
+										<button href="#">Adicionar ao carrinho</button>
 									</div>
 
 								</div>
@@ -311,6 +307,7 @@
 
 
 	<!-- ➖➖|´/ Script \`|➖➖ -->
+	<script src="js/general.js"></script>
 	<script src="js/carousel.class.js"></script>
 	<script src="js/home.js"></script>
 </body>

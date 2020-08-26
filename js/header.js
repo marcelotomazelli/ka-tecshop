@@ -1,15 +1,3 @@
-const _changes = {
-	class: (ids, new_class, old_class) => {
-		for(let i = 0; i < ids.length; i++) {
-			let el = document.getElementById(ids[i])
-			if(el.className.includes(old_class))
-				el.className = el.className.replace(old_class, new_class)
-			else 
-				el.className = el.className.replace(new_class, old_class)
-		}
-	}
-}
-
 document.getElementById('button-categories').onclick = () => {
 	let elements = ['menu-categories', 'button-categories']
 	_changes.class(elements, 'close_l', 'open_l')

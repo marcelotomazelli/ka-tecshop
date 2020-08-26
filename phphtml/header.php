@@ -1,6 +1,8 @@
 <!--|➖➖  Header  ➖➖|-->
 <header>
 
+	<? require './phpscripts/scriptRequestCart.php' ?>
+
 	<!-- ⏩ ⏩ Banner -->
 	<div id="header-banner"> 
 		<div class="content">
@@ -25,44 +27,42 @@
 					<button><i class="fas fa-search"></i></button>
 				</form>
 			</div>
-			
 			<?php
 
-				if(1 == rand(1,6)) {
-					$items = rand(5,9);
-				} else {
-					$items = rand(0,4);
-				}
+				function correctValueRS($value) {
+					$value *= 100;
+					$value = floor($value);
 
-				$products = array();
+					$a_ = strlen($value);
 
-				for($i = 1; $i <= $items; $i++) {
+					$value /= 100;
 
-					$first_value = 0;
+					$b_ = strlen($value);
 
-					if(1 == rand(1,5)) {
-						$first_value = rand(7,15999);
-					} else {
-						$first_value = rand(7,599);
+					if($a_ == $b_) {
+						$value .= '0';
+					} else if($a_ > $b_) {
+						$value .= '.00';
 					}
 
-					$product = [
-						'id' => rand(1,50),
-						'qtd' => rand(1,3),
-						'valor' => $first_value.'.'.rand(0,99)
-					];
+					$value = str_replace('.', ',', $value);
 
-					array_push($products, $product);
+					return $value;
 				}
 
-				$total = 0.00;
-
-				if($items != 0) {
-					foreach($products as $value) {
-						$total += ($value['valor'] + 0) * $value['qtd'];
+				$valuetotal = '0,00';
+				$items = 0;
+				if(!empty($listcart)) {
+					$valuetotal = 0;
+					foreach($listcart as $i => $product) {
+						$valuetotal += $product->valor * $_SESSION['cart'][$i]['qtt'];
+						$items++;
 					}
+					$valuetotal += 15;
+					// Formatar o valor para a escrita correta na moeda REAL
+					
+					$valuetotal = correctValueRS($valuetotal);
 				}
-
 			?>
 
 			<!---\ Painel --->
@@ -76,14 +76,10 @@
 							<div id="cart-tittle">
 								<span>Carrinho</span>
 								<span>
-									<?php
-										echo 'R$ ';
-										if($items != 0) {
-											echo str_replace('.', ',', $total);
-										} else {
-											echo '0,00';
-										}
-									?>
+									<span>R$ </span>
+									<span id="total-cart">
+										<?= $valuetotal ?>
+									</span>
 								</span>
 							</div>
 							<span id="number-items-cart"><?= $items ?></span>
@@ -91,25 +87,27 @@
 					</a>
 
 					<div id="cart">
-						<div id="products-cart">
-							<? foreach($products as $value) { ?>
-								<table>
-									<tr class="product-cart">
-										<td><img src="./img_produtos/<?= $value['id']?>/index.jpg" height="60"alt=""></td>
-										<td>Teste 1</td>
-										<td><?= $value['qtd'] ?>x</td>
-										<td>R$ <?= str_replace('.', ',', ($value['valor'] * $value['qtd']))?></td>
-										<td>
-											<button>
-												<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
-											</button>
-										</td>
-									</tr>
-								</table>
-							<? } ?>
-						</div>
-						<? if($items != 0) { ?>
-							<table class="cart-total">
+						<? if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) { ?>
+							<div id="products-cart">
+								<? foreach($listcart as $i => $item) { ?>
+									<table class="productsoncart">
+										<tr class="product-cart">
+											<td><img src="./img_produtos/<?= $item->id?>/index.jpg" height="60"alt=""></td>
+											<td><?= $item->nome_curto ?></td>
+											<td><?= $_SESSION['cart'][$i]['qtt'] ?>x</td>
+
+											<? $valueproduct = $item->valor * $_SESSION['cart'][$i]['qtt'] ?>
+											<td>R$ <?= correctValueRS($valueproduct) ?></td>
+											<td>
+												<button id="iproduct<?= $i ?>">
+													<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
+												</button>
+											</td>
+										</tr>
+									</table>
+								<? } ?>
+							</div>
+							<table id="infototalcart" class="cart-total">
 								<tr class="two-items-table">
 									<td>Frete:</td>
 									<td>R$ 15,00</td>
@@ -120,7 +118,7 @@
 								</tr>
 								<tr class="two-items-table">
 									<td>Total:</td>
-									<td>R$ <span><?= str_replace('.', ',', ($total + 15))?></span></td>
+									<td>R$ <span id="totalontable"><?= $valuetotal ?></span></td>
 								</tr>
 							</table>
 						<? } else { ?>

@@ -159,7 +159,7 @@ if($authenticated) {
 	<? if(!empty($t_action))  { ?>
 		<div id="t-action" style="display: none;"><?= $t_action ?></div>
 	<? } ?>
-
+	
 	<script src="./js/access_page.js"></script>
 </body>
 </html>

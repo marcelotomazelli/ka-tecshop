@@ -19,7 +19,6 @@ Legenda:
 .carousel-anitem {
 	width: 100%;
 	position: relative;
-	/*background: #3B3B3B;*/
 }
 
 .carousel-anitem, .carousel-anitem * {
@@ -433,14 +432,15 @@ div das imagens ~~ */
 }
 
 /* ~ Este é o link inferior ~ */
-.severalitems > div > div + div + div > a {
+.severalitems > div > div + div + div > button {
+	background: none;
 	display: inline-block;
 	border-radius: 40px;
 	padding: 10px 12px;
 	border: 1px solid #D7D7D7;
 }
 
-.severalitems > div > div + div + div > a:hover {
+.severalitems > div > div + div + div > button:hover {
 	border: 1px solid #F04747;
 	background: #F04747;
 	color: #fff;

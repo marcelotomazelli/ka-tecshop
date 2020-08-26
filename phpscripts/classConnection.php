@@ -1,4 +1,5 @@
 <?php
+	// classe Connection responsavel pela conexão
 	class Connection {
 		private $host = 'localhost';
 		private $database = 'dbkatecshop';

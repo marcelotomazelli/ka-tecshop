@@ -2,8 +2,8 @@
 require './classConnection.php';
 require './classKAControl.php';
 
-$_connection = new Connection();
-$_kacontrol = new KAControl($_connection);
+$_kacontrol = new Connection();
+$_kacontrol = new KAControl($_kacontrol);
 
 $query = '
 	SELECT email

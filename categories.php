@@ -17,10 +17,6 @@
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-
-	<!-- Para Estilos do menu Categoria -->
-	<style type="text/css">
-	</style>
 </head>
 <body id="bodyid" class="close_s">
 
@@ -205,6 +201,7 @@
 
 
 	<!-- ➖➖|´/ Script \`|➖➖ -->
+	<script src="js/general.js"></script>
 	<script src="js/categories.js"></script>
 </body>
 </html>

@@ -13,8 +13,8 @@ if(empty($index)) {
 	require './classKAControl.php';
 }
 
-$_connection = new Connection();
-$_kacontrol = new KAControl($_connection);
+$_kacontrol = new Connection();
+$_kacontrol = new KAControl($_kacontrol);
 
 $list_trend = '';
 
@@ -32,6 +32,7 @@ $query = '
 if(empty($index)) {
 	$values = ['destaque'];
 	$list_trend = $_kacontrol->read($query, $values);
+	$_kacontrol = '';
 } else {
 	$list = '';
 	$values = [$index];
@@ -50,6 +51,10 @@ if(empty($index)) {
 		$list = $_kacontrol->read($query, '');
 	}
 
+	array_push($list, $index);
+
+	$_kacontrol = '';
+	
 	echo json_encode($list);
 }
 ?>

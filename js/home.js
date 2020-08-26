@@ -29,25 +29,8 @@ const _carousel = {
 	}
 }
 
-const _ajax = {
-	requisition: (directory, nindex, current_index, _instance) => {
-
-		if(nindex != current_index) {
-			let xhttp = new XMLHttpRequest();
-			xhttp.open('POST', directory, true)
-			xhttp.onreadystatechange = function() {
-				if(this.readyState == 4 && this.status == 200) {
-					let json_result = JSON.parse(this.responseText)
-					_instance.execute(json_result, nindex)
-				}
-			}
-			xhttp.send()
-		}
-	}
-}
-
 const _ajaxTrend = {
-	execute: (json_result, nindex) => {
+	execute: (result) => {
 		const content = document.getElementById('Strend')
 		let h = content.offsetHeight
 
@@ -57,59 +40,62 @@ const _ajaxTrend = {
 		setTimeout(function() {
 			content.innerHTML = '';
 
-			json_result.forEach((obj) => {
-				let item = document.createElement('div')
-				item.className = 'severalitems Itrend'
+			result.forEach((obj, i) => {
+				if(i < (result.length - 1)) {
+					let item = document.createElement('div')
+					item.className = 'severalitems Itrend'
 
-				let divp = document.createElement('div')
+					let divp = document.createElement('div')
 
-				let div1 = document.createElement('div')
-				let div2 = document.createElement('div')
-				let div3 = document.createElement('div')
+					let div1 = document.createElement('div')
+					let div2 = document.createElement('div')
+					let div3 = document.createElement('div')
 
-				let aimg = document.createElement('a')
-				aimg.href = '#'
-				let img = document.createElement('img')
-				img.src = `img_produtos/${obj.id}/index.jpg`
-				aimg.appendChild(img)
+					let aimg = document.createElement('a')
+					aimg.href = '#'
+					let img = document.createElement('img')
+					img.src = `img_produtos/${obj.id}/index.jpg`
+					aimg.appendChild(img)
 
-				let div1_2 = document.createElement('div')
-				let aheart = document.createElement('a')
-				aheart.href = '#'
-				let i = document.createElement('i')
-				i.className = 'fas fa-heart'
+					let div1_2 = document.createElement('div')
+					let aheart = document.createElement('a')
+					aheart.href = '#'
+					let i = document.createElement('i')
+					i.className = 'fas fa-heart'
 
-				aheart.appendChild(i)
-				div1_2.appendChild(aheart)
-				div1.appendChild(aimg)
-				div1.appendChild(div1_2)
+					aheart.appendChild(i)
+					div1_2.appendChild(aheart)
+					div1.appendChild(aimg)
+					div1.appendChild(div1_2)
 
-				let h2 = document.createElement('h2')
-				let h2a = document.createElement('a')
-				h2a.href = '#'
-				h2a.innerHTML = obj.nome_curto
+					let h2 = document.createElement('h2')
+					let h2a = document.createElement('a')
+					h2a.href = '#'
+					h2a.innerHTML = obj.nome_curto
 
-				h2.appendChild(h2a)
+					h2.appendChild(h2a)
 
-				let h3 = document.createElement('h3')
-				h3.innerHTML = 'R$ ' + obj.valor.replace('.', ',')
+					let h3 = document.createElement('h3')
+					h3.innerHTML = 'R$ ' + obj.valor.replace('.', ',')
 
-				div2.appendChild(h2)
-				div2.appendChild(h3)
+					div2.appendChild(h2)
+					div2.appendChild(h3)
 
-				let alast = document.createElement('a')
-				alast.href = '#'
-				alast.innerHTML = 'Adicionar ao carrinho'
+					let buttonlast = document.createElement('button')
+					buttonlast.id = `id${obj.id}`
+					buttonlast.className = 'addcart'
+					buttonlast.innerHTML = 'Adicionar ao carrinho'
 
-				div3.appendChild(alast)
+					div3.appendChild(buttonlast)
 
-				divp.appendChild(div1)
-				divp.appendChild(div2)
-				divp.appendChild(div3)
+					divp.appendChild(div1)
+					divp.appendChild(div2)
+					divp.appendChild(div3)
 
-				item.appendChild(divp)
+					item.appendChild(divp)
 
-				content.appendChild(item)
+					content.appendChild(item)
+				}
 			})
 
 
@@ -124,8 +110,30 @@ const _ajaxTrend = {
 			},1500)
 
 			content.style.height = ''
-			ctrend = nindex
+			ctrend = result[(result.length - 1)]
+			
+			_ajaxTrend.definitions()
+			_changes.products()
 		},1500);
+	},
+	condition: (info) => {
+		if(info[2] != info[3])
+			return true
+		else 
+			return false
+	},
+	definitions: () => {
+		let btns_trend = ['destaque', 'bestseller', 'ultimos']
+
+		btns_trend.forEach((nindex) => {
+			let directory = `../phpscripts/scriptIndex.php?i=${nindex}`
+			let id = 'req' + nindex.replace((nindex.slice(1, nindex.length)), '')
+			let el = document.getElementById(id)
+
+			let info = [directory, _ajaxTrend, nindex, ctrend]
+
+			el.onclick = () => _ajax.requisition(info)
+		})
 	}
 }
 
@@ -156,6 +164,8 @@ window.onload = () => {
 	setTimeout(() => {
 		_crslIntro.sizeAnItem('carousel-intro', 'anitem-image', 2)
 	}, 750)
+
+	_ajaxTrend.definitions()
 }
 
 // Verifica se o evento foi somente no eixo x
@@ -179,12 +189,3 @@ document.getElementById('button-categories').onclick = () => {
 		_crslIntro.sizeAnItem('carousel-intro', 'anitem-image', 2)
 	}, 750)
 }
-
-const btns_trend = ['destaque', 'bestseller', 'ultimos']
-
-btns_trend.forEach((nindex) => {
-	let directory = `../phpscripts/scriptIndex.php?i=${nindex}`
-	let id = 'req' + nindex.replace((nindex.slice(1, nindex.length)), '')
-	let el = document.getElementById(id)
-	el.onclick = () => _ajax.requisition(directory, nindex, ctrend, _ajaxTrend)
-})

@@ -5,8 +5,8 @@ session_start();
 require './classConnection.php';
 require './classKAControl.php';
 
-$_connection = new Connection();
-$_kacontrol = new KAControl($_connection);
+$_kacontrol = new Connection();
+$_kacontrol = new KAControl($_kacontrol);
 
 $query = '
 	SELECT email
@@ -38,12 +38,10 @@ if(!empty($result)) {
 	$_user = $_kacontrol->read($query, $values, 'one');
 
 	if(!empty($_user)) {
-		$_SESSION = [
-			'authenticated' => true,
-			'id_user' => $_user->id,
-			'name' => $_user->nome,
-			'email' => $_user->email
-		];
+		$_SESSION['authenticated'] = true;
+		$_SESSION['id_user'] = $_user->id;
+		$_SESSION['name'] = $_user->nome;
+		$_SESSION['email'] = $_user->email;
 		header('Location: ../index.php');
 	} else {
 		header('Location: ../access_page.php?t=login&e=pass&email=' . $_POST['email']);

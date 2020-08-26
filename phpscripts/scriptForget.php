@@ -5,8 +5,8 @@ session_start();
 require_once './classConnection.php';
 require_once './classKAControl.php';
 
-$_connection = new Connection();
-$_kacontrol = new KAControl($_connection);
+$_kacontrol = new Connection();
+$_kacontrol = new KAControl($_kacontrol);
 
 if($_GET['t'] == 'email') {
 	
@@ -67,6 +67,7 @@ if($_GET['t'] == 'email') {
 	];
 
 	$_kacontrol->update($query, $values);
+
 	session_destroy();
 	header('Location: ../access_page.php?t=login&newpass=success');
 }
