@@ -20,6 +20,10 @@
 	}
 }
 
+.gridname {
+	white-space: nowrap;
+}
+
  /* ************************************************ *\
 |* ------------------ FILTRO ASIDE ------------------ *|
  \* ************************************************ */
@@ -361,7 +365,7 @@
  \* *********************************************** */
 
 .grid .item-products {
-	padding: 5px 10px;
+	padding: 3px;
 	display: flex;
 	justify-content: center;
 }
@@ -383,7 +387,9 @@
 }
 
 @media (min-width: 1200px) {
-	.grid .item-products { max-width: 25% }
+	.grid .item-products { 
+		max-width: 25% 
+	}
 }
 
 /* ~~~ Esse seleciona o elemento auxilar (que é o visivel) ~~~ */
@@ -483,7 +489,11 @@
 	color: #F32749;
 }
 
-.grid .product-img + div > p {
+.grid .listname {
+	display: none;
+}
+
+.grid .description-text {
 	overflow-y: hidden;
 	font-size: 0.9em;
 	color: #5E5E5E;
@@ -603,7 +613,6 @@
 }
 
 .list .product-img + div > h2 {
-	font-weight: normal;
 	padding-bottom: 10px;
 }
 
@@ -613,7 +622,7 @@
 	color: #F22F2F;
 }
 
-.list .product-img + div > p {
+.list .description-text {
 	margin: 0;
 	padding: 0;
 	color: #5E5E5E;
@@ -621,10 +630,28 @@
 }
 
 @media (max-width: 575.98px) {
-	.list .product-img + div > p {
+	.list .description-text {
 		text-align: left;
-		height: 35px;
+		height: 36px;
 		overflow-y: hidden;
+	}
+}
+
+.list .listname {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.list .gridname {
+	display: none;
+}
+
+@media (min-width: 576px) {
+	.list .description-text {
+		max-height: 50px;
+		overflow-y: hidden;
+		width: 100%;
+		font-size: 0.9em;
 	}
 }
 
@@ -644,4 +671,10 @@
 	border: 1px solid #EB2929;
 	background-color: #EB2929;
 	color: #fff;
+}
+
+@media (max-width: 767.98px) {
+	.list .product-addcart {
+		display: none;
+	}
 }

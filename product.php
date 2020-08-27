@@ -1,5 +1,7 @@
 <?php
 	require "./phpscripts/scriptSession.php";
+	require "./phpscripts/scriptProduct.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -25,17 +27,51 @@
 	<? require_once "phphtml/header.php" ?>
 
 	<!--|➖➖➖➖  Parte localização  ➖➖➖➖|-->
+	<?php 
+		$legendscategories = [
+			'tc' => 'Teclado',
+			'ms' => 'Mouse',
+			'hs' => 'Headset',
+			'gb' => 'Gabinete',
+			'ki' => 'Kit',
+			'mt' => 'Monitor',
+			'wd' => 'Windows',
+			'mc' => 'Mac',
+			'an' => 'Android',
+			'io' => 'IOS',
+			'kd' => 'Kindle',
+			'cm' => 'Camera',
+			'tv' => 'Televisão',
+			'pf' => 'Perifericos',
+			'pc' => 'Computador',
+			'nb' => 'Notebook',
+			'sm' => 'Smartphone',
+			'tb' => 'Tablet',
+			'dk' => 'Desktop',
+			'mb' => 'Mobile'
+		];
+	?>
+
 	<section class="currentloc">
 		<div class="content">
 			<ul>
 				<li>
-					<a href="#">Smartphone</a>
+					<a href="./index.php">Home</a>
 				</li>
 				<li>
-					<a href="#">Apple</a>
+					<a href="./categories.php">Produtos</a>
 				</li>
 				<li>
-					<a href="#">iPhone SE Preto</a>
+					<a href="#"><?= $legendscategories[$productpage->cglobal] ?></a>
+				</li>
+				<li>
+					<a href="#"><?= $legendscategories[$productpage->cmedio] ?></a>
+				</li>
+				<li>
+					<a href="#"><?= $legendscategories[$productpage->cespecifico] ?></a>
+				</li>
+				<li>
+					<a href="#"><?= $productpage->nome_curto ?></a>
 				</li>
 			</ul>
 		</div>
@@ -51,26 +87,20 @@
 			<div id="product-imgs">
 
 				<div id="main-image">
-					<img src="./img_produtos/<?= $id ?>/index.jpg">
+					<img src="./img_produtos/<?= $productpage->id ?>/index.jpg">
 				</div>
 
 				<div id="Ssi-imgs">
 					<div id="si-imgs">
+
 						<button>
-							<img src="./img_produtos/<?= $id ?>/index.jpg">
+							<img src="./img_produtos/<?= $productpage->id ?>/index.jpg">
 						</button>
-						<button>
-							<img src="./img_produtos/<?= $id ?>/1.jpg">
-						</button>
-						<button>
-							<img src="./img_produtos/<?= $id ?>/2.jpg">
-						</button>
-						<button>
-							<img src="./img_produtos/<?= $id ?>/3.jpg">
-						</button>
-						<button>
-							<img src="./img_produtos/<?= $id ?>/4.jpg">
-						</button>
+						<? for($i = 1; $i <= $productpage->imagens; $i++) { ?>
+							<button>
+								<img src="./img_produtos/<?= $productpage->id ?>/<?= $i ?>.jpg">
+							</button>
+						<? } ?>
 					</div>
 				</div>
 
@@ -78,18 +108,18 @@
 
 			<div id="info">
 				<div id="name">
-					<h1>iPhone SE Preto, 128GB - MXD02</h1>
+					<h1><?= $productpage->nome ?></h1>
 				</div>
 
 				<div id="dates">
 					<table>
 						<tr>
 							<th>Marcas:</th>
-							<td><a href="#">Apple</a></td>
+							<td><a href="#"><?= $productpage->marca ?></a></td>
 						</tr>
 						<tr>
 							<th>Código do produto:</th>
-							<td><?= $i ?></td>
+							<td><?= $productpage->id ?></td>
 						</tr>
 						<tr>
 							<th>Estado:</th>
@@ -99,7 +129,7 @@
 				</div>
 
 				<div id="numbers">
-					<span>R$ <?= rand(0, 9999).','.rand(0, 99) ?></span>
+					<span>R$ <?= correctValueRS($productpage->valor)?></span>
 					<div>
 						<button><i class="fas fa-minus"></i></button>
 						<span>1</span>
@@ -108,7 +138,7 @@
 				</div>
 
 				<div id="add-cart">
-					<a href="#">Adicionar ao carrinho</a>
+					<button id="id<?= $productpage->id?>" class="addcart">Adicionar ao carrinho</button>
 					<a href="#"><i class="fas fa-heart"></i></a>
 				</div>
 	
@@ -144,7 +174,13 @@
 				<div id="description" class="info-container">
 					<div><i class="fas fa-pencil-ruler"></i> Descrição</div>
 					<div id="description">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. A illo eum voluptates qui expedita culpa fugiat! Obcaecati, ipsa, adipisci? Odit quas iure amet doloribus. Dolores cupiditate quibusdam, veniam dolore sint? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repellat voluptatibus et iure accusamus reiciendis ipsam! Maxime nisi deserunt aspernatur amet quo, molestiae asperiores, quaerat, qui architecto nostrum et. Cumque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo consectetur, amet. Quasi pariatur harum enim doloribus itaque molestiae, totam saepe, cumque. Rem, iste, minus! Quasi eos error, commodi perspiciatis quisquam.
+						<?php
+							if(!empty($productpage->descricao)) {
+								echo $productpage->descricao;
+							} else {
+								echo $productpage->nome;
+							}
+						?>
 					</div>
 				</div>
 

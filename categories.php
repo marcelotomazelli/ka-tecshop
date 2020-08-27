@@ -1,5 +1,6 @@
-<?php 
+<?php
 	require "./phpscripts/scriptSession.php";
+	require "./phpscripts/scriptCategories.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -134,14 +135,12 @@
 
 
 				<div id="list-products">
-					
-					<? for($i = 10; $i <= 20; $i++) { ?>
+					<? foreach($listproducts as $productitem) { ?>
 						<div class="item-products">
 							<div>
-
 								<div class="product-img">
-									<a href="product.php">
-										<img src="./img_produtos/<?= $i?>/index.jpg">
+									<a href="./product.php?id=<?= $productitem->id ?>">
+										<img src="./img_produtos/<?= $productitem->id ?>/index.jpg">
 									</a>
 									<div>
 										<a href="#">
@@ -151,19 +150,28 @@
 								</div>
 								
 								<div class="product-info">
-									<h2><a href="">Teste</a></h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni nesciunt, impedit? Facere nesciunt, tempora...</p>
-									<h3>R$ <?= rand(0, 9999).','.rand(0, 99) ?></h3>
+									<h2 class="gridname"><a href="./product.php?id=<?= $productitem->id ?>"><?= $productitem->nome_curto ?></a></h2>
+									<h2 class="listname"><a href="./product.php?id=<?= $productitem->id ?>"><?= $productitem->nome ?></a></h2>
+									<p class="description-text">
+										<?php
+											if(!empty($productitem->descricao))
+												echo $productitem->descricao;
+											else {
+												echo $productitem->nome;
+											}
+										?>
+									
+									</p>
+									<h3>R$ <?= correctValueRS($productitem->valor) ?></h3>
 								</div>
 
 								<div class="product-addcart">
-									<a href="#">Adicionar ao carrinho</a>
+									<button id="id<?= $productitem->id ?>" class="addcart">Adicionar ao carrinho</button>
 								</div>
 
 							</div>
 						</div>
 					<? } ?>
-
 				</div>
 
 				<div class="pages-list">

@@ -172,7 +172,7 @@
 							<div class="severalitems Itrend">
 								<div>
 									<div>
-										<a href="#">
+										<a href="./product.php?id=<?= $value->id ?>">
 											<img src="./img_produtos/<?= $value->id?>/index.jpg">
 										</a>
 										<div>
@@ -283,7 +283,7 @@
 									
 									<div>
 										<h2><a href="">Teste</a></h2>
-										<h3><?= rand(0, 9999).','.rand(0, 99) ?></h3>
+										<h3>R$ <?= rand(0, 9999).','.rand(0, 99) ?></h3>
 									</div>
 
 									<div>
