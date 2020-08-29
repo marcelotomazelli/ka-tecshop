@@ -513,17 +513,20 @@
 }
 
 /* ~ Este é o link inferior ~ */
-.grid .product-info + div > a {
+.grid .product-info + div > button {
 	display: inline-block;
+	background-color: transparent;
 	border-radius: 40px;
 	padding: 10px 12px;
 	border: 1px solid #D7D7D7;
+	transition: 0.3s;
 }
 
-.grid .product-info + div > a:hover {
+.grid .product-info + div > button:hover {
 	border: 1px solid #F04747;
 	background: #F04747;
 	color: #fff;
+	transition: 0.3s;
 }
 
  /* *********************************************** *\
@@ -649,9 +652,8 @@
 @media (min-width: 576px) {
 	.list .description-text {
 		max-height: 50px;
-		overflow-y: hidden;
 		width: 100%;
-		font-size: 0.9em;
+		font-size: 1em;
 	}
 }
 
@@ -660,17 +662,20 @@
 	align-items: center;
 }
 
-.list .product-addcart > a {
+.list .product-addcart > button {
 	border: 1px solid #E1E1E1;
 	padding: 10px 20px;
 	border-radius: 20px;
 	font-size: 0.9em;
+	background: transparent;
+	transition: 0.3s;
 }
 
-.list .product-addcart > a:hover {
+.list .product-addcart > button:hover {
 	border: 1px solid #EB2929;
 	background-color: #EB2929;
 	color: #fff;
+	transition: 0.3s;
 }
 
 @media (max-width: 767.98px) {

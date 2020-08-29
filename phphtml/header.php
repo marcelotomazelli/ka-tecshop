@@ -2,6 +2,7 @@
 <header>
 
 	<? require './phpscripts/scriptRequestCart.php' ?>
+	<? require './phpscripts/scriptMenu.php' ?>
 
 	<!-- ⏩ ⏩ Banner -->
 	<div id="header-banner"> 
@@ -57,6 +58,31 @@
 					
 					$valuetotal = correctValueRS($valuetotal);
 				}
+			?>
+
+			<?php
+				$diciocategories = [
+					'tc' => ['Teclado', 'far fa-keyboard'],
+					'ms' => ['Mouse', 'fas fa-mouse'],
+					'hs' => ['Headset', 'fas fa-headphones-alt'],
+					'gb' => ['Gabinete', 'fas fa-mobile'],
+					'ki' => ['Kit', 'fas fa-boxes'],
+					'mt' => ['Monitor', 'fas fa-desktop'],
+					'wd' => 'Windows',
+					'mc' => 'Mac',
+					'an' => 'Android',
+					'io' => 'IOS',
+					'kd' => 'Kindle',
+					'cm' => ['Camera', 'fas fa-camera'],
+					'tv' => ['Televisão', 'fas fa-tv'],
+					'pf' => 'Perifericos',
+					'pc' => ['Computador', 'fas fa-power-off'],
+					'nb' => ['Notebook', 'fas fa-laptop'],
+					'sm' => ['Smartphone', 'fas fa-mobile-alt'],
+					'tb' => ['Tablet', 'fas fa-tablet-alt'],
+					'dk' => 'Desktop',
+					'mb' => 'Mobile'
+				];
 			?>
 
 			<!---\ Painel --->
@@ -248,151 +274,61 @@
 										<? } ?>
 									</li>
 
-	 								<!-- <|----------------------------|> -->
-									<li>
-										<a href="#">
-											<i class="fas fa-clock"></i>
-											Smartwatch
-										</a>
-									</li>
+									<? foreach($menu as $i => $item) { ?>
 
+										<? if($i != 'e') { ?>
+											<li class="categorie-dropdown close_s" id="idmenu<?= $i ?>">
+												<a href="./categories.php?m=<?= $i ?>">
+													<i class="<?= $diciocategories[$i][1] ?>"></i>
+													<?= $diciocategories[$i][0] ?>
+												</a>
+												<button onclick="_changes.class(['idmenu<?= $i ?>'], 'open_s', 'close_s')">
+													<i class="<?= $diciocategories[$i][1] ?>"></i>
+													<?= $diciocategories[$i][0] ?>
+												</button>
+												<div>
+													<ul>
+														<li>
+															<a href="./categories.php?m=<?= $i ?>">VER TUDO</a>
+														</li>
+													</ul>
 
-	 								<!-- <|Dropdown----------------------------|> -->
-									<li class="categorie-dropdown close_s" id="smartphone-ctgr">
-										<a href="categories.php?ctgr=sp">
-											<i class="fas fa-mobile-alt"></i>
-											Smartphone
-										</a>
-										<button id="button-smartphone-ctgr">
-											<i class="fas fa-mobile-alt"></i>
-											Smartphone
-										</button>
-										<div>
-											<ul>
+													<? foreach($item as $j => $eitem) { ?>
+														<ul>
+															<?php 
+																$totalper = 0;
+																foreach($eitem as $qtt) {
+																	$totalper += $qtt;
+																}
+															?>
+															<li>
+																<a href="./categories.php?m=<?= $i ?>&e=<?= $j ?>">
+																	<?= $diciocategories[$j].' ('.$totalper.')' ?>
+																</a>
+															</li>
+															<? foreach($eitem as $brand => $qtt) { ?>
+																<li><a href="#"><?= $brand.' ('.$qtt.')' ?></a></li>
+															<? } ?>
+														</ul>
+													<? } ?>
+												</div>
+											</li>
+
+										<? } else { ?>
+											<? foreach($item as $j => $sitem) { ?>
 												<li>
-													<a href="categories.php?ctgr=sp">VER TUDO</a>
+													<a href="./categories.php?e=<?= $j ?>">
+														<i class="<?= $diciocategories[$j][1] ?>"></i>
+														<?= $diciocategories[$j][0] ?>
+													</a>
 												</li>
-											</ul>
-											<ul>
-												<li><a href="#">Android</a></li>
-												<li><a href="#">Samsung</a></li>
-												<li><a href="#">Motorola</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-											</ul>
-											<ul>
-												<li><a href="#">IOS</a></li>
-												<li><a href="#">iPhone 9</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-											</ul>
-										</div>
-									</li>
+											<? } ?>
+										<? } ?>
+
+									<? } ?>
 
 
-	 								<!-- <|Dropdown----------------------------|> -->
-									<li>
-										<a href="#">
-											<i class="fas fa-laptop"></i>
-											Laptops
-										</a>
-									</li>
 
-
-									<li class="categorie-dropdown close_s" id="desktop-ctgr">
-										<a href="#">
-											<i class="fas fa-desktop"></i>
-											Desktops
-										</a>
-										<button id="button-desktop-ctgr">
-											<i class="fas fa-desktop"></i>
-											Desktops
-										</button>
-										<div>
-											<ul>
-												<li>
-													<a href="#">VER TUDO</a>
-												</li>
-											</ul>
-											<ul>
-												<li><a href="#">PC</a></li>
-												<li><a href="#">Positivo</a></li>
-												<li><a href="#">Dell</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-											</ul>
-											<ul>
-												<li><a href="#">Mac</a></li>
-												<li><a href="#">Teste</a></li>
-												<li><a href="#">Teste</a></li>
-											</ul>
-										</div>
-									</li>
-
-
-	 								<!-- <|----------------------------|> -->
-									<li>
-										<a href="#">
-											<i class="fas fa-tablet-alt"></i>
-											Tablets
-										</a>
-									</li>
-
-
-	 								<!-- <|----------------------------|> -->
-									<li>
-										<a href="#">
-											<i class="fas fa-headphones-alt"></i>
-											Headphone
-										</a>
-									</li>
-
-
-	 								<!-- <|----------------------------|> -->
-									<li>
-										<a href="#">
-											<i class="fas fa-microphone"></i>
-											Microphone
-										</a>
-									</li>
-
-
-	 								<!-- <|----------------------------|> -->
-									<li>
-										<a href="#">
-											<i class="fas fa-camera"></i>
-											Cameras
-										</a>
-									</li>
-
-
-	 								<!-- <|----------------------------|> -->
-									<li>
-										<a href="#">
-											<i class="far fa-keyboard"></i>
-											Teclados
-										</a>
-									</li>
-
-
-	 								<!-- <|----------------------------|> -->
-									<li>
-										<a href="#">
-											<i class="fas fa-mouse"></i>
-											Mouse
-										</a>
-									</li>
-
-
-	 								<!-- <|----------------------------|> -->
-									<li class="last-item-aside">
-										<a href="#">
-											<i class="fas fa-gamepad"></i>
-											Consoles
-										</a>
-									</li>
 								</ul>
 							</nav>
 						</aside>

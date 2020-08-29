@@ -6,21 +6,21 @@ require './phpscripts/classKAControl.php';
 $_connection = new Connection();
 $_kacontrol = new KAControl($_connection);
 
-if(isset($_GET['e']))
-	$listproducts = request($_GET['e'], 'e');
-else if(isset($_GET['m']))
-	$listproducts = request($_GET['m'], 'm');
+if(isset($_GET['e'])) {
+	$cesp = $_GET['e'];
+	$cmed = '';
 
-function request($value, $type) {
-	$_connection = new Connection();
-	$_kacontrol = new KAControl($_connection);
+	if(isset($_GET['m'])) {
+		$cmed = $_GET['m'];
+	}
 
-	$conditionquery = '';
 
-	if($type == 'e') {
-		$conditionquery = 'cespecifico';
-	} else if($type == 'm') {
-		$conditionquery = 'cmedio';
+	if(empty($cmed)) {
+		$condition = 'cespecifico = ?';
+		$values = [$cesp];
+	} else {
+		$condition = 'cmedio = ? AND cespecifico = ?';
+		$values = [$cmed, $cesp];
 	}
 
 	$query = "
@@ -30,12 +30,26 @@ function request($value, $type) {
 			produtos
 		    LEFT JOIN detalhes ON (produtos.id = detalhes.produto_id)
 		WHERE
-			$conditionquery = ?
+			$condition
 	";
 
-	$values = [$value];
+	$listproducts = $_kacontrol->read($query, $values);
+} else if(isset($_GET['m'])) {
+	$query = "
+		SELECT 
+			id, nome, nome_curto, detalhes.valor, detalhes.descricao
+		FROM
+			produtos
+		    LEFT JOIN detalhes ON (produtos.id = detalhes.produto_id)
+		WHERE
+			cmedio = ?
+	";
 
-	return $_kacontrol->read($query, $values);
+	$values = [$_GET['m']];
+
+	$listproducts = $_kacontrol->read($query, $values);
+} else {
+	header('Location: index.php');
 }
 
 ?>

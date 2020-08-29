@@ -154,10 +154,20 @@
 									<h2 class="listname"><a href="./product.php?id=<?= $productitem->id ?>"><?= $productitem->nome ?></a></h2>
 									<p class="description-text">
 										<?php
-											if(!empty($productitem->descricao))
-												echo $productitem->descricao;
-											else {
-												echo $productitem->nome;
+											if(!empty($productitem->descricao)) {
+												$sizedes = strlen($productitem->descricao);
+												if($sizedes > 137) {
+													echo substr($productitem->descricao, 0, 137).'...';
+												} else {
+													echo $productitem->descricao;
+												}
+											} else {
+												$sizedes = strlen($productitem->nome);
+												if($sizedes > 137) {
+													echo substr($productitem->nome, 0, 137).'...';
+												} else {
+													echo $productitem->nome;
+												}
 											}
 										?>
 									
