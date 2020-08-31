@@ -19,7 +19,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
 		}
 
 		$str_allid .= '?';
-		array_push($values, $item['id']);
+		array_push($values, ($item['id'] * 1));
 	};
 
 	$query = "

@@ -65,7 +65,7 @@
 									<? $totalitem = $product->valor * $qtt ?>
 									<tr class="product-line">
 										<td>
-											<a href="#">
+											<a href="./product.php?id=<?= $product->id ?>">
 												<img src="./img_produtos/<?= $product->id ?>/index.jpg" alt="">
 											</a>
 										</td>

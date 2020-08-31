@@ -1,8 +1,8 @@
 <!--|➖➖  Header  ➖➖|-->
 <header>
 
-	<? require './phpscripts/scriptRequestCart.php' ?>
 	<? require './phpscripts/scriptMenu.php' ?>
+	<? require './phpscripts/scriptRequestCart.php' ?>
 
 	<!-- ⏩ ⏩ Banner -->
 	<div id="header-banner"> 

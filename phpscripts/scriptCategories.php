@@ -48,6 +48,8 @@ if(isset($_GET['e'])) {
 	$values = [$_GET['m']];
 
 	$listproducts = $_kacontrol->read($query, $values);
+
+	$_kacontrol = '';
 } else {
 	header('Location: index.php');
 }

@@ -96,13 +96,13 @@
 				<div id="central-filter">
 
 					<div id="buttons-layout">
-						<button id="button-grid">
-							<i class="fas fa-th"></i>
-							<span>Grid</span>
-						</button>
 						<button id="button-list">
 							<i class="fas fa-list"></i>
 							<span>Lista</span>
+						</button>
+						<button id="button-grid">
+							<i class="fas fa-th"></i>
+							<span>Grid</span>
 						</button>
 					</div>
 
@@ -135,53 +135,55 @@
 
 
 				<div id="list-products">
+
 					<? foreach($listproducts as $productitem) { ?>
+					<div class="superitem-products">
 						<div class="item-products">
-							<div>
-								<div class="product-img">
-									<a href="./product.php?id=<?= $productitem->id ?>">
-										<img src="./img_produtos/<?= $productitem->id ?>/index.jpg">
+
+							<div class="product-img">
+								<a href="./product.php?id=<?= $productitem->id ?>">
+									<img src="./img_produtos/<?= $productitem->id ?>/index.jpg">
+								</a>
+								<div>
+									<a href="#">
+										<i class="fas fa-heart"></i>
 									</a>
-									<div>
-										<a href="#">
-											<i class="fas fa-heart"></i>
-										</a>
-									</div>
 								</div>
-								
-								<div class="product-info">
-									<h2 class="gridname"><a href="./product.php?id=<?= $productitem->id ?>"><?= $productitem->nome_curto ?></a></h2>
-									<h2 class="listname"><a href="./product.php?id=<?= $productitem->id ?>"><?= $productitem->nome ?></a></h2>
-									<p class="description-text">
-										<?php
-											if(!empty($productitem->descricao)) {
-												$sizedes = strlen($productitem->descricao);
-												if($sizedes > 137) {
-													echo substr($productitem->descricao, 0, 137).'...';
-												} else {
-													echo $productitem->descricao;
-												}
-											} else {
-												$sizedes = strlen($productitem->nome);
-												if($sizedes > 137) {
-													echo substr($productitem->nome, 0, 137).'...';
-												} else {
-													echo $productitem->nome;
-												}
-											}
-										?>
-									
-									</p>
-									<h3>R$ <?= correctValueRS($productitem->valor) ?></h3>
-								</div>
-
-								<div class="product-addcart">
-									<button id="id<?= $productitem->id ?>" class="addcart">Adicionar ao carrinho</button>
-								</div>
-
 							</div>
+							
+							<div class="product-info">
+								<h2 class="gridname">
+									<a href="./product.php?id=<?= $productitem->id ?>">
+										<?= $productitem->nome_curto ?>
+									</a>
+								</h2>
+								<h2 class="listname">
+									<a href="./product.php?id=<?= $productitem->id ?>">
+										<?= $productitem->nome ?>
+									</a>
+								</h2>
+								<div class="stars">
+									<i class="fas fa-star filled"></i>
+									<i class="fas fa-star filled"></i>
+									<i class="fas fa-star filled"></i>
+									<span>
+										<i class="fas fa-star-half filled"></i>
+										<i class="far fa-star-half not-filled medium"></i>
+									</span>
+									<i class="far fa-star not-filled"></i>
+								</div>
+							</div>
+
+							<div class="product-addcart">
+								<span>R$ <?= correctValueRS($productitem->valor) ?></span>
+								<button id="id<?= $productitem->id ?>" class="addcart"><i class="fas fa-shopping-cart"></i></button>
+							</div>
+
 						</div>
+					</div>
 					<? } ?>
+
+
 				</div>
 
 				<div class="pages-list">
