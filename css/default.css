@@ -93,6 +93,15 @@ button:hover {
 |* ------------------ CLASS STARS ------------------ *|
  \* *********************************************** */
 
+.superstars {
+	display: flex;
+	align-items: center;
+}
+
+.superstars > span:last-child {
+	margin-left: 5px;
+}
+
 .stars > * {
 	padding: 0;
 	margin: 0;
@@ -125,7 +134,7 @@ button:hover {
 	transform: rotateY(180deg);
 	position: absolute;
 	top: 0;
-	right: 1px;
+	right: 0px;
 	z-index: 1;
 }
 

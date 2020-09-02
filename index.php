@@ -185,7 +185,7 @@
 									<div>
 										<h2><a href=""><?= $value->nome_curto?></a></h2>
 										<h3>
-											R$ <?= str_replace('.', ',', $value->valor) ?>
+											R$ <?= $_changes->correctRS($value->valor) ?>
 										</h3>
 									</div>
 									<div>

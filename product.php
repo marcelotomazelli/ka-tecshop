@@ -62,12 +62,6 @@
 					<a href="./categories.php">Produtos</a>
 				</li>
 				<li>
-					<a href="#"><?= $legendscategories[$productpage->cglobal] ?></a>
-				</li>
-				<li>
-					<a href="#"><?= $legendscategories[$productpage->cmedio] ?></a>
-				</li>
-				<li>
 					<a href="#"><?= $legendscategories[$productpage->cespecifico] ?></a>
 				</li>
 				<li>
@@ -129,7 +123,7 @@
 				</div>
 
 				<div id="numbers">
-					<span>R$ <?= correctValueRS($productpage->valor)?></span>
+					<span>R$ <?= $_changes->correctRS($productpage->valor)?></span>
 					<div>
 						<button><i class="fas fa-minus"></i></button>
 						<span>1</span>
@@ -141,21 +135,29 @@
 					<button id="id<?= $productpage->id?>" class="addcart">Adicionar ao carrinho</button>
 					<a href="#"><i class="fas fa-heart"></i></a>
 				</div>
-	
+
 				<div id="reviews-link">
-					<div class="stars">
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star filled"></i>
-						<span>
-							<i class="fas fa-star-half filled"></i>
-							<i class="far fa-star-half not-filled medium"></i>
-						</span>
-						<i class="far fa-star not-filled"></i>
-						<i class="far fa-star not-filled"></i>
-					</div>
-					<span>2,7</span>
-					<button href="#"><span>10</span> Avalições</button>
-					<button href="#">Avaliar</button>
+					<? if(empty($average)) { ?>
+						<? $qttreviews = 0 ?>
+						<div class="superstars">
+							<div class="stars">
+								<? $_changes->starsConstruct(0) ?>
+							</div>
+							<span><?= '0,0' ?></span>
+						</div>
+						<button><span><?= $qttreviews ?></span> Avalições</button>
+					<? } else { ?>
+						<? $qttreviews = $average->quantidade ?>
+						<div class="superstars">
+							<div class="stars">
+								<? $_changes->starsConstruct($average->media) ?>
+							</div>
+							<span><?= $_changes->correctReview($average->media) ?></span>
+						</div>
+						<button><span><?= $qttreviews ?></span> Avalições</button>
+					<? } ?>
+
+					<button>Avaliar</button>
 				</div>
 
 				<div id="midias">
@@ -298,118 +300,172 @@
 				<div class="info-container">
 					<div><i class="fas fa-comments"></i> Perguntas</div>
 					<div id="questions">
-						<?php
-							$x = rand(1,4);
-							for($i = 0; $i < $x; $i++) {
-						?>
+
+						<? foreach($questions as $i => $question) { ?>
 							<div class="question">
 								<div><i class="fas fa-comment"></i></div>
 								<div>
-									<span class="question-tittle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-									<span class="question-author"><?= $names[rand(0,7)]?> <span>16/03/2011</span></span>
-									<span class="button-answer"><button>Responder</button></span>
-									<div class="answers">
-										<?php
-										$y = rand(1,4);
-										for($j = 0; $j < $y; $j++) {
-											?>
-											<div class="answer">
-												<div><i class="fas fa-comment"></i></div>
-												<div>
-													<span class="answer-tittle"><i>Lorem iusto vero hic omnis illo reprehenderit ullam quo quod!</i></span>
-													<span class="answer-author"><?= $names[rand(0,7)]?> <span><?= rand(1,31).'/'.rand(1,12).'/'.rand(2017,2020)?></span></span>
+									<span class="question-tittle"><?= $question->descricao ?></span>
+									<span class="question-author">
+										<?= $question->nome ?>
+										<span> <?= $_changes->correctDate($question->dia) ?></span>
+									</span>
+									<? if($authenticated) { ?>
+										<span id="said-<?= $i ?>" class="button-answer open">
+											<button id="aid-<?= $i ?>" class="answerbtns">Responder</button>
+										</span>
+									<? } ?>
+									<? if(!empty($answers[$i])) { ?>
+										<div class="answers">
+											<? foreach($answers[$i] as $answer) { ?>
+												<div class="answer">
+													<div><i class="fas fa-comment"></i></div>
+													<div>
+														<span class="answer-tittle"><i><?= $answer->resposta ?></i></span>
+														<span class="answer-author">
+															<?= $answer->nome?>
+															<span> <?= $_changes->correctDate($answer->dia) ?></span>
+														</span>
+													</div>
 												</div>
+											<? } ?>
+										</div>
+									<? } ?>
+									<? if($authenticated) { ?>
+										<div id="faid-<?= $i ?>" class="formstyle close">
+											<div class="closeform">
+												<button id="bcaid-<?= $i ?>" class="fas fa-times answerbtnsclose"></button>
 											</div>
-										<? } ?>
-										<? if(1 == rand(1,3)) { ?>
-											<div class="new-aswer">
-												<label for="a1">Resposta:</label>
-												<form action="#">
-													<textarea name="#" id="a1"></textarea>
-												</form>
-												<div><button class="button-send-answer">Enviar</button></div>
+											<label for="taanswer<?= $i ?>">Resposta:</label>
+											<form id="formannswer<?= $i ?>" action="./phpscripts/scriptQuestion.php?type=answer" method="post">
+												<textarea name="answer" id="taanswer<?= $i ?>" placeholder="Digite aqui a resposta..."></textarea>
+												<input type="hidden" name="question_id" value="<?= $question->id ?>">
+												<input type="hidden" name="product_id" value="<?= $_GET['id'] ?>">
+
+											</form>
+											<div>
+												<button id="sendanswer<?= $i ?>">Enviar</button>
 											</div>
-										<? } ?>
-									</div>
+										</div>
+									<? } ?>
 								</div>
 							</div>
 						<? } ?>
 
+						<? if($authenticated) { ?>
+							<div id="sfcquestion" class="formcontrol open">
+								<button id="fcquestion">Tenho uma dúvida</button>
+							</div>
+							<div id="sfquestion" class="formstyle close">
+								<div class="closeform">
+									<button id="cfquestion" class="fas fa-times"></button>
+								</div>
+								<form name="formquestion" action="./phpscripts/scriptQuestion.php?type=question" method="post">
+									<label for="b1">Pergunta:</label>
+									<textarea name="question" id="b1" placeholder="Digite aqui sua pergunta..."></textarea>
+									<input type="hidden" name="product_id" value="<?= $_GET['id'] ?>">
+								</form>
+								<div>
+									<button id="bsquestion">Enviar</button>
+								</div>
+							</div>
+						<? } else { ?>
+							<p>Faça login ou cadastre-se para que possa interagir.</p>
+						<? } ?>
 					</div>
 				</div>
 
 				<div id="reviews" class="info-container">
-					<div><i class="fas fa-star"></i>Avaliações (<span>10</span>)</div>
-					<div>
+					<div><i class="fas fa-star"></i>Avaliações (<span><?=  $qttreviews ?></span>)</div>
+					<div id="reviewscontent">
 
 						<div id="old-reviews">
-							<?php
-								$x = rand(1,10);
-								for($i = 1 ; $i <= $x; $i++) { 
-							?>
+							<? foreach($reviews as $i => $review) { ?>
 								<div class="old-review">
+
 									<div>
 
 										<div class="name-review">
-											<span>Teste <?= $i ?></span>
+											<span><?= $review->titulo ?></span>
 										</div>
 
-										<div class="stars">
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<span>
-												<i class="fas fa-star-half filled"></i>
-												<i class="far fa-star-half not-filled medium"></i>
-											</span>
-											<i class="far fa-star not-filled"></i>
+										<div class="superstars">
+											<div class="stars">
+												<? $_changes->starsConstruct($review->avaliacao) ?>
+											</div>
+											<span><?= $_changes->correctReview($review->avaliacao) ?></span>
 										</div>
 
 									</div>
+
 									<div class="review-coment">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quisquam, ratione deleniti iusto totam atque nulla culpa natus eveniet dignissimos, doloremque. Fugiat asperiores, laboriosam. At, possimus delectus quas maiores aut.
+										<?= $review->descricao ?>
 									</div>
-									<div><?= $names[rand(0,7)]?> <span><?= rand(1, 30)?>/<?= rand(1,12)?>/<?= rand(2018, 2020)?></span></div>
+
+									<div class="review-name-date">
+										<?= $review->nome ?>
+										<span><?= $_changes->correctDate($review->dia) ?></span>
+									</div>
+
 								</div>
-							<?}?>
+							<? } ?>
 						</div>
 
-						<div id="new-review">
+						<? if($authenticated) { ?>
+							<? if($reviewpermition) { ?>
 
-							<form action="#">
-								<div>
-									<label for="ta1">Título:</label>
-									<input type="text" name="#">
+								<div id="sfcreview" class="formcontrol open">
+									<button id="fcreview">Quero avaliar</button>
 								</div>
-								<div>
-									<label for="ta1">Comentário:</label>
-									<textarea name="" id="ta1"></textarea>
-								</div>
-								<input type="hidden" name="review">
-							</form>
 
-							<div id="stars-review">
-								<div>Avaliação:</div>
-								<button id="button-star-review">
-									<div class="stars">
-										<i class="fas fa-star filled"></i>
-										<span>
-											<i class="fas fa-star-half filled"></i>
-											<i class="far fa-star-half not-filled medium"></i>
-										</span>
-										<i class="far fa-star not-filled"></i>
-										<i class="far fa-star not-filled"></i>
-										
-										<i class="far fa-star not-filled"></i>
+								<div id="sfreview" class="formstyle close">
+
+									<div class="closeform">
+										<button id="cfreview" class="fas fa-times"></button>
 									</div>
-								</button>
-							</div>
 
-							<div id="send-review">
-								<button id="button-send-review">Enviar</button>
-							</div>
+									<form name="formreview" action="./phpscripts/scriptReview.php" method="post">
+										<div>
+											<label for="ia1">Título:</label>
+											<input id="ia1" type="text" name="tittle">
+										</div>
+										<div>
+											<label for="ta1">Comentário:</label>
+											<textarea id="ta1" name="description"></textarea>
+										</div>
+										<input id="reviewnote" type="hidden" name="review" value="0">
+										<input type="hidden" name="product_id" value="<?= $_GET['id'] ?>">
+									</form>
 
-						</div>
+									<div id="stars-review">
+										<div>Avaliação:</div>
+										<div id="superreviewnote">
+											<button id="button-star-review"></button>
+											<div class="superstars">
+												<div id="viewstarsnewreview" class="stars">
+													<i class="far fa-star not-filled"></i>
+													<i class="far fa-star not-filled"></i>
+													<i class="far fa-star not-filled"></i>
+													<i class="far fa-star not-filled"></i>
+													<i class="far fa-star not-filled"></i>
+												</div>
+												<span id="valueviewreview">0,0</span>
+											</div>
+										</div>
+									</div>
+
+									<div>
+										<button id="bsreview">Enviar</button>
+									</div>
+
+								</div>
+
+							<? } else { ?>
+								<p>Você já avaliou esse produto e agradeçemos por isso.</p>
+							<? } ?>
+						<? } else { ?>
+							<p>Faça login ou cadastre-se para que possa interagir.</p>
+						<? } ?>
 					</div>
 				</div>
 

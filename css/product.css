@@ -229,9 +229,10 @@
 	margin-right: 10px;
 }
 
-#reviews-link > span {
+#reviews-link > div {
 	margin-right: 15px;
 }
+
 #reviews-link > button {
 	padding: 0;
 	border: none;
@@ -366,12 +367,39 @@
 /* ************************************************* *\
 |* ------------------- PERGUNTAS ------------------- *|
 \* ************************************************* */
+#old-reviews > p,
+#questions > p {
+	text-align: center;
+	font-size: 0.8em;
+}
 
-#questions > div:first-child ~ div {
-	margin-top: 10px;
+#questions > div ~ div {
+	margin-top: 5px;
 }
 
 /* ----------------- CLASS QUESTION ----------------- */
+
+.formcontrol.close {
+	display: none;
+}
+
+
+.formcontrol {
+	text-align: center;
+}
+
+.formcontrol > button {
+	background-color: #F9F9F9;
+	border: 1px solid #E1E1E1;
+	padding: 5px 20px;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+.formcontrol > button:hover {
+	background-color: #F0F0F0;
+	transition: 0.3s;
+}
 
 .question {
 	display: grid;
@@ -380,7 +408,7 @@
 
 .question > div > i {
 	transform: rotateY(180deg);
-	color: #0000005a;
+	color: #FF0000aa;
 }
 
 .question-tittle {
@@ -390,12 +418,16 @@
 
 .question-author {
 	font-size: 0.8em;
-	color: #6D6D6D;
+	color: #ADADAD;
 }
 
 .button-answer {
 	display: block;
 	margin-bottom: 10px;
+}
+
+.button-answer.close {
+	display: none;
 }
 
 .button-answer button {
@@ -413,6 +445,10 @@
 
 /* ----------------- CLASS ANSWER/s ----------------- */
 
+.answers {
+	margin-top: 10px;
+}
+
 .answers > div:first-child ~ div {
 	margin-top: 10px;
 }
@@ -423,39 +459,66 @@
 }
 
 .answer > div:first-child > i {
-	color: #FF0000aa;
+	color: #0000005a;
 }
 
 .answer-tittle {
+	font-size: 1em;
 	display: block;
 }
 
 .answer-author {
 	font-size: 0.8em;
-	color: #6D6D6D;
+	color: #ADADAD;
 
 }
 
-/* ----------------- CLASS NEW ANSWER ----------------- */
+/* ----------------- CLASS FORM STYLE ----------------- */
 
-.new-aswer {
-	padding: 10px;
+.formstyle {
 	border: 1px solid #E1E1E1;
 	background-color: #F9F9F9;
 	border-radius: 4px;
+	margin-top: 10px;
+	overflow-y: hidden;
+
+	visibility: hidden;
+	max-height: 0;
+	opacity: 0;
+	transition: 0.2s;
 }
 
-.new-aswer label {
+.formstyle.open {
+	padding: 10px;
+	visibility: visible;
+	max-height: 400px;
+	opacity: 1;
+	transition: 0.2s;
+}
+
+.formstyle .closeform {
+	text-align: right;
+
+}
+
+.formstyle .closeform button {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	color: #323232;
+}
+
+.formstyle label {
 	display: inline-block;
 	margin-bottom: 5px;
 }
 
-.new-aswer form {
+.formstyle form {
 	width: 100%;
 	margin: 0;
 }
 
-.new-aswer textarea {
+.formstyle textarea {
 	height: 78px;
 	min-width: 100%;
 	max-width: 100%;
@@ -463,12 +526,20 @@
 	padding: 10px;
 }
 
-.new-aswer > div {
+.formstyle input[type="text"] {
+	display: block;
+	width: 100%;
+	border: 1px solid #D7D7D7;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+
+.formstyle > div:last-child {
 	display: flex;
 	justify-content: flex-end;
 }
 
-.button-send-answer {
+.formstyle > div:last-child > button {
 	padding: 7px 20px;
 	border: none;
 	background-color: #E83737;
@@ -478,7 +549,7 @@
 	transition: 0.3s;
 }
 
-.button-send-answer:hover {
+.formstyle > div:last-child > button:hover {
 	background-color: #DE3030;
 	transition: 0.3s;
 }
@@ -491,6 +562,11 @@
 
 #old-reviews > div.old-review:last-child {
 	border: none;
+}
+
+#reviewscontent > p {
+	text-align: center;
+	font-size: 0.8em;
 }
 
 .old-review {
@@ -509,7 +585,6 @@
 
 .name-review > span:first-child {
 	font-weight: bold;
-	text-transform: uppercase;
 	font-size: 1.1em;
 	margin-right: 5px;
 }
@@ -519,40 +594,12 @@
 	color: #363636;
 }
 
+.review-name-date {
+	font-size: 0.9em;
+	color: #848484;
+}
+
 /* --------------- NOVAS AVALIAÇÕES --------------- */
-
-#new-review {
-	padding: 10px;
-	background-color: #F9F9F9;
-	border: 1px solid #E1E1E1;
-	border-radius: 5px;
-}
-
-#reviews form {
-	width: 100%;
-	margin: 0;
-}
-
-#reviews label {
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
-#new-review input[type="text"] {
-	display: block;
-	width: 100%;
-	border: 1px solid #D7D7D7;
-	padding: 5px 10px;
-	margin-bottom: 10px;
-}
-
-#reviews textarea {
-	height: 78px;
-	min-width: 100%;
-	max-width: 100%;
-	border: 1px solid #D7D7D7;
-	padding: 10px;
-}
 
 #stars-review {
 	margin: 10px 0;
@@ -562,29 +609,29 @@
 	margin-bottom: 5px;
 }
 
+#superreviewnote {
+	position: relative;
+}
+
+#viewstarsnewreview {
+	display: flex;
+}
+
+#valueviewreview {
+	position: relative;
+	top: 3px;
+}
+
 #button-star-review {
 	background-color: transparent;
+	padding: 0;
 	border: none;
 	color: #7F7F7F;
 	cursor: pointer;
-}
-
-#send-review {
-	display: flex;
-	justify-content: flex-end;
-}
-
-#button-send-review {
-	padding: 7px 20px;
-	border: none;
-	background-color: #E83737;
-	color: #fff;
-	cursor: pointer;
-	border-radius: 4px;
-	transition: 0.3s;
-}
-
-#button-send-review:hover {
-	background-color: #DE3030;
-	transition: 0.3s;
+	width: 100px;
+	height: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
 }

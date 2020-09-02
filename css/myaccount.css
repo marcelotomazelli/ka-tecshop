@@ -420,12 +420,14 @@
 .review-comment > div:first-child {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	padding: 10px 0;
 }
 
 .review-comment > div:first-child > span {
 	font-size: 1.1em;
 	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 .review-comment > div:first-child + div {

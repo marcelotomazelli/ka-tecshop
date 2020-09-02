@@ -71,8 +71,8 @@
 										</td>
 										<td class="name-product"><?= $product->nome ?></td>
 										<td><?= $qtt ?>x</td>
-										<td>R$ <?= correctValueRS($product->valor) ?></td>
-										<td>R$ <?= correctValueRS($totalitem) ?></td>
+										<td>R$ <?= $_changes->correctRS($product->valor) ?></td>
+										<td>R$ <?= $_changes->correctRS($totalitem) ?></td>
 										<td class="button-delete">
 											<button>
 												<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>

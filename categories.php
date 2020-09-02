@@ -175,7 +175,7 @@
 							</div>
 
 							<div class="product-addcart">
-								<span>R$ <?= correctValueRS($productitem->valor) ?></span>
+								<span>R$ <?= $_changes->correctRS($productitem->valor) ?></span>
 								<button id="id<?= $productitem->id ?>" class="addcart"><i class="fas fa-shopping-cart"></i></button>
 							</div>
 

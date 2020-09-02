@@ -24,16 +24,6 @@
 
 				<div>
 					<a href="#">Nome do produto</a>
-					<div class="stars">
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star filled"></i>
-						<span>
-							<i class="fas fa-star-half filled"></i>
-							<i class="far fa-star-half not-filled medium"></i>
-						</span>
-						<i class="far fa-star not-filled"></i>
-						<i class="far fa-star not-filled"></i>
-					</div>
 				</div>
 
 				<div>
@@ -46,16 +36,19 @@
 			<div class="review-comment">
 
 				<div>
-					<span>Titulo da avaliação</span>
-					<div class="stars">
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star filled"></i>
-						<span>
-							<i class="fas fa-star-half filled"></i>
-							<i class="far fa-star-half not-filled medium"></i>
-						</span>
+					<span>Titulo da avaliação que vai receber na hora que eu possibilitar isso kk</span>
+					<div class="superstars">
+						<div class="stars">
+							<i class="fas fa-star filled"></i>
+							<i class="fas fa-star filled"></i>
+							<span>
+								<i class="fas fa-star-half filled"></i>
+								<i class="far fa-star-half not-filled medium"></i>
+							</span>
+							<i class="far fa-star not-filled"></i>
+							<i class="far fa-star not-filled"></i>
+						</div>
+						<span>2,7</span>
 					</div>
 				</div>
 

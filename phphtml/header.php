@@ -1,3 +1,71 @@
+<?php
+	
+
+	class Changes {
+		public function correctRS($value) {
+			$value *= 100;
+			$value = floor($value);
+
+			$value .= '';
+
+			$aux = substr($value,(strlen($value)-2));
+
+			$value = str_replace($aux, '', $value);
+			$value .= ',';
+			$value .= $aux;
+			
+			return $value;
+		}
+
+		public function correctDate($value) {
+			$date = explode('-', $value);
+			$date = array_reverse($date);
+			$date = implode('/', $date);
+			return $date;
+		}
+
+		public function starsConstruct($value) {
+			$value /= 10;
+
+			if(strlen($value) != 3)
+				$value .= '.0';
+
+			$value .= '';
+
+			$value = explode('.', $value);
+
+			$firstvalue = $value[0] * 1;
+			$mediumvalue = $value[1] * 1;
+			$lastvalue = 4 - $firstvalue;
+
+			for($i = 1; $i <= $firstvalue; $i++)
+				echo '<i class="fas fa-star filled"></i>';
+
+			if($mediumvalue < 5 && $firstvalue < 5)
+				echo '<i class="far fa-star not-filled"></i>';
+			else if($mediumvalue >= 5)
+				echo '<span><i class="fas fa-star-half filled"></i><i class="far fa-star-half not-filled medium"></i></span>';
+
+
+			for($i = 1; $i <= $lastvalue; $i++)
+				echo '<i class="far fa-star not-filled"></i>';
+		}
+
+		public function correctReview($value) {
+			$value /= 10;
+
+			if(strlen($value) != 3) {
+				$value .= '.0';
+			}
+
+			return str_replace('.', ',', $value);
+		}
+	}
+
+	$_changes = new Changes();
+
+?>
+
 <!--|➖➖  Header  ➖➖|-->
 <header>
 
@@ -30,21 +98,6 @@
 			</div>
 			<?php
 
-				function correctValueRS($value) {
-					$value *= 100;
-					$value = floor($value);
-
-					$value .= '';
-
-					$aux = substr($value,(strlen($value)-2));
-
-					$value = str_replace($aux, '', $value);
-					$value .= ',';
-					$value .= $aux;
-					
-					return $value;
-				}
-
 				$valuetotal = '0,00';
 				$items = 0;
 				if(!empty($listcart)) {
@@ -56,7 +109,7 @@
 					$valuetotal += 15;
 					// Formatar o valor para a escrita correta na moeda REAL
 					
-					$valuetotal = correctValueRS($valuetotal);
+					$valuetotal = $_changes->correctRS($valuetotal);
 				}
 			?>
 
@@ -117,7 +170,7 @@
 											<td><?= $_SESSION['cart'][$i]['qtt'] ?>x</td>
 
 											<? $valueproduct = $item->valor * $_SESSION['cart'][$i]['qtt'] ?>
-											<td>R$ <?= correctValueRS($valueproduct) ?></td>
+											<td>R$ <?= $_changes->correctRS($valueproduct) ?></td>
 											<td>
 												<button id="iproduct<?= $i ?>">
 													<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
