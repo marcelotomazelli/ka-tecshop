@@ -18,14 +18,14 @@ if(isset($_GET['type']) && $_GET['type'] == 'question') {
 			(?, ?, ?, ?);
 	';
 
-
 	$values = [
-		($_SESSION['id_user'] * 1),
-		($_POST['product_id'] * 1),
+		intval($_SESSION['id_user']),
+		intval($_POST['product_id']),
 		$_POST['question'],
 		date('Y-m-d')
 	];
 } else if(isset($_GET['type']) && $_GET['type'] == 'answer') {
+
 	$query = '
 		INSERT INTO 
 			perguntas_respostas(usuario_id, pergunta_id, resposta, dia)
@@ -34,8 +34,8 @@ if(isset($_GET['type']) && $_GET['type'] == 'question') {
 	';
 
 	$values = [
-		($_SESSION['id_user'] * 1),
-		($_POST['question_id'] * 1),
+		intval($_SESSION['id_user']),
+		intval($_POST['question_id']),
 		$_POST['answer'],
 		date('Y-m-d')
 	];

@@ -41,6 +41,10 @@ h1, h2, h3, h4, h5 {
 	padding: 0;
 }
 
+select {
+	background-color: transparent;
+}
+
 select:hover,
 label:hover,
 button:hover {

@@ -103,21 +103,23 @@ if(!empty($id)) {
 	// Permissão para avaliar
 	$reviewpermition = true;
 
-	$query = '
-		SELECT produto_id
-		FROM avaliacoes
-		WHERE 
-			usuario_id = ? 
-			AND 
-			produto_id = ?
-	';
+	if($authenticated) {
+		$query = '
+			SELECT produto_id
+			FROM avaliacoes
+			WHERE 
+				usuario_id = ? 
+				AND 
+				produto_id = ?
+		';
 
-	$values = [intval($_SESSION['id_user']), $id];
+		$values = [intval($_SESSION['id_user']), $id];
 
-	$result = $_kacontrol->read($query, $values);
+		$result = $_kacontrol->read($query, $values);
 
-	if(!empty($result))
-		$reviewpermition = false;
+		if(!empty($result))
+			$reviewpermition = false;
+	}
 
 } else {
 	header('Location: ./index.php');

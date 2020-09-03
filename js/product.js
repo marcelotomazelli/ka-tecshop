@@ -97,11 +97,11 @@ document.body.onload = () => {
 				viewstarsnewreview.appendChild(ifilled)
 			}
 
-			if(mediumvalue < 5 && firstvalue < 5) {
+			if(mediumvalue < 3 && firstvalue < 3) {
 				let inotfilled = document.createElement('i')
 				inotfilled.className = 'far fa-star not-filled'
 				viewstarsnewreview.appendChild(inotfilled)
-			} else if(mediumvalue >= 5) {
+			} else if(mediumvalue >= 3) {
 				let superspanel = document.createElement('span')
 				let i1 = document.createElement('i')
 				i1.className = 'fas fa-star-half filled'

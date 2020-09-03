@@ -92,7 +92,7 @@
 				</div>
 			</aside>
 
-			<section id="view-products" class="grid">
+			<section id="view-products" class="list">
 				<div id="central-filter">
 
 					<div id="buttons-layout">
@@ -144,7 +144,7 @@
 								<a href="./product.php?id=<?= $productitem->id ?>">
 									<img src="./img_produtos/<?= $productitem->id ?>/index.jpg">
 								</a>
-								<div>
+								<div class="heart-favorite">
 									<a href="#">
 										<i class="fas fa-heart"></i>
 									</a>
@@ -162,21 +162,26 @@
 										<?= $productitem->nome ?>
 									</a>
 								</h2>
-								<div class="stars">
-									<i class="fas fa-star filled"></i>
-									<i class="fas fa-star filled"></i>
-									<i class="fas fa-star filled"></i>
-									<span>
-										<i class="fas fa-star-half filled"></i>
-										<i class="far fa-star-half not-filled medium"></i>
-									</span>
-									<i class="far fa-star not-filled"></i>
+								<div class="superstars">
+									<?php
+										$valuereviewp = $productitem->media;
+										if(empty($valuereviewp))
+											$valuereviewp = 0;
+										$qttreviewp = $productitem->quantidade;
+										if(empty($qttreviewp))
+											$qttreviewp = 0;
+									?>
+									<div class="stars">
+										<? $_changes->starsConstruct($valuereviewp) ?>
+									</div>
+									<span><?= $_changes->correctReview($valuereviewp) ?> (<span><?= $qttreviewp ?></span>)</span>
 								</div>
+								
 							</div>
 
 							<div class="product-addcart">
 								<span>R$ <?= $_changes->correctRS($productitem->valor) ?></span>
-								<button id="id<?= $productitem->id ?>" class="addcart"><i class="fas fa-shopping-cart"></i></button>
+								<button id="id<?= $productitem->id ?>" class="addcart">Adicionar ao carrinho</button>
 							</div>
 
 						</div>

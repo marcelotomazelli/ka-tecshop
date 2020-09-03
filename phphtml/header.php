@@ -41,9 +41,9 @@
 			for($i = 1; $i <= $firstvalue; $i++)
 				echo '<i class="fas fa-star filled"></i>';
 
-			if($mediumvalue < 5 && $firstvalue < 5)
+			if($mediumvalue < 3 && $firstvalue < 3)
 				echo '<i class="far fa-star not-filled"></i>';
-			else if($mediumvalue >= 5)
+			else if($mediumvalue >= 3)
 				echo '<span><i class="fas fa-star-half filled"></i><i class="far fa-star-half not-filled medium"></i></span>';
 
 
