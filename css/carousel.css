@@ -313,20 +313,30 @@ div das imagens ~~ */
 	transition: 0.3s;
 }
 
-.severalitems > div > div:first-child > a + div > a {
+.severalitems > div > div:first-child > a + div > button {
 	height: 40px;
 	width: 40px;
 	line-height: 40px;
 	display: block;
 	text-align: center;
+	border: none;
 	border-radius: 40px;
 	background: #fff;
 	box-shadow: 0 0 10px -5px #000000aa;
+	color: #454545;
+	transition: 0.3s;
 }
 
-.severalitems > div > div:first-child > a + div > a:hover {
+.severalitems > div > div:first-child > a + div > button:hover {
 	background: #F43434;
 	color: #fff;
+	transition: 0.3s;
+}
+
+.severalitems > div > div:first-child > a + div > button.isfavorite {
+	background: #F43434;
+	color: #fff;
+	transition: 0.3s;
 }
 
 .severalitems > div > div:first-child > a + div > a i {

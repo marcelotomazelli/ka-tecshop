@@ -379,13 +379,22 @@
 	font-weight: normal;
 }
 
-.product-img > div > a {
+.product-img > div > button {
 	color: #fff;
+	background-color: transparent;
+	border: none;
 	text-shadow: 0 1px 4px #00000050;
+	transition: 0.3s;
 }
 
-.product-img > div > a:hover {
+.product-img > div > button:hover {
 	color: #F23D3D;
+	transition: 0.3s;
+}
+
+.product-img > div > button.isfavorite {
+	color: #F23D3D;
+	transition: 0.3s;
 }
 
 .addcart {

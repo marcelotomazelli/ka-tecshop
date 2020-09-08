@@ -22,7 +22,8 @@
 <body id="bodyid" class="close_s">
 
 	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
-	<? require_once "phphtml/header.php" ?>
+	<? require_once "./phphtml/header.php" ?>
+	<? require "./phpscripts/scriptProductsFavorites.php" ?>
 
 	<!--|➖➖➖➖  Parte localização  ➖➖➖➖|-->
 	<section class="currentloc">
@@ -140,25 +141,27 @@
 					<div class="superitem-products">
 						<div class="item-products">
 
+							<? $pid = $productitem->id ?>
+
 							<div class="product-img">
-								<a href="./product.php?id=<?= $productitem->id ?>">
-									<img src="./img_produtos/<?= $productitem->id ?>/index.jpg">
+								<a href="./product.php?id=<?= $pid ?>">
+									<img src="./img_produtos/<?= $pid ?>/index.jpg">
 								</a>
 								<div class="heart-favorite">
-									<a href="#">
+									<button id="fid-<?= $pid ?>" class="favorites <?= isset($procutsfavorites[$pid]) ? 'isfavorite' : 'notfavorite' ?>">
 										<i class="fas fa-heart"></i>
-									</a>
+									</button>
 								</div>
 							</div>
 							
 							<div class="product-info">
 								<h2 class="gridname">
-									<a href="./product.php?id=<?= $productitem->id ?>">
+									<a href="./product.php?id=<?= $pid ?>">
 										<?= $productitem->nome_curto ?>
 									</a>
 								</h2>
 								<h2 class="listname">
-									<a href="./product.php?id=<?= $productitem->id ?>">
+									<a href="./product.php?id=<?= $pid ?>">
 										<?= $productitem->nome ?>
 									</a>
 								</h2>
@@ -181,7 +184,7 @@
 
 							<div class="product-addcart">
 								<span>R$ <?= $_changes->correctRS($productitem->valor) ?></span>
-								<button id="id<?= $productitem->id ?>" class="addcart">Adicionar ao carrinho</button>
+								<button id="id<?= $pid ?>" class="addcart">Adicionar ao carrinho</button>
 							</div>
 
 						</div>

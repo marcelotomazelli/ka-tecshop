@@ -132,8 +132,8 @@
 				</div>
 
 				<div id="add-cart">
-					<button id="id<?= $productpage->id?>" class="addcart">Adicionar ao carrinho</button>
-					<a href="#"><i class="fas fa-heart"></i></a>
+					<button id="id<?= $productpage->id ?>" class="addcart">Adicionar ao carrinho</button>
+					<button id="fid-<?= $productpage->id ?>" class="favorites <?= !empty($favorite) ? 'isfavorite' : 'notfavorite' ?>"><i class="fas fa-heart"></i></button>
 				</div>
 
 				<div id="reviews-link">

@@ -7,6 +7,8 @@ class KAControl {
 		$this->_connection = $_connection->connect();
 	}
 
+	// incrimenta 1 ao i para ajustar o contexto
+	// verifica se o tipo de valor e faz os devidos processos
 	private function forBindValue($_stmt, $array) {
 		foreach($array as $i => $value) {
 			$i += 1;
@@ -30,8 +32,6 @@ class KAControl {
 
 	public function read($query, $values, $type = 'several') {
 		$_stmt = $this->_connection->prepare($query);
-		// incrimenta 1 ao i para ajustar o contexto
-		// verifica se o tipo de valor e faz os devidos processos
 		if(!empty($values)) {
 			$this->forBindValue($_stmt, $values);
 		}
@@ -44,6 +44,14 @@ class KAControl {
 	}
 
 	public function update($query, $values) {
+		$_stmt = $this->_connection->prepare($query);
+		if(!empty($values)) {
+			$this->forBindValue($_stmt, $values);
+		}
+		$_stmt->execute();
+	}
+
+	public function delete($query, $values) {
 		$_stmt = $this->_connection->prepare($query);
 		if(!empty($values)) {
 			$this->forBindValue($_stmt, $values);

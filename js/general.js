@@ -4,17 +4,19 @@ const _changes = {
 			let el = document.getElementById(ids[i])
 			if(el.className.includes(old_class))
 				el.className = el.className.replace(old_class, new_class)
-			else 
+			else if(el.className.includes(new_class))
 				el.className = el.className.replace(new_class, old_class)
+			else if(el.className == '')
+				el.className = ` ${new_class}`
 		}
 	},
+
 	products: () => {
 		let addcart = document.getElementsByClassName('addcart')
-		let idproducts = Array();
+		let idproducts = Array()
 
-		for(let i = 0; i < addcart.length; i++) {
+		for(let i = 0; i < addcart.length; i++)
 			idproducts.push(addcart[i].id)
-		}
 
 		idproducts.forEach((id) => {
 			let el = document.getElementById(id)
@@ -28,6 +30,32 @@ const _changes = {
 			}
 		})
 	},
+
+	favorites: () => {
+		let favorites = document.getElementsByClassName('favorites')
+
+		let idproducts = Array()
+
+		for(let i = 0; i < favorites.length; i++)
+			idproducts.push(favorites[i].id.replace('fid-', '') * 1)
+
+		idproducts.forEach((id) => {
+			let el = document.getElementById('fid-'+id)
+			let directory = `./phpscripts/scriptFavorite.php?idproduct=${id}`
+
+			if(el.className.includes('notfavorite'))
+				directory += '&type=include'
+			else if(el.className.includes('isfavorite'))
+				directory += '&type=remove'
+
+			let info = [directory, _ajaxFav]
+
+			el.onclick = () => {
+				_ajax.requisition(info)
+			}
+		})
+	},
+
 	correctValueRS: (value, qtt, more) => {
 		value *= 1
 		qtt *= 1
@@ -152,23 +180,6 @@ const _ajaxCart = {
 
 		document.getElementById('total-cart').innerHTML = valuetotal
 		let superdiv = document.getElementById('products-cart')
-		/*
-		<table>
-			<tr class="product-cart">
-				<td><img src="./img_produtos/<?= $item->id?>/index.jpg" height="60"alt=""></td>
-				<td><?= $item->nome_curto ?></td>
-				<td><?= $_SESSION['cart'][$i]['qtt'] ?>x</td>
-
-				<? $valueproduct = $item->valor * $_SESSION['cart'][$i]['qtt'] ?>
-				<td>R$ <?= correctValueRS($valueproduct) ?></td>
-				<td>
-					<button id="iproduct<?= $i ?>">
-						<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
-					</button>
-				</td>
-			</tr>
-		</table>
-		*/
 
 		let tb = document.createElement('table')
 
@@ -229,4 +240,17 @@ const _ajaxCart = {
 	condition: (info) => { return true }
 }
 
+
+const _ajaxFav = {
+	execute: (result) => {
+		if(result.info == 'authenticated') {
+			_changes.class(['fid-' + result.id], 'isfavorite', 'notfavorite')
+			_changes.favorites()
+		} else if(result.info == 'not-authenticated')
+			window.location.href = './access_page.php'
+	},
+	condition: (info) => { return true }
+}
+
 _changes.products()
+_changes.favorites()

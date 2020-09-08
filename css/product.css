@@ -202,21 +202,30 @@
 	line-height: 40px;
 	padding: 0 15px;
 	border: 1px solid #E1E1E1;
-}
-
-#add-cart > a:first-child {
+	background-color: transparent;
 	border-radius: 40px;
+	color: #454545;
+	transition: 0.3s;
 }
 
-#add-cart > a:last-child {
-	border-radius: 4px;
+#add-cart > *:hover {
+	background-color: #EB2727;
+	border: 1px solid #EB2727;
+	color: #fff;
+	transition: 0.3s;
 }
 
-#add-cart > a:hover {
+#add-cart > button:last-child {
+	border-radius: 5px;
+}
+
+#add-cart > button.isfavorite {
 	background-color: #EB2727;
 	border: 1px solid #EB2727;
 	color: #fff;
 }
+
+
 
 /* ----------------- REVIEWS ----------------- */
 

@@ -24,6 +24,7 @@
 
 	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
 	<? require_once "phphtml/header.php" ?>
+	<? require "./phpscripts/scriptProductsFavorites.php" ?>
 
 	<!--|➖➖➖➖  Seção introdocção  ➖➖➖➖|-->
 	<section id="section-introduction" class="close_l">
@@ -168,17 +169,17 @@
 						<!-- Script que constroe a visulização dos produtos em destaque -->
 
 						<? foreach($list_trend as $value) { ?>
-											
+							<? $pid = $value->id ?>
 							<div class="severalitems Itrend">
 								<div>
 									<div>
-										<a href="./product.php?id=<?= $value->id ?>">
-											<img src="./img_produtos/<?= $value->id?>/index.jpg">
+										<a href="./product.php?id=<?= $pid ?>">
+											<img src="./img_produtos/<?= $pid ?>/index.jpg">
 										</a>
 										<div>
-											<a href="#">
+											<button id="fid-<?= $pid ?>" class="favorites <?= isset($procutsfavorites[$pid]) ? 'isfavorite' : 'notfavorite' ?>">
 												<i class="fas fa-heart"></i>
-											</a>
+											</button>
 										</div>
 									</div>
 									
@@ -189,7 +190,7 @@
 										</h3>
 									</div>
 									<div>
-										<button id="id<?= $value->id?>" class="addcart">Adicionar ao carrinho</button>
+										<button id="id<?= $pid ?>" class="addcart">Adicionar ao carrinho</button>
 									</div>
 								</div>
 							</div>

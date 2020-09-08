@@ -15,7 +15,7 @@ if(!empty($id)) {
 	$_kacontrol = new KAControl($_kacontrol);
 
 
-	// Selecionará todas as infrmações necessarias do produto
+	// Selecionará todas as informações necessarias do produto
 
 	$query = '
 		SELECT 
@@ -31,7 +31,33 @@ if(!empty($id)) {
 	$productpage = $_kacontrol->read($query, $values, 'one');
 
 
-	// Pesquisá pela perguntas feitas
+	// Verificará se está authenticado
+	// Pesquisará se o produto é favorito do usuario
+
+	$favorite = '';
+
+	if($authenticated) {
+		$query = '
+			SELECT
+				produto_id
+			FROM
+				favoritos
+			WHERE
+				usuario_id = ?
+				AND
+				produto_id = ?
+		';
+
+		$values = [
+			intval($_SESSION['id_user']), 
+			$id
+		];
+
+		$favorite = $_kacontrol->read($query, $values, 'one');
+	}
+
+
+	// Pesquisará pela perguntas feitas
 
 	$query = '
 		SELECT
