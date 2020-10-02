@@ -83,42 +83,36 @@ document.body.onload = () => {
 			let mediumvalue = valuereview.charAt(2) * 1
 			let lastvalue = 4 - firstvalue
 
-			
-
-
-
-			let inotfilled = document.createElement('i')
-			inotfilled.className = 'far fa-star not-filled'
-
-			
 			for(let i = 1; i <= firstvalue; i++) {
 				let ifilled = document.createElement('i')
 				ifilled.className = 'fas fa-star filled'
 				viewstarsnewreview.appendChild(ifilled)
 			}
 
-			if(mediumvalue < 3 && firstvalue < 3) {
-				let inotfilled = document.createElement('i')
-				inotfilled.className = 'far fa-star not-filled'
-				viewstarsnewreview.appendChild(inotfilled)
-			} else if(mediumvalue >= 3) {
-				let superspanel = document.createElement('span')
-				let i1 = document.createElement('i')
-				i1.className = 'fas fa-star-half filled'
+			if(firstvalue < 5) {
+				if(mediumvalue == 0 || (mediumvalue > 0 && mediumvalue < 3)) {
+					let inotfilled = document.createElement('i')
+					inotfilled.className = 'far fa-star not-filled'
+					viewstarsnewreview.appendChild(inotfilled)
+				} else if(mediumvalue >= 3) {
+					let superspanel = document.createElement('span')
+					let i1 = document.createElement('i')
+					i1.className = 'fas fa-star-half filled'
 
-				let i2 = document.createElement('i')
-				i2.className = 'far fa-star-half not-filled medium'
+					let i2 = document.createElement('i')
+					i2.className = 'far fa-star-half not-filled medium'
 
-				superspanel.appendChild(i1)
-				superspanel.appendChild(i2)
+					superspanel.appendChild(i1)
+					superspanel.appendChild(i2)
 
-				viewstarsnewreview.appendChild(superspanel)
-			}
+					viewstarsnewreview.appendChild(superspanel)
+				}
 
-			for(let i = 1; i <= lastvalue; i++) {
-				let inotfilled = document.createElement('i')
-				inotfilled.className = 'far fa-star not-filled'
-				viewstarsnewreview.appendChild(inotfilled)
+				for(let i = 1; i <= lastvalue; i++) {
+					let inotfilled = document.createElement('i')
+					inotfilled.className = 'far fa-star not-filled'
+					viewstarsnewreview.appendChild(inotfilled)
+				}
 			}
 
 			document.getElementById('valueviewreview').innerHTML = valuereview.replace('.', ',')

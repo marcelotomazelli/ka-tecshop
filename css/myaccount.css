@@ -302,6 +302,11 @@
 	background-color: transparent;
 }
 
+.fimg {
+	display: flex;
+	align-items: center;
+}
+
 .fimg > a {
 	display: block;
 	padding: 5px;
@@ -339,6 +344,15 @@
 	border-radius: 4px;
 	color: #fff;
 }
+
+.superstars.fstyle {
+	flex-direction: column;
+}
+
+.superstars.fstyle > span:last-child {
+	text-align: center;
+}
+
 
 /* ************************************************ *\
 |* ------------------ AVALIAÇÕES ------------------ *|
@@ -418,10 +432,11 @@
 }
 
 .review-comment > div:first-child {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
 	padding: 10px 0;
+}
+
+.review-comment > div:first-child > div {
+	margin-top: 10px;
 }
 
 .review-comment > div:first-child > span {

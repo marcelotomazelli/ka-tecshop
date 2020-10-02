@@ -619,17 +619,11 @@
 	}*/
 }
 
-.superstars > span:last-child {
-	font-size: 0.7em;
-}
-
 @media (max-width: 767.98px) {
 	.grid .superstars {
-		position: relative;
+		flex-direction: column;
 	}
 	.grid .superstars > span {
-		position: absolute;
-		top: 100%;
-		left: 35px;
+		text-align: center;
 	}
 }

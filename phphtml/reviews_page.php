@@ -1,34 +1,25 @@
-<?php
-	$qtd_produtos = rand(0,5);
+<? if(!empty($reviews)) { ?>
+	<? foreach($reviews as $item) { ?>
+		<? $pid = $item->produto_id ?>
+		<? $dproduct = './product.php?id='.$pid ?>
 
-	$produtos = array();
-	for($i = 0; $i < $qtd_produtos; $i++) {
-		array_push($produtos, rand(1,50));
-	}
-?>	
-<? if($qtd_produtos == 0) { ?>
-	<div class="empty">
-		Nenhuma avaliação feita.
-	</div>
-<? } else { ?>
-	<? foreach($produtos as $id) { ?>
 		<div class="reviews">
 
 			<div class="review-product">
 
 				<div>
-					<a href="#">
-						<img src="../resourses-katecshop/img_produtos/<?= $id ?>/index.jpg">
+					<a href="<?= $dproduct ?>">
+						<img src="./img_produtos/<?= $pid ?>/index.jpg">
 					</a>
 				</div>
 
 				<div>
-					<a href="#">Nome do produto</a>
+					<a href="$dproduct"><?= $item->nome ?></a>
 				</div>
 
 				<div>
 					<a href="#"><i class="fas fa-trash-alt"></i> Excluir</a>
-					<a href="#">Ver página</a>
+					<a href="<?= $dproduct ?>">Ver página</a>
 				</div>
 				
 			</div>
@@ -36,31 +27,33 @@
 			<div class="review-comment">
 
 				<div>
-					<span>Titulo da avaliação que vai receber na hora que eu possibilitar isso kk</span>
+					<span><?= $item->titulo ?></span>
 					<div class="superstars">
+						<?php
+							$valuereviewp = $item->avaliacao;
+							if(empty($valuereviewp))
+								$valuereviewp = 0;
+						?>
 						<div class="stars">
-							<i class="fas fa-star filled"></i>
-							<i class="fas fa-star filled"></i>
-							<span>
-								<i class="fas fa-star-half filled"></i>
-								<i class="far fa-star-half not-filled medium"></i>
-							</span>
-							<i class="far fa-star not-filled"></i>
-							<i class="far fa-star not-filled"></i>
+							<? $_changes->starsConstruct($valuereviewp) ?>
 						</div>
-						<span>2,7</span>
+						<span><?= $_changes->correctReview($valuereviewp) ?></span>
 					</div>
 				</div>
 
 				<div>
-					<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo reprehenderit magni maiores...</span>
+					<span><?= $item->descricao ?></span>
 				</div>
 
 				<div>
-					<span><?= rand(1,31).'/'.rand(1,12).'/'.rand(2017, 2020) ?></span>
+					<span><?= $_changes->correctDate($item->dia) ?></span>
 				</div>
 			</div>
 
 		</div>
 	<? } ?>
+<? } else { ?>
+	<div class="empty">
+		Nenhuma avaliação feita.
+	</div>
 <? } ?>

@@ -111,7 +111,7 @@
 							<button>Limpar carrinho</button>
 						</div>
 						<div>
-							<button>Finalizar compra</button>
+							<a href="./phpscripts/scriptPurchase.php">Finalizar compra</a>
 						</div>
 					</div>
 				</section>

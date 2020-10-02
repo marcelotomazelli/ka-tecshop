@@ -34,21 +34,22 @@
 
 			$value = explode('.', $value);
 
-			$firstvalue = $value[0] * 1;
-			$mediumvalue = $value[1] * 1;
+			$firstvalue = intval($value[0]);
+			$mediumvalue = intval($value[1]);
 			$lastvalue = 4 - $firstvalue;
 
 			for($i = 1; $i <= $firstvalue; $i++)
 				echo '<i class="fas fa-star filled"></i>';
 
-			if($mediumvalue < 3 && $firstvalue < 3)
-				echo '<i class="far fa-star not-filled"></i>';
-			else if($mediumvalue >= 3)
-				echo '<span><i class="fas fa-star-half filled"></i><i class="far fa-star-half not-filled medium"></i></span>';
+			if($firstvalue < 5) {
+				if($mediumvalue == 0 || ($mediumvalue > 0 && $mediumvalue < 3))
+					echo '<i class="far fa-star not-filled"></i>';
+				else if($mediumvalue >= 3)
+					echo '<span><i class="fas fa-star-half filled"></i><i class="far fa-star-half not-filled medium"></i></span>';
 
-
-			for($i = 1; $i <= $lastvalue; $i++)
-				echo '<i class="far fa-star not-filled"></i>';
+				for($i = 1; $i <= $lastvalue; $i++)
+					echo '<i class="far fa-star not-filled"></i>';
+			}
 		}
 
 		public function correctReview($value) {

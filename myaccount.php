@@ -24,7 +24,8 @@ if(!$authenticated) {
 <body id="bodyid" class="close_s">
 
 	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
-	<? require_once "phphtml/header.php" ?>
+	<? require_once "./phphtml/header.php" ?>
+	<? require_once "./phpscripts/scriptMyAccount.php" ?>
 
 	<!--|➖➖➖➖  Parte localização  ➖➖➖➖|-->
 	<section class="currentloc">
@@ -42,13 +43,6 @@ if(!$authenticated) {
 
 	<main id="mainmyaccount">
 		<div class="content">
-			<?php
-				$p = '';
-
-				if(isset($_GET['p'])) {
-					$p = $_GET['p'];
-				}
-			?>
 			<aside id="asidemyaccount" class="close">
 				<ul>
 					<li class="<? if(empty($p) || $p == 'pedidos' || ($p != 'favoritos' && $p != 'avaliacoes')) { echo 'active'; } ?>">
@@ -78,8 +72,6 @@ if(!$authenticated) {
 			</aside>
 			
 			<section>
-				<?php
-				?>
 				<div id="search-bar">
 					<span>Pesquisar</span>
 					<div>

@@ -103,6 +103,7 @@ button:hover {
 }
 
 .superstars > span:last-child {
+	font-size: 0.7em;
 	margin-left: 5px;
 }
 

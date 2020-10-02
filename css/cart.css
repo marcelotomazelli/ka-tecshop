@@ -140,7 +140,9 @@
 	}
 }
 
-#infocart-footer button {
+#infocart-footer button,
+#infocart-footer a {
+	display: inline-block;
 	border: none;
 	padding: 10px 20px;
 	border-radius: 4px;
@@ -149,6 +151,7 @@
 }
 
 #infocart-footer > div:first-child button {
+	margin-bottom: 10px;
 	background-color: #1F1F1F;
 }
 
@@ -157,11 +160,11 @@
 	transition: 0.3s;
 }
 
-#infocart-footer > div:last-child button {
+#infocart-footer > div:last-child a {
 	background-color: #D83838;
 }
 
-#infocart-footer > div:last-child button:hover {
+#infocart-footer > div:last-child a:hover {
 	background-color: #D52323;
 	transition: 0.3s;
 }

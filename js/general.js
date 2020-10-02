@@ -11,6 +11,25 @@ const _changes = {
 		}
 	},
 
+	correctValueRS: (value, qtt, more) => {
+		value *= 1
+		qtt *= 1
+		more *= 1
+
+		value *= qtt
+		value += more
+
+		value *= 100
+		value = parseInt(value)
+		value += ''
+
+		let aux = value.slice((value.length - 2), value.length)
+
+		value = value.replace(aux, ',') + aux
+
+		return value
+	},
+
 	products: () => {
 		let addcart = document.getElementsByClassName('addcart')
 		let idproducts = Array()
@@ -56,23 +75,18 @@ const _changes = {
 		})
 	},
 
-	correctValueRS: (value, qtt, more) => {
-		value *= 1
-		qtt *= 1
-		more *= 1
+	removeFavorite: (id) => {
+		document.getElementById('sfavid-' + id).remove()
+		let favorites = document.getElementsByClassName('favorites')
+		if(favorites.length == 0) {
+			let superel = document.getElementById('accountpages')
 
-		value *= qtt
-		value += more
+			let divempty = document.createElement('div')
+			divempty.className = 'empty'
+			divempty.innerHTML = 'Nenhum produto está marcado.'
 
-		value *= 100
-		value = parseInt(value)
-		value += ''
-
-		let aux = value.slice((value.length - 2), value.length)
-
-		value = value.replace(aux, ',') + aux
-
-		return value
+			superel.appendChild(divempty)
+		}
 	}
 }
 
@@ -244,7 +258,11 @@ const _ajaxCart = {
 const _ajaxFav = {
 	execute: (result) => {
 		if(result.info == 'authenticated') {
-			_changes.class(['fid-' + result.id], 'isfavorite', 'notfavorite')
+			if(window.location.href.includes('myaccount.php')) {
+				_changes.removeFavorite(result.id)
+			} else {
+				_changes.class(['fid-' + result.id], 'isfavorite', 'notfavorite')
+			}
 			_changes.favorites()
 		} else if(result.info == 'not-authenticated')
 			window.location.href = './access_page.php'
