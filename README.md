@@ -12,7 +12,7 @@ Implementando um sistema **CRUD** pude praticar a linguagem **SQL** e aprender m
 Analisando hoje, sei que não segue um modelo inteligente, nem recomendado.
 
 #### :heavy_check_mark: Aspectos Positivos
-> Entre os aspectos positivos, observei o que no período em que desenvolvi estava aprendo e enraizando.
+> Entre os aspectos positivos observei o que estava aprendendo e enraizando no período em que desenvolvi.
 * Aplicação não utiliza frameworks;
 * Uso de seletores CSS até então desconhecidos;
 * Responsividade para vários dispositivos;
