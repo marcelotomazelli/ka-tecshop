@@ -1,17 +1,17 @@
 # KA TECSHOP
 É uma interface de e-commerce desenvolvida para prática.
 <br><br>
-## :notebook_with_decorative_cover: Aprendizado
+## Aprendizado
 Fez parte do meu processo de aprendizado e me **ajudou a enraizar** todo conhecimento que obtive, assim pude seguir com meu estudos sem quaisquer problemas.
 <br><br>
-## :computer: Prática
+## Prática
 Coloquei em prática o **HTML**, **CSS**, **JavaScript**, **PHP**. Assim como as tecnologias **AJAX** e **PDO**.<br>
 Implementando um sistema **CRUD** pude praticar a linguagem **SQL** e aprender mais sobre **MySQL**.
 <br><br>
-## :mag: Revisão
+## Revisão
 Analisando hoje, sei que não segue um modelo inteligente, nem recomendado.
 
-### :heavy_check_mark: Aspectos Positivos
+#### :heavy_check_mark: Aspectos Positivos
 > Entre os aspectos positivos, observei o que no período em que desenvolvi estava aprendo e enraizando.
 * Aplicação não utiliza frameworks;
 * Uso de seletores CSS até então desconhecidos;
@@ -22,7 +22,7 @@ Analisando hoje, sei que não segue um modelo inteligente, nem recomendado.
 * Utilização do AJAX;
 * Utilização do MySQL.
 
-### :x: Aspectos negativos
+#### :x: Aspectos Negativos
 > Entre os negativos, listei aluguns itens que julgei incorretos na aplicação.
 * Não possui semântica HTML nem qualquer implementação para melhoramento do SEO;
 * O CSS não possui um padrão;
@@ -34,11 +34,11 @@ Analisando hoje, sei que não segue um modelo inteligente, nem recomendado.
 ## Conclusão
 Me ajudou muito com meu aprendizado, mas a aplicação não poderia ser utilizada para fins reais de mercado.
 <br><br>
-## Fontes
+### Fontes
 > *O desenvolvimento dessa aplicação não possui fins comerciais.* 
 
 > **_Todos os exemplos de produtos foram retirados da loja [KaBuM!](https://www.kabum.com.br/) :collision:._**
-## Observações
+### Observações
 > *Está parcialmente completa, tudo que havia estabelido para desenvolder consegui concliur, porém não completei por inteiro.* 
 
 > *As intruções SQL, assim como a estrutura do Banco de Dados, está toda dentro do arquivo "sql.rar".* 
