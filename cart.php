@@ -22,10 +22,14 @@
 </head>
 <body id="bodyid" class="close_s">
 
-	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
+	<!--
+		HEADER
+	-->
 	<? require_once "phphtml/header.php" ?>
 
-	<!--|➖➖➖➖  Parte localização  ➖➖➖➖|-->
+	<!--
+		LOC
+	-->
 	<section class="currentloc">
 		<div class="content">
 			<ul>
@@ -125,11 +129,14 @@
 		</div>
 	</main>
 	
-	<!-- |➖➖➖➖  Rodapé  ➖➖➖➖| -->
+	<!--
+		RODAPÉ
+	-->
 	<? require_once "phphtml/footer.php" ?>
 
-
-	<!-- ➖➖|´/ Script \`|➖➖ -->
+	<!--
+		SCRIPTS
+	-->
 	<script src="js/general.js"></script>
 	<script src="js/product.js"></script>
 </body>

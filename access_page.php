@@ -24,7 +24,9 @@ if($authenticated) {
 </head>
 <body>
 
-	<!--|➖➖  Header  ➖➖|-->
+	<!-- 
+		HEADER
+	-->
 	<header>
 		<div class="content">
 			<a href="index.php">
@@ -33,11 +35,13 @@ if($authenticated) {
 		</div>
 	</header>
 
-	<!--|➖➖  Main  ➖➖|-->
+	<!--
+		MAIN
+	-->
 	<main>
 		<div id="content-forms">
 
-			<!-- ⏩ ⏩ Botoes -->
+			<!-- Botões -->
 			<div id="buttons-control-view">
 				<button id="button-r">
 					Cadastrar
@@ -49,10 +53,10 @@ if($authenticated) {
 				</button>
 			</div>
 
-			<!-- ⏩ ⏩ Formulários -->
+			<!-- Formulários -->
 			<div id="forms">
 
-				<!--\ Registro -->
+				<!-- Registro -->
 				<div id="form-register">
 					<span id="register-info" class="info">
 						<?php
@@ -103,7 +107,7 @@ if($authenticated) {
 					</div>
 				</div>
 
-				<!--\ Login -->
+				<!-- Login -->
 				<div id="form-login">
 					<span id="login-info" class="info">
 						<?php
@@ -149,7 +153,9 @@ if($authenticated) {
 		</div>
 	</main>
 
-	<!--|➖➖  Footer  ➖➖|-->
+	<!--
+		FOOTER
+	-->
 	<footer>
 		<div class="content">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque rem autem, tenetur magni delectus vel molestias inventore sint.

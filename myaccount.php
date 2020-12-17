@@ -23,11 +23,15 @@ if(!$authenticated) {
 </head>
 <body id="bodyid" class="close_s">
 
-	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
+	<!--
+		HEADER
+	-->
 	<? require_once "./phphtml/header.php" ?>
 	<? require_once "./phpscripts/scriptMyAccount.php" ?>
 
-	<!--|➖➖➖➖  Parte localização  ➖➖➖➖|-->
+	<!--
+		LOC
+	-->
 	<section class="currentloc">
 		<div class="content">
 			<ul>
@@ -128,11 +132,14 @@ if(!$authenticated) {
 
 	<button id="btn-asidemyaccount"><i class="fas fa-ellipsis-v"></i></button>
 	
-	<!-- |➖➖➖➖  Rodapé  ➖➖➖➖| -->
+	<!--
+		RODAPÉ
+	-->
 	<? require_once "phphtml/footer.php" ?>
 
-
-	<!-- ➖➖|´/ Script \`|➖➖ -->
+	<!--
+		SCRIPT
+	-->
 	<script src="js/general.js"></script>
 	<script src="js/myaccount.js"></script>
 </body>

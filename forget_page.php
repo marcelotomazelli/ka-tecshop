@@ -29,7 +29,9 @@ if($authenticated) {
 </head>
 <body onload="initialConfig()">
 
-	<!--|➖➖  Header  ➖➖|-->
+	<!--
+		HEADER
+	-->
 	<header>
 		<div class="content">
 			<a href="index.php">
@@ -38,14 +40,16 @@ if($authenticated) {
 		</div>
 	</header>
 
-	<!--|➖➖  Main  ➖➖|-->
+	<!--
+		MAIN
+	-->
 	<main>
 		<div id="content-forms">
 
-			<!-- ⏩ ⏩ Formulários -->
+			<!-- Formulários -->
 			<div id="forms">
 
-				<!--\ Registro -->
+				<!-- Registro -->
 				<? if(!$verified_email && $verified_code === false) { ?>
 					<div id="form-verify-email">
 
@@ -76,7 +80,6 @@ if($authenticated) {
 
 					</div>
 				<? } ?>
-				<!-- ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ -->
 				
 				<? if($verified_email && $verified_code === false) { ?>
 					<div id="form-verify-code">
@@ -104,8 +107,6 @@ if($authenticated) {
 					</div>
 				<? } ?>
 
-				<!-- ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ -->
-					
 				<? if($verified_email && $verified_code) { ?>
 					<div id="form-new-pass">
 
@@ -137,7 +138,9 @@ if($authenticated) {
 		</div>
 	</main>
 
-	<!--|➖➖  Footer  ➖➖|-->
+	<!--
+		FOOTER
+	-->
 	<footer>
 		<div class="content">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque rem autem, tenetur magni delectus vel molestias inventore sint.

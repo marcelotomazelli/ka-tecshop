@@ -1,7 +1,7 @@
 <footer>
 	<div class="content">
 		
-		<!--\ Contato -->
+		<!-- Contato -->
 		<div id="footer-contate" class="close">
 			<h3 onclick="_changes.class(['footer-contate'], 'open', 'close')">
 				Contato
@@ -16,7 +16,7 @@
 			</ul>
 		</div>
 
-		<!--\ Extras -->
+		<!-- Extras -->
 		<div id="footer-extra" class="close">
 			<h3 onclick="_changes.class(['footer-extra'], 'open', 'close')">
 				Extras
@@ -32,7 +32,7 @@
 			</ul>
 		</div>
 
-		<!--\ Informações -->
+		<!-- Informações -->
 		<div id="footer-information" class="close">
 			<h3 onclick="_changes.class(['footer-information'], 'open', 'close')">
 				Information
@@ -50,7 +50,7 @@
 			</ul>
 		</div>
 
-		<!--\ Parte da conta -->
+		<!-- Parte da conta -->
 		<div id="footer-account" class="close">
 			<h3 onclick="_changes.class(['footer-account'], 'open', 'close')">
 				Minha Conta

@@ -23,10 +23,14 @@
 </head>
 <body id="bodyid" class="close_s">
 
-	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
+	<!--
+		HEADER
+	-->
 	<? require_once "phphtml/header.php" ?>
 
-	<!--|➖➖➖➖  Parte localização  ➖➖➖➖|-->
+	<!--
+		LOC
+	-->
 	<?php 
 		$legendscategories = [
 			'tc' => 'Teclado',
@@ -74,7 +78,9 @@
 	<? $id = rand(1,40) ?>			
 	<? $names = array('Romero', 'Jessica', 'José', 'Mateus', 'Marcelo', 'Ana', 'Augusto', 'Maria'); ?>
 
-	<!--|➖➖➖➖  Parte central  ➖➖➖➖|-->
+	<!--
+		MAIN
+	-->
 	<main id="mainproduct">
 		<div class="content">
 
@@ -474,11 +480,14 @@
 		</div>
 	</main>
 	
-	<!-- |➖➖➖➖  Rodapé  ➖➖➖➖| -->
+	<!--
+		RODAPÉ
+	-->
 	<? require_once "phphtml/footer.php" ?>
 
-
-	<!-- ➖➖|´/ Script \`|➖➖ -->
+	<!--
+		SCRIPT
+	-->
 	<script src="js/general.js"></script>
 	<script src="js/product.js"></script>
 </body>

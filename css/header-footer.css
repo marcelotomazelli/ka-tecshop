@@ -227,10 +227,6 @@ header {
 }
 
 
-#products-cart {
-	/*border: 1px solid red;*/
-}
-
 #products-cart > table {
 	border-collapse: collapse;
 	height: 70px;

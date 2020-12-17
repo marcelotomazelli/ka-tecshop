@@ -110,14 +110,14 @@
 /*                     \       /                     */
 @media (max-width: 575.98px) {
 	/* CONTROLE DE VISIBILIDADE
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	/* ✏ são as duas imagens a direta */
 	#section-advertising .content > div > div + div + div {
 		display: none;
 	}
 
 	/* CARDS
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#introduction-cards {
 		margin-top: 12px;
 	}
@@ -135,7 +135,7 @@
 	}
 
 	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#section-advertising .content > div {
 		grid-template-columns: 1fr 1fr;
 	}
@@ -143,7 +143,7 @@
 
 @media (min-width: 576px) {
 	/* CAROUSEL DE IMAGENS DA INTRODUÇÃO
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	.buttons-carousel button {
 		width: 50px;
 	}
@@ -163,7 +163,7 @@
 	}
 	
 	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#section-advertising .content > div {
 		grid-template-columns: 1fr 1fr 1fr;
 	}
@@ -171,7 +171,7 @@
 
 @media (min-width: 576px) and (max-width: 767.98px) {
 	/* CARDS
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#introduction-cards {
 		margin-top: 15px;
 	}
@@ -201,13 +201,13 @@
 
 @media (max-width: 767.98px) {
 	/* CONTROLE DE VISUALIZAÇÂO
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	/* ✏ titulo do trending */
 	#section-trending .several-controls > div:first-child {
 		display: none }
 
 	/* SEÇÂO DO SLIDE TRENDING
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	/* ✏ div que contem os links e botoes */
 	#section-trending .several-controls > div + div {
 		width: 100%
@@ -216,7 +216,7 @@
 
 @media (min-width: 768px) {
 	/* SECTION INTRODUCTION
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#section-introduction > div > div
 	#section-introduction.open_l > div > div
 	#section-introduction.close_l > div > div {
@@ -235,13 +235,13 @@
 
 @media (min-width: 768px) and (max-width: 991.98px) {
 	/* INRODUCTION
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#section-introduction.open_l > div > div {
 		margin-left: 260px;
 	}
 
 	/* CARDS OPEN
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#introduction-cards {
 		margin-top: 15px;
 	}
@@ -269,7 +269,7 @@
 	}
 
 	/* CARDS CLOSE
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	.close_l #introduction-cards > ul {
 		display: flex;
 	}
@@ -303,7 +303,7 @@
 
 @media (max-width: 991.98px) {
 	/* SEÇÃO DOS ANÚNCIOS DE IMAGENS
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#section-advertising .content > div {
 		grid-gap: 6px;
 	}
@@ -311,7 +311,7 @@
 
 @media (min-width: 992px) {
 	/* CARDS OPEN
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	.open_l #introduction-cards {
 		margin-top: 15px;
 	}
@@ -347,7 +347,7 @@
 	}
 
 	/* CARDS CLOSE
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	.close_l #introduction-cards > ul {
 		height: 100%;
 	}
@@ -369,7 +369,7 @@
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
 	/* INRODUCTION
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#section-introduction.open_l > div > div {
 		margin-left: 290px;
 	}
@@ -383,7 +383,7 @@
 
 @media (min-width: 1200px) {
 	/* INRODUCTION
-	   ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ */
+	    */
 	#section-introduction.open_l > div > div:first-child {
 		margin-left: 290px;
 	}

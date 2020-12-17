@@ -67,24 +67,26 @@
 
 ?>
 
-<!--|➖➖  Header  ➖➖|-->
+<!--
+	HEADER
+-->
 <header>
 
 	<? require './phpscripts/scriptMenu.php' ?>
 	<? require './phpscripts/scriptRequestCart.php' ?>
 
-	<!-- ⏩ ⏩ Banner -->
+	<!-- Banner -->
 	<div id="header-banner"> 
 		<div class="content">
 
-			<!---\ Logo --->
+			<!-- Logo -->
 			<div id="h-brand">
 				<a href="index.php">
 					<img src="img/brand.png" alt="k a tecshop" />
 				</a>
 			</div>
 
-			<!---\ Formulario --->
+			<!-- Formulário -->
 			<div id="h-search">
 				<form>
 					<select id="">
@@ -139,10 +141,10 @@
 				];
 			?>
 
-			<!---\ Painel --->
+			<!-- Painel -->
 			<div id="h-panel">
 
-				<!--; Link Carrinho-->
+				<!-- Link Carrinho -->
 				<div id="div-cart" class="dropdown-panel">
 
 					<a id="link-cart" href="cart.php">
@@ -202,10 +204,10 @@
 
 				</div>
 
-				<!--; Link Favoritos-->
+				<!-- Link Favoritos -->
 				<a id="favorites" href="./myaccount.php?p=favoritos"></a>
 
-				<!--; Link Perfil-->
+				<!-- Link Perfil -->
 				<div id="div-login" class="dropdown-panel">
 
 					<a id="link-profile" href="./myaccount.php"></a>
@@ -246,7 +248,7 @@
 
 				</div>
 
-				<!--; Botao-->
+				<!-- Botão -->
 				<button id="button-responsive-menu" class="close_s">
 					<i class="icon-bar"></i>
 					<i class="icon-bar"></i>
@@ -258,16 +260,16 @@
 		</div>
 	</div>
 
-	<!-- ⏩ ⏩ Navegação principal -->
+	<!-- Navegação principal -->
 	<div id="header-navegation">
 		<div class="content">
 			<nav id="nav-main">
 				<ul>
 					
- 					<!--\ Item categorias -->
+ 					<!-- Item categorias -->
 					<li id="li-categories">
 						
-						<!--; Botão -->
+						<!-- Botão -->
 						<button 
 							id="button-categories"
 							class="close_l" 
@@ -396,7 +398,7 @@
 				</ul>
 			</nav>
 		</div>
-	</div> <!-- ◼ Navegação principal -->
+	</div> <!-- Navegação principal -->
 
 </header>
 <script src="js/header.js"></script>

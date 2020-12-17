@@ -22,30 +22,34 @@
 </head>
 <body id="bodyid" class="close_s">
 
-	<!--|➖➖➖➖  Header  ➖➖➖➖|-->
+	<!--
+		HEADER
+	-->
 	<? require_once "phphtml/header.php" ?>
 	<? require "./phpscripts/scriptProductsFavorites.php" ?>
 
-	<!--|➖➖➖➖  Seção introdocção  ➖➖➖➖|-->
+	<!--
+		INTRODUÇÃO
+	-->
 	<section id="section-introduction" class="close_l">
 		<div class="content">
 
-			<div> <!-- ⏩ Carousel -->
+			<div> <!-- Carousel -->
 				<div id="carousel-intro" class="carousel-anitem">
 					
-					<!---\ Botões do Carousel--->
+					<!-- Botões do Carousel -->
 					<div id="introt" class="anitem-controls">
-						<!--; Batão Prev-->
+						<!-- Batão Prev -->
 						<button id="introp">
 							<i class="fas fa-chevron-left"></i>
 						</button>
-						<!--; Batão Next-->
+						<!-- Batão Next -->
 						<button id="intron">
 							<i class="fas fa-chevron-right"></i>
 						</button>
 					</div>
 
-               		<!---\ Imagens do Carousel--->
+               		<!-- Imagens do Carousel -->
 					<div class="anitem-images">
 						<div id="Sintro" class="anitem-content">
 							<div class="anitem Iintro">
@@ -61,12 +65,10 @@
 					</div>
 
 				</div>
-			</div> <!-- ◼ Carosuel -->
+			</div> <!-- Carosuel -->
 
-			<div id="introduction-cards"> <!-- ⏩ Cards da Introdução -->
+			<div id="introduction-cards"> <!-- Cards da Introdução -->
 				<ul>
-
- 					<!-- <|----------------------------|> -->
 					<li>
 						<div>
 							<div>
@@ -78,8 +80,6 @@
 							</div>
 						</div>
 					</li>
-					
- 					<!-- <|----------------------------|> -->
 					<li>
 						<div>
 							<div>
@@ -91,8 +91,6 @@
 							</div>
 						</div>
 					</li>
-					
- 					<!-- <|----------------------------|> -->
 					<li>
 						<div>
 							<div>
@@ -104,8 +102,6 @@
 							</div>
 						</div>
 					</li>
-					
- 					<!-- <|----------------------------|> -->
 					<li>
 						<div>
 							<div>
@@ -119,25 +115,27 @@
 					</li>
 
 				</ul>
-			</div> <!-- ◼ Cards da Introdução -->
+			</div> <!-- Cards da Introdução -->
 
 		</div>
 	</section>
 
-	<!--|➖➖➖➖  Seção das têndencias  ➖➖➖➖|-->
+	<!--
+		TÊNDENCIAS
+	-->
 	<section id="section-trending">
 		<div class="content">
-			<div class="carousel-several"> <!-- ⏩ SlideItems das tendencias -->
+			<div class="carousel-several"> <!-- SlideItems das tendencias -->
 				
-				<!---\ Cabeçalho do SlideItems --->
+				<!-- Cabeçalho do SlideItems -->
 				<div class="several-controls">
 
-					<!--; Titulo-->
+					<!-- Titulo -->
 					<div>
 						<h3>Produtos em tendência</h3>
 					</div>
 
-					<!--; Links e Botões-->
+					<!-- Links e Botões -->
 					<div>
 						<ul>
 							<li>
@@ -162,12 +160,11 @@
 					</div>
 				</div>
 
-				<!--; Corpo do SlideItems-->
+				<!-- Corpo do SlideItems -->
 				<div class="several-body" id="trendt">
-					
 					<div id="Strend" class="several-content">
-						<!-- Script que constroe a visulização dos produtos em destaque -->
 
+						<!-- Script que constroe a visulização dos produtos em destaque -->
 						<? foreach($list_trend as $value) { ?>
 							<? $pid = $value->id ?>
 							<div class="severalitems Itrend">
@@ -189,22 +186,23 @@
 											R$ <?= $_changes->correctRS($value->valor) ?>
 										</h3>
 									</div>
+
 									<div>
 										<button id="id<?= $pid ?>" class="addcart">Adicionar ao carrinho</button>
 									</div>
 								</div>
 							</div>
-							
 						<? } ?>
 
 					</div>
-
 				</div>
-			</div> <!-- ◼ SlideItens das Tendencias -->
+			</div> <!-- SlideItens das Tendencias -->
 		</div>
 	</section>
 
-	<!--|➖➖➖➖  Seção dos anúncios ➖➖➖➖|-->
+	<!--
+		ANÚNCIOS
+	-->
 	<section id="section-advertising">
 		<div class="content">
 
@@ -227,22 +225,23 @@
 		</div>
 	</section>
 
-
-	<!-- |➖➖➖➖  Seção dos especiais do dia  ➖➖➖➖| -->
+	<!--
+		ESPECIAIS DO DIA
+	-->
 	<section id="section-deal">
 		<div class="content">
 
-			<div class="carousel-several"> <!-- ⏩ SlideItens dos Especiais -->
+			<div class="carousel-several"> <!-- SlideItens dos Especiais -->
 	
-				<!---\ Cabeçalho do SlideItems /--->
+				<!-- Cabeçalho do SlideItems -->
 				<div class="several-controls">
 
-					<!--Titulo-->
+					<!-- Título -->
 					<div>
 						<h3>Especiais do dia</h3>
 					</div>
 
-					<!--Links e Botões-->
+					<!-- Links e Botões -->
 					<div>
 						<div>
 							<button id="dealp">
@@ -256,7 +255,7 @@
 
 				</div>
 
-				<!--Corpo do SlideItems-->
+				<!-- Corpo do SlideItems -->
 				<div class="several-body" id="dealt">
 
 					<div id="Sdeal" class="several-content">
@@ -298,16 +297,19 @@
 
 				</div>
 
-			</div> <!-- ◼ SlideItens dos Especiais -->
+			</div> <!-- SlideItens dos Especiais -->
 
 		</div>
 	</section>
 
-	<!-- |➖➖➖➖  Rodapé  ➖➖➖➖| -->
+	<!--
+		RODAPÉ
+	-->
 	<? require_once "phphtml/footer.php" ?>
 
-
-	<!-- ➖➖|´/ Script \`|➖➖ -->
+	<!--
+		SCRIPT
+	-->
 	<script src="js/general.js"></script>
 	<script src="js/carousel.class.js"></script>
 	<script src="js/home.js"></script>
