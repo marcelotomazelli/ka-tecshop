@@ -1,6 +1,5 @@
 <?php
 	
-
 	class Changes {
 		public function correctRS($value) {
 			$value *= 100;
@@ -103,7 +102,7 @@
 
 				$valuetotal = '0,00';
 				$items = 0;
-				if(!empty($listcart)) {
+				if(!empty($listcart) && is_array($listcart)) {
 					$valuetotal = 0;
 					foreach($listcart as $i => $product) {
 						$valuetotal += $product->valor * $_SESSION['cart'][$i]['qtt'];
@@ -165,22 +164,24 @@
 					<div id="cart">
 						<? if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) { ?>
 							<div id="products-cart">
-								<? foreach($listcart as $i => $item) { ?>
-									<table class="productsoncart">
-										<tr class="product-cart">
-											<td><img src="./img_produtos/<?= $item->id?>/index.jpg" height="60"alt=""></td>
-											<td><?= $item->nome_curto ?></td>
-											<td><?= $_SESSION['cart'][$i]['qtt'] ?>x</td>
+								<? if(is_array($listcart)) { ?>
+									<? foreach($listcart as $i => $item) { ?>
+										<table class="productsoncart">
+											<tr class="product-cart">
+												<td><img src="./img_produtos/<?= $item->id?>/index.jpg" height="60"alt=""></td>
+												<td><?= $item->nome_curto ?></td>
+												<td><?= $_SESSION['cart'][$i]['qtt'] ?>x</td>
 
-											<? $valueproduct = $item->valor * $_SESSION['cart'][$i]['qtt'] ?>
-											<td>R$ <?= $_changes->correctRS($valueproduct) ?></td>
-											<td>
-												<button id="iproduct<?= $i ?>">
-													<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
-												</button>
-											</td>
-										</tr>
-									</table>
+												<? $valueproduct = $item->valor * $_SESSION['cart'][$i]['qtt'] ?>
+												<td>R$ <?= $_changes->correctRS($valueproduct) ?></td>
+												<td>
+													<button id="iproduct<?= $i ?>">
+														<i class="fas fa-plus" style="transform: rotateZ(45deg)"></i>
+													</button>
+												</td>
+											</tr>
+										</table>
+									<? } ?>
 								<? } ?>
 							</div>
 							<table id="infototalcart" class="cart-total">

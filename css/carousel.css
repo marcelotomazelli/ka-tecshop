@@ -172,6 +172,10 @@ div das imagens ~~ */
 	transition: 0.3s;
 }
 
+.several-controls > div + div ul > li button.active {
+	color: #D01F1F;
+}
+
 /* ~~~ Parte dos botões ~~~ */
 /* ~~ Esse contem os botões ~~ */
 
@@ -313,7 +317,8 @@ div das imagens ~~ */
 	transition: 0.3s;
 }
 
-.severalitems > div > div:first-child > a + div > button {
+.severalitems > div > div:first-child > a + div > button,
+.severalitems > div > div:first-child > a + div > a {
 	height: 40px;
 	width: 40px;
 	line-height: 40px;
@@ -327,7 +332,8 @@ div das imagens ~~ */
 	transition: 0.3s;
 }
 
-.severalitems > div > div:first-child > a + div > button:hover {
+.severalitems > div > div:first-child > a + div > button:hover,
+.severalitems > div > div:first-child > a + div > a:hover {
 	background: #F43434;
 	color: #fff;
 	transition: 0.3s;

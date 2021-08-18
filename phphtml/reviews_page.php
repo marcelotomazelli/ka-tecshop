@@ -14,7 +14,7 @@
 				</div>
 
 				<div>
-					<a href="$dproduct"><?= $item->nome ?></a>
+					<a href="<?= $dproduct ?>"><?= $item->nome ?></a>
 				</div>
 
 				<div>

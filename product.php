@@ -20,6 +20,7 @@
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	<link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body id="bodyid" class="close_s">
 

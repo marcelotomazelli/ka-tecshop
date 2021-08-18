@@ -19,6 +19,7 @@
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	<link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body id="bodyid" class="close_s">
 
@@ -123,82 +124,87 @@
 	<!--
 		TÊNDENCIAS
 	-->
-	<section id="section-trending">
-		<div class="content">
-			<div class="carousel-several"> <!-- SlideItems das tendencias -->
-				
-				<!-- Cabeçalho do SlideItems -->
-				<div class="several-controls">
 
-					<!-- Titulo -->
-					<div>
-						<h3>Produtos em tendência</h3>
-					</div>
+	<? if (!empty($list_trend) && is_array($list_trend)) { ?>
 
-					<!-- Links e Botões -->
-					<div>
-						<ul>
-							<li>
-								<button id="reqd">Destaque</button>
-							</li>
-							<li>
-								<button id="reqb">BestSeller</button>
-							</li>
-							<li>
-								<button id="requ">Últimos</button>
-							</li>
-							<div class="clear"></div>
-						</ul>
+		<section id="section-trending">
+			<div class="content">
+				<div class="carousel-several"> <!-- SlideItems das tendencias -->
+					
+					<!-- Cabeçalho do SlideItems -->
+					<div class="several-controls">
+
+						<!-- Titulo -->
 						<div>
-							<button id="trendp">
-								<i class="fas fa-chevron-left"></i>
-							</button>
-							<button id="trendn">
-								<i class="fas fa-chevron-right"></i>
-							</button>
+							<h3>Produtos em tendência</h3>
+						</div>
+
+						<!-- Links e Botões -->
+						<div>
+							<ul>
+								<li>
+									<button id="reqd" class="active">Destaque</button>
+								</li>
+								<li>
+									<button id="reqb">BestSeller</button>
+								</li>
+								<li>
+									<button id="requ">Últimos</button>
+								</li>
+								<div class="clear"></div>
+							</ul>
+							<div>
+								<button id="trendp">
+									<i class="fas fa-chevron-left"></i>
+								</button>
+								<button id="trendn">
+									<i class="fas fa-chevron-right"></i>
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- Corpo do SlideItems -->
-				<div class="several-body" id="trendt">
-					<div id="Strend" class="several-content">
+					<!-- Corpo do SlideItems -->
+					<div class="several-body" id="trendt">
+						<div id="Strend" class="several-content">
 
-						<!-- Script que constroe a visulização dos produtos em destaque -->
-						<? foreach($list_trend as $value) { ?>
-							<? $pid = $value->id ?>
-							<div class="severalitems Itrend">
-								<div>
+							<!-- Script que constroe a visulização dos produtos em destaque -->
+							<? foreach($list_trend as $value) { ?>
+								<? $pid = $value->id ?>
+								<div class="severalitems Itrend">
 									<div>
-										<a href="./product.php?id=<?= $pid ?>">
-											<img src="./img_produtos/<?= $pid ?>/index.jpg">
-										</a>
 										<div>
-											<button id="fid-<?= $pid ?>" class="favorites <?= isset($procutsfavorites[$pid]) ? 'isfavorite' : 'notfavorite' ?>">
-												<i class="fas fa-heart"></i>
-											</button>
+											<a href="./product.php?id=<?= $pid ?>">
+												<img src="./img_produtos/<?= $pid ?>/index.jpg">
+											</a>
+											<div>
+												<button id="fid-<?= $pid ?>" class="favorites <?= isset($procutsfavorites[$pid]) ? 'isfavorite' : 'notfavorite' ?>">
+													<i class="fas fa-heart"></i>
+												</button>
+											</div>
+										</div>
+										
+										<div>
+											<h2><a href=""><?= $value->nome_curto?></a></h2>
+											<h3>
+												R$ <?= $_changes->correctRS($value->valor) ?>
+											</h3>
+										</div>
+
+										<div>
+											<button id="id<?= $pid ?>" class="addcart">Adicionar ao carrinho</button>
 										</div>
 									</div>
-									
-									<div>
-										<h2><a href=""><?= $value->nome_curto?></a></h2>
-										<h3>
-											R$ <?= $_changes->correctRS($value->valor) ?>
-										</h3>
-									</div>
-
-									<div>
-										<button id="id<?= $pid ?>" class="addcart">Adicionar ao carrinho</button>
-									</div>
 								</div>
-							</div>
-						<? } ?>
+							<? } ?>
 
+						</div>
 					</div>
-				</div>
-			</div> <!-- SlideItens das Tendencias -->
-		</div>
-	</section>
+				</div> <!-- SlideItens das Tendencias -->
+			</div>
+		</section>
+
+	<? } ?>
 
 	<!--
 		ANÚNCIOS

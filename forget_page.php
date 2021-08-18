@@ -26,6 +26,7 @@ if($authenticated) {
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/default.css">
 	<link rel="stylesheet" type="text/css" href="css/access_page.css">
+	<link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body onload="initialConfig()">
 

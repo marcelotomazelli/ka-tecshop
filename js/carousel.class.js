@@ -35,12 +35,12 @@ class Carousel {
 
 		this.interactions.forEach((id, i) => {
 			let el = document.getElementById(id)
-			
-			if(i === 0)
+
+			if (i === 0)
 				el.ontouchstart = () => this.touch(event)
-			else if(i === 1)
+			else if (i === 1)
 				el.onclick = () => this.prev()
-			else if(i === 2)
+			else if (i === 2)
 				el.onclick = () => this.next()
 
 		})
@@ -65,7 +65,7 @@ class Carousel {
 		clearInterval(this.interval)
 		this.t_current += this.s_width
 
-		if(this.t_current >= this.t_limit)
+		if (this.t_current >= this.t_limit)
 			this.t_current = 0
 
 		this.moveItems()
@@ -77,7 +77,7 @@ class Carousel {
 		clearInterval(this.interval)
 		this.t_current -= this.s_width
 
-		if(this.t_current == -this.s_width)
+		if (this.t_current == -this.s_width)
 			this.t_current = this.t_limit - this.s_width
 
 		this.moveItems()
@@ -87,11 +87,11 @@ class Carousel {
 	// Metodo utilizado no intervalo para os elementos se moverem sozinhos
 	autonext() {
 		this.t_current += this.s_width
-		
-		if(this.t_current >= this.t_limit)
+
+		if (this.t_current >= this.t_limit)
 			this.t_current = 0
 
-		this.t_current 
+		this.t_current
 		this.moveItems()
 	}
 
@@ -115,10 +115,10 @@ class Carousel {
 
 		this.mpx = Math.round(event.touches[0].clientX) - this.ipx
 
-		if(this.t_relative > (this.t_limit - this.s_width) + 50) {
+		if (this.t_relative > (this.t_limit - this.s_width) + 50) {
 			permition = false
 			this.rpx = Math.round(event.touches[0].clientX)
-			if(this.rpx < this.ipx) {
+			if (this.rpx < this.ipx) {
 				this.ipx = Math.round(event.touches[0].clientX)
 			} else {
 				this.auxt_current = this.t_relative
@@ -126,10 +126,10 @@ class Carousel {
 			}
 		}
 
-		if(this.t_relative < -50) {
+		if (this.t_relative < -50) {
 			permition = false
 			this.rpx = Math.round(event.touches[0].clientX)
-			if(this.rpx > this.ipx) {
+			if (this.rpx > this.ipx) {
 				this.ipx = Math.round(event.touches[0].clientX)
 			} else {
 				this.auxt_current = this.t_relative
@@ -137,9 +137,9 @@ class Carousel {
 			}
 		}
 
-		if(permition) {
+		if (permition) {
 			this.t_relative = this.auxt_current - this.mpx
-			this.s_element.style.transform = 'translateX(' + -this.t_relative  + 'px)'
+			this.s_element.style.transform = 'translateX(' + -this.t_relative + 'px)'
 		}
 	}
 
@@ -149,14 +149,14 @@ class Carousel {
 
 		let a = Math.round(this.t_relative) % this.s_width
 
-		if(this.t_relative > (this.t_limit - this.s_width)) {
+		if (this.t_relative > (this.t_limit - this.s_width)) {
 			this.t_current = 0
-		} else if(this.t_relative < 0) {
+		} else if (this.t_relative < 0) {
 			this.t_current = this.t_limit - this.s_width
 		} else {
 			this.t_relative = this.t_relative - a
 
-			if(a > this.s_width/3) {
+			if (a > this.s_width / 3) {
 				this.t_relative += this.s_width
 			}
 
@@ -179,11 +179,11 @@ class Carousel {
 		let content_width = this.refWidth_to_Cal.offsetWidth
 		this.t_current = 0
 		this.s_width = w
-		if(t == 'i') {
+		if (t == 'i') {
 			this.view_elements = 1
 		} else {
 			this.view_elements = content_width / this.s_width
-			if(!Number.isInteger(this.view_elements)) {
+			if (!Number.isInteger(this.view_elements)) {
 				this.view_elements = Math.round(this.view_elements)
 			}
 		}
@@ -201,11 +201,11 @@ class Carousel {
 
 		let list = document.getElementsByClassName(items)
 
-		for(let i = 0; i < list.length; i++) {
+		for (let i = 0; i < list.length; i++) {
 			list[i].style.width = w + 'px'
 			list[i].style.height = h + 'px'
 		}
-		
+
 		this.sizing(w, 'i')
 	}
 
@@ -217,10 +217,10 @@ class Carousel {
 		let wWidth = window.innerWidth
 
 		let result
-		if(wWidth < max) {
-			if(wWidth < min) {
+		if (wWidth < max) {
+			if (wWidth < min) {
 				w /= view1
-			} else if(wWidth >= min && wWidth < max) {
+			} else if (wWidth >= min && wWidth < max) {
 				w /= view2
 			}
 			result = w + 'px'
@@ -229,10 +229,10 @@ class Carousel {
 			result = ''
 		}
 
-		for(let i = 0; i < list.length; i++)
+		for (let i = 0; i < list.length; i++)
 			list[i].style.minWidth = result
 
-		if(!Number.isInteger(w)) {
+		if (!Number.isInteger(w)) {
 			w = Math.round(w)
 		}
 
@@ -241,7 +241,7 @@ class Carousel {
 
 	// Metodo para atualizar alguns valores no evento de resize devido a não necessidade de ficar redimencioando
 	updSeveralItems() {
-		for(let i = 0; i < this.quant_items; i++)
+		for (let i = 0; i < this.quant_items; i++)
 			this.collection[i].style.minWidth = ''
 
 		this.sizing(this.collection[0].offsetWidth, 'si')

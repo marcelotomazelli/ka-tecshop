@@ -17,7 +17,7 @@ const _carousel = {
 		// Aplicando resize no carousel da intro
 		_crslIntro.sizeAnItem('carousel-intro', 'anitem-image', 2)
 
-		if(window.innerWidth < si_maxW) {
+		if (window.innerWidth < si_maxW) {
 			// Trabalhando o resize
 			_crslTrend.sizeSeveralItems(si_minW, si_maxW, 2, 3)
 			_crslDeal.sizeSeveralItems(si_minW, si_maxW, 2, 3)
@@ -37,11 +37,11 @@ const _ajaxTrend = {
 		content.style.animationName = 'ajax-trend'
 		content.style.minHeight = h + 'px'
 
-		setTimeout(function() {
+		setTimeout(function () {
 			content.innerHTML = '';
 
 			result.forEach((obj, i) => {
-				if(i < (result.length - 1)) {
+				if (i < (result.length - 1)) {
 					let item = document.createElement('div')
 					item.className = 'severalitems Itrend'
 
@@ -99,27 +99,32 @@ const _ajaxTrend = {
 			})
 
 
-			if(window.innerWidth < 768) {
+			if (window.innerWidth < 768) {
 				_crslTrend.sizeSeveralItems(si_minW, si_maxW, 2, 3)
 			} else {
 				_crslTrend.updSeveralItems()
 			}
 
-			setTimeout(function() {
+			setTimeout(function () {
 				content.style.animationName = ''
-			},1500)
+			}, 1500)
 
 			content.style.height = ''
 			ctrend = result[(result.length - 1)]
-			
+
+			let active = document.querySelector(`.several-controls > div + div ul > li button.active`)
+			active.className = ''
+
+			document.getElementById(`req${ctrend.charAt(0)}`).className = 'active'
+
 			_ajaxTrend.definitions()
 			_changes.products()
-		},1500);
+		}, 1500);
 	},
 	condition: (info) => {
-		if(info[2] != info[3])
+		if (info[2] != info[3])
 			return true
-		else 
+		else
 			return false
 	},
 	definitions: () => {
@@ -154,13 +159,13 @@ window.onload = () => {
 	que será utilizado no construct para fazer as 
 	devidas referencias a elementos,
 	devem estar corretamente nomeados no html
-	*/ 
+	*/
 
 	_carousel.sizing()
 
 	let elements = ['menu-categories', 'section-introduction', 'button-categories']
 	_changes.class(elements, 'close_l', 'open_l')
-	
+
 	setTimeout(() => {
 		_crslIntro.sizeAnItem('carousel-intro', 'anitem-image', 2)
 	}, 750)
@@ -174,7 +179,7 @@ ao rolar a tela e a barra superior do proprio navegador esconder */
 window.onresize = () => {
 	clearTimeout(retime)
 	retime = setTimeout(() => {
-		if(iw_client != window.innerWidth) {
+		if (iw_client != window.innerWidth) {
 			_carousel.sizing()
 		}
 	}, 600)
